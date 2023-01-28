@@ -1,0 +1,30 @@
+*,
+:after,
+:before {
+  box-sizing: border-box;
+  color: currentColor;
+}
+* {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+html {
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  -webkit-overflow-scrolling: touch;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  font-family: sans-serif;
+  line-height: 1.4;
+  overflow-y: scroll;
+}
+@supports (scrollbar-gutter: stable) {
+  body {
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+  }
+}

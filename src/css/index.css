@@ -1,0 +1,51 @@
+html {
+  --gap-1: 0.4em;
+  --gap-2: 0.6em;
+  --gap-3: 0.8em;
+  --gap-4: 1em;
+  --gap-5: 1.2em;
+  --bg: #f5f5f7;
+  --color: #2d3436;
+  --strong: #1d1d1f;
+  --accent: #f1e9bf;
+}
+
+body {
+  background-color: #9e9696;
+  color: var(--color);
+  animation: fadeIn 2s ease-in-out;
+  /* background-image: radial-gradient(circle at 50% 50%, #f1d3d8, #ecacb1); */
+  background-image: radial-gradient(circle at 50% 50%, #fff, #9e9696);
+  padding: 2vh 2vw;
+}
+button {
+  font-family: inherit;
+}
+
+nav {
+  display: flex;
+  gap: var(--gap-3);
+  margin-bottom: var(--gap-3);
+}
+
+main {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+}
+
+h1 {
+  font-size: 1.3em;
+  line-height: 1.1;
+  padding: 0.2em;
+  font-weight: 400;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

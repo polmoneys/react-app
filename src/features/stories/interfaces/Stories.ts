@@ -1,0 +1,13 @@
+import { PayloadAction } from "@reduxjs/toolkit";
+
+export type Story = Record<"id" | "title" | "content", string>;
+
+export type AddStory = PayloadAction<{
+  title: string;
+  content: string;
+  id: string;
+}>;
+
+export default interface Stories {
+  list: Array<Story>;
+}
