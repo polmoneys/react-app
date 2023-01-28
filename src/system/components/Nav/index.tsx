@@ -6,6 +6,7 @@ export default function Nav() {
       <Link to="/">H</Link>
       <Link to="archive">Archive</Link>
       <Link to="stories">Stories</Link>
+      <input type="search" defaultValue="" placeholder="search" />
     </nav>
   );
 }

@@ -1,3 +1,20 @@
+:root {
+  --gap-1: 0.4em;
+  --gap-2: 0.6em;
+  --gap-3: 0.8em;
+  --gap-4: 1em;
+  --gap-5: 1.2em;
+  --color-body: #f5f5f7;
+  --color-white: #fff;
+  --color-grey: #c6c8c8;
+  --color-black: #454545;
+  --color-border: #9daca9;
+  --color-active: #0036ff;
+  --color-invalid: #ec514e;
+  --border: 0.1em solid;
+  --shadow: rgba(0, 0, 0, 0.23);
+}
+
 *,
 :after,
 :before {
