@@ -16,7 +16,10 @@ const Dashboard = () => {
       <br aria-hidden="true" />
       <p> zoom level: {zoom}</p>
       <br aria-hidden="true" />
-      <form>
+      <form
+        id="form-id"
+        // onsubmit="submit.disabled = true"
+      >
         <label htmlFor="input-id">Label</label>
         <input
           onKeyDown={handleKeyDown}
@@ -25,10 +28,11 @@ const Dashboard = () => {
           placeholder="text"
           defaultValue=""
         />
-        <br aria-hidden="true" />
-
-        <button type="submit">Submit</button>
       </form>
+      <br aria-hidden="true" />
+      <button type="submit" form="form-id">
+        Submit
+      </button>
     </article>
   );
 };
