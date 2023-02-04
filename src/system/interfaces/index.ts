@@ -1,13 +1,9 @@
 import { ReactElement } from "react";
 
 export type Value = string | number;
-export type ValueAndBoolean = string | number | boolean;
-export type ValueAndArrays = string | number | Dictionaries;
 
 export type Dictionary<T = Value> = Record<string, T>;
 export interface Dictionaries extends Array<Dictionary> {}
-
-export type DomElementSize = `${string}px` | `${string}%` | `calc(${string})`;
 
 export interface RenderProp<TChildrenProps, TElement = any> {
   (props: TChildrenProps): ReactElement<TElement>;

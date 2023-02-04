@@ -1,6 +1,6 @@
 .main {
   padding: var(--gap-3);
-
+  min-height: 86vh;
   animation: fadeIn 2s ease-in-out;
 }
 

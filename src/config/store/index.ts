@@ -1,11 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import settingsSlice from "../../features/dashboard/store";
-import archiveSlice from "../../features/archive/store";
-import storiesSlice from "../../features/stories/store";
+import settingsSlice from "@/features/layout/store";
+import archiveSlice from "@/features/archive/store";
+import storiesSlice from "@/features/stories/store";
 
 export const store = configureStore({
   reducer: {
-    dashboard: settingsSlice,
+    layout: settingsSlice,
     archive: archiveSlice,
     stories: storiesSlice,
   },

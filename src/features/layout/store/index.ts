@@ -26,6 +26,6 @@ export const settingsSlice = createSlice({
 
 export const { setMaxZoom, setMidZoom, setMinZoom } = settingsSlice.actions;
 
-export const selectSettings = (state: RootState) => state.dashboard.settings;
+export const selectSettings = (state: RootState) => state.layout.settings;
 
 export default settingsSlice.reducer;

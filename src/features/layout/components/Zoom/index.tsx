@@ -2,14 +2,14 @@ import { useAppDispatch } from "@/config/store/hooks";
 import Button from "@/system/components/Button";
 import { setMaxZoom } from "../../store";
 
-function Toolbar() {
+function Zoom() {
   const dispatch = useAppDispatch();
 
   return (
-    <article>
+    <nav>
       <Button onClick={() => dispatch(setMaxZoom())}>max</Button>
-    </article>
+    </nav>
   );
 }
 
-export default Toolbar;
+export default Zoom;
