@@ -1,0 +1,56 @@
+/*
+  merci
+https://ryanmulligan.dev/blog/layout-breakouts/
+    */
+
+[data-view="root"] {
+  --view-gap: clamp(1rem, 6vw, 3rem);
+  --view-full: minmax(var(--view-gap), 1fr);
+  --view-content: min(50ch, 100% - var(--view-gap) * 2);
+  --view-popout: minmax(0, 2rem);
+  --view-feature: minmax(0, 5rem);
+
+  row-gap: var(--gap-5);
+  display: grid;
+  grid-template-columns:
+    [full-start] var(--view-full)
+    [feature-start] var(--view-feature)
+    [popout-start] var(--view-popout)
+    [content-start] var(--view-content) [content-end]
+    var(--view-popout) [popout-end]
+    var(--view-feature) [feature-end]
+    var(--view-full) [full-end];
+}
+
+[data-view="root"] > * {
+  grid-column: content;
+}
+
+[data-view="popout"] {
+  grid-column: popout;
+}
+
+[data-view="feature"] {
+  grid-column: feature;
+}
+
+[data-view="full"] {
+  grid-column: full;
+  border-radius: unset;
+}
+
+:where(.view > *) {
+  display: grid;
+  place-items: center;
+  min-height: var(--minHeightUserAction);
+  border-radius: var(--border-radius);
+}
+
+/*
+
+.view:has(.alert) .header {
+  border-top: 2px solid red;
+  background-color: #fff4f4;
+}
+
+*/

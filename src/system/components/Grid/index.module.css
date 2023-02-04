@@ -1,0 +1,29 @@
+.grid {
+  --item-grid-sm: 250px;
+  --item-grid-md: 440px;
+  --item-grid-lg: 690px;
+  --item-grid-xl: 860px;
+  --grid-item-width: var(--item-grid-sm);
+  align-items: start;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, var(--grid-item-width)), 1fr)
+  );
+  width: 100%;
+}
+.grid.grid\:stretch {
+  align-items: stretch !important;
+}
+.grid.grid\:masonry {
+  grid-template-rows: masonry;
+}
+.grid[data-grid="md"] {
+  --grid-item-width: var(--item-grid-md);
+}
+.grid[data-grid="lg"] {
+  --grid-item-width: var(--item-grid-lg);
+}
+.grid[data-grid="xl"] {
+  --grid-item-width: var(--item-grid-xl);
+}

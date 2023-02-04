@@ -7,7 +7,7 @@ const endpoints = {
     user: "v1/users/{user}",
   },
   stories: {
-    list: "https://graphqlzero.almansi.me/api",
+    list: "https://swapi-graphql.netlify.app/.netlify/functions/index",
   },
 };
 

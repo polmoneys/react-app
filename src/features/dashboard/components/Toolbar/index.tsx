@@ -1,4 +1,5 @@
 import { useAppDispatch } from "@/config/store/hooks";
+import Button from "@/system/components/Button";
 import { setMaxZoom } from "../../store";
 
 function Toolbar() {
@@ -6,9 +7,7 @@ function Toolbar() {
 
   return (
     <article>
-      <button type="button" onClick={() => dispatch(setMaxZoom())}>
-        max
-      </button>
+      <Button onClick={() => dispatch(setMaxZoom())}>max</Button>
     </article>
   );
 }

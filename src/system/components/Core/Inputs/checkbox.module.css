@@ -1,0 +1,21 @@
+.group {
+  max-width: max-content;
+}
+
+.checkbox {
+  accent-color: var(--color-black);
+  appearance: none;
+  font: inherit;
+  color: currentColor;
+  height: 2.2em;
+  width: 2.2em;
+  border-color: var(--transparent);
+  outline: var(--border-width) solid currentColor;
+  background-color: var(--transparent);
+  border-radius: inherit;
+  aspect-ratio: 1;
+}
+
+.group svg {
+  pointer-events: none;
+}

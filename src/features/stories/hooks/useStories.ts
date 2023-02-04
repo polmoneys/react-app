@@ -1,27 +1,35 @@
 import { useQuery } from "react-query";
 import { request, gql } from "graphql-request";
 import endpoints from "@/config/endpoints";
+import { matchItemsToStories } from "../store/utils";
 
 function useStories() {
   const endpoint = endpoints.stories.list;
 
   return useQuery("stories", async () => {
-    const {
-      posts: { data },
-    } = await request(
+    const data = await request(
       endpoint,
       gql`
         query {
-          posts {
-            data {
-              id
+          allFilms {
+            films {
               title
+              director
+              releaseDate
+              # TODO: https://studio.apollographql.com/public/star-wars-swapi/schema/reference?variant=current
+              # speciesConnection {
+              #   species {
+              #     name
+              #     classification
+              #   }
+              # }
             }
           }
         }
       `
     );
-    return data;
+
+    return matchItemsToStories(data.allFilms.films);
   });
 }
 

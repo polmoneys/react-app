@@ -1,6 +1,6 @@
 import { PayloadAction } from "@reduxjs/toolkit";
 
-export type Story = Record<"id" | "title" | "content", string>;
+export type Story = Record<"id" | "title" | "releaseDate" | "director", string>;
 
 export type AddStory = PayloadAction<{
   title: string;
@@ -8,6 +8,4 @@ export type AddStory = PayloadAction<{
   id: string;
 }>;
 
-export default interface Stories {
-  list: Array<Story>;
-}
+export default interface Stories extends Array<Story> {}

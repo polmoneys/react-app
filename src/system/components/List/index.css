@@ -1,0 +1,107 @@
+.item {
+  --item-gap: var(--gap-1);
+  --item-slot-width: 48px;
+  grid-gap: var(--item-gap);
+  display: grid;
+  gap: var(--item-gap);
+  grid-template-columns: 1fr;
+  height: max-content;
+  padding: var(--gap-1);
+  width: 100%;
+  border: var(--border);
+}
+.item > :not(.start, .end) {
+  grid-gap: var(--gap-2);
+  display: grid;
+  gap: var(--gap-2);
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.item > .end,
+.item > .start {
+  align-items: center;
+  display: grid;
+  justify-items: center;
+  overflow: visible;
+  place-items: center;
+}
+.item > .start {
+  padding-right: 0;
+}
+.item > .end {
+  padding-left: 0;
+}
+@supports not (selector(:has(*))) {
+  .item.item\:start\:end {
+    grid-template-columns: var(--item-slot-width) 1fr var(--item-slot-width);
+  }
+  .item.item\:start {
+    grid-template-columns: var(--item-slot-width) 1fr;
+  }
+  .item.item\:end {
+    grid-template-columns: 1fr var(--item-slot-width);
+  }
+}
+@supports selector(:has(*)) {
+  .item:has(.start) {
+    grid-template-columns: var(--item-slot-width) 1fr;
+  }
+  .item:has(.end) {
+    grid-template-columns: 1fr var(--item-slot-width);
+  }
+  .item:has(.start):has(.end) {
+    grid-template-columns: var(--item-slot-width) 1fr var(--item-slot-width);
+  }
+  .item:has(.end) div:first-child,
+  .item:has(.start) div:nth-child(2),
+  .item > div:only-child {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+.list {
+  --list-gap: var(--gap-2);
+  border: var(--group-border);
+  box-shadow: var(--group-shadow);
+  height: max-content;
+  list-style: none;
+  width: 100%;
+}
+.list > .item:not(:last-child) {
+  border-bottom: var(--group-border);
+}
+.list > .item.list\:divider {
+  margin-bottom: -0.5em !important;
+  margin-top: -0.5em !important;
+}
+.list > .item > div:not(.start, .end) > :not(:first-child) {
+  font-size: 85%;
+  overflow: inherit;
+  text-overflow: inherit;
+  white-space: normal;
+}
+@supports not (selector(:has(*))) {
+  .list > .item.list\:item\:start\:end {
+    grid-template-columns: 48px 1fr 48px;
+  }
+  .list > .item.list\:item\:start {
+    grid-template-columns: 48px 1fr;
+  }
+  .list > .item.list\:item\:end {
+    grid-template-columns: 1fr 48px;
+  }
+}
+@supports selector(:has(*)) {
+  .list .item:has(.end) div:first-child > :not(:first-child),
+  .list .item:has(.start) div:nth-child(2) > :not(:first-child),
+  .list .item > div:only-child > :not(:first-child) {
+    font-size: 85%;
+    overflow: inherit;
+    text-overflow: inherit;
+    white-space: normal;
+  }
+}

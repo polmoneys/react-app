@@ -1,0 +1,41 @@
+.group {
+  max-width: max-content;
+}
+
+.group input {
+  appearance: none;
+  height: 1.6em;
+  width: 3em;
+  border-radius: 0.7em;
+  cursor: pointer;
+  border-color: var(--transparent);
+  outline: var(--border-width) solid currentColor;
+  position: relative;
+  background: var(--color-white);
+  transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
+}
+
+.group input:after {
+  content: "";
+  width: 1.2em;
+  height: 1.2em;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: flex;
+  background-color: currentColor;
+  transform: translateX(var(--x, var(--gap-1)))
+    translateY(calc(calc(1.6em - 1.2em) / 2));
+}
+.group input:checked {
+  --x: 20px;
+  outline-color: var(--color-focus);
+}
+
+.group input:checked:after {
+  background-color: var(--color-focus);
+}
+
+.group input:disabled:not(:checked):after {
+  opacity: 0.3;
+  cursor: default;
+}

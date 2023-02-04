@@ -1,0 +1,36 @@
+@font-face {
+  font-family: "Brandon Grotesque";
+  src: url("./assets/BrandonGrotesque-Black.woff2") format("woff2"),
+    url("./assets/BrandonGrotesque-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+}
+
+body {
+  background-color: var(--color-white-ish);
+  color: var(--color-black);
+}
+
+.pair-shortened {
+  width: 80px;
+  resize: horizontal;
+}
+.pair-last {
+  background-color: var(--color-grey-ish);
+  padding: 0.2em 0.4em;
+  border-radius: 2px;
+}
+
+.accent {
+  color: var(--color-white);
+  background-color: var(--color-focus);
+  fill: var(--color-focus);
+  stroke-color: var(--color-focus);
+  outline: var(--border-width) solid var(--color-focus) !important;
+}
+
+.accent:hover,
+.accent:active {
+  color: var(--color-white);
+  background-color: var(--color-focus);
+}

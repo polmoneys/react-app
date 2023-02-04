@@ -1,0 +1,133 @@
+*,
+:after,
+:before {
+  box-sizing: border-box;
+  color: currentColor;
+}
+* {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+html {
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  -webkit-overflow-scrolling: touch;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  font-family: sans-serif;
+  line-height: 1.4;
+  overflow-y: scroll;
+}
+@supports (scrollbar-gutter: stable) {
+  body {
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+  }
+}
+
+a {
+  hyphens: none;
+  text-decoration: underline;
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: 0.1em;
+  text-underline-offset: 0.09em;
+  outline: none;
+}
+
+a:is(:visited, :hover) {
+  touch-action: manipulation;
+}
+
+:is(a, button) {
+  cursor: pointer;
+}
+
+:is(button, input[type="search"], input[type="text"]) {
+  appearance: none;
+  display: inline-flex;
+  font: inherit;
+  letter-spacing: 0.02em;
+  padding: calc(var(--gap-1) * 0.4) var(--gap-1);
+  border-color: var(--transparent);
+  outline: var(--border);
+  box-shadow: var(--shadow);
+}
+
+:is(button, input[type="search"], input[type="text"]):disabled {
+  opacity: 0.3;
+  cursor: default;
+  pointer-events: none;
+}
+
+button {
+  background-color: var(--color-white);
+  width: fit-content;
+  border-radius: var(--border-radius);
+}
+
+button:hover {
+  background-color: var(--color-white-ish);
+}
+
+button:active {
+  background-color: var(--color-grey-ish);
+}
+
+label {
+  display: flex;
+}
+
+label + input[type="search"],
+label + input[type="text"] {
+  margin: var(--gap-1) 0;
+}
+
+input[type="search"] {
+  border-radius: 2em;
+}
+
+:is(input[type="search"], input[type="text"]):focus {
+  background-color: var(--color-white);
+  outline: var(--border-width) solid var(--color-focus) !important;
+  box-shadow: var(--shadow);
+}
+
+:is(button, input[type="search"], input[type="text"]):focus-visible {
+  outline: var(--border-width) solid var(--color-focus) !important;
+}
+
+:is(input[type="search"], input[type="text"]):invalid {
+  outline: var(--border-width) solid var(--color-invalid);
+}
+
+:is(
+    input[type="search"]::-webkit-search-cancel-button,
+    input[type="search"]::-webkit-search-decoration
+  ) {
+  -webkit-appearance: none;
+  margin-right: var(--gap-1);
+}
+
+:is(
+    input[type="search"]:focus::-webkit-input-placeholder,
+    input[type="search"]:focus::-moz-placeholder,
+    input[type="search"]:focus::-ms-input-placeholder,
+
+  ) {
+  color: var(--color-grey);
+}
+
+:is(
+    input[type="search"]:disabled::-webkit-input-placeholder,
+    input[type="search"]:disabled::-moz-placeholder,
+    input[type="search"]:disabled:-ms-input-placeholder,
+    input[type="text"]:disabled::-webkit-input-placeholder,
+    input[type="text"]:disabled::-moz-placeholder,
+    input[type="text"]:disabled:-ms-input-placeholder
+  ) {
+  color: var(--color-black);
+}

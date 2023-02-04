@@ -1,0 +1,107 @@
+.card {
+  --card-min-height: 20vh;
+
+  --card-content-gap: var(--gap-3);
+  --card-actions-gap: var(--gap-1) var(--gap-3);
+
+  --card-bg: var(--color-white);
+  --card-content-color: #6b7280;
+  --card-actions-bg: #e5e7eb;
+  --card-actions-color: #9ca3af;
+
+  --card-selection-bg: var(--card-actions-bg);
+  --card-selection-color: var(--card-accent);
+
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  background-color: var(--card-bg);
+  border: var(--border);
+  box-shadow: var(--shadow);
+  hyphens: auto;
+  word-break: break-word;
+}
+.card > div:not(header),
+.card > div:not(footer) {
+  flex-grow: 1;
+  padding: var(--card-content-gap);
+}
+
+.card header,
+.card footer {
+  padding: var(--card-actions-gap);
+  width: 100%;
+}
+
+.card footer {
+  margin-top: auto;
+  background-color: var(--card-actions-bg);
+}
+
+.card img,
+.card picture {
+  width: 100%;
+}
+
+.card img {
+  background-repeat: no-repeat;
+  border: 0;
+  border-style: none;
+  height: auto;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+@supports (aspect-ratio: 1) {
+  [data-ratio="auto"] {
+    aspect-ratio: auto;
+  }
+  [data-ratio="square"] {
+    aspect-ratio: var(--ratio-square);
+  }
+  [data-ratio="landscape"] {
+    aspect-ratio: var(--ratio-landscape);
+  }
+  [data-ratio="portrait"] {
+    aspect-ratio: var(--ratio-portrait);
+  }
+  [data-ratio="ultrawide"] {
+    aspect-ratio: var(--ratio-ultrawide);
+  }
+}
+@supports selector(:has(*)) {
+  .card:has(img),
+  .card:has(img) div:not(header),
+  .card:has(img) div:not(footer) {
+    padding: var(--zero);
+  }
+  .card:has(img) picture {
+    display: flex;
+    flex-grow: 1;
+    position: relative;
+    width: 100%;
+  }
+
+  .card:has(input:focus-visible) {
+  }
+  .card:has(input:placeholder-shown) {
+  }
+  .card:has(:valid) {
+  }
+  .card:has(:invalid) {
+  }
+  .card:has(input:placeholder-shown) {
+  }
+  .card:has(:required) {
+  }
+  .card:has(:optional) {
+  }
+  .card:has(:checked) {
+  }
+}
+
+.card::selection {
+  background-color: var(--card-selection-bg);
+  color: var(--card-selection-color);
+}

@@ -1,0 +1,37 @@
+:root {
+  --gap-1: 0.4em;
+  --gap-2: 0.6em;
+  --gap-3: 0.8em;
+  --gap-4: 1em;
+  --gap-5: 1.2em;
+
+  --color-white: #fff;
+  --color-white-ish: #f5f5f7;
+
+  --color-black: #333;
+  --color-black-ish: #454545;
+
+  --color-grey: #9f9f9f;
+  --color-grey-ish: #c6c8c8;
+
+  --color-focus: #0036ff;
+  --color-focus-ish: #6fb5f1;
+  --color-invalid: #ec514e;
+  --transparent: transparent !important;
+
+  --shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+
+  --border-width: 1.5px;
+  --border-color: var(--color-black);
+  --border-radius: 0.2em;
+  --border: var(--border-width) solid var(--border-color);
+}
+
+.ring {
+  outline: var(--border-width) solid var(--color-focus) !important;
+  outline-offset: calc(var(--border-width) * -1);
+}
+
+/* *:has(.ring) path {
+  fill: var(--color-focus) !important;
+} */
