@@ -1,6 +1,30 @@
 ## TLDR
 
-Boilerplate: includes `react`, `react-router-dom`, `redux-toolkit` and `react-query`. 
+Boilerplate: includes `react`, `react-router-dom`, `redux-toolkit` and `react-query` & ofc `typescript`.
+
+
+## Overview
+
+| Path      |    Page    | ```@/features/***```
+| :-------------- | :-----------: | :-----------: | 
+| '/'       |     Dashboard      |   dashboard      | 
+| 'archive'       |     ArchiveLanding      |   archive      | 
+| 'docs'       |     DocumentationLanding      |   documentation      | 
+| 'stories'       |     StoriesLanding      |   stories      | 
+| *       |     Layout      |   layout      | 
+| *       |     LayoutError      |   layout      | 
+
+
+Powered by Vite, run:
+
+```bash
+
+    # develop
+    yarn dev
+
+    # build 
+    yarn build
+```
 
 ## System
 
@@ -13,6 +37,8 @@ From ```@/system/components/Core/Group``` we can export layout components like `
 From ```@/system/components/Core/Inputs``` we can export interactive components and specialize them as ```<ButtonAccent/>```.
 
 Working on **namings**, ```@/system/components/Pair``` is great but unless I can name it properly it will never be used by others :) 
+
+**System is documented** on it's own route if you browse demo / run app locally. 
 
 ### Inspiration 💐
 

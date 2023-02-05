@@ -1,21 +1,17 @@
-import { useAppDispatch, useAppSelector } from "@/config/store/hooks";
 import Card from "@/system/components/Card";
 import Grid from "@/system/components/Grid";
 import { IconTwitter } from "@/system/components/Icons";
 import { GroteskXL } from "@/system/components/Typography";
 
 const Archive = () => {
-  //   const { zoom } = useAppSelector(selectSettings);
-  //   const dispatch = useAppDispatch();
-
   return (
     <article>
       <GroteskXL>Archive</GroteskXL>
       <Grid as="div" size="md" className="gap:sm">
         {[...Array(12)].map((k, v) => (
-          <Card as="div" ratio="portrait" key={v}>
+          <Card as="div" ratio="landscape" key={v}>
             <Card.Title>
-              <p className="mr:auto"> Nº {v} ratio portrait</p>
+              <p className="mr:auto"> Nº {v} </p>
               <IconTwitter size="lg" label="" />
             </Card.Title>
             <Card.Media
