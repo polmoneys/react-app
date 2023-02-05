@@ -1,10 +1,24 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 
-/**
- * Stolen from https://github.com/streamich/react-use/blob/master/src/useFormEnter.ts
-  
-
+/*
+  Stolen from https://github.com/streamich/react-use/blob/master/src/useFormEnter.ts
  */
+
+const useFormEnter = (onStartTyping: (event: KeyboardEvent) => void) => {
+  useEffect(() => {
+    const keydown = (event: KeyboardEvent) => {
+      !isFocusedElementEditable() &&
+        isTypedCharGood(event) &&
+        onStartTyping(event);
+    };
+
+    document.addEventListener("keydown", keydown);
+
+    return () => {
+      document.removeEventListener("keydown", keydown);
+    };
+  }, []);
+};
 
 const isFocusedElementEditable = () => {
   const { activeElement, body } = document;
@@ -48,22 +62,6 @@ const isTypedCharGood = ({
   }
   // All other keys.
   return false;
-};
-
-const useFormEnter = (onStartTyping: (event: KeyboardEvent) => void) => {
-  useEffect(() => {
-    const keydown = (event: KeyboardEvent) => {
-      !isFocusedElementEditable() &&
-        isTypedCharGood(event) &&
-        onStartTyping(event);
-    };
-
-    document.addEventListener("keydown", keydown);
-
-    return () => {
-      document.removeEventListener("keydown", keydown);
-    };
-  }, []);
 };
 
 export default useFormEnter;

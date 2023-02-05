@@ -7,7 +7,7 @@ export default function Nav() {
       <Link to="/">H</Link>
       <Link to="archive">Archive</Link>
       <Link to="stories">Stories</Link>
-      <Link to="system">Docs</Link>
+      <Link to="docs">Documentation</Link>
 
       <input type="search" defaultValue="" placeholder="search" />
     </nav>

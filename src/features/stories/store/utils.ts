@@ -5,6 +5,7 @@ const matchItemToStory = (item: any, pos: number): Story => ({
   title: item?.title,
   releaseDate: item?.releaseDate,
   director: item?.director,
+  content: item?.content ?? "",
 });
 
 export const matchItemsToStories = (items: Array<any>): Stories => {

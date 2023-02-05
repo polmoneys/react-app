@@ -1,20 +1,11 @@
 import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
-import Archive from "@/features/archive/pages/archive";
-import Stories from "@/features/stories/pages/stories";
-import Docs from "@/features/system/pages/system";
-
+import ArchiveLanding from "@/features/archive/pages/landing";
+import StoriesLanding from "@/features/stories/pages/landing";
+import DocumentationLanding from "@/features/documentation/pages/landing";
 import Layout from "@/features/layout/components/Layout";
 import ErrorLayout from "@/features/layout/components/LayoutError";
-
-/**
- *  will fail:
- * const { Export1, Export2 } = lazy(() => import('path/to/component'));
- * https://github.com/facebook/react/issues/14603
- * One workaround is to re-export those modules as default exports from an intermediate module.
- */
-const importNamed = (componentPath: string) =>
-  import(componentPath).then(comp => ({ default: comp.default }));
+import { importNamed } from "./utils";
 
 const Dashboard = lazy(() =>
   importNamed("../../features/dashboard/pages/dashboard")
@@ -42,17 +33,17 @@ const router = createBrowserRouter([
           },
           {
             path: "archive",
-            element: <Archive />,
+            element: <ArchiveLanding />,
             // ...
           },
           {
             path: "stories",
-            element: <Stories />,
+            element: <StoriesLanding />,
             // ...
           },
           {
-            path: "system",
-            element: <Docs />,
+            path: "docs",
+            element: <DocumentationLanding />,
             // ...
           },
         ],

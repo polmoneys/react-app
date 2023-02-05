@@ -1,5 +1,9 @@
 import { useEffect } from "react";
 
+/*
+  Enrich user feedback of critical forms
+ */
+
 function useFormLeave(id: string, onOut: () => void) {
   useEffect(() => {
     const formElement = document.querySelector(`#${id}`);
@@ -12,12 +16,10 @@ function useFormLeave(id: string, onOut: () => void) {
       }
     };
     if (formElement) {
-      //@ts-ignore
       formElement.addEventListener("focusout", onFocusOut);
     }
     return () => {
       if (formElement) {
-        //@ts-ignore
         formElement.removeEventListener("focusout", onFocusOut);
       }
     };

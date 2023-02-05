@@ -1,3 +1,11 @@
+/*
+  CSS utilities:
+    - flex mgmt (margin auto|reorder)
+    - gap|padding
+    - orientation
+    - width (content)
+*/
+
 .col,
 .row {
   display: flex;

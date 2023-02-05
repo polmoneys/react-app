@@ -10,8 +10,8 @@ dispatch(postUpdated({ id: postId, title, content }))
   );
   */
 
-const initialState: Stories = {
-  list: [],
+const initialState: Record<"stories", Stories> = {
+  stories: [],
 };
 
 export const storiesSlice = createSlice({
@@ -20,21 +20,23 @@ export const storiesSlice = createSlice({
   reducers: {
     addStory: {
       reducer(state, { payload }: AddStory) {
-        state.list.push(payload);
+        state.stories.push(payload);
       },
-      prepare(title, content) {
+      prepare(title, content, director, releaseDate) {
         return {
           payload: {
             id: nanoid(),
             title,
             content,
+            director,
+            releaseDate,
           },
         };
       },
     },
     updateStory: (state, { payload }: AddStory) => {
       const { id, title, content } = payload;
-      const existingPost = state.list.find(story => story.id === id);
+      const existingPost = state.stories.find(story => story.id === id);
       if (existingPost) {
         existingPost.title = title;
         existingPost.content = content;
@@ -45,6 +47,6 @@ export const storiesSlice = createSlice({
 
 export const { addStory, updateStory } = storiesSlice.actions;
 
-export const selectFilters = (state: RootState) => state.stories.list;
+export const storiesFilter = (state: RootState) => state.stories;
 
 export default storiesSlice.reducer;

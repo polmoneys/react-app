@@ -1,3 +1,11 @@
+/*
+  Tames the platform 
+  and sets some default styles for elements:
+    - a
+    - button
+    - input (text|search) 
+*/
+
 *,
 :after,
 :before {
