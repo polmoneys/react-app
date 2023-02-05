@@ -13,6 +13,15 @@ import useStories from "../hooks/useStories";
 
 const Stories = () => {
   const { data, isFetching } = useStories();
+  /* 
+    TODO:
+    
+    dispatch(postUpdated({ id: postId, title, content }))
+    
+    const post = useSelector(state =>
+      state.posts.find(post => post.id === postId)
+    );
+  */
   return (
     <View>
       <View.Full>

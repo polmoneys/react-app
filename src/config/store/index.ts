@@ -1,13 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
-import settingsSlice from "@/features/layout/store";
-import archiveSlice from "@/features/archive/store";
-import storiesSlice from "@/features/stories/store";
+import settingsStore from "@/features/layout/store";
+import archiveStore from "@/features/archive/store";
+import storiesStore from "@/features/stories/store";
 
 export const store = configureStore({
   reducer: {
-    layout: settingsSlice,
-    archive: archiveSlice,
-    stories: storiesSlice,
+    layout: settingsStore,
+    archive: archiveStore,
+    stories: storiesStore,
   },
 });
 

@@ -30,7 +30,7 @@
 /* LABEL */
 .radio {
   position: relative;
-  min-height: calc(44px * 2);
+  min-height: calc(var(--comfy-height) * 2);
   background-color: var(--transparent);
 }
 

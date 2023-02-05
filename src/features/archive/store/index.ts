@@ -12,7 +12,7 @@ export const initialState: Archive = {
   },
 };
 
-export const archiveSlice = createSlice({
+export const archiveStore = createSlice({
   name: "archive",
   initialState,
   reducers: {
@@ -45,8 +45,8 @@ export const archiveSlice = createSlice({
 });
 
 export const { addFilter, resetFilters, removeFilter, updateFilters } =
-  archiveSlice.actions;
+  archiveStore.actions;
 
-export const ArchiveSearchFilters = (state: RootState) => state.archive.filters;
+export const archiveFiltersSlice = (state: RootState) => state.archive.filters;
 
-export default archiveSlice.reducer;
+export default archiveStore.reducer;

@@ -42,6 +42,7 @@ import { Radio } from "@/system/components/Radio";
 import useFormEnter from "@/system/hooks/useFormEnter";
 import useFormLeave from "@/system/hooks/useFormLeave";
 import { ButtonAccent } from "@/system/components/Button";
+import Textarea from "@/system/components/Core/Inputs/Textarea";
 
 type StatusMachine = "draft" | "live" | "unknown" | "published";
 
@@ -66,15 +67,15 @@ const Docs = () => {
   const onSwitch = (value: boolean) => console.log({ value });
   const input = useRef<HTMLInputElement>(null);
 
-  useFormEnter(() => {
-    if (input.current) {
-      input.current.focus();
-    }
-  });
+  // useFormEnter(() => {
+  //   if (input.current) {
+  //     input.current.focus();
+  //   }
+  // });
 
-  useFormLeave("form-id", () =>
-    alert("Form is not submitted, is that what you want ?")
-  );
+  // useFormLeave("form-id", () =>
+  //   alert("Form is not submitted, is that what you want ?")
+  // );
 
   return (
     <article>
@@ -103,6 +104,16 @@ const Docs = () => {
               label={<HelveticaNeue>Joyful</HelveticaNeue>}
               id="test-switch"
               initial={false}
+            />
+          </Col>
+        </Card>
+        <Card as="div" ratio="auto">
+          <Col as="div">
+            <label htmlFor="textarea-test">Free your words</label>
+
+            <Textarea
+              id="textarea-test"
+              onChangeValue={newContent => console.log(newContent)}
             />
           </Col>
         </Card>

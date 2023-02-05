@@ -2,19 +2,11 @@ import { createSlice, nanoid } from "@reduxjs/toolkit";
 import type { RootState } from "@/config/store";
 import Stories, { AddStory } from "../interfaces/Stories";
 
-/* 
-dispatch(postUpdated({ id: postId, title, content }))
-
-  const post = useSelector(state =>
-    state.posts.find(post => post.id === postId)
-  );
-  */
-
 const initialState: Record<"stories", Stories> = {
   stories: [],
 };
 
-export const storiesSlice = createSlice({
+export const storiesStore = createSlice({
   name: "stories",
   initialState,
   reducers: {
@@ -45,8 +37,8 @@ export const storiesSlice = createSlice({
   },
 });
 
-export const { addStory, updateStory } = storiesSlice.actions;
+export const { addStory, updateStory } = storiesStore.actions;
 
-export const storiesFilter = (state: RootState) => state.stories;
+export const storiesSlice = (state: RootState) => state.stories;
 
-export default storiesSlice.reducer;
+export default storiesStore.reducer;

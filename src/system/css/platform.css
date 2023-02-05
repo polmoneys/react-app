@@ -3,7 +3,8 @@
   and sets some default styles for elements:
     - a
     - button
-    - input (text|search) 
+    - input (text|search)
+    - textarea 
 */
 
 *,
@@ -54,18 +55,21 @@ a:is(:visited, :hover) {
   cursor: pointer;
 }
 
-:is(button, input[type="search"], input[type="text"]) {
+:is(button, input[type="search"], input[type="text"], textarea) {
   appearance: none;
-  display: inline-flex;
   font: inherit;
-  letter-spacing: 0.02em;
-  padding: calc(var(--gap-1) * 0.4) var(--gap-1);
-  border-color: var(--transparent);
   outline: var(--border);
   box-shadow: var(--shadow);
+  padding: calc(var(--gap-1) * 0.4) var(--gap-1);
+  border-color: var(--transparent);
 }
 
-:is(button, input[type="search"], input[type="text"]):disabled {
+:is(button, input[type="search"], input[type="text"]) {
+  display: inline-flex;
+  letter-spacing: 0.02em;
+}
+
+:is(button, input[type="search"], input[type="text"], textarea):disabled {
   opacity: 0.3;
   cursor: default;
   pointer-events: none;
@@ -138,4 +142,20 @@ input[type="search"] {
     input[type="text"]:disabled:-ms-input-placeholder
   ) {
   color: var(--color-black);
+}
+
+textarea {
+  font-size: max(16px, 1rem);
+  line-height: 1.4;
+  min-height: var(--comfy-height);
+  min-width: 0;
+  display: flex;
+  flex-grow: 1;
+  width: 100%;
+  overflow: hidden;
+  resize: none;
+}
+
+@media (prefers-reduced-data: no-preference) {
+  /* user does not prefers to reduce data so go wild*/
 }
