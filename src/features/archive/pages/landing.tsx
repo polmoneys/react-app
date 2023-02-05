@@ -1,12 +1,17 @@
+import Button from "@/system/components/Button";
 import Card from "@/system/components/Card";
 import Grid from "@/system/components/Grid";
 import { IconTwitter } from "@/system/components/Icons";
+import Link from "@/system/components/Link";
 import { GroteskXL } from "@/system/components/Typography";
+import useSearchUrl from "@/system/hooks/useSearchUrl";
+import { useLocation } from "react-router-dom";
 
 const Archive = () => {
   return (
     <article>
       <GroteskXL>Archive</GroteskXL>
+
       <Grid as="div" size="md" className="gap:sm">
         {[...Array(12)].map((k, v) => (
           <Card as="div" ratio="landscape" key={v}>
