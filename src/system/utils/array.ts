@@ -8,7 +8,7 @@ export const unwrapArray = (x: unknown) => (Array.isArray(x) ? x[0] : x);
 /**
  * Utility to split an array by a condition ()=>
  */
-export const arraySplit = <T>(
+export const splitArray = <T>(
   items: T[],
   fn: (el: T) => boolean
 ): [T[], T[]] => {

@@ -57,13 +57,12 @@ function RadioLabel(props?: RadioProps) {
     checked && styles.checked,
     checked && classNames?.checked
   );
-  const labelClassNames = [classNames?.label].filter(Boolean).join(" ");
-  const inputClassNames = [classNames?.input].filter(Boolean).join(" ");
+
   return (
     <Group as="div" className={groupClassnames} size={width}>
       <label htmlFor={id}>
         <Layers stretch as="div">
-          <div className={labelClassNames}>{inputLabel}</div>
+          <div className={classes(classNames?.label)}>{inputLabel}</div>
           <FocusRing
             autoFocus={autoFocus}
             {...(!disabled && { focusClass: "ring" })}
@@ -75,7 +74,7 @@ function RadioLabel(props?: RadioProps) {
               name={name}
               value={name}
               checked={checked}
-              className={inputClassNames}
+              className={classes(classNames?.input)}
               onChange={onRadioChange}
             />
           </FocusRing>

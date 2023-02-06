@@ -21,11 +21,10 @@ function Switch(props: SwitchProps) {
     autoFocus = false,
   } = props;
 
-  const groupClassNames = classes(className, styles.group);
   const onSwitchChange = (event: ChangeEvent<HTMLInputElement>) =>
     onChangeBoolean(event.target.checked);
   return (
-    <Pair as="label" htmlFor={id} className={groupClassNames}>
+    <Pair as="label" htmlFor={id} className={classes(styles.group, className)}>
       <FocusRing
         autoFocus={autoFocus}
         {...(!disabled && { focusClass: "ring" })}

@@ -46,15 +46,7 @@ import Textarea from "@/system/components/Core/Inputs/textarea";
 
 type StatusMachine = "draft" | "live" | "unknown" | "published";
 
-const Br = () => <br aria-hidden="true" />;
-
 const Docs = () => {
-  const handleKeyDown = (event: React.KeyboardEvent) => {
-    if (event.key === "Enter") {
-      event.preventDefault();
-    }
-  };
-
   const [{ output, all, mixed }, { onFollowerChange, onLeadChange }] =
     useLeader({
       mayo: false,
@@ -65,18 +57,28 @@ const Docs = () => {
   const [publishStatus, setStatus] = useState<StatusMachine>("draft");
 
   const onSwitch = (value: boolean) => console.log({ value });
+
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+    }
+  };
+
+  /*
+  
   const input = useRef<HTMLInputElement>(null);
 
-  // useFormEnter(() => {
-  //   if (input.current) {
-  //     input.current.focus();
-  //   }
-  // });
+  useFormEnter(() => {
+    if (input.current) {
+      input.current.focus();
+    }
+  });
 
-  // useFormLeave("form-id", () =>
-  //   alert("Form is not submitted, is that what you want ?")
-  // );
+  useFormLeave("form-id", () =>
+    alert("Form is not submitted, is that what you want ?")
+  );
 
+   */
   return (
     <article>
       <GroteskXL>Docs</GroteskXL>
@@ -238,7 +240,7 @@ const Docs = () => {
             >
               <label htmlFor="input-id">Label</label>
               <input
-                ref={input}
+                // ref={input}
                 onKeyDown={handleKeyDown}
                 id="input-id"
                 type="text"

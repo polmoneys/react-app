@@ -1,4 +1,4 @@
-export function isObjectEmpty(object: any) {
+export function isEmptyObject(object: any) {
   for (const prop in object) {
     if (Object.prototype.hasOwnProperty.call(object, prop)) return false;
   }

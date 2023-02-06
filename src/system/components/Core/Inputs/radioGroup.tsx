@@ -3,20 +3,20 @@ import { RenderProp } from "@/system/interfaces";
 import Group from "../Group";
 const { map } = Children;
 
-interface RadioGroupProps {
+interface RadioGroupProps<T> {
   children: Array<ReactElement>;
-  initial: string | Array<string>;
+  initial: T;
   className?: string;
   gap?: string;
   renderLabel?: RenderProp<
     { checked: boolean; radioLabel: string },
     HTMLElement
   >;
-  onChange: (selection: string) => void;
+  onChange: (selection: T) => void;
   direction?: "row" | "column";
 }
 
-function RadioGroup(props: RadioGroupProps) {
+function RadioGroup<T extends string>(props: RadioGroupProps<T>) {
   const {
     children,
     initial = "",
@@ -27,7 +27,7 @@ function RadioGroup(props: RadioGroupProps) {
     onChange,
   } = props;
   const onChangeRadio = (event: ChangeEvent<HTMLInputElement>) =>
-    onChange?.(event.target.name);
+    onChange?.(event.target.name as T);
 
   return (
     <Group
