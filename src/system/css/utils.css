@@ -4,6 +4,7 @@
     - gap|padding
     - orientation
     - width (content)
+    - silver bullets (offscreen,invisible,dead...)
 */
 
 .col,
@@ -159,4 +160,31 @@
 }
 .pt\:xl {
   padding-top: var(--gap-4);
+}
+
+.dead {
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.offscreen {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.invisible {
+  pointer-events: none;
+  xpointer-events: auto; /* instead of commenting out*/
+  position: absolute;
+  visibility: hidden;
 }

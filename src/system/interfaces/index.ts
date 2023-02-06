@@ -5,6 +5,8 @@ export type Value = string | number;
 export type Dictionary<T = Value> = Record<string, T>;
 export interface Dictionaries extends Array<Dictionary> {}
 
+export type ArrayProp = Array<string> | string;
+
 export interface RenderProp<TChildrenProps, TElement = any> {
   (props: TChildrenProps): ReactElement<TElement>;
 }

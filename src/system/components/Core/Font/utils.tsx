@@ -19,8 +19,10 @@ export const LoremMD =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt gloria est tu.";
 export const LoremXL = LoremMD.repeat(5);
 
-//   const WithTime = addTime(HelveticaNeueBoldS);
-
+/*  
+  Usage: 
+  const WithTime = addTime(HelveticaNeueBoldS);
+*/
 export const addTime = (Element: Fonts) => (props: FontProps) => {
   const { children, date = new Date(), ...rest } = props;
   return (

@@ -69,6 +69,10 @@ a:is(:visited, :hover) {
   letter-spacing: 0.02em;
 }
 
+:is(input[type="search"], input[type="text"]) {
+  font-size: max(16px, 1rem);
+}
+
 :is(button, input[type="search"], input[type="text"], textarea):disabled {
   opacity: 0.3;
   cursor: default;
@@ -153,11 +157,23 @@ textarea {
   flex-grow: 1;
   width: 100%;
   overflow: hidden;
-  resize: none;
+  resize: vertical;
 }
 
 fieldset {
   border-color: var(--transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-delay: -1ms;
+    animation-duration: 1ms;
+    animation-iteration-count: 1;
+    background-attachment: initial;
+    scroll-behavior: auto;
+    transition-delay: 0s;
+    transition-duration: 0s;
+  }
 }
 
 @media (prefers-reduced-data: no-preference) {
