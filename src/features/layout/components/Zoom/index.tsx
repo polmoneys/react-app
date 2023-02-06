@@ -1,5 +1,5 @@
 import { useAppDispatch } from "@/config/store/hooks";
-import Button from "@/system/components/Button";
+import Button from "@/system/components/Buttons";
 import { HelveticaNeueBold } from "@/system/components/Typography";
 import { setMaxZoom } from "../../store";
 

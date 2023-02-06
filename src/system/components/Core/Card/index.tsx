@@ -1,8 +1,8 @@
 import { ElementType, ReactNode } from "react";
 import { Dictionary } from "@/system/interfaces";
 import { classes } from "@/system/utils/theme";
-import Media from "../Media";
-import Row from "../Row";
+import Media from "../../Media";
+import Row from "../../Row";
 import styles from "./index.module.css";
 
 const HTMLCardTags = ["section", "article", "li", "div", "form"] as const;

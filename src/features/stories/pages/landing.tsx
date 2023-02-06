@@ -8,7 +8,7 @@ import {
   HelveticaNeueBold,
   HelveticaNeueMedium,
 } from "@/system/components/Typography";
-import Card from "@/system/components/Card";
+import Card from "@/system/components/Core/Card";
 import Grid from "@/system/components/Grid";
 import { IconTwitter } from "@/system/components/Icons";
 import View from "@/system/components/View";

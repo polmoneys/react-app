@@ -31,7 +31,6 @@ import {
   IconPin,
   IconColorPicker,
 } from "@/system/components/Icons";
-import Card from "@/system/components/Card";
 import Row from "@/system/components/Row";
 import Col from "@/system/components/Col";
 import Grid from "@/system/components/Grid";
@@ -41,7 +40,8 @@ import { Checkbox, Switch } from "@/system/components/Checkbox";
 import { Radio } from "@/system/components/Radio";
 import useFormEnter from "@/system/hooks/useFormEnter";
 import useFormLeave from "@/system/hooks/useFormLeave";
-import { ButtonAccent } from "@/system/components/Button";
+import { ButtonAccent } from "@/system/components/Buttons";
+import { Card } from "@/system/components/Cards";
 import Textarea from "@/system/components/Core/Inputs/textarea";
 
 type StatusMachine = "draft" | "live" | "unknown" | "published";
