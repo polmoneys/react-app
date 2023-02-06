@@ -1,4 +1,5 @@
 import { AriaAttributes, ElementType, ReactNode, useMemo } from "react";
+import { classes } from "@/system/utils/theme";
 import styles from "./index.module.css";
 
 const HTMLHnTag = ["h1", "h2", "h3", "h4", "h5", "h6"] as const;
@@ -51,17 +52,15 @@ function Font(props: FontProps) {
 
   const css = useMemo(
     () =>
-      [
+      classes(
         className,
         styles[size],
         breakWord && styles.break,
         hyphenate && styles.hyphenate,
         numeric && styles.numeric,
         format === "AA" && styles.uppercase,
-        format === "Aa" && styles.capitalize,
-      ]
-        .filter(Boolean)
-        .join(" "),
+        format === "Aa" && styles.capitalize
+      ),
     [className, size, breakWord, hyphenate, numeric, format]
   );
 

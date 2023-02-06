@@ -1,13 +1,10 @@
 import { useReducer } from "react";
 
-// stolen from https://thoughtbot.com/blog/custom-react-hooks
-
-/**
- * Just like `useState`, but it keeps track of the previous value and returns it
- * in the array.
- * Usage:
- *   const [value, previousValue, setValue] = useStateWithPrevious('initialValue')
- */
+/*
+  Usage:
+  const [value, previousValue, setValue] = useStateWithPrevious('initialValue')
+  credits  https://thoughtbot.com/blog/custom-react-hooks
+*/
 const useStateWithPrevious = (initialValue: string) => {
   const reducer = (
     state: Record<"value" | "previousValue", string>,

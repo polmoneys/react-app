@@ -1,6 +1,7 @@
 import { ChangeEvent, ComponentProps, Fragment } from "react";
 import { FocusRing } from "@react-aria/focus";
 import { RenderProp } from "@/system/interfaces";
+import { classes } from "@/system/utils/theme";
 import Pair from "../../Pair";
 import RadioGroup from "./radioGroup";
 import RadioLabel from "./radioLabel";
@@ -49,14 +50,12 @@ function Radio(props?: RadioProps) {
       })
     );
 
-  const groupClassnames = [
+  const groupClassnames = classes(
     styles.control,
     checked && styles.checked,
     checked && classNames?.checked,
-    classNames?.group,
-  ]
-    .filter(Boolean)
-    .join(" ");
+    classNames?.group
+  );
 
   return (
     <Pair as="label" htmlFor={id} className={groupClassnames}>

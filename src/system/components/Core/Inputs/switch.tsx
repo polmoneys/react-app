@@ -1,6 +1,7 @@
 import { ComponentProps, ChangeEvent, ReactNode } from "react";
 import { FocusRing } from "@react-aria/focus";
 import Pair from "@/system/components/Pair";
+import { classes } from "@/system/utils/theme";
 import styles from "./switch.module.css";
 
 interface SwitchProps extends ComponentProps<"input"> {
@@ -20,7 +21,7 @@ function Switch(props: SwitchProps) {
     autoFocus = false,
   } = props;
 
-  const groupClassNames = [className, styles.group].filter(Boolean).join(" ");
+  const groupClassNames = classes(className, styles.group);
   const onSwitchChange = (event: ChangeEvent<HTMLInputElement>) =>
     onChangeBoolean(event.target.checked);
   return (

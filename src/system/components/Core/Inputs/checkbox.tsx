@@ -1,5 +1,6 @@
 import { ComponentProps, ReactNode, useEffect, useMemo } from "react";
 import { FocusRing } from "@react-aria/focus";
+import { classes } from "@/system/utils/theme";
 import { IconCheck, IconCross, IconDash } from "../../Icons";
 import Pair from "../../Pair";
 import Layers from "../Layers";
@@ -42,7 +43,7 @@ function Checkbox(props: CheckboxProps) {
 
   const checkboxClassNames = useMemo(
     () =>
-      [
+      classes(
         styles.checkbox,
         isMixed && classNames?.checkbox?.mixed && classNames?.checkbox?.mixed,
         checked &&
@@ -50,10 +51,8 @@ function Checkbox(props: CheckboxProps) {
           classNames?.checkbox?.checked,
         !checked &&
           classNames?.checkbox?.unchecked &&
-          classNames?.checkbox?.unchecked,
-      ]
-        .filter(Boolean)
-        .join(" "),
+          classNames?.checkbox?.unchecked
+      ),
     [isMixed, checked]
   );
 

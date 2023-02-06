@@ -1,4 +1,5 @@
 import { ComponentProps, ReactNode } from "react";
+import { classes } from "@/system/utils/theme";
 import "./index.css";
 
 interface ListProps extends ComponentProps<"ul"> {
@@ -17,9 +18,7 @@ interface ListItemProps extends ComponentProps<"li"> {
 function List(props: ListProps) {
   const { children, className, label, zebra = true, ...rest } = props;
 
-  const classNames = [className, "group", "list", zebra && "zebra"]
-    .filter(Boolean)
-    .join(" ");
+  const classNames = classes(className, "group", "list", zebra && "zebra");
   return (
     <ul role="list" className={classNames} aria-label={label} {...rest}>
       {children}
@@ -31,13 +30,11 @@ List.Item = (props: ListItemProps) => {
   const { className, children, description, start, end } = props;
   const slots = `${start ? ":start" : ""}${end ? ":end" : ""}`;
 
-  const classNamesGroup = [
+  const classNamesGroup = classes(
     className,
     "item",
-    `list:item${start || end ? slots : ""}`,
-  ]
-    .filter(Boolean)
-    .join(" ");
+    `list:item${start || end ? slots : ""}`
+  );
   return (
     <li className={classNamesGroup}>
       {start && <div className="start">{start}</div>}

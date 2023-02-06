@@ -1,6 +1,7 @@
 import { ChangeEvent, ComponentProps, Fragment } from "react";
 import { FocusRing } from "@react-aria/focus";
 import { RenderProp } from "@/system/interfaces";
+import { classes } from "@/system/utils/theme";
 import { HelveticaNeue } from "../../Typography";
 import Group from "../Group";
 import Layers from "../Layers";
@@ -50,14 +51,12 @@ function RadioLabel(props?: RadioProps) {
       })
     );
 
-  const groupClassnames = [
+  const groupClassnames = classes(
     styles.radio,
     classNames?.group,
     checked && styles.checked,
-    checked && classNames?.checked,
-  ]
-    .filter(Boolean)
-    .join(" ");
+    checked && classNames?.checked
+  );
   const labelClassNames = [classNames?.label].filter(Boolean).join(" ");
   const inputClassNames = [classNames?.input].filter(Boolean).join(" ");
   return (

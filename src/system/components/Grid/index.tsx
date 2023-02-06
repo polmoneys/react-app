@@ -1,4 +1,5 @@
 import { ElementType, ReactNode } from "react";
+import { classes } from "@/system/utils/theme";
 import styles from "./index.module.css";
 
 const HTMLGridTags = ["section", "article", "li", "div", "form"] as const;
@@ -20,10 +21,7 @@ function Grid(props: CardProps) {
   const Tag = as || ("div" as ElementType);
 
   return (
-    <Tag
-      className={[className, styles.grid].filter(Boolean).join(" ")}
-      data-grid={size}
-    >
+    <Tag className={classes(className, styles.grid)} data-grid={size}>
       {children}
     </Tag>
   );

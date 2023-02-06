@@ -1,3 +1,6 @@
+export const classes = (...params: Array<unknown>) =>
+  params.filter(Boolean).join(" ");
+
 /*
   black(10);
 */

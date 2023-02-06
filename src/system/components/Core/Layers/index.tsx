@@ -1,4 +1,5 @@
 import { ElementType, ReactNode, useMemo } from "react";
+import { classes } from "@/system/utils/theme";
 import styles from "./Layers.module.css";
 
 const HTMLtag = [
@@ -28,14 +29,12 @@ function Layers(props: LayerProps) {
 
   const classNames = useMemo(() => {
     const isNotDefault = align !== "center";
-    return [
+    return classes(
       className,
       styles.root,
       isNotDefault && styles[`${align}`],
-      stretch && styles.stretch,
-    ]
-      .filter(Boolean)
-      .join(" ");
+      stretch && styles.stretch
+    );
   }, [align]);
 
   const Tag = as || ("div" as ElementType);

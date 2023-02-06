@@ -1,5 +1,6 @@
 import { ElementType, ReactNode } from "react";
 import { Dictionary } from "@/system/interfaces";
+import { classes } from "@/system/utils/theme";
 import Media from "../Media";
 import Row from "../Row";
 import styles from "./index.module.css";
@@ -27,7 +28,7 @@ function Card(props: CardProps) {
 
   return (
     <Tag
-      className={[className, styles.card].filter(Boolean).join(" ")}
+      className={classes(className, styles.card)}
       style={{
         ...(DONOTUse?.DONOTStyle !== undefined && DONOTUse?.DONOTStyle),
       }}
@@ -59,9 +60,7 @@ Card.Actions = ({
 }) => (
   <Row
     as="footer"
-    className={["align-items-center:landscape", className]
-      .filter(Boolean)
-      .join(" ")}
+    className={classes("align-items-center:landscape", className)}
   >
     {children}
   </Row>

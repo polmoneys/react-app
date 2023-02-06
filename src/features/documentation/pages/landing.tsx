@@ -42,7 +42,7 @@ import { Radio } from "@/system/components/Radio";
 import useFormEnter from "@/system/hooks/useFormEnter";
 import useFormLeave from "@/system/hooks/useFormLeave";
 import { ButtonAccent } from "@/system/components/Button";
-import Textarea from "@/system/components/Core/Inputs/Textarea";
+import Textarea from "@/system/components/Core/Inputs/textarea";
 
 type StatusMachine = "draft" | "live" | "unknown" | "published";
 
