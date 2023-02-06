@@ -17,7 +17,12 @@ const Layout = () => {
       <main className={styles.main}>
         <Outlet />
       </main>
-      <Row as="footer" gap="var(--gap-3)" className="px:lg">
+      <Row
+        as="footer"
+        gap="var(--gap-3)"
+        className="px:lg"
+        options={{ alignItems: "center" }}
+      >
         <HelveticaNeue> Current zoom level: {zoom}</HelveticaNeue>
         <Zoom />
       </Row>

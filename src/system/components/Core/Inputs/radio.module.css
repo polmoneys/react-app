@@ -23,7 +23,8 @@
   background-color: CanvasText;
 }
 
-.checked input[type="radio"]::before {
+.checked input[type="radio"]::before,
+input[type="radio"]:checked::before {
   transform: scale(1);
 }
 

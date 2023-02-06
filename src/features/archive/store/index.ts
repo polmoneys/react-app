@@ -4,8 +4,7 @@ import Archive, { AddFilter, RemoveFilter } from "../interfaces/Archive";
 
 export const initialState: Archive = {
   filters: {
-    languages: [],
-    countries: [],
+    favorites: false,
     status: "draft",
     from: "01-01-2000",
     to: "01-01-2023",

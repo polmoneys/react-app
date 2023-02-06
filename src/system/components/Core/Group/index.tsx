@@ -15,6 +15,7 @@ const HTMLtag = [
   "header",
   "footer",
   "label",
+  "fieldset",
   "p",
   "h1",
   "h2",
@@ -38,6 +39,7 @@ export interface GroupProps extends AriaAttributes {
   size?: string;
   id?: string;
   htmlFor?: string;
+  onSubmit?: (event: any) => void;
   options?: {
     stretch?: boolean;
     alignItems?: string;

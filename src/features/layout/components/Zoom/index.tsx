@@ -1,5 +1,6 @@
 import { useAppDispatch } from "@/config/store/hooks";
 import Button from "@/system/components/Button";
+import { HelveticaNeueBold } from "@/system/components/Typography";
 import { setMaxZoom } from "../../store";
 
 function Zoom() {
@@ -7,7 +8,9 @@ function Zoom() {
 
   return (
     <nav>
-      <Button onClick={() => dispatch(setMaxZoom())}>max</Button>
+      <Button onClick={() => dispatch(setMaxZoom())}>
+        <HelveticaNeueBold as="span">MAX</HelveticaNeueBold>
+      </Button>
     </nav>
   );
 }

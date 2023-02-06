@@ -1,32 +1,53 @@
-import Button from "@/system/components/Button";
-import Card from "@/system/components/Card";
-import Grid from "@/system/components/Grid";
-import { IconTwitter } from "@/system/components/Icons";
-import Link from "@/system/components/Link";
-import { GroteskXL } from "@/system/components/Typography";
-import useSearchUrl from "@/system/hooks/useSearchUrl";
 import { useLocation } from "react-router-dom";
+import { ButtonAccent } from "@/system/components/Button";
+import { Radio } from "@/system/components/Radio";
+import { GroteskXL, HelveticaNeue } from "@/system/components/Typography";
+import useSearchUrl from "@/system/hooks/useSearchUrl";
+import Col from "@/system/components/Col";
+import { isEmptyObject } from "@/system/utils/record";
+import { useEffect } from "react";
 
 const Archive = () => {
+  const [urlState, setUrlState, updateCurrentUrlState, back] = useSearchUrl();
+
+  useEffect(() => {
+    if (isEmptyObject(urlState)) return;
+    // change page according to urlState ...
+  }, [urlState]);
+
+  const onSubmit = (event: any) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const newURLSearchParams = Object.fromEntries(formData);
+    if (isEmptyObject(newURLSearchParams)) alert("Change some filters");
+    updateCurrentUrlState(
+      newURLSearchParams as Partial<Record<string, string>>
+    );
+  };
+
   return (
     <article>
       <GroteskXL>Archive</GroteskXL>
 
-      <Grid as="div" size="md" className="gap:sm">
-        {[...Array(12)].map((k, v) => (
-          <Card as="div" ratio="landscape" key={v}>
-            <Card.Title>
-              <p className="mr:auto"> Nº {v} </p>
-              <IconTwitter size="lg" label="" />
-            </Card.Title>
-            <Card.Media
-              src="https://images.unsplash.com/34/BA1yLjNnQCI1yisIZGEi_2013-07-16_1922_IMG_9873.jpg?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
-              height="100%"
-              alt=""
-            />
-          </Card>
-        ))}
-      </Grid>
+      <Col as="form" onSubmit={onSubmit}>
+        <Radio.GroupFieldset name="status" gap="var(--gap-1)">
+          <Radio.Fieldset
+            label="Draft"
+            value="draft"
+            id="radio-draft"
+            defaultChecked
+          />
+          <Radio.Fieldset label="Live" value="live" id="radio-live" />
+          <Radio.Fieldset label="Unknown" value="unknown" id="radio-unknown" />
+          <Radio.Fieldset
+            label="Published"
+            value="published"
+            id="radio-published"
+          />
+        </Radio.GroupFieldset>
+
+        <ButtonAccent>Apply filters to url</ButtonAccent>
+      </Col>
     </article>
   );
 };

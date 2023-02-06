@@ -156,6 +156,10 @@ textarea {
   resize: none;
 }
 
+fieldset {
+  border-color: var(--transparent);
+}
+
 @media (prefers-reduced-data: no-preference) {
   /* user does not prefers to reduce data so go wild*/
 }

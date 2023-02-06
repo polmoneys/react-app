@@ -4,8 +4,7 @@ export type Status = "draft" | "validating" | "published";
 
 export interface SearchFilters {
   filters: {
-    languages: FilterRecords;
-    countries: FilterRecords;
+    favorites: boolean;
     status: Status;
     from: string;
     to: string;

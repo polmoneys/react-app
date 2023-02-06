@@ -6,6 +6,8 @@ import Pair from "../../Pair";
 import RadioGroup from "./radioGroup";
 import RadioLabel from "./radioLabel";
 import { HelveticaNeue } from "../../Typography";
+import GroupFieldset from "./radioGroupFieldset";
+import RadioFieldset from "./radioFieldset";
 import styles from "./radio.module.css";
 
 export interface RadioProps extends ComponentProps<"input"> {
@@ -82,6 +84,9 @@ function Radio(props?: RadioProps) {
 }
 
 Radio.Group = RadioGroup;
+Radio.Fieldset = RadioFieldset;
+Radio.GroupFieldset = GroupFieldset;
+
 Radio.Label = RadioLabel;
 
 export default Radio;

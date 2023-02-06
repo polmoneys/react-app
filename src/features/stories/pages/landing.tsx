@@ -8,6 +8,9 @@ import {
   HelveticaNeueBold,
   HelveticaNeueMedium,
 } from "@/system/components/Typography";
+import Card from "@/system/components/Card";
+import Grid from "@/system/components/Grid";
+import { IconTwitter } from "@/system/components/Icons";
 import View from "@/system/components/View";
 import useStories from "../hooks/useStories";
 
@@ -24,10 +27,9 @@ const Stories = () => {
   */
   return (
     <View>
-      <View.Full>
+      <View.Feature>
         <GroteskXL>Stories</GroteskXL>
-        <HelveticaNeueMedium>{LoremXL}</HelveticaNeueMedium>
-      </View.Full>
+      </View.Feature>
       <View.Popout>
         <List label="stories">
           {isFetching && (
@@ -54,12 +56,23 @@ const Stories = () => {
           ))}
         </List>
       </View.Popout>
-      <View.Feature>
-        <GroteskXL>{Lorem}</GroteskXL>
-        <br aria-hidden="true" />
-        <br aria-hidden="true" />
-        <HelveticaNeue>{LoremXL}</HelveticaNeue>
-      </View.Feature>
+      <View.Full>
+        <Grid as="div" size="md" className="gap:sm">
+          {[...Array(12)].map((k, v) => (
+            <Card as="div" ratio="landscape" key={v}>
+              <Card.Title>
+                <p className="mr:auto"> Nº {v} </p>
+                <IconTwitter size="lg" label="" />
+              </Card.Title>
+              <Card.Media
+                src="https://images.unsplash.com/34/BA1yLjNnQCI1yisIZGEi_2013-07-16_1922_IMG_9873.jpg?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
+                height="100%"
+                alt=""
+              />
+            </Card>
+          ))}
+        </Grid>
+      </View.Full>
     </View>
   );
 };

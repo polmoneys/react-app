@@ -34,3 +34,17 @@ body {
   color: var(--color-white);
   background-color: var(--color-focus);
 }
+
+main + footer {
+  background-color: var(--color-focus);
+  padding: var(--gap-2) var(--gap-3);
+  color: var(--color-white);
+}
+
+main + footer nav {
+  margin-left: auto;
+}
+
+main + footer button {
+  color: var(--color-focus);
+}
