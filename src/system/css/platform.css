@@ -69,9 +69,9 @@ a:is(:visited, :hover) {
   letter-spacing: 0.02em;
 }
 
-:is(input[type="search"], input[type="text"]) {
+/* :is(input[type="search"], input[type="text"]) {
   font-size: max(16px, 1rem);
-}
+} */
 
 :is(button, input[type="search"], input[type="text"], textarea):disabled {
   opacity: 0.3;

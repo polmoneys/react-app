@@ -49,6 +49,7 @@ export interface GroupProps extends AriaAttributes {
     placeItems?: string;
     DANGEROUS?: Dictionary;
   };
+  role?: string;
 }
 
 const Group = (props: GroupProps) => {
