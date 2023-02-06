@@ -6,8 +6,7 @@ Boilerplate: includes `react`, `react-router-dom`, `redux-toolkit` and `react-qu
 ## Overview
 
 
-> Those of you who still find it enjoyable to learn the details of, say, a programming language - being able to happily recite off if NaN equals or does not equal null - you just don't yet understand how utterly fucked the whole thing is. If you think it would be cute to align all of the equals signs in your code, if you spend time configuring your window manager or editor, if put unicode check marks in your test runner, if you add unnecessary hierarchies in your code directories, if you are doing anything beyond just solving the problem - you don't understand how fucked the whole thing is. No one gives a fuck about the glib object model. 
-> - **Ryan Dahl** 
+> Those of you who still find it enjoyable to learn the details of, say, a programming language - being able to happily recite off if NaN equals or does not equal null - you just don't yet understand how utterly fucked the whole thing is. If you think it would be cute to align all of the equals signs in your code, if you spend time configuring your window manager or editor, if put unicode check marks in your test runner, if you add unnecessary hierarchies in your code directories, if you are doing anything beyond just solving the problem - you don't understand how fucked the whole thing is. No one gives a fuck about the glib object model. - **Ryan Dahl** 
 
 ### Routes
 | Path      |    Page    | ```@/features/***```
@@ -36,8 +35,8 @@ Boilerplate: includes `react`, `react-router-dom`, `redux-toolkit` and `react-qu
 
 ### Notes 
 
-On Stories there is an example of ```react-query``` calling ```swapi``` graphQL endpoint.
-On Archive there is an example of ```@/system/hooks/useSearchUrl``` in action. 
+On **Stories** there is an example of ```react-query``` calling ```swapi``` graphQL endpoint.
+On **Archive** there is an example of ```@/system/hooks/useSearchUrl``` in action. 
 
 ### Develop
 
@@ -66,18 +65,6 @@ Same idea apply to ```<Card/>``` variants on ```@/system/components/Cards```.
 Working on **namings**, ```@/system/components/Pair``` is great but unless I can name it properly it will never be used by others :) 
 
 **System is documented** on it's own route if you browse demo / run app locally. 
-
-### Inspiration 💐
-
-
-> Our requirements are more modest but at the same time more responsible: 
-> buildings, furniture, drinking glasses may well be consumer items that 
-> we can destroy without regret after they have served for some short or 
-> long period, but while we use them we expect them to fullfill their role and serve us perfectly, so perfectly that we can also derive aesthetic 
-> enjoyment from observing them in use. 
-
-Erik Gunnar Asplund on **Swedish Grace**.
-
 
 ### Feedback 
 
