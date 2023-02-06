@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { ButtonAccent } from "@/system/components/Buttons";
-import { Radio } from "@/system/components/Radio";
+import { Radio } from "@/system/components/Radios";
 import { GroteskXL, HelveticaNeue } from "@/system/components/Typography";
 import useSearchUrl from "@/system/hooks/useSearchUrl";
 import Col from "@/system/components/Col";

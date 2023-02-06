@@ -1,6 +1,6 @@
 import { Lorem, LoremXL } from "@/system/components/Core/Font/utils";
 import { IconBookmark, IconHeart } from "@/system/components/Icons";
-import List from "@/system/components/List";
+import { List } from "@/system/components/Lists";
 import {
   Grotesk,
   GroteskXL,
@@ -16,20 +16,13 @@ import useStories from "../hooks/useStories";
 
 const Stories = () => {
   const { data, isFetching } = useStories();
-  /* 
-    TODO:
-    
-    dispatch(postUpdated({ id: postId, title, content }))
-    
-    const post = useSelector(state =>
-      state.posts.find(post => post.id === postId)
-    );
-  */
+
   return (
     <View>
       <View.Feature>
         <GroteskXL>Stories</GroteskXL>
       </View.Feature>
+
       <View.Popout>
         <List label="stories">
           {isFetching && (
@@ -56,6 +49,7 @@ const Stories = () => {
           ))}
         </List>
       </View.Popout>
+
       <View.Full>
         <Grid as="div" size="md" className="gap:sm">
           {[...Array(12)].map((k, v) => (
