@@ -3,7 +3,7 @@ import { useReducer } from "react";
 /*
   Usage:
   const [value, previousValue, setValue] = useStateWithPrevious('initialValue')
-  credits  https://thoughtbot.com/blog/custom-react-hooks
+  credits https://thoughtbot.com/blog/custom-react-hooks
 */
 const useStateWithPrevious = (initialValue: string) => {
   const reducer = (

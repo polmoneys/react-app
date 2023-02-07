@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 
 /*
-  Stolen from https://github.com/streamich/react-use/blob/master/src/useFormEnter.ts
+  Focus input onStartTyping
+  credits https://github.com/streamich/react-use/blob/master/src/useFormEnter.ts
  */
 
 const useFormEnter = (onStartTyping: (event: KeyboardEvent) => void) => {

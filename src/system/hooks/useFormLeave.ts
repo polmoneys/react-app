@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 /*
-  Enrich user feedback of critical forms
+  Tell user a form has been 'abandoned'
  */
 
 function useFormLeave(id: string, onOut: () => void) {

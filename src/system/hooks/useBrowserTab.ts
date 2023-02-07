@@ -1,3 +1,8 @@
+/* 
+  Open new browser tab. 
+  Apple.com does it for chat support
+*/
+
 type BooleanAsString = "yes" | "no";
 
 export interface Props {
@@ -19,11 +24,6 @@ export interface Props {
     status: BooleanAsString;
   };
 }
-
-/* 
-  Open new browser tab. 
-  Apple.com does it for chat support
-*/
 
 function useBrowserTab(props: Props): () => void {
   const {

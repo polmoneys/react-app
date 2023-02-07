@@ -11,9 +11,13 @@ export interface RenderProp<TChildrenProps, TElement = any> {
   (props: TChildrenProps): ReactElement<TElement>;
 }
 
-// type One = (x:number) => void
-// type Two = AddParams<One, [y:string]>
-// type TwoOldWay = (x:number, y:string) => void
+/* 
+  Usage:
+  type One = (x:number) => void
+  type Two = AddParams<One, [y:string]>
+  vs.
+  type TwoOldWay = (x:number, y:string) => void
+ */
 export type AddParams<
   TFn extends (...args: never[]) => void,
   TParams extends [...args: unknown[]]

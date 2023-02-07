@@ -1,6 +1,9 @@
 import { useReducer } from "react";
 
-// null means closed
+/* 
+  null means 'closed'
+*/
+
 type Menu = null | "file" | "edit" | "view";
 
 function menuReducer(state: Menu, action: Menu) {
