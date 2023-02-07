@@ -68,4 +68,14 @@ Card.Actions = ({
 
 Card.Media = Media;
 
+Card.Portrait = (props: CardProps) => {
+  const { ratio, ...rest } = props;
+  return <Card {...rest} ratio="portrait" />;
+};
+
+Card.Landscape = (props: CardProps) => {
+  const { ratio, ...rest } = props;
+  return <Card {...rest} ratio="landscape" />;
+};
+
 export default Card;

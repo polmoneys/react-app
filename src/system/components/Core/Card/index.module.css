@@ -1,8 +1,6 @@
 .card {
   --card-min-height: 20vh;
-
-  --card-content-gap: var(--gap-3);
-  --card-actions-gap: var(--gap-1) var(--gap-3);
+  --card-padding: var(--gap-3);
 
   --card-bg: var(--color-white);
   --card-content-color: #6b7280;
@@ -25,12 +23,12 @@
 .card > div:not(header),
 .card > div:not(footer) {
   flex-grow: 1;
-  padding: var(--card-content-gap);
+  padding: var(--card-padding);
 }
 
 .card header,
 .card footer {
-  padding: var(--card-actions-gap);
+  padding: var(--gap-2) var(--card-padding);
   width: 100%;
 }
 

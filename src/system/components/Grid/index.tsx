@@ -16,7 +16,7 @@ export interface CardProps {
 }
 
 function Grid(props: CardProps) {
-  const { children, as = "div", size = "xs", className } = props;
+  const { children, as = "div", size = "sm", className } = props;
 
   const Tag = as || ("div" as ElementType);
 

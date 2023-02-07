@@ -3,7 +3,9 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 /*
   Usage:
   const [urlState, setUrlState, updateCurrentUrlState, back] = useSearchUrl();
- */
+  
+  details => https://felixgerschau.com/js-manipulate-url-search-params/
+*/
 
 function useSearchUrl<T extends Record<string, string>>(): readonly [
   T,

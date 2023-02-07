@@ -1,7 +1,14 @@
+import { classes } from "@/system/utils/theme";
 import Alert, { AlertProps } from "../Core/Alert";
 
-export const AlertAccent = (props: AlertProps) => (
-  <Alert {...props} className="accent" />
-);
+export const AlertSuccess = (props: AlertProps) => {
+  const { className, ...rest } = props;
+  return <Alert {...rest} className={classes(className, "accent")} />;
+};
+
+export const AlertError = (props: AlertProps) => {
+  const { className, ...rest } = props;
+  return <Alert {...rest} className={classes(className, "invalid")} />;
+};
 
 export default Alert;

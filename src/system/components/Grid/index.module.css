@@ -1,4 +1,5 @@
 .grid {
+  --item-grid-xs: 180px;
   --item-grid-sm: 250px;
   --item-grid-md: 440px;
   --item-grid-lg: 690px;
@@ -17,6 +18,12 @@
 }
 .grid.grid\:masonry {
   grid-template-rows: masonry;
+}
+.grid[data-grid="xs"] {
+  --grid-item-width: var(--item-grid-xs);
+}
+.grid[data-grid="sm"] {
+  --grid-item-width: var(--item-grid-sm);
 }
 .grid[data-grid="md"] {
   --grid-item-width: var(--item-grid-md);

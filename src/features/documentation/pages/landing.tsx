@@ -40,7 +40,7 @@ import { Checkbox, Switch } from "@/system/components/Checkboxes";
 import { Radio } from "@/system/components/Radios";
 import useFormEnter from "@/system/hooks/useFormEnter";
 import useFormLeave from "@/system/hooks/useFormLeave";
-import { ButtonAccent } from "@/system/components/Buttons";
+import { ButtonError, ButtonSuccess } from "@/system/components/Buttons";
 import { Card } from "@/system/components/Cards";
 import Textarea from "@/system/components/Core/Inputs/textarea";
 
@@ -98,6 +98,11 @@ const Docs = () => {
               <HelveticaNeue className="pair-last">React</HelveticaNeue>
             </Pair>
           </Row>
+          <Card.Actions>
+            <HelveticaNeue className="mr:auto ml:auto">
+              Pair is my fav lil component
+            </HelveticaNeue>
+          </Card.Actions>
         </Card>
         <Card as="div" ratio="auto">
           <Col as="div">
@@ -108,6 +113,10 @@ const Docs = () => {
               initial={false}
             />
           </Col>
+          <Card.Actions>
+            <ButtonSuccess className="mr:auto">Action something</ButtonSuccess>
+            <ButtonError>Action something</ButtonError>
+          </Card.Actions>
         </Card>
         <Card as="div" ratio="auto">
           <Col as="div">
@@ -231,6 +240,12 @@ const Docs = () => {
             <Radio name="unknown" value="unknown" id="radio-unknown" />
             <Radio name="published" value="published" id="radio-published" />
           </Radio.Group>
+          <Card.Actions>
+            <HelveticaNeue className="mr:auto">
+              Footer extra words
+            </HelveticaNeue>
+            <ButtonError>Action </ButtonError>
+          </Card.Actions>
         </Card>
         <Card as="div" ratio="auto">
           <Col as="div" gap="var(--gap-1)">
@@ -311,12 +326,6 @@ const Docs = () => {
               <IconHeart stroke={"var(--accent)"} size="lg" label="" />
               <IconTwitter stroke={"var(--accent)"} size="lg" label="" />
             </Row>
-            <Card.Actions>
-              <HelveticaNeueMedium className="mr:auto">
-                Footer something
-              </HelveticaNeueMedium>
-              <ButtonAccent>Action something</ButtonAccent>
-            </Card.Actions>
           </Card>
         </div>
       </Grid>

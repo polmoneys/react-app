@@ -1,23 +1,31 @@
+import { FormEvent, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { ButtonAccent } from "@/system/components/Buttons";
+import { ButtonSuccess } from "@/system/components/Buttons";
 import { Radio } from "@/system/components/Radios";
-import { GroteskXL, HelveticaNeue } from "@/system/components/Typography";
+import {
+  GroteskXL,
+  HelveticaNeue,
+  HelveticaNeueBold,
+} from "@/system/components/Typography";
 import useSearchUrl from "@/system/hooks/useSearchUrl";
 import Col from "@/system/components/Col";
+import Grid from "@/system/components/Grid";
+import { Card, CardPortraitError } from "@/system/components/Cards";
+import { IconTwitter } from "@/system/components/Icons";
 import { isEmptyObject } from "@/system/utils/record";
-import { useEffect } from "react";
+import { Lorem, LoremMD } from "@/system/components/Core/Font/utils";
 
 const Archive = () => {
   const [urlState, setUrlState, updateCurrentUrlState, back] = useSearchUrl();
 
   useEffect(() => {
     if (isEmptyObject(urlState)) return;
-    // change page according to urlState ...
+    // change page according to urlState as in Radio's defaultChecked prop...
   }, [urlState]);
 
-  const onSubmit = (event: any) => {
+  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const formData = new FormData(event.target);
+    const formData = new FormData(event.currentTarget);
     const newURLSearchParams = Object.fromEntries(formData);
     if (isEmptyObject(newURLSearchParams)) alert("Change some filters");
     updateCurrentUrlState(
@@ -26,7 +34,7 @@ const Archive = () => {
   };
 
   return (
-    <article>
+    <Col as="article" gap="var(--gap-3)">
       <GroteskXL>Archive</GroteskXL>
 
       <Col as="form" onSubmit={onSubmit}>
@@ -46,9 +54,22 @@ const Archive = () => {
           />
         </Radio.GroupFieldset>
 
-        <ButtonAccent>Apply filters to url</ButtonAccent>
+        <ButtonSuccess>Apply filters to url</ButtonSuccess>
       </Col>
-    </article>
+
+      <Grid size="xs" as="div" className="gap:sm">
+        {[...Array(12)].map((k, v) => (
+          <CardPortraitError as="div" key={v}>
+            <Card.Title>
+              <HelveticaNeueBold> Nº {v} </HelveticaNeueBold>
+            </Card.Title>
+            <div>
+              <HelveticaNeue>{LoremMD}</HelveticaNeue>
+            </div>
+          </CardPortraitError>
+        ))}
+      </Grid>
+    </Col>
   );
 };
 

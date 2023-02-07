@@ -3,8 +3,11 @@
   display: flex;
   gap: var(--gap-3);
   padding: var(--gap-3);
+  background-color: var(--color-invalid);
+  color: var(--color-white);
 }
 
 .nav > input[type="search"] {
   margin-left: auto;
+  color: var(--color-black);
 }

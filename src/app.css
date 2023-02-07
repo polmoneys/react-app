@@ -35,6 +35,20 @@ body {
   background-color: var(--color-focus);
 }
 
+.invalid {
+  color: var(--color-white);
+  background-color: var(--color-invalid);
+  fill: var(--color-invalid);
+  stroke-color: var(--color-invalid);
+  outline: var(--border-width) solid var(--color-invalid) !important;
+}
+
+.invalid:hover,
+.invalid:active {
+  color: var(--color-white);
+  background-color: var(--color-invalid);
+}
+
 main + footer {
   background-color: var(--color-focus);
   padding: var(--gap-2) var(--gap-3);

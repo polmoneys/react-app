@@ -8,11 +8,12 @@ import {
   HelveticaNeueBold,
   HelveticaNeueMedium,
 } from "@/system/components/Typography";
-import Card from "@/system/components/Core/Card";
 import Grid from "@/system/components/Grid";
 import { IconTwitter } from "@/system/components/Icons";
 import View from "@/system/components/View";
 import useStories from "../hooks/useStories";
+import { Card, CardPortraitSuccess } from "@/system/components/Cards";
+import Button from "@/system/components/Buttons";
 
 const Stories = () => {
   const { data, isFetching } = useStories();
@@ -53,9 +54,11 @@ const Stories = () => {
       <View.Full>
         <Grid as="div" size="md" className="gap:sm">
           {[...Array(12)].map((k, v) => (
-            <Card as="div" ratio="landscape" key={v}>
+            <Card.Landscape as="div" key={v}>
               <Card.Title>
-                <p className="mr:auto"> Nº {v} </p>
+                <Button className="mr:auto">
+                  <IconHeart label="" />
+                </Button>
                 <IconTwitter size="lg" label="" />
               </Card.Title>
               <Card.Media
@@ -63,7 +66,7 @@ const Stories = () => {
                 height="100%"
                 alt=""
               />
-            </Card>
+            </Card.Landscape>
           ))}
         </Grid>
       </View.Full>
