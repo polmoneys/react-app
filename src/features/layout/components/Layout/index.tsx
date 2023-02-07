@@ -4,7 +4,7 @@ import { useAppSelector } from "@/config/store/hooks";
 import Nav from "@/features/layout/components/Nav";
 import { HelveticaNeue } from "@/system/components/Typography";
 import { settingsSlice } from "../../store";
-import Zoom from "../Zoom";
+import Zoom from "../Footer";
 import Row from "@/system/components/Row";
 import styles from "./index.module.css";
 

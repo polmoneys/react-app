@@ -5,7 +5,11 @@ Boilerplate: includes `react`, `react-router-dom`, `redux-toolkit` and `react-qu
 > Those of you who still find it enjoyable to learn the details of, say, a programming language - being able to happily recite off if NaN equals or does not equal null - you just don't yet understand how utterly fucked the whole thing is. If you think it would be cute to align all of the equals signs in your code, if you spend time configuring your window manager or editor, if put unicode check marks in your test runner, if you add unnecessary hierarchies in your code directories, if you are doing anything beyond just solving the problem - you don't understand how fucked the whole thing is. No one gives a fuck about the glib object model. - **Ryan Dahl** 
 
 
-![Screenshot](https://user-images.githubusercontent.com/7026863/217326928-aee961dc-372c-4ac6-99f9-86a5a304dbb0.gif)
+![gif](https://user-images.githubusercontent.com/7026863/217359561-f22508b9-3d65-4a2a-bacf-8be52a6fed4d.gif)
+
+![gif](https://user-images.githubusercontent.com/7026863/217360861-08489d98-4445-4d55-b1e0-e384847817e6.gif)
+
+![gif](https://user-images.githubusercontent.com/7026863/217360874-5d9fd81d-489a-4095-aac8-892edbbfbb40.gif)
 
 
 
