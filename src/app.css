@@ -49,10 +49,13 @@ body {
   background-color: var(--color-invalid);
 }
 
+.dimmed {
+  background-color: var(--color-grey-ish);
+}
+
 main + footer {
-  background-color: var(--color-focus);
+  background-color: var(--color-grey-ish);
   padding: var(--gap-2) var(--gap-3);
-  color: var(--color-white);
 }
 
 main + footer nav {

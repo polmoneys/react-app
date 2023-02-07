@@ -3,7 +3,7 @@
   display: flex;
   gap: var(--gap-3);
   padding: var(--gap-3);
-  background-color: var(--color-invalid);
+  background-color: var(--color-grey);
   color: var(--color-white);
 }
 

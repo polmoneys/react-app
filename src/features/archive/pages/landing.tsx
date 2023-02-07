@@ -58,16 +58,29 @@ const Archive = () => {
       </Col>
 
       <Grid size="xs" as="div" className="gap:sm">
-        {[...Array(12)].map((k, v) => (
-          <CardPortraitError as="div" key={v}>
-            <Card.Title>
-              <HelveticaNeueBold> Nº {v} </HelveticaNeueBold>
-            </Card.Title>
-            <div>
-              <HelveticaNeue>{LoremMD}</HelveticaNeue>
-            </div>
-          </CardPortraitError>
-        ))}
+        {[...Array(12)].map((k, v) => {
+          if (v === 6)
+            return (
+              <CardPortraitError as="div" key={v}>
+                <Card.Title>
+                  <HelveticaNeueBold> Nº {v} </HelveticaNeueBold>
+                </Card.Title>
+                <div>
+                  <HelveticaNeue>{LoremMD}</HelveticaNeue>
+                </div>
+              </CardPortraitError>
+            );
+          return (
+            <Card as="div" key={v} className="dimmed" ratio="portrait">
+              <Card.Title>
+                <HelveticaNeueBold> Nº {v} </HelveticaNeueBold>
+              </Card.Title>
+              <div>
+                <HelveticaNeue>{LoremMD}</HelveticaNeue>
+              </div>
+            </Card>
+          );
+        })}
       </Grid>
     </Col>
   );
