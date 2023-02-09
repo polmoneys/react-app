@@ -1,10 +1,13 @@
 /*
-  Tames the platform 
-  and sets some default styles for elements:
+  Tames the platform and sets some 
+  default styles:
+    - reset & normalize
     - a
     - button
     - input (text|search)
+    - select
     - textarea 
+    - (prefers mq...)
 */
 
 *,
@@ -55,8 +58,9 @@ a:is(:visited, :hover) {
   cursor: pointer;
 }
 
-:is(button, input[type="search"], input[type="text"], textarea) {
+:is(button, input[type="search"], input[type="text"], textarea, select) {
   appearance: none;
+  -webkit-appearance: none;
   font: inherit;
   outline: var(--border);
   box-shadow: var(--shadow);
@@ -73,7 +77,13 @@ a:is(:visited, :hover) {
   font-size: max(16px, 1rem);
 } */
 
-:is(button, input[type="search"], input[type="text"], textarea):disabled {
+:is(
+    button,
+    input[type="search"],
+    input[type="text"],
+    textarea,
+    select
+  ):disabled {
   opacity: 0.3;
   cursor: default;
   pointer-events: none;
@@ -146,6 +156,49 @@ input[type="search"] {
     input[type="text"]:disabled:-ms-input-placeholder
   ) {
   color: var(--color-black);
+}
+
+select {
+  display: flex;
+  width: 100%;
+  padding: 0 var(--gap-4) 0 var(--gap-1);
+  line-height: var(--comfy-height-xs);
+  height: var(--comfy-height-xs);
+  background: var(--white);
+  /*
+    unsupported
+  */
+  accent-color: var(--color-focus);
+}
+
+select option {
+  color: inherit;
+}
+select::-ms-expand {
+  display: none;
+}
+
+select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+[data-select] {
+  position: relative;
+}
+[data-select]:after {
+  content: " ";
+  position: absolute;
+  right: var(--gap-3);
+  top: 50%;
+  z-index: (--z-2);
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 6.9px 4px 0 4px;
+  border-color: currentColor transparent transparent transparent;
+  pointer-events: none;
+  transform: translateY(-50%) scale(1.2);
 }
 
 textarea {

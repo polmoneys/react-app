@@ -67,7 +67,7 @@ From ```@/system/components/Core/Group``` we can export layout components like `
 From ```@/system/components/Core/Inputs``` we can export interactive components and specialize them as ```<ButtonAccent/>``` on top of ```<Button/>```. Check folder  ```@/system/components/Buttons```. 
 Same idea apply to ```<Card/>``` variants on ```@/system/components/Cards```.
 
-Working on **namings**, ```@/system/components/Pair``` is great but unless I can name it properly it will never be used by others :) 
+Working on **namings**, ```@/system/components/Couple``` is great but unless I can name it properly it will never be used by others :) 
 
 **System is documented** on it's own route if you browse demo / run app locally. 
 

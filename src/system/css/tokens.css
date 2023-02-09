@@ -1,6 +1,7 @@
 :root {
   --zero: 0;
 
+  --comfy-height-xs: auto;
   --comfy-height: 44px;
 
   --gap-1: 0.4em;

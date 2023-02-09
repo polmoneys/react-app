@@ -2,7 +2,7 @@ import { ChangeEvent, ComponentProps, Fragment } from "react";
 import { FocusRing } from "@react-aria/focus";
 import { RenderProp } from "@/system/interfaces";
 import { classes } from "@/system/utils/theme";
-import Pair from "../../Pair";
+import Couple from "../../Couple";
 import RadioGroup from "./radioGroup";
 import RadioLabel from "./radioLabel";
 import { HelveticaNeue } from "../../Typography";
@@ -60,7 +60,7 @@ function Radio(props?: RadioProps) {
   );
 
   return (
-    <Pair as="label" htmlFor={id} className={groupClassnames}>
+    <Couple as="label" htmlFor={id} className={groupClassnames}>
       <FocusRing
         autoFocus={autoFocus}
         {...(!disabled && { focusClass: "ring" })}
@@ -79,7 +79,7 @@ function Radio(props?: RadioProps) {
         />
       </FocusRing>
       {inputLabel}
-    </Pair>
+    </Couple>
   );
 }
 

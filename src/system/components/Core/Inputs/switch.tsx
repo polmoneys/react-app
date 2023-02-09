@@ -1,6 +1,6 @@
 import { ComponentProps, ChangeEvent, ReactNode } from "react";
 import { FocusRing } from "@react-aria/focus";
-import Pair from "@/system/components/Pair";
+import Couple from "@/system/components/Couple";
 import { classes } from "@/system/utils/theme";
 import styles from "./switch.module.css";
 
@@ -25,7 +25,11 @@ function Switch(props: SwitchProps) {
   const onSwitchChange = (event: ChangeEvent<HTMLInputElement>) =>
     onChangeBoolean(event.target.checked);
   return (
-    <Pair as="label" htmlFor={id} className={classes(styles.group, className)}>
+    <Couple
+      as="label"
+      htmlFor={id}
+      className={classes(styles.group, className)}
+    >
       <FocusRing
         autoFocus={autoFocus}
         {...(!disabled && { focusClass: "ring" })}
@@ -39,7 +43,7 @@ function Switch(props: SwitchProps) {
         />
       </FocusRing>
       {label}
-    </Pair>
+    </Couple>
   );
 }
 
@@ -58,7 +62,11 @@ Switch.Uncontrolled = (props: SwitchPropsUncontrolled) => {
   } = props;
 
   return (
-    <Pair as="label" htmlFor={id} className={classes(styles.group, className)}>
+    <Couple
+      as="label"
+      htmlFor={id}
+      className={classes(styles.group, className)}
+    >
       <FocusRing
         autoFocus={autoFocus}
         {...(!disabled && { focusClass: "ring" })}
@@ -67,7 +75,7 @@ Switch.Uncontrolled = (props: SwitchPropsUncontrolled) => {
         <input type="checkbox" {...rest} />
       </FocusRing>
       {label}
-    </Pair>
+    </Couple>
   );
 };
 

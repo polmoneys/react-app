@@ -1,7 +1,7 @@
 import { ComponentProps, Fragment } from "react";
 import { FocusRing } from "@react-aria/focus";
 import { classes } from "@/system/utils/theme";
-import Pair from "../../Pair";
+import Couple from "../../Couple";
 import { HelveticaNeue } from "../../Typography";
 import styles from "./radio.module.css";
 
@@ -32,7 +32,7 @@ function RadioFieldset(props?: RadioProps) {
   const groupClassnames = classes(styles.control, classNames?.group);
 
   return (
-    <Pair as="label" htmlFor={id} className={groupClassnames}>
+    <Couple as="label" htmlFor={id} className={groupClassnames}>
       <FocusRing
         autoFocus={autoFocus}
         {...(!disabled && { focusClass: "ring" })}
@@ -50,7 +50,7 @@ function RadioFieldset(props?: RadioProps) {
         />
       </FocusRing>
       <HelveticaNeue>{label}</HelveticaNeue>
-    </Pair>
+    </Couple>
   );
 }
 

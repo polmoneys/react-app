@@ -1,6 +1,6 @@
 import Group, { GroupProps } from "../Core/Group";
 
-const Pair = (props: GroupProps) => {
+const Couple = (props: GroupProps) => {
   const { gap = "var(--gap-2)", ...rest } = props;
   return (
     <Group
@@ -11,4 +11,4 @@ const Pair = (props: GroupProps) => {
   );
 };
 
-export default Pair;
+export default Couple;

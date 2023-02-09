@@ -1,14 +1,16 @@
-import { useReducer } from "react";
+import { Dispatch, useReducer } from "react";
 
 /*
   Usage:
   const [value, previousValue, setValue] = useStateWithPrevious('initialValue')
   credits https://thoughtbot.com/blog/custom-react-hooks
 */
-const useStateWithPrevious = (initialValue: string) => {
+const useStateWithPrevious = (
+  initialValue: string | boolean
+): [string | boolean, string | boolean, Dispatch<string | boolean>] => {
   const reducer = (
-    state: Record<"value" | "previousValue", string>,
-    value: string
+    state: Record<"value" | "previousValue", string | boolean>,
+    value: string | boolean
   ) => ({
     value,
     previousValue: state.value,
@@ -16,7 +18,7 @@ const useStateWithPrevious = (initialValue: string) => {
 
   const [{ value, previousValue }, setValue] = useReducer(reducer, {
     value: initialValue,
-    previousValue: "",
+    previousValue: typeof initialValue === "string" ? "" : false,
   });
 
   return [value, previousValue, setValue];

@@ -34,7 +34,7 @@ import {
 import Row from "@/system/components/Row";
 import Col from "@/system/components/Col";
 import Grid from "@/system/components/Grid";
-import Pair from "@/system/components/Pair";
+import Couple from "@/system/components/Couple";
 import useLeader from "@/system/hooks/useLeader";
 import { Checkbox, Switch } from "@/system/components/Checkboxes";
 import { Radio } from "@/system/components/Radios";
@@ -43,6 +43,8 @@ import useFormLeave from "@/system/hooks/useFormLeave";
 import { ButtonError, ButtonSuccess } from "@/system/components/Buttons";
 import { Card } from "@/system/components/Cards";
 import Textarea from "@/system/components/Core/Inputs/textarea";
+import Select from "@/system/components/Core/Inputs/select";
+import Disclosure from "@/system/components/Core/Disclosure";
 
 type StatusMachine = "draft" | "live" | "unknown" | "published";
 
@@ -64,6 +66,8 @@ const Docs = () => {
     }
   };
 
+  const [target, setTarget] = useState("");
+
   /*
   
   const input = useRef<HTMLInputElement>(null);
@@ -77,7 +81,6 @@ const Docs = () => {
   useFormLeave("form-id", () =>
     alert("Form is not submitted, is that what you want ?")
   );
-
    */
   return (
     <article>
@@ -85,22 +88,22 @@ const Docs = () => {
       <Grid as="div" size="md" className="gap:xl">
         <Card ratio="auto" as="div">
           <Row as="div" gap="var(--gap-3)" size="100%">
-            <Pair as="div">
+            <Couple as="div">
               <HelveticaNeue>
                 <IconHeart label="Like it" />
               </HelveticaNeue>
               <HelveticaNeue className="pair-last">React</HelveticaNeue>
-            </Pair>
-            <Pair as="div" className="pair-shortened ml:auto">
+            </Couple>
+            <Couple as="div" className="pair-shortened ml:auto">
               <HelveticaNeue>
                 <IconHeart label="Like it" />
               </HelveticaNeue>
               <HelveticaNeue className="pair-last">React</HelveticaNeue>
-            </Pair>
+            </Couple>
           </Row>
           <Card.Actions>
             <HelveticaNeue className="mr:auto ml:auto">
-              Pair is my fav lil component
+              Couple is my fav lil component
             </HelveticaNeue>
           </Card.Actions>
         </Card>
@@ -176,14 +179,14 @@ const Docs = () => {
                 checked: boolean;
                 radioLabel: string;
               }) => (
-                <Pair as="div">
+                <Couple as="div">
                   {checked ? (
                     <IconCheck label="checked" size="lg" />
                   ) : (
                     <IconCross label="unchecked" size="lg" />
                   )}
                   {radioLabel}
-                </Pair>
+                </Couple>
               )}
             >
               <Radio.Label
@@ -297,6 +300,7 @@ const Docs = () => {
             </Col>
           </Card>
         </div>
+
         <div>
           <Card as="div" ratio="auto">
             <Card.Title>Icon Factory</Card.Title>
@@ -328,6 +332,36 @@ const Docs = () => {
             </Row>
           </Card>
         </div>
+
+        <Card as="div" ratio="auto">
+          <Card.Title>Native Select</Card.Title>
+
+          <Col as="div">
+            <Select
+              options={[
+                { value: "es3", label: "ECMAScript 3" },
+                { value: "es5", label: "ECMAScript 5" },
+                { value: "es2015", label: "ECMAScript 2015" },
+                { value: "es2016", label: "ECMAScript 2016" },
+                { value: "es2017", label: "ECMAScript 2017" },
+                { value: "es2018", label: "ECMAScript 2018" },
+                { value: "es2019", label: "ECMAScript 2019" },
+              ]}
+              value={target}
+              onChange={setTarget}
+              placeholder="Build target"
+            />
+          </Col>
+        </Card>
+
+        <Card as="div" ratio="auto">
+          <Card.Title>Disclosure</Card.Title>
+          <Col as="div">
+            <Disclosure as="div" id="test-disclosure" label="DID I WIN ? ">
+              <HelveticaNeueBold>YOU WIN </HelveticaNeueBold>
+            </Disclosure>
+          </Col>
+        </Card>
       </Grid>
     </article>
   );

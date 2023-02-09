@@ -41,9 +41,10 @@ const Textarea = (props: TextareaProps) => {
     if (textareaRef && textareaRef.current !== null) {
       onInput(textareaRef.current);
     }
-  }, [onInput, textareaRef]);
+  }, [onInput]);
 
   useEffect(() => {
+    if (editingValue.toString().trim() === "") return;
     onChangeValue(editingValue);
   }, [editingValue]);
 

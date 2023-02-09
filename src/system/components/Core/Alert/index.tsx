@@ -2,7 +2,7 @@ import { AriaAttributes, ReactNode } from "react";
 import Group, { GroupProps } from "../Group";
 
 export interface AlertProps extends GroupProps {
-  role?: "alert" | "status" | "none";
+  role?: "alert" | "status" | "log" | "none";
   live?: "polite" | "off" | "assertive";
   relevant?: AriaAttributes["aria-relevant"];
   children: ReactNode;

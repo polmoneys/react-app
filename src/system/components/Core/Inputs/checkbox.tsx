@@ -2,7 +2,7 @@ import { ComponentProps, ReactNode, useEffect, useMemo } from "react";
 import { FocusRing } from "@react-aria/focus";
 import { classes } from "@/system/utils/theme";
 import { IconCheck, IconCross, IconDash } from "../../Icons";
-import Pair from "../../Pair";
+import Couple from "../../Couple";
 import Layers from "../Layers";
 import styles from "./checkbox.module.css";
 
@@ -64,7 +64,7 @@ function Checkbox(props: CheckboxProps) {
   }, [isMixed]);
 
   return (
-    <Pair as="label" htmlFor={id} className={groupClassNames}>
+    <Couple as="label" htmlFor={id} className={groupClassNames}>
       <Layers as="div">
         {isMixed && <IconDash label="mixed" size="lg" />}
         {checked && <IconCheck label="checked" size="lg" />}
@@ -90,7 +90,7 @@ function Checkbox(props: CheckboxProps) {
         </FocusRing>
       </Layers>
       {label}
-    </Pair>
+    </Couple>
   );
 }
 
