@@ -1,15 +1,15 @@
-import { ReactElement } from "react";
+import { type ReactElement } from 'react'
 
-export type Value = string | number;
+export type Value = string | number
 
-export type Dictionary<T = Value> = Record<string, T>;
+export type Dictionary<T = Value> = Record<string, T>
 export interface Dictionaries extends Array<Dictionary> {}
 
-export type ArrayProp = Array<string> | string;
+export type ArrayProp = string[] | string
 
-export interface RenderProp<TChildrenProps, TElement = any> {
-  (props: TChildrenProps): ReactElement<TElement>;
-}
+export type RenderProp<TChildrenProps, TElement = any> = (
+  props: TChildrenProps,
+) => ReactElement<TElement>
 
 /* 
   Usage:
@@ -20,5 +20,5 @@ export interface RenderProp<TChildrenProps, TElement = any> {
  */
 export type AddParams<
   TFn extends (...args: never[]) => void,
-  TParams extends [...args: unknown[]]
-> = (...args: [...Parameters<TFn>, ...TParams]) => ReturnType<TFn>;
+  TParams extends [...args: unknown[]],
+> = (...args: [...Parameters<TFn>, ...TParams]) => ReturnType<TFn>

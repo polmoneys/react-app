@@ -1,7 +1,7 @@
 @font-face {
-  font-family: "Brandon Grotesque";
-  src: url("./assets/BrandonGrotesque-Black.woff2") format("woff2"),
-    url("./assets/BrandonGrotesque-Black.woff") format("woff");
+  font-family: 'Brandon Grotesque';
+  src: url('./assets/BrandonGrotesque-Black.woff2') format('woff2'),
+    url('./assets/BrandonGrotesque-Black.woff') format('woff');
   font-weight: 900;
   font-style: normal;
 }

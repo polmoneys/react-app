@@ -1,35 +1,37 @@
-import { useRef } from "react";
+import { useRef } from 'react'
 
-type UnknownArray = Array<unknown>;
-type UnknownObject = { [key: string]: UnknownArray };
+type UnknownArray = unknown[]
+type UnknownObject = Record<string, UnknownArray>
 interface Option {
-  id: string;
-  name: string;
+  id: string
+  name: string
 }
 
-type Options = Array<Option>;
-function useCache() {
-  const c = useRef({
-    cache: {} as UnknownObject,
+type Options = Option[]
+
+function useCache(): Record<string, unknown> {
+  const initial: UnknownObject = {}
+  const store = useRef({
+    cache: initial,
     has(key: string) {
-      const ok = this.cache[key] !== undefined;
-      return ok ? true : false;
+      const ok = this.cache[key] !== undefined
+      return !!ok
     },
     set(key: string, value: UnknownArray | Options) {
-      this.cache[key] = value;
+      this.cache[key] = value
     },
     clear() {
-      this.cache = {};
+      this.cache = {}
     },
     get(key: string) {
       if (!this.has(key)) {
-        return undefined;
+        return undefined
       }
-      return this.cache[key];
+      return this.cache[key]
     },
-  }).current;
+  }).current
 
-  return c;
+  return store
 }
 
-export default useCache;
+export default useCache

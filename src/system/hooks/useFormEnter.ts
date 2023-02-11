@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect } from 'react'
 
 /*
   Focus input onStartTyping
@@ -10,39 +10,39 @@ const useFormEnter = (onStartTyping: (event: KeyboardEvent) => void) => {
     const keydown = (event: KeyboardEvent) => {
       !isFocusedElementEditable() &&
         isTypedCharGood(event) &&
-        onStartTyping(event);
-    };
+        onStartTyping(event)
+    }
 
-    document.addEventListener("keydown", keydown);
+    document.addEventListener('keydown', keydown)
 
     return () => {
-      document.removeEventListener("keydown", keydown);
-    };
-  }, []);
-};
+      document.removeEventListener('keydown', keydown)
+    }
+  }, [])
+}
 
 const isFocusedElementEditable = () => {
-  const { activeElement, body } = document;
+  const { activeElement, body } = document
 
-  if (!activeElement) {
-    return false;
+  if (activeElement == null) {
+    return false
   }
 
   // If not element has focus, we assume it is not editable, too.
   if (activeElement === body) {
-    return false;
+    return false
   }
 
   // Assume <input> and <textarea> elements are editable.
   switch (activeElement.tagName) {
-    case "INPUT":
-    case "TEXTAREA":
-      return true;
+    case 'INPUT':
+    case 'TEXTAREA':
+      return true
   }
 
   // Check if any other focused element id editable.
-  return activeElement.hasAttribute("contenteditable");
-};
+  return activeElement.hasAttribute('contenteditable')
+}
 
 const isTypedCharGood = ({
   keyCode,
@@ -51,18 +51,18 @@ const isTypedCharGood = ({
   altKey,
 }: KeyboardEvent) => {
   if (metaKey || ctrlKey || altKey) {
-    return false;
+    return false
   }
   // 0...9
   if (keyCode >= 48 && keyCode <= 57) {
-    return true;
+    return true
   }
   // a...z
   if (keyCode >= 65 && keyCode <= 90) {
-    return true;
+    return true
   }
   // All other keys.
-  return false;
-};
+  return false
+}
 
-export default useFormEnter;
+export default useFormEnter

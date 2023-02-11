@@ -1,51 +1,52 @@
-import { createSlice } from "@reduxjs/toolkit";
-import type { RootState } from "@/config/store";
-import Archive, { AddFilter, RemoveFilter } from "../interfaces/Archive";
+import { createSlice } from '@reduxjs/toolkit'
+import type { RootState } from '@/config/store'
+import { type AddFilter, type RemoveFilter } from '../interfaces/Archive'
+import type Archive from '../interfaces/Archive'
 
 export const initialState: Archive = {
   filters: {
     favorites: false,
-    status: "draft",
-    from: "01-01-2000",
-    to: "01-01-2023",
+    status: 'draft',
+    from: '01-01-2000',
+    to: '01-01-2023',
   },
-};
+}
 
 export const archiveStore = createSlice({
-  name: "archive",
+  name: 'archive',
   initialState,
   reducers: {
     addFilter: (state, { payload }: AddFilter) => {
-      const { filter, value } = payload;
+      const { filter, value } = payload
       return {
         ...state,
         filters: {
           ...state.filters,
           [filter]: value,
         },
-      };
+      }
     },
     removeFilter: (state, { payload }: RemoveFilter) => {
-      const { filter } = payload;
+      const { filter } = payload
       return {
         ...state,
         filters: {
           ...state.filters,
           [filter]: initialState[filter],
         },
-      };
+      }
     },
     updateFilters: (_, { payload }) => {
-      const { newState } = payload;
-      return newState;
+      const { newState } = payload
+      return newState
     },
     resetFilters: () => initialState,
   },
-});
+})
 
 export const { addFilter, resetFilters, removeFilter, updateFilters } =
-  archiveStore.actions;
+  archiveStore.actions
 
-export const archiveFiltersSlice = (state: RootState) => state.archive.filters;
+export const archiveFiltersSlice = (state: RootState) => state.archive.filters
 
-export default archiveStore.reducer;
+export default archiveStore.reducer

@@ -1,18 +1,19 @@
-import { createSlice, nanoid } from "@reduxjs/toolkit";
-import type { RootState } from "@/config/store";
-import Stories, { AddStory } from "../interfaces/Stories";
+import { createSlice, nanoid } from '@reduxjs/toolkit'
+import type { RootState } from '@/config/store'
+import { type AddStory } from '../interfaces/Stories'
+import type Stories from '../interfaces/Stories'
 
-const initialState: Record<"stories", Stories> = {
+const initialState: Record<'stories', Stories> = {
   stories: [],
-};
+}
 
 export const storiesStore = createSlice({
-  name: "stories",
+  name: 'stories',
   initialState,
   reducers: {
     addStory: {
       reducer(state, { payload }: AddStory) {
-        state.stories.push(payload);
+        state.stories.push(payload)
       },
       prepare(title, content, director, releaseDate) {
         return {
@@ -23,22 +24,22 @@ export const storiesStore = createSlice({
             director,
             releaseDate,
           },
-        };
+        }
       },
     },
     updateStory: (state, { payload }: AddStory) => {
-      const { id, title, content } = payload;
-      const existingPost = state.stories.find(story => story.id === id);
-      if (existingPost) {
-        existingPost.title = title;
-        existingPost.content = content;
+      const { id, title, content } = payload
+      const existingPost = state.stories.find(story => story.id === id)
+      if (existingPost != null) {
+        existingPost.title = title
+        existingPost.content = content
       }
     },
   },
-});
+})
 
-export const { addStory, updateStory } = storiesStore.actions;
+export const { addStory, updateStory } = storiesStore.actions
 
-export const storiesSlice = (state: RootState) => state.stories;
+export const storiesSlice = (state: RootState) => state.stories
 
-export default storiesStore.reducer;
+export default storiesStore.reducer

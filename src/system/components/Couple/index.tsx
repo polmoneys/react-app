@@ -1,14 +1,14 @@
-import Group, { GroupProps } from "../Core/Group";
+import Group, { type GroupProps } from '../Core/Group'
 
 const Couple = (props: GroupProps) => {
-  const { gap = "var(--gap-2)", ...rest } = props;
+  const { gap = 'var(--gap-2)', ...rest } = props
   return (
     <Group
       {...rest}
       gap={gap}
-      options={{ wrap: "wrap", alignItems: "center", justifyContent: "center" }}
+      options={{ wrap: 'wrap', alignItems: 'center', justifyContent: 'center' }}
     />
-  );
-};
+  )
+}
 
-export default Couple;
+export default Couple

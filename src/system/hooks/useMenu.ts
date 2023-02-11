@@ -1,19 +1,19 @@
-import { useReducer } from "react";
+import { useReducer } from 'react'
 
 /* 
   null means 'closed'
 */
 
-type Menu = null | "file" | "edit" | "view";
+type Menu = null | 'file' | 'edit' | 'view'
 
 function menuReducer(state: Menu, action: Menu) {
   if (action === state) {
-    return null;
+    return null
   }
 
-  return action;
+  return action
 }
 
-const useMenu = () => useReducer(menuReducer, null);
+const useMenu = () => useReducer(menuReducer, null)
 
-export default useMenu;
+export default useMenu

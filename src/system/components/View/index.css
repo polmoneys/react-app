@@ -3,7 +3,7 @@
 https://ryanmulligan.dev/blog/layout-breakouts/
     */
 
-[data-view="root"] {
+[data-view='root'] {
   --view-gap: clamp(1rem, 6vw, 3rem);
   --view-full: minmax(var(--view-gap), 1fr);
   --view-content: min(50ch, 100% - var(--view-gap) * 2);
@@ -22,19 +22,19 @@ https://ryanmulligan.dev/blog/layout-breakouts/
     var(--view-full) [full-end];
 }
 
-[data-view="root"] > * {
+[data-view='root'] > * {
   grid-column: content;
 }
 
-[data-view="popout"] {
+[data-view='popout'] {
   grid-column: popout;
 }
 
-[data-view="feature"] {
+[data-view='feature'] {
   grid-column: feature;
 }
 
-[data-view="full"] {
+[data-view='full'] {
   grid-column: full;
   border-radius: unset;
 }

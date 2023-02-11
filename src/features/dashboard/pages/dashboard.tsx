@@ -1,17 +1,19 @@
-import { useState } from "react";
-import { GroteskXL, HelveticaNeue } from "@/system/components/Typography";
-import { Timer } from "@/system/utils/timer";
-import { AlertSuccess, AlertError } from "@/system/components/Alerts";
-import Col from "@/system/components/Col";
+import { useState } from 'react'
+import { GroteskXL, HelveticaNeue } from '@/system/components/Typography'
+import { Timer } from '@/system/utils/timer'
+import { AlertSuccess, AlertError } from '@/system/components/Alerts'
+import Col from '@/system/components/Col'
 
-const Dashboard = () => {
-  const [alert, setAlert] = useState<null | string>(null);
-  const [alertError, setAlertError] = useState<null | string>(null);
+const Dashboard = (): JSX.Element => {
+  const [alert, setAlert] = useState<null | string>(null)
+  const [alertError, setAlertError] = useState<null | string>(null)
 
-  new Timer(() => setAlert("You've been staring page for 2s"), 2000);
   new Timer(() => {
-    setAlertError("Please go hug a tree :) ");
-  }, 4000);
+    setAlert("You've been staring page for 2s")
+  }, 2000)
+  new Timer(() => {
+    setAlertError('Please go hug a tree :) ')
+  }, 4000)
 
   return (
     <Col as="article" gap="var(--gap-3)">
@@ -28,7 +30,7 @@ const Dashboard = () => {
         </AlertError>
       )}
     </Col>
-  );
-};
+  )
+}
 
-export default Dashboard;
+export default Dashboard

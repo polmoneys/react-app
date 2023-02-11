@@ -1,81 +1,81 @@
 import {
-  AriaAttributes,
+  type AriaAttributes,
   useMemo,
-  ElementType,
-  CSSProperties,
-  ReactNode,
-} from "react";
-import { Dictionary } from "@/system/interfaces";
+  type ElementType,
+  type CSSProperties,
+  type ReactNode,
+} from 'react'
+import { type Dictionary } from '@/system/interfaces'
 
 const HTMLtag = [
-  "section",
-  "article",
-  "nav",
-  "aside",
-  "header",
-  "footer",
-  "label",
-  "fieldset",
-  "p",
-  "h1",
-  "h2",
-  "h3",
-  "ul",
-  "li",
-  "div",
-  "form",
-] as const;
-type HTMLTags = typeof HTMLtag[number];
+  'section',
+  'article',
+  'nav',
+  'aside',
+  'header',
+  'footer',
+  'label',
+  'fieldset',
+  'p',
+  'h1',
+  'h2',
+  'h3',
+  'ul',
+  'li',
+  'div',
+  'form',
+] as const
+type HTMLTags = (typeof HTMLtag)[number]
 
-const VariantOptions = ["flex", "grid"] as const;
-type Variants = typeof VariantOptions[number];
+const VariantOptions = ['flex', 'grid'] as const
+type Variants = (typeof VariantOptions)[number]
 
 export interface GroupProps extends AriaAttributes {
-  children: ReactNode;
-  className?: string;
-  as: HTMLTags;
-  variant?: Variants;
-  gap?: string;
-  size?: string;
-  id?: string;
-  htmlFor?: string;
-  onSubmit?: (event: any) => void;
+  children: ReactNode
+  className?: string
+  as: HTMLTags
+  variant?: Variants
+  gap?: string
+  size?: string
+  id?: string
+  htmlFor?: string
+  onSubmit?: (event: any) => void
   options?: {
-    stretch?: boolean;
-    alignItems?: string;
-    justifyContent?: string;
-    wrap?: string;
-    direction?: string;
-    placeItems?: string;
-    DANGEROUS?: Dictionary;
-  };
-  role?: string;
+    stretch?: boolean
+    alignItems?: string
+    justifyContent?: string
+    wrap?: string
+    direction?: string
+    placeItems?: string
+    DANGEROUS?: Dictionary
+  }
+  role?: string
 }
 
 const Group = (props: GroupProps) => {
   const {
     children,
     as,
-    gap = "var(--gap-1)",
-    size = "",
-    variant = "flex",
+    gap = 'var(--gap-1)',
+    size = '',
+    variant = 'flex',
     options,
     ...rest
-  } = props;
+  } = props
 
-  const isFlex = variant === "flex";
+  const isFlex = variant === 'flex'
 
   const stylesConfig = useMemo(() => {
     if (isFlex) {
       return {
-        display: "flex",
+        display: 'flex',
         gap,
         ...(options?.direction !== undefined && {
           flexDirection: options?.direction,
         }),
         ...(options?.stretch !== undefined && {
-          width: "100%",
-          height: "100%",
+          width: '100%',
+          height: '100%',
         }),
         ...(options?.alignItems !== undefined && {
           alignItems: options.alignItems,
@@ -85,19 +85,19 @@ const Group = (props: GroupProps) => {
         }),
 
         ...(options?.wrap !== undefined && { flexWrap: options.wrap }),
-        ...(size !== "" && { flex: `1 0 ${size}` }),
-      };
+        ...(size !== '' && { flex: `1 0 ${size}` }),
+      }
     }
     return {
-      display: "grid",
+      display: 'grid',
       gap,
-      ...(size !== "" && {
+      ...(size !== '' && {
         gridTemplateColumns: `repeat(auto-fit, minmax(min(100%,${size}), 1fr))`,
       }),
-      ...(options?.stretch && { width: "100%" }),
-    };
-  }, [isFlex]) as CSSProperties;
-  const Tag = as || ("div" as ElementType);
+      ...(options?.stretch !== undefined && { width: '100%' }),
+    }
+  }, [isFlex]) as CSSProperties
+  const Tag = as ?? ('div' as ElementType)
 
   return (
     <Tag
@@ -111,7 +111,7 @@ const Group = (props: GroupProps) => {
     >
       {children}
     </Tag>
-  );
-};
+  )
+}
 
-export default Group;
+export default Group

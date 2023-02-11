@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect } from 'react'
 
 /*
   Tell user a form has been 'abandoned'
@@ -6,24 +6,24 @@ import { useEffect } from "react";
 
 function useFormLeave(id: string, onOut: () => void) {
   useEffect(() => {
-    const formElement = document.querySelector(`#${id}`);
+    const formElement = document.querySelector(`#${id}`)
 
     const onFocusOut = (event: any) => {
-      if (formElement) {
+      if (formElement != null) {
         if (!formElement.contains(event.relatedTarget as Node)) {
-          onOut();
+          onOut()
         }
       }
-    };
-    if (formElement) {
-      formElement.addEventListener("focusout", onFocusOut);
+    }
+    if (formElement != null) {
+      formElement.addEventListener('focusout', onFocusOut)
     }
     return () => {
-      if (formElement) {
-        formElement.removeEventListener("focusout", onFocusOut);
+      if (formElement != null) {
+        formElement.removeEventListener('focusout', onFocusOut)
       }
-    };
-  }, [id]);
+    }
+  }, [id])
 }
 
-export default useFormLeave;
+export default useFormLeave

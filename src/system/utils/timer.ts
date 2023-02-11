@@ -6,34 +6,37 @@
  */
 
 export class Timer {
-  timerId: ReturnType<typeof setTimeout> | null = null;
-  start?: number;
-  remaining: number;
-  cb: () => void;
+  timerId: ReturnType<typeof setTimeout> | null = null
+  start?: number
+  remaining: number
+  cb: () => void
 
   constructor(cb: () => void, delay: number) {
-    this.remaining = delay;
-    this.cb = cb;
-    this.resume();
+    this.remaining = delay
+    this.cb = cb
+    this.resume()
   }
+
   resume = () => {
-    this.start = Date.now();
+    this.start = Date.now()
     if (this.timerId !== null) {
-      clearTimeout(this.timerId);
+      clearTimeout(this.timerId)
     }
-    this.timerId = setTimeout(this.cb, this.remaining);
-  };
+    this.timerId = setTimeout(this.cb, this.remaining)
+  }
+
   clear = () => {
     if (this.timerId !== null) {
-      clearTimeout(this.timerId);
+      clearTimeout(this.timerId)
     }
-  };
+  }
+
   pause = () => {
     if (this.timerId !== null) {
-      clearTimeout(this.timerId);
+      clearTimeout(this.timerId)
     }
     if (this.start !== undefined) {
-      this.remaining -= Date.now() - this.start;
+      this.remaining -= Date.now() - this.start
     }
-  };
+  }
 }

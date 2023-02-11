@@ -3,26 +3,26 @@
   Apple.com does it for chat support
 */
 
-type BooleanAsString = "yes" | "no";
+type BooleanAsString = 'yes' | 'no'
 
 export interface Props {
-  url: string;
-  title: string;
+  url: string
+  title: string
   /** X axis */
-  left?: number;
+  left?: number
   /** Y axis */
-  top?: number;
+  top?: number
   /** width */
-  width?: number;
+  width?: number
   /** height */
-  height?: number;
+  height?: number
   config?: {
-    menubar: BooleanAsString;
-    location: BooleanAsString;
-    resizable: BooleanAsString;
-    scrollbars: BooleanAsString;
-    status: BooleanAsString;
-  };
+    menubar: BooleanAsString
+    location: BooleanAsString
+    resizable: BooleanAsString
+    scrollbars: BooleanAsString
+    status: BooleanAsString
+  }
 }
 
 function useBrowserTab(props: Props): () => void {
@@ -34,18 +34,18 @@ function useBrowserTab(props: Props): () => void {
     left = 100,
     top = 100,
     config,
-  } = props;
+  } = props
 
-  let options = `left=${left},screenX=${left},top=${top},screenY=${top},width=${width},innerWidth=${width},innerHeight=${height},height=${height}`;
-  const defaultOptions = `menubar=no,location=no,resizable=no,scrollbars=no,status=no,`;
+  let options = `left=${left},screenX=${left},top=${top},screenY=${top},width=${width},innerWidth=${width},innerHeight=${height},height=${height}`
+  const defaultOptions = `menubar=no,location=no,resizable=no,scrollbars=no,status=no,`
   if (config !== undefined) {
-    const userOptions = `menubar=${config?.menubar},location=${config?.location},resizable=${config?.resizable},scrollbars=${config?.scrollbars},status=${config?.status},`;
-    options = `${options}${userOptions}`;
+    const userOptions = `menubar=${config?.menubar},location=${config?.location},resizable=${config?.resizable},scrollbars=${config?.scrollbars},status=${config?.status},`
+    options = `${options}${userOptions}`
   } else {
-    options = `${options}${defaultOptions}`;
+    options = `${options}${defaultOptions}`
   }
-  const trigger = () => window.open(url, title, options);
-  return trigger;
+  const trigger = () => window.open(url, title, options)
+  return trigger
 }
 
-export default useBrowserTab;
+export default useBrowserTab

@@ -1,10 +1,10 @@
-import { Fragment } from "react";
-import { useRouteError } from "react-router-dom";
-import Nav from "@/features/layout/components/Nav";
-import styles from "../Layout/index.module.css";
+import { Fragment } from 'react'
+import { useRouteError } from 'react-router-dom'
+import Nav from '@/features/layout/components/Nav'
+import styles from '../Layout/index.module.css'
 
 const ErrorLayout = () => {
-  const error = useRouteError();
+  const error = useRouteError()
   return (
     <Fragment>
       <Nav />
@@ -16,7 +16,7 @@ const ErrorLayout = () => {
         <p>Sorry, an unexpected error has occurred.</p>
       </main>
     </Fragment>
-  );
-};
+  )
+}
 
-export default ErrorLayout;
+export default ErrorLayout

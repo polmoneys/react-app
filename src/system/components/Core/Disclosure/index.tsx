@@ -1,20 +1,22 @@
-import { ReactNode, useCallback, useState } from "react";
-import Button from "../../Buttons";
-import Col from "../../Col";
-import { GroupProps } from "../Group";
+import { type ReactNode, useCallback, useState } from 'react'
+import Button from '../../Buttons'
+import Col from '../../Col'
+import { type GroupProps } from '../Group'
 
-interface DisclosureProps extends Omit<GroupProps, "id"> {
-  id: string;
-  label: ReactNode;
-  initialOpen?: boolean;
+interface DisclosureProps extends Omit<GroupProps, 'id'> {
+  id: string
+  label: ReactNode
+  initialOpen?: boolean
 }
 
 const Disclosure = (props: DisclosureProps) => {
-  const { initialOpen = false, label, id, children, ...groupProps } = props;
+  const { initialOpen = false, label, id, children, ...groupProps } = props
 
-  const [open, setStatus] = useState(initialOpen);
+  const [open, setStatus] = useState(initialOpen)
 
-  const onToggle = useCallback(() => setStatus(prev => !prev), []);
+  const onToggle = useCallback(() => {
+    setStatus(prev => !prev)
+  }, [])
 
   return (
     <Col {...groupProps} data-disclosure="">
@@ -30,7 +32,7 @@ const Disclosure = (props: DisclosureProps) => {
         {children}
       </div>
     </Col>
-  );
-};
+  )
+}
 
-export default Disclosure;
+export default Disclosure

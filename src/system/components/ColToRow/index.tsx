@@ -1,9 +1,9 @@
-import { classes } from "@/system/utils/theme";
-import Group, { GroupProps } from "../Core/Group";
+import { classes } from '@/system/utils/theme'
+import Group, { type GroupProps } from '../Core/Group'
 
 const ColToRow = (props: GroupProps) => {
-  const { className, ...rest } = props;
-  return <Group {...rest} className={classes("col:row", className)} />;
-};
+  const { className, ...rest } = props
+  return <Group {...rest} className={classes('col:row', className)} />
+}
 
-export default ColToRow;
+export default ColToRow

@@ -1,19 +1,19 @@
-import { lazy } from "react";
-import { createBrowserRouter } from "react-router-dom";
-import ArchiveLanding from "@/features/archive/pages/landing";
-import StoriesLanding from "@/features/stories/pages/landing";
-import DocumentationLanding from "@/features/documentation/pages/landing";
-import Layout from "@/features/layout/components/Layout";
-import ErrorLayout from "@/features/layout/components/LayoutError";
-import { importNamed } from "./utils";
+import { lazy } from 'react'
+import { createBrowserRouter } from 'react-router-dom'
+import ArchiveLanding from '@/features/archive/pages/landing'
+import StoriesLanding from '@/features/stories/pages/landing'
+import DocumentationLanding from '@/features/documentation/pages/landing'
+import Layout from '@/features/layout/components/Layout'
+import ErrorLayout from '@/features/layout/components/LayoutError'
+import { importNamed } from './utils'
 
-const Dashboard = lazy(() =>
-  importNamed("../../features/dashboard/pages/dashboard")
-);
+const Dashboard = lazy(
+  async () => await importNamed('../../features/dashboard/pages/dashboard'),
+)
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <Layout />,
     errorElement: <ErrorLayout />,
     // loader: rootLoader,
@@ -32,17 +32,17 @@ const router = createBrowserRouter([
             // ...
           },
           {
-            path: "archive",
+            path: 'archive',
             element: <ArchiveLanding />,
             // ...
           },
           {
-            path: "stories",
+            path: 'stories',
             element: <StoriesLanding />,
             // ...
           },
           {
-            path: "docs",
+            path: 'docs',
             element: <DocumentationLanding />,
             // ...
           },
@@ -50,6 +50,6 @@ const router = createBrowserRouter([
       },
     ],
   },
-]);
+])
 
-export default router;
+export default router

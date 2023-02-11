@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect } from 'react'
 
 /*
   Call an effect after a component update, skipping the initial mount.
@@ -7,17 +7,17 @@ import { useRef, useEffect } from "react";
 
 function useUpdateEffect(
   effect: React.EffectCallback,
-  deps?: React.DependencyList
+  deps?: React.DependencyList,
 ) {
-  const mounted = useRef(false);
+  const mounted = useRef(false)
   useEffect(() => {
     if (mounted.current) {
-      effect();
+      effect()
     } else {
-      mounted.current = true;
+      mounted.current = true
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, deps);
+  }, deps)
 }
 
-export default useUpdateEffect;
+export default useUpdateEffect

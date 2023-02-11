@@ -1,21 +1,21 @@
-import { AriaAttributes, ReactNode } from "react";
-import Group, { GroupProps } from "../Group";
+import { type AriaAttributes, type ReactNode } from 'react'
+import Group, { type GroupProps } from '../Group'
 
 export interface AlertProps extends GroupProps {
-  role?: "alert" | "status" | "log" | "none";
-  live?: "polite" | "off" | "assertive";
-  relevant?: AriaAttributes["aria-relevant"];
-  children: ReactNode;
+  role?: 'alert' | 'status' | 'log' | 'none'
+  live?: 'polite' | 'off' | 'assertive'
+  relevant?: AriaAttributes['aria-relevant']
+  children: ReactNode
 }
 
 function Alert(props: AlertProps) {
   const {
-    role = "status",
-    live = "polite",
+    role = 'status',
+    live = 'polite',
     children,
-    relevant = "additions text",
+    relevant = 'additions text',
     ...groupProps
-  } = props;
+  } = props
 
   return (
     <Group
@@ -26,6 +26,6 @@ function Alert(props: AlertProps) {
     >
       {children}
     </Group>
-  );
+  )
 }
-export default Alert;
+export default Alert

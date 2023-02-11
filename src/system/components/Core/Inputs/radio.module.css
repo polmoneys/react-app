@@ -1,4 +1,4 @@
-.control input[type="radio"] {
+.control input[type='radio'] {
   appearance: none;
   font: inherit;
   color: currentColor;
@@ -12,8 +12,8 @@
   place-content: center;
 }
 
-.control input[type="radio"]::before {
-  content: "";
+.control input[type='radio']::before {
+  content: '';
   width: 0.65em;
   height: 0.65em;
   border-radius: 50%;
@@ -23,8 +23,8 @@
   background-color: CanvasText;
 }
 
-.checked input[type="radio"]::before,
-input[type="radio"]:checked::before {
+.checked input[type='radio']::before,
+input[type='radio']:checked::before {
   transform: scale(1);
 }
 
@@ -40,7 +40,7 @@ input[type="radio"]:checked::before {
   height: 100%;
 }
 
-.radio input[type="radio"] {
+.radio input[type='radio'] {
   appearance: none;
   display: flex;
   flex-shrink: 0;
@@ -55,7 +55,7 @@ input[type="radio"]:checked::before {
 }
 
 .radio::before {
-  content: "";
+  content: '';
   z-index: var(--z-2);
   position: absolute;
   right: 0.4em;

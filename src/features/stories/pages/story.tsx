@@ -1,12 +1,12 @@
-import { useAppDispatch, useAppSelector } from "@/config/store/hooks";
+import { useAppDispatch, useAppSelector } from '@/config/store/hooks'
 import {
   Grotesk,
   GroteskXL,
   HelveticaNeue,
   HelveticaNeueBold,
   HelveticaNeueMedium,
-} from "@/system/components/Typography";
-import { storiesSlice } from "../store";
+} from '@/system/components/Typography'
+import { storiesSlice } from '../store'
 
 /* 
     TODO:
@@ -18,14 +18,14 @@ import { storiesSlice } from "../store";
   */
 
 const Story = () => {
-  const dispatch = useAppDispatch();
-  const { stories } = useAppSelector(storiesSlice);
+  const dispatch = useAppDispatch()
+  const { stories } = useAppSelector(storiesSlice)
 
   return (
     <article>
       <GroteskXL>Story</GroteskXL>
     </article>
-  );
-};
+  )
+}
 
-export default Story;
+export default Story

@@ -1,42 +1,42 @@
-import { Fragment, useMemo } from "react";
-import styles from "./Icon.module.css";
+import { Fragment, useMemo } from 'react'
+import styles from './Icon.module.css'
 
-const sizeUnits = ["sm", "md", "lg"] as const;
-export type IconSize = typeof sizeUnits[number];
+const sizeUnits = ['sm', 'md', 'lg'] as const
+export type IconSize = (typeof sizeUnits)[number]
 
 export interface IconProps {
-  disabled?: boolean;
-  variant?: "outline" | "solid";
-  d?: string;
-  label: string;
-  size?: IconSize;
-  fill?: string;
-  stroke?: string;
-  strokeWidth?: number;
+  disabled?: boolean
+  variant?: 'outline' | 'solid'
+  d?: string
+  label: string
+  size?: IconSize
+  fill?: string
+  stroke?: string
+  strokeWidth?: number
 }
 
 function Icon(props: IconProps) {
   const {
-    d = "",
+    d = '',
     variant,
-    fill = "var(--accent)",
-    stroke = "currentColor",
+    fill = 'var(--accent)',
+    stroke = 'currentColor',
     strokeWidth = 2,
-    size = "md",
+    size = 'md',
     label,
     disabled = false,
-  } = props;
+  } = props
 
   const { border, backgroundColor } = useMemo(() => {
-    const bg = variant === "solid" ? fill : "transparent";
-    let strokeTheme = `${strokeWidth}px solid transparent`;
-    if (variant !== undefined && variant === "outline")
-      strokeTheme = `${strokeWidth}px solid ${stroke}`;
-    if (variant !== undefined && variant === "solid")
-      strokeTheme = `${strokeWidth}px solid ${fill}`;
+    const bg = variant === 'solid' ? fill : 'transparent'
+    let strokeTheme = `${strokeWidth}px solid transparent`
+    if (variant !== undefined && variant === 'outline')
+      strokeTheme = `${strokeWidth}px solid ${stroke}`
+    if (variant !== undefined && variant === 'solid')
+      strokeTheme = `${strokeWidth}px solid ${fill}`
 
-    return { border: strokeTheme, backgroundColor: bg };
-  }, [variant]);
+    return { border: strokeTheme, backgroundColor: bg }
+  }, [variant])
 
   const inlineStyles = {
     svg: {
@@ -45,14 +45,14 @@ function Icon(props: IconProps) {
       strokeWidth,
       opacity: disabled ? 0.3 : 1,
     },
-  };
+  }
 
   const iconSize = useMemo(() => {
-    if (size === "sm") return "18";
-    if (size === "md") return "24";
-    return "30";
-  }, [size]);
-  if (d === "") return <Fragment />;
+    if (size === 'sm') return '18'
+    if (size === 'md') return '24'
+    return '30'
+  }, [size])
+  if (d === '') return <Fragment />
   return (
     <svg
       width={iconSize}
@@ -66,10 +66,10 @@ function Icon(props: IconProps) {
       <title id={`${label}-icon`}>{label} </title>
       <path fillRule="evenodd" clipRule="evenodd" d={d} fill={stroke} />
     </svg>
-  );
+  )
 }
 
 export const Compose = (d: string) => (props: IconProps) =>
-  <Icon {...props} d={d} />;
+  <Icon {...props} d={d} />
 
-export default Icon;
+export default Icon

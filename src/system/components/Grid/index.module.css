@@ -19,18 +19,18 @@
 .grid.grid\:masonry {
   grid-template-rows: masonry;
 }
-.grid[data-grid="xs"] {
+.grid[data-grid='xs'] {
   --grid-item-width: var(--item-grid-xs);
 }
-.grid[data-grid="sm"] {
+.grid[data-grid='sm'] {
   --grid-item-width: var(--item-grid-sm);
 }
-.grid[data-grid="md"] {
+.grid[data-grid='md'] {
   --grid-item-width: var(--item-grid-md);
 }
-.grid[data-grid="lg"] {
+.grid[data-grid='lg'] {
   --grid-item-width: var(--item-grid-lg);
 }
-.grid[data-grid="xl"] {
+.grid[data-grid='xl'] {
   --grid-item-width: var(--item-grid-xl);
 }

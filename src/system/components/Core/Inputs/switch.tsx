@@ -1,13 +1,13 @@
-import { ComponentProps, ChangeEvent, ReactNode } from "react";
-import { FocusRing } from "@react-aria/focus";
-import Couple from "@/system/components/Couple";
-import { classes } from "@/system/utils/theme";
-import styles from "./switch.module.css";
+import { type ComponentProps, type ChangeEvent, type ReactNode } from 'react'
+import { FocusRing } from '@react-aria/focus'
+import Couple from '@/system/components/Couple'
+import { classes } from '@/system/utils/theme'
+import styles from './switch.module.css'
 
-interface SwitchProps extends ComponentProps<"input"> {
-  initial: boolean;
-  onChangeBoolean: (value: boolean) => void;
-  label: ReactNode;
+interface SwitchProps extends ComponentProps<'input'> {
+  initial: boolean
+  onChangeBoolean: (value: boolean) => void
+  label: ReactNode
 }
 
 function Switch(props: SwitchProps) {
@@ -20,10 +20,11 @@ function Switch(props: SwitchProps) {
     disabled = false,
     autoFocus = false,
     ...rest
-  } = props;
+  } = props
 
-  const onSwitchChange = (event: ChangeEvent<HTMLInputElement>) =>
-    onChangeBoolean(event.target.checked);
+  const onSwitchChange = (event: ChangeEvent<HTMLInputElement>) => {
+    onChangeBoolean(event.target.checked)
+  }
   return (
     <Couple
       as="label"
@@ -32,8 +33,8 @@ function Switch(props: SwitchProps) {
     >
       <FocusRing
         autoFocus={autoFocus}
-        {...(!disabled && { focusClass: "ring" })}
-        {...(!disabled && { focusRingClass: "ring" })}
+        {...(!disabled && { focusClass: 'ring' })}
+        {...(!disabled && { focusRingClass: 'ring' })}
       >
         <input
           type="checkbox"
@@ -44,11 +45,11 @@ function Switch(props: SwitchProps) {
       </FocusRing>
       {label}
     </Couple>
-  );
+  )
 }
 
-interface SwitchPropsUncontrolled extends ComponentProps<"input"> {
-  label: ReactNode;
+interface SwitchPropsUncontrolled extends ComponentProps<'input'> {
+  label: ReactNode
 }
 
 Switch.Uncontrolled = (props: SwitchPropsUncontrolled) => {
@@ -59,7 +60,7 @@ Switch.Uncontrolled = (props: SwitchPropsUncontrolled) => {
     disabled = false,
     autoFocus = false,
     ...rest
-  } = props;
+  } = props
 
   return (
     <Couple
@@ -69,14 +70,14 @@ Switch.Uncontrolled = (props: SwitchPropsUncontrolled) => {
     >
       <FocusRing
         autoFocus={autoFocus}
-        {...(!disabled && { focusClass: "ring" })}
-        {...(!disabled && { focusRingClass: "ring" })}
+        {...(!disabled && { focusClass: 'ring' })}
+        {...(!disabled && { focusRingClass: 'ring' })}
       >
         <input type="checkbox" {...rest} />
       </FocusRing>
       {label}
     </Couple>
-  );
-};
+  )
+}
 
-export default Switch;
+export default Switch

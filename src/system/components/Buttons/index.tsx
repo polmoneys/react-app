@@ -1,13 +1,13 @@
-import { classes } from "@/system/utils/theme";
-import Button, { ButtonProps } from "../Core/Inputs/button";
+import { classes } from '@/system/utils/theme'
+import Button, { type ButtonProps } from '../Core/Inputs/button'
 
 export const ButtonSuccess = (props: ButtonProps) => {
-  const { className, ...rest } = props;
-  return <Button {...rest} className={classes("accent", className)} />;
-};
+  const { className, ...rest } = props
+  return <Button {...rest} className={classes('accent', className)} />
+}
 export const ButtonError = (props: ButtonProps) => {
-  const { className, ...rest } = props;
-  return <Button {...rest} className={classes("invalid", className)} />;
-};
+  const { className, ...rest } = props
+  return <Button {...rest} className={classes('invalid', className)} />
+}
 
-export default Button;
+export default Button

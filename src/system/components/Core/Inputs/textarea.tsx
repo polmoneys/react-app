@@ -2,66 +2,67 @@ import {
   useRef,
   useEffect,
   useState,
-  ChangeEvent,
-  KeyboardEvent,
+  type ChangeEvent,
+  type KeyboardEvent,
   useCallback,
-  ComponentProps,
-} from "react";
-import { FocusRing } from "@react-aria/focus";
+  type ComponentProps,
+} from 'react'
+import { FocusRing } from '@react-aria/focus'
 
-interface TextareaProps extends Omit<ComponentProps<"textarea">, "onChange"> {
-  onChangeValue: (value: string | number) => void;
-  initial?: string | number;
+interface TextareaProps extends Omit<ComponentProps<'textarea'>, 'onChange'> {
+  onChangeValue: (value: string | number) => void
+  initial?: string | number
 }
 
 const Textarea = (props: TextareaProps) => {
   const {
     initial,
-    placeholder = "Type ",
+    placeholder = 'Type ',
     onChangeValue,
     id,
     disabled = false,
     autoFocus = false,
-  } = props;
+  } = props
 
-  const [editingValue, setEditingValue] = useState(initial ?? "");
+  const [editingValue, setEditingValue] = useState(initial ?? '')
 
-  const onChange = (event: ChangeEvent<HTMLTextAreaElement>) =>
-    setEditingValue(event.target.value);
+  const onChange = (event: ChangeEvent<HTMLTextAreaElement>): void => {
+    setEditingValue(event.target.value)
+  }
 
-  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+  const textareaRef = useRef<HTMLTextAreaElement | null>(null)
 
   const onInput = useCallback((target: HTMLTextAreaElement) => {
     if (target.scrollHeight > 40) {
-      target.style.height = target.scrollHeight + "px";
+      target.style.height = `${target.scrollHeight} px`
     }
-  }, []);
+  }, [])
 
   useEffect(() => {
-    if (textareaRef && textareaRef.current !== null) {
-      onInput(textareaRef.current);
+    if (textareaRef?.current != null) {
+      onInput(textareaRef.current)
     }
-  }, [onInput]);
+  }, [onInput])
 
   useEffect(() => {
-    if (editingValue.toString().trim() === "") return;
-    onChangeValue(editingValue);
-  }, [editingValue]);
+    if (editingValue.toString().trim() === '') return
+    onChangeValue(editingValue)
+  }, [editingValue])
 
-  const onKeyDown = (event: KeyboardEvent<HTMLTextAreaElement>) => {
-    if (event.key === "Enter" || event.key === "Escape") {
-      event.preventDefault();
-      (event.target as HTMLTextAreaElement).blur();
+  const onKeyDown = (event: KeyboardEvent<HTMLTextAreaElement>): void => {
+    if (event.key === 'Enter' || event.key === 'Escape') {
+      event.preventDefault()
+      ;(event.target as HTMLTextAreaElement).blur()
     }
-  };
+  }
 
-  const onBlur = (event: ChangeEvent<HTMLTextAreaElement>) => {
-    if (event.target.value.trim() === "") {
-      onChangeValue(initial ?? "");
+  const onBlur = (event: ChangeEvent<HTMLTextAreaElement>): void => {
+    if (event.target.value.trim() === '') {
+      onChangeValue(initial ?? '')
     } else {
-      onChangeValue(event.target.value);
+      onChangeValue(event.target.value)
     }
-  };
+  }
 
   // const onPressStart = () => {
   //   const element = document.querySelector(`#${id}`) as HTMLTextAreaElement;
@@ -73,8 +74,8 @@ const Textarea = (props: TextareaProps) => {
   return (
     <FocusRing
       autoFocus={autoFocus}
-      {...(!disabled && { focusClass: "ring" })}
-      {...(!disabled && { focusRingClass: "ring" })}
+      {...(!disabled && { focusClass: 'ring' })}
+      {...(!disabled && { focusRingClass: 'ring' })}
     >
       <textarea
         id={id}
@@ -86,11 +87,13 @@ const Textarea = (props: TextareaProps) => {
         onBlur={onBlur}
         onChange={onChange}
         onKeyDown={onKeyDown}
-        onInput={event => onInput(event.target as HTMLTextAreaElement)}
+        onInput={event => {
+          onInput(event.target as HTMLTextAreaElement)
+        }}
         ref={textareaRef}
       />
     </FocusRing>
-  );
-};
+  )
+}
 
-export default Textarea;
+export default Textarea

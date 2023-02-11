@@ -1,30 +1,30 @@
-import { ChangeEvent, ComponentProps, Fragment } from "react";
-import { FocusRing } from "@react-aria/focus";
-import { RenderProp } from "@/system/interfaces";
-import { classes } from "@/system/utils/theme";
-import { HelveticaNeue } from "../../Typography";
-import Group from "../Group";
-import Layers from "../Layers";
-import styles from "./Radio.module.css";
+import { type ChangeEvent, type ComponentProps, Fragment } from 'react'
+import { FocusRing } from '@react-aria/focus'
+import { type RenderProp } from '@/system/interfaces'
+import { classes } from '@/system/utils/theme'
+import { HelveticaNeue } from '../../Typography'
+import Group from '../Group'
+import Layers from '../Layers'
+import styles from './Radio.module.css'
 
-export interface RadioProps extends ComponentProps<"input"> {
-  id: string;
-  label?: string;
+export interface RadioProps extends ComponentProps<'input'> {
+  id: string
+  label?: string
   renderLabel?: RenderProp<
     { checked: boolean; radioLabel: string },
     HTMLElement
-  >;
-  width?: string;
+  >
+  width?: string
   classNames?: {
-    group?: string;
-    label?: string;
-    input?: string;
-    checked?: string;
-  };
+    group?: string
+    label?: string
+    input?: string
+    checked?: string
+  }
 }
 
 function RadioLabel(props?: RadioProps) {
-  if (props === undefined) return <Fragment />;
+  if (props === undefined) return <Fragment />
   const {
     onChange,
     id,
@@ -36,10 +36,10 @@ function RadioLabel(props?: RadioProps) {
     checked = false,
     disabled = false,
     autoFocus = false,
-  } = props;
+  } = props
 
   const onRadioChange = (event: ChangeEvent<HTMLInputElement>) =>
-    onChange?.(event);
+    onChange?.(event)
 
   const inputLabel =
     renderLabel === undefined ? (
@@ -47,16 +47,16 @@ function RadioLabel(props?: RadioProps) {
     ) : (
       renderLabel?.({
         checked: props?.checked ?? false,
-        radioLabel: props.label ?? "",
+        radioLabel: props.label ?? '',
       })
-    );
+    )
 
   const groupClassnames = classes(
     styles.radio,
     classNames?.group,
     checked && styles.checked,
-    checked && classNames?.checked
-  );
+    checked && classNames?.checked,
+  )
 
   return (
     <Group as="div" className={groupClassnames} size={width}>
@@ -65,8 +65,8 @@ function RadioLabel(props?: RadioProps) {
           <div className={classes(classNames?.label)}>{inputLabel}</div>
           <FocusRing
             autoFocus={autoFocus}
-            {...(!disabled && { focusClass: "ring" })}
-            {...(!disabled && { focusRingClass: "ring" })}
+            {...(!disabled && { focusClass: 'ring' })}
+            {...(!disabled && { focusRingClass: 'ring' })}
           >
             <input
               type="radio"
@@ -81,7 +81,7 @@ function RadioLabel(props?: RadioProps) {
         </Layers>
       </label>
     </Group>
-  );
+  )
 }
 
-export default RadioLabel;
+export default RadioLabel

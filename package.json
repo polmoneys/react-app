@@ -1,18 +1,26 @@
 {
   "name": "react-app",
-  "private": true,
+  "private": false,
   "version": "1.0.0",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint --ext .tsx,.ts,.js src",
+    "lint:fix": "eslint --fix --ext .tsx,.ts,.js src",
+    "format": "prettier --write './src/**/*' --config ./prettier.config.js",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@react-aria/focus": "^3.10.1",
     "@react-aria/interactions": "^3.13.1",
     "@reduxjs/toolkit": "^1.9.1",
+    "eslint-config-standard": "^17.0.0",
+    "fs": "^0.0.1-security",
     "graphql": "^16.6.0",
     "graphql-request": "^5.1.0",
+    "path": "^0.12.7",
+    "prettier": "^2.8.4",
     "react": "^18.0.0",
     "react-aria": "^3.22.0",
     "react-dom": "^18.0.0",
@@ -24,9 +32,29 @@
   "devDependencies": {
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.51.0",
+    "@typescript-eslint/parser": "^5.51.0",
     "@vitejs/plugin-react": "^1.3.0",
-    "typescript": "^4.6.3",
+    "eslint": "^8.34.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-config-standard-with-typescript": "^34.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.6.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": ">=7",
+    "lint-staged": ">=10",
+    "typescript": "^4.9.5",
     "vite": "^2.9.9",
     "vite-tsconfig-paths": "^4.0.5"
+  },
+  "description": "boilerplate for 2023",
+  "main": "index.js",
+  "repository": "git@github.com:polmoneys/react-app.git",
+  "license": "MIT",
+  "lint-staged": {
+    "*.js": "eslint --cache --fix"
   }
 }

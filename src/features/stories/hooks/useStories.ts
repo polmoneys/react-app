@@ -1,12 +1,12 @@
-import { useQuery } from "react-query";
-import { request, gql } from "graphql-request";
-import endpoints from "@/config/endpoints";
-import { matchItemsToStories } from "../store/utils";
+import { useQuery } from 'react-query'
+import { request, gql } from 'graphql-request'
+import endpoints from '@/config/endpoints'
+import { matchItemsToStories } from '../store/utils'
 
 function useStories() {
-  const endpoint = endpoints.stories.list;
+  const endpoint = endpoints.stories.list
 
-  return useQuery("stories", async () => {
+  return useQuery('stories', async () => {
     const data = await request(
       endpoint,
       gql`
@@ -26,11 +26,11 @@ function useStories() {
             }
           }
         }
-      `
-    );
+      `,
+    )
 
-    return matchItemsToStories(data.allFilms.films);
-  });
+    return matchItemsToStories(data.allFilms.films)
+  })
 }
 
-export default useStories;
+export default useStories

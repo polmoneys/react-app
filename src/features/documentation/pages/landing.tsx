@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState } from 'react'
 import {
   Grotesk,
   HelveticaNeue,
@@ -8,7 +8,7 @@ import {
   HelveticaNeueMedium,
   HelveticaNeueThin,
   GroteskXL,
-} from "@/system/components/Typography";
+} from '@/system/components/Typography'
 import {
   IconPlus,
   IconMinus,
@@ -30,23 +30,22 @@ import {
   IconHeart,
   IconPin,
   IconColorPicker,
-} from "@/system/components/Icons";
-import Row from "@/system/components/Row";
-import Col from "@/system/components/Col";
-import Grid from "@/system/components/Grid";
-import Couple from "@/system/components/Couple";
-import useLeader from "@/system/hooks/useLeader";
-import { Checkbox, Switch } from "@/system/components/Checkboxes";
-import { Radio } from "@/system/components/Radios";
-import useFormEnter from "@/system/hooks/useFormEnter";
-import useFormLeave from "@/system/hooks/useFormLeave";
-import { ButtonError, ButtonSuccess } from "@/system/components/Buttons";
-import { Card } from "@/system/components/Cards";
-import Textarea from "@/system/components/Core/Inputs/textarea";
-import Select from "@/system/components/Core/Inputs/select";
-import Disclosure from "@/system/components/Core/Disclosure";
+} from '@/system/components/Icons'
+import Row from '@/system/components/Row'
+import Col from '@/system/components/Col'
+import Grid from '@/system/components/Grid'
+import Couple from '@/system/components/Couple'
+import useLeader from '@/system/hooks/useLeader'
+import { Checkbox, Switch } from '@/system/components/Checkboxes'
+import { Radio } from '@/system/components/Radios'
+import useFormEnter from '@/system/hooks/useFormEnter'
+import useFormLeave from '@/system/hooks/useFormLeave'
+import { ButtonError, ButtonSuccess } from '@/system/components/Buttons'
+import { Card } from '@/system/components/Cards'
+import Textarea from '@/system/components/Core/Inputs/textarea'
+import Disclosure from '@/system/components/Core/Disclosure'
 
-type StatusMachine = "draft" | "live" | "unknown" | "published";
+type StatusMachine = 'draft' | 'live' | 'unknown' | 'published'
 
 const Docs = () => {
   const [{ output, all, mixed }, { onFollowerChange, onLeadChange }] =
@@ -54,19 +53,21 @@ const Docs = () => {
       mayo: false,
       mustard: true,
       ketchup: false,
-    });
+    })
 
-  const [publishStatus, setStatus] = useState<StatusMachine>("draft");
+  const [publishStatus, setStatus] = useState<StatusMachine>('draft')
 
-  const onSwitch = (value: boolean) => console.log({ value });
+  const onSwitch = (value: boolean) => {
+    console.log({ value })
+  }
 
   const handleKeyDown = (event: React.KeyboardEvent) => {
-    if (event.key === "Enter") {
-      event.preventDefault();
+    if (event.key === 'Enter') {
+      event.preventDefault()
     }
-  };
+  }
 
-  const [target, setTarget] = useState("");
+  const [target, setTarget] = useState('')
 
   /*
   
@@ -82,6 +83,11 @@ const Docs = () => {
     alert("Form is not submitted, is that what you want ?")
   );
    */
+
+  const a = true
+  const b = false
+
+  const c = a ? 'x' : b ? 'z' : 'q'
   return (
     <article>
       <GroteskXL>Docs</GroteskXL>
@@ -127,17 +133,19 @@ const Docs = () => {
 
             <Textarea
               id="textarea-test"
-              onChangeValue={newContent => console.log(newContent)}
+              onChangeValue={newContent => {
+                console.log(newContent)
+              }}
             />
           </Col>
         </Card>
         <Card ratio="auto" as="div">
           <Col as="div" gap="var(--gap-1)">
             <Checkbox
-              isMixed={mixed === "mixed"}
-              checked={mixed !== "mixed" && mixed === true}
+              isMixed={mixed === 'mixed'}
+              checked={mixed !== 'mixed' && mixed}
               label={
-                mixed === "mixed" ? (
+                mixed === 'mixed' ? (
                   <HelveticaNeue> Some </HelveticaNeue>
                 ) : all ? (
                   <HelveticaNeue> All</HelveticaNeue>
@@ -148,7 +156,9 @@ const Docs = () => {
               name="parent"
               value="parent"
               id="parent-checkbox-test"
-              onChange={ev => onLeadChange()}
+              onChange={ev => {
+                onLeadChange()
+              }}
             />
 
             {Object.entries(output).map(([value, state]) => (
@@ -157,9 +167,11 @@ const Docs = () => {
                 name={value.toString()}
                 label={value.toString()}
                 id={`${value.toString()}-test-checkbox`}
-                checked={state as boolean}
+                checked={state}
                 value={value}
-                onChange={ev => onFollowerChange(ev)}
+                onChange={ev => {
+                  onFollowerChange(ev)
+                }}
               />
             ))}
           </Col>
@@ -168,16 +180,16 @@ const Docs = () => {
           <div>
             <Radio.Group
               initial={publishStatus}
-              onChange={(selection: string) =>
+              onChange={(selection: string) => {
                 setStatus(selection as StatusMachine)
-              }
+              }}
               gap="var(--gap-1)"
               renderLabel={({
                 checked,
                 radioLabel,
               }: {
-                checked: boolean;
-                radioLabel: string;
+                checked: boolean
+                radioLabel: string
               }) => (
                 <Couple as="div">
                   {checked ? (
@@ -224,9 +236,9 @@ const Docs = () => {
         <Card as="div" ratio="auto">
           <Radio.Group
             initial={publishStatus}
-            onChange={(selection: string) =>
+            onChange={(selection: string) => {
               setStatus(selection as StatusMachine)
-            }
+            }}
             gap="var(--gap-1)"
           >
             <Radio
@@ -305,54 +317,33 @@ const Docs = () => {
           <Card as="div" ratio="auto">
             <Card.Title>Icon Factory</Card.Title>
 
-            <Row as="div" options={{ wrap: "wrap" }}>
-              <IconBookmark stroke={"var(--accent)"} size="sm" label="" />
-              <IconCaretDown stroke={"var(--accent)"} size="sm" label="" />
-              <IconCaretUp stroke={"var(--accent)"} size="sm" label="" />
-              <IconCheck stroke={"var(--accent)"} size="sm" label="" />
-              <IconCross stroke={"var(--accent)"} size="sm" label="" />
-              <IconHeart stroke={"var(--accent)"} size="sm" label="" />
-              <IconTwitter stroke={"var(--accent)"} size="sm" label="" />
+            <Row as="div" options={{ wrap: 'wrap' }}>
+              <IconBookmark stroke={'var(--accent)'} size="sm" label="" />
+              <IconCaretDown stroke={'var(--accent)'} size="sm" label="" />
+              <IconCaretUp stroke={'var(--accent)'} size="sm" label="" />
+              <IconCheck stroke={'var(--accent)'} size="sm" label="" />
+              <IconCross stroke={'var(--accent)'} size="sm" label="" />
+              <IconHeart stroke={'var(--accent)'} size="sm" label="" />
+              <IconTwitter stroke={'var(--accent)'} size="sm" label="" />
 
-              <IconBookmark stroke={"var(--accent)"} label="" />
-              <IconCaretDown stroke={"var(--accent)"} label="" />
-              <IconCaretUp stroke={"var(--accent)"} label="" />
-              <IconCheck stroke={"var(--accent)"} label="" />
-              <IconCross stroke={"var(--accent)"} label="" />
-              <IconHeart stroke={"var(--accent)"} label="" />
-              <IconTwitter stroke={"var(--accent)"} label="" />
+              <IconBookmark stroke={'var(--accent)'} label="" />
+              <IconCaretDown stroke={'var(--accent)'} label="" />
+              <IconCaretUp stroke={'var(--accent)'} label="" />
+              <IconCheck stroke={'var(--accent)'} label="" />
+              <IconCross stroke={'var(--accent)'} label="" />
+              <IconHeart stroke={'var(--accent)'} label="" />
+              <IconTwitter stroke={'var(--accent)'} label="" />
 
-              <IconBookmark stroke={"var(--accent)"} size="lg" label="" />
-              <IconCaretDown stroke={"var(--accent)"} size="lg" label="" />
-              <IconCaretUp stroke={"var(--accent)"} size="lg" label="" />
-              <IconCheck stroke={"var(--accent)"} size="lg" label="" />
-              <IconCross stroke={"var(--accent)"} size="lg" label="" />
-              <IconHeart stroke={"var(--accent)"} size="lg" label="" />
-              <IconTwitter stroke={"var(--accent)"} size="lg" label="" />
+              <IconBookmark stroke={'var(--accent)'} size="lg" label="" />
+              <IconCaretDown stroke={'var(--accent)'} size="lg" label="" />
+              <IconCaretUp stroke={'var(--accent)'} size="lg" label="" />
+              <IconCheck stroke={'var(--accent)'} size="lg" label="" />
+              <IconCross stroke={'var(--accent)'} size="lg" label="" />
+              <IconHeart stroke={'var(--accent)'} size="lg" label="" />
+              <IconTwitter stroke={'var(--accent)'} size="lg" label="" />
             </Row>
           </Card>
         </div>
-
-        <Card as="div" ratio="auto">
-          <Card.Title>Native Select</Card.Title>
-
-          <Col as="div">
-            <Select
-              options={[
-                { value: "es3", label: "ECMAScript 3" },
-                { value: "es5", label: "ECMAScript 5" },
-                { value: "es2015", label: "ECMAScript 2015" },
-                { value: "es2016", label: "ECMAScript 2016" },
-                { value: "es2017", label: "ECMAScript 2017" },
-                { value: "es2018", label: "ECMAScript 2018" },
-                { value: "es2019", label: "ECMAScript 2019" },
-              ]}
-              value={target}
-              onChange={setTarget}
-              placeholder="Build target"
-            />
-          </Col>
-        </Card>
 
         <Card as="div" ratio="auto">
           <Card.Title>Disclosure</Card.Title>
@@ -364,7 +355,7 @@ const Docs = () => {
         </Card>
       </Grid>
     </article>
-  );
-};
+  )
+}
 
-export default Docs;
+export default Docs

@@ -1,15 +1,15 @@
-import { QueryClient } from "react-query";
+import { QueryClient } from 'react-query'
 
 const endpoints = {
-  baseUrl: "",
+  baseUrl: '',
   settings: {
-    me: "v1/user",
-    user: "v1/users/{user}",
+    me: 'v1/user',
+    user: 'v1/users/{user}',
   },
   stories: {
-    list: "https://swapi-graphql.netlify.app/.netlify/functions/index",
+    list: 'https://swapi-graphql.netlify.app/.netlify/functions/index',
   },
-};
+}
 
 export const queryOptions = new QueryClient({
   defaultOptions: {
@@ -18,6 +18,6 @@ export const queryOptions = new QueryClient({
       retry: false,
     },
   },
-});
+})
 
-export default endpoints;
+export default endpoints

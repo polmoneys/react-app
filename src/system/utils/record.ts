@@ -1,9 +1,9 @@
 export function isEmptyObject(object: any) {
   for (const prop in object) {
-    if (Object.prototype.hasOwnProperty.call(object, prop)) return false;
+    if (Object.prototype.hasOwnProperty.call(object, prop)) return false
   }
 
-  return true;
+  return true
 }
 
 /*
@@ -16,14 +16,14 @@ export function isEmptyObject(object: any) {
 */
 
 type Entry<T> = {
-  [K in keyof T]: [K, T[K]];
-}[keyof T];
+  [K in keyof T]: [K, T[K]]
+}[keyof T]
 
 export function filterObject<T extends object>(
   obj: T,
-  fn: (entry: Entry<T>, i: number, arr: Entry<T>[]) => boolean
+  fn: (entry: Entry<T>, i: number, arr: Array<Entry<T>>) => boolean,
 ) {
   return Object.fromEntries(
-    (Object.entries(obj) as Entry<T>[]).filter(fn)
-  ) as Partial<T>;
+    (Object.entries(obj) as Array<Entry<T>>).filter(fn),
+  ) as Partial<T>
 }

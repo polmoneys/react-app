@@ -1,1 +1,1 @@
-export { default as Radio } from "../Core/Inputs/radio";
+export { default as Radio } from '../Core/Inputs/radio'

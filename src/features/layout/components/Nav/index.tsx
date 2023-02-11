@@ -1,5 +1,5 @@
-import Link from "@/system/components/Link";
-import styles from "./index.module.css";
+import Link from '@/system/components/Link'
+import styles from './index.module.css'
 
 export default function Nav() {
   return (
@@ -11,5 +11,5 @@ export default function Nav() {
 
       <input type="search" defaultValue="" placeholder="search" />
     </nav>
-  );
+  )
 }

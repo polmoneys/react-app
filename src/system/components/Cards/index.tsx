@@ -1,21 +1,21 @@
-import { classes } from "@/system/utils/theme";
-import Card, { CardProps } from "../Core/Card";
-export { default as Card } from "../Core/Card";
+import { classes } from '@/system/utils/theme'
+import Card, { type CardProps } from '../Core/Card'
+export { default as Card } from '../Core/Card'
 
-export const CardPortraitSuccess = (props: CardProps) => {
-  const { ratio, className, ...rest } = props;
+export const CardPortraitSuccess = (props: CardProps): JSX.Element => {
+  const { ratio, className, ...rest } = props
   return (
-    <Card {...rest} ratio="portrait" className={classes("accent", className)} />
-  );
-};
+    <Card {...rest} ratio="portrait" className={classes('accent', className)} />
+  )
+}
 
-export const CardPortraitError = (props: CardProps) => {
-  const { ratio, className, ...rest } = props;
+export const CardPortraitError = (props: CardProps): JSX.Element => {
+  const { ratio, className, ...rest } = props
   return (
     <Card
       {...rest}
       ratio="portrait"
-      className={classes("invalid", className)}
+      className={classes('invalid', className)}
     />
-  );
-};
+  )
+}

@@ -16,7 +16,7 @@
 }
 
 .group input:after {
-  content: "";
+  content: '';
   width: 1.2em;
   height: 1.2em;
   aspect-ratio: 1;

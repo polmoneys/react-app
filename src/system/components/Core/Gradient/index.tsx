@@ -1,22 +1,22 @@
-import { Svg, Group, Rectangle } from "../Svg";
+import { Svg, Group, Rectangle } from '../Svg'
 
-type DomElementSize = `${string}px` | `${string}%` | `calc(${string})`;
+type DomElementSize = `${string}px` | `${string}%` | `calc(${string})`
 
 interface Props {
   colors?: {
-    start: string;
-    end: string;
-  };
-  size: `${string}%`;
-  width?: DomElementSize;
-  height?: DomElementSize;
+    start: string
+    end: string
+  }
+  size: `${string}%`
+  width?: DomElementSize
+  height?: DomElementSize
   marker?: {
-    width: DomElementSize;
-    height: DomElementSize;
-    color: string;
-    position: `${string}%`;
-  };
-  className?: string;
+    width: DomElementSize
+    height: DomElementSize
+    color: string
+    position: `${string}%`
+  }
+  className?: string
 }
 
 /*
@@ -44,17 +44,17 @@ function Gradient(props: Props) {
   const {
     colors,
     size,
-    width = "100%",
-    height = "100%",
+    width = '100%',
+    height = '100%',
     marker,
     className,
-  } = props;
+  } = props
 
   const pattern = `
-      ${colors?.start ?? "currentColor"}, 
-      ${colors?.start ?? "currentColor"} ${size},
-       ${colors?.end ?? "transparent"} ${size},
-       ${colors?.end ?? "transparent"} ${Number(size.replace("%", "")) * 2}%`;
+      ${colors?.start ?? 'currentColor'}, 
+      ${colors?.start ?? 'currentColor'} ${size},
+       ${colors?.end ?? 'transparent'} ${size},
+       ${colors?.end ?? 'transparent'} ${Number(size.replace('%', '')) * 2}%`
 
   return (
     <Svg
@@ -78,7 +78,7 @@ function Gradient(props: Props) {
         </Group>
       )}
     </Svg>
-  );
+  )
 }
 
-export default Gradient;
+export default Gradient

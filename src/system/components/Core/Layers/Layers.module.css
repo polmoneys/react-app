@@ -1,6 +1,6 @@
 .root {
   display: grid;
-  grid-template-areas: "stack";
+  grid-template-areas: 'stack';
   place-items: center;
 }
 .root.stretch {
@@ -20,6 +20,6 @@
   position: relative;
 }
 
-.root > *[aria-hidden="true"] {
+.root > *[aria-hidden='true'] {
   visibility: hidden !important;
 }

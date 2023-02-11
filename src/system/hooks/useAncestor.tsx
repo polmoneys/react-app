@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useContext } from "react";
+import { createContext, type ReactNode, useContext } from 'react'
 
 /*
 
@@ -22,26 +22,26 @@ import { createContext, ReactNode, useContext } from "react";
 
 */
 
-const InteractiveAncestryContext = createContext(false);
+const InteractiveAncestryContext = createContext(false)
 
-export const useAncestor = () => useContext(InteractiveAncestryContext);
+export const useAncestor = () => useContext(InteractiveAncestryContext)
 
 export const InteractiveAncestryProvider = ({
   children,
 }: {
-  children: ReactNode;
+  children: ReactNode
 }) => {
-  const hasInteractiveParent = useAncestor();
+  const hasInteractiveParent = useAncestor()
 
   if (hasInteractiveParent) {
     throw new Error(
-      `Invalid DOM: interactive elements cannot be nested in each other.`
-    );
+      `Invalid DOM: interactive elements cannot be nested in each other.`,
+    )
   }
 
   return (
     <InteractiveAncestryContext.Provider value={true}>
       {children}
     </InteractiveAncestryContext.Provider>
-  );
-};
+  )
+}

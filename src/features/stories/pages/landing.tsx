@@ -1,22 +1,21 @@
-import { Lorem, LoremXL } from "@/system/components/Core/Font/utils";
-import { IconBookmark, IconHeart } from "@/system/components/Icons";
-import { List } from "@/system/components/Lists";
+import { Lorem, LoremXL } from '@/system/components/Core/Font/utils'
+import { IconBookmark, IconHeart, IconTwitter } from '@/system/components/Icons'
+import { List } from '@/system/components/Lists'
 import {
   Grotesk,
   GroteskXL,
   HelveticaNeue,
   HelveticaNeueBold,
   HelveticaNeueMedium,
-} from "@/system/components/Typography";
-import Grid from "@/system/components/Grid";
-import { IconTwitter } from "@/system/components/Icons";
-import View from "@/system/components/View";
-import useStories from "../hooks/useStories";
-import { Card, CardPortraitSuccess } from "@/system/components/Cards";
-import Button from "@/system/components/Buttons";
+} from '@/system/components/Typography'
+import Grid from '@/system/components/Grid'
+import View from '@/system/components/View'
+import useStories from '../hooks/useStories'
+import { Card, CardPortraitSuccess } from '@/system/components/Cards'
+import Button from '@/system/components/Buttons'
 
 const Stories = () => {
-  const { data, isFetching } = useStories();
+  const { data, isFetching } = useStories()
 
   return (
     <View>
@@ -33,7 +32,7 @@ const Stories = () => {
           )}
           <List.Divider>
             <HelveticaNeue>
-              {isFetching ? "Loading" : "All SW films"}
+              {isFetching ? 'Loading' : 'All SW films'}
             </HelveticaNeue>
           </List.Divider>
           {data?.map(story => (
@@ -71,7 +70,7 @@ const Stories = () => {
         </Grid>
       </View.Full>
     </View>
-  );
-};
+  )
+}
 
-export default Stories;
+export default Stories

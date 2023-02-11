@@ -1,14 +1,14 @@
-import { ArrayProp } from "../interfaces";
+import { type ArrayProp } from '../interfaces'
 
-export const isArr = (x: unknown) => Array.isArray(x);
+export const isArr = (x: unknown) => Array.isArray(x)
 
-export const compactArray = (x: Array<any>) =>
-  x.filter(item => item !== null && item !== undefined);
+export const compactArray = (x: any[]) =>
+  x.filter(item => item !== null && item !== undefined)
 
-export const unwrapArray = (x: unknown) => (Array.isArray(x) ? x[0] : x);
+export const unwrapArray = (x: unknown) => (Array.isArray(x) ? x[0] : x)
 
 export function toArray(value: ArrayProp): string[] {
-  return Array.isArray(value) ? value : [value];
+  return Array.isArray(value) ? value : [value]
 }
 
 /**
@@ -16,16 +16,16 @@ export function toArray(value: ArrayProp): string[] {
  */
 export const splitArray = <T>(
   items: T[],
-  fn: (el: T) => boolean
+  fn: (el: T) => boolean,
 ): [T[], T[]] => {
-  let match = [] as T[];
-  let dispose = [] as T[];
+  const match = [] as T[]
+  const dispose = [] as T[]
   for (const el of items) {
-    if (fn(el) === true) {
-      match.push(el);
+    if (fn(el)) {
+      match.push(el)
     } else {
-      dispose.push(el);
+      dispose.push(el)
     }
   }
-  return [match, dispose];
-};
+  return [match, dispose]
+}

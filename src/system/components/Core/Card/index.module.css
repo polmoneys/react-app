@@ -49,19 +49,19 @@
 }
 
 @supports (aspect-ratio: 1) {
-  [data-ratio="auto"] {
+  [data-ratio='auto'] {
     aspect-ratio: auto;
   }
-  [data-ratio="square"] {
+  [data-ratio='square'] {
     aspect-ratio: var(--ratio-square);
   }
-  [data-ratio="landscape"] {
+  [data-ratio='landscape'] {
     aspect-ratio: var(--ratio-landscape);
   }
-  [data-ratio="portrait"] {
+  [data-ratio='portrait'] {
     aspect-ratio: var(--ratio-portrait);
   }
-  [data-ratio="ultrawide"] {
+  [data-ratio='ultrawide'] {
     aspect-ratio: var(--ratio-ultrawide);
   }
 }

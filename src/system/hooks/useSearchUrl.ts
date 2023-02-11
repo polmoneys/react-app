@@ -1,4 +1,4 @@
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from 'react-router-dom'
 
 /*
   Usage:
@@ -11,19 +11,26 @@ function useSearchUrl<T extends Record<string, string>>(): readonly [
   T,
   (state: T) => void,
   (state: Partial<T>) => void,
-  () => void
+  () => void,
 ] {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
-  const [searchParams, setSearchParams] = useSearchParams();
-  const state = Object.fromEntries([...searchParams]);
+  const [searchParams, setSearchParams] = useSearchParams()
+  const state = Object.fromEntries([...searchParams])
 
-  const onChange = (s: T) => setSearchParams(s);
-  const onUpdate = (s: Partial<T>) => setSearchParams({ ...state, ...s });
+  const onChange = (s: T) => {
+    setSearchParams(s)
+  }
 
-  const back = () => navigate(-1);
+  const onUpdate = (s: Partial<T>) => {
+    setSearchParams({ ...state, ...s })
+  }
 
-  return [state as T, onChange, onUpdate, back];
+  const back = () => {
+    navigate(-1)
+  }
+
+  return [state as T, onChange, onUpdate, back]
 }
 
-export default useSearchUrl;
+export default useSearchUrl
