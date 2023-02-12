@@ -1,3 +1,4 @@
 node_modules
 src/system/components/Pop/**
 .eslintcache
+dist
