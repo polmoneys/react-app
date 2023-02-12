@@ -52,7 +52,7 @@ export interface GroupProps extends AriaAttributes {
   role?: string
 }
 
-const Group = (props: GroupProps) => {
+const Group = (props: GroupProps): JSX.Element => {
   const {
     children,
     as,

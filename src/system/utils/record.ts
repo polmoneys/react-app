@@ -1,4 +1,4 @@
-export function isEmptyObject(object: any) {
+export function isEmptyObject(object: any): boolean {
   for (const prop in object) {
     if (Object.prototype.hasOwnProperty.call(object, prop)) return false
   }
@@ -22,7 +22,7 @@ type Entry<T> = {
 export function filterObject<T extends object>(
   obj: T,
   fn: (entry: Entry<T>, i: number, arr: Array<Entry<T>>) => boolean,
-) {
+): Partial<T> {
   return Object.fromEntries(
     (Object.entries(obj) as Array<Entry<T>>).filter(fn),
   ) as Partial<T>

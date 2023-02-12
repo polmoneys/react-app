@@ -9,7 +9,7 @@ interface DisclosureProps extends Omit<GroupProps, 'id'> {
   initialOpen?: boolean
 }
 
-const Disclosure = (props: DisclosureProps) => {
+const Disclosure = (props: DisclosureProps): JSX.Element => {
   const { initialOpen = false, label, id, children, ...groupProps } = props
 
   const [open, setStatus] = useState(initialOpen)

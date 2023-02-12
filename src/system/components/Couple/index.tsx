@@ -1,6 +1,6 @@
 import Group, { type GroupProps } from '../Core/Group'
 
-const Couple = (props: GroupProps) => {
+const Couple = (props: GroupProps): JSX.Element => {
   const { gap = 'var(--gap-2)', ...rest } = props
   return (
     <Group

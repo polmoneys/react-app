@@ -2,10 +2,12 @@ import { type ArrayProp } from '../interfaces'
 
 export const isArr = (x: unknown) => Array.isArray(x)
 
-export const compactArray = (x: any[]) =>
+export const compactArray = (x: unknown[]): unknown[] =>
   x.filter(item => item !== null && item !== undefined)
 
-export const unwrapArray = (x: unknown) => (Array.isArray(x) ? x[0] : x)
+export function unwrapArray<T>(x: unknown): T {
+  return Array.isArray(x) ? x[0] : x
+}
 
 export function toArray(value: ArrayProp): string[] {
   return Array.isArray(value) ? value : [value]

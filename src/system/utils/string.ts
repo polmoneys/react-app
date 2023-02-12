@@ -4,6 +4,6 @@
  * [ "Hello", "_", "party", "-", "people!" ]
  */
 
-export function removeSeparators(string: string) {
+export function removeSeparators(string: string): string[] {
   return string.split(/([-_])/)
 }

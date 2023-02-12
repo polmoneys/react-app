@@ -8,7 +8,7 @@ export interface AlertProps extends GroupProps {
   children: ReactNode
 }
 
-function Alert(props: AlertProps) {
+function Alert(props: AlertProps): JSX.Element {
   const {
     role = 'status',
     live = 'polite',

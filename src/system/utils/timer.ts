@@ -17,7 +17,7 @@ export class Timer {
     this.resume()
   }
 
-  resume = () => {
+  resume = (): void => {
     this.start = Date.now()
     if (this.timerId !== null) {
       clearTimeout(this.timerId)
@@ -25,13 +25,13 @@ export class Timer {
     this.timerId = setTimeout(this.cb, this.remaining)
   }
 
-  clear = () => {
+  clear = (): void => {
     if (this.timerId !== null) {
       clearTimeout(this.timerId)
     }
   }
 
-  pause = () => {
+  pause = (): void => {
     if (this.timerId !== null) {
       clearTimeout(this.timerId)
     }

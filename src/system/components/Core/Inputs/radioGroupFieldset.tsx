@@ -1,4 +1,4 @@
-import { cloneElement, ChangeEvent, Children, type ReactElement } from 'react'
+import { cloneElement, Children, type ReactElement } from 'react'
 import { RenderProp } from '@/system/interfaces'
 import Group from '../Group'
 const { map } = Children
@@ -12,7 +12,7 @@ interface RadioGroupProps {
   direction?: 'row' | 'column'
 }
 
-function GroupFieldset(props: RadioGroupProps) {
+function GroupFieldset(props: RadioGroupProps): JSX.Element {
   const { children, gap = '0', direction = 'row', className, name } = props
 
   return (

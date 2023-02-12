@@ -9,7 +9,7 @@ interface LinkProps extends LinkPropsLibrary {
   ring?: boolean
 }
 
-const Link = (props: LinkProps) => {
+const Link = (props: LinkProps): JSX.Element => {
   const { className, children, disabled = false, ring = false, ...rest } = props
   return (
     <FocusRing

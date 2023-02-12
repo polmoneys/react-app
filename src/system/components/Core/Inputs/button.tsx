@@ -6,7 +6,7 @@ export interface ButtonProps extends ComponentProps<'button'> {
   children: string | ReactNode
 }
 
-const Button = (props: ButtonProps) => {
+const Button = (props: ButtonProps): JSX.Element => {
   const {
     className,
     children,

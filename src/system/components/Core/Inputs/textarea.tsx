@@ -14,7 +14,7 @@ interface TextareaProps extends Omit<ComponentProps<'textarea'>, 'onChange'> {
   initial?: string | number
 }
 
-const Textarea = (props: TextareaProps) => {
+const Textarea = (props: TextareaProps): JSX.Element => {
   const {
     initial,
     placeholder = 'Type ',

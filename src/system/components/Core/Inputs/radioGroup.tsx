@@ -21,7 +21,7 @@ interface RadioGroupProps<T> {
   direction?: 'row' | 'column'
 }
 
-function RadioGroup<T extends string>(props: RadioGroupProps<T>) {
+function RadioGroup<T extends string>(props: RadioGroupProps<T>): JSX.Element {
   const {
     children,
     initial = '',
@@ -31,7 +31,7 @@ function RadioGroup<T extends string>(props: RadioGroupProps<T>) {
     className,
     onChange,
   } = props
-  const onChangeRadio = (event: ChangeEvent<HTMLInputElement>) => {
+  const onChangeRadio = (event: ChangeEvent<HTMLInputElement>): void => {
     onChange?.(event.target.name as T)
   }
 

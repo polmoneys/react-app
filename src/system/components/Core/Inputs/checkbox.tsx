@@ -23,7 +23,7 @@ interface CheckboxProps extends ComponentProps<'input'> {
   }
 }
 
-function Checkbox(props: CheckboxProps) {
+function Checkbox(props: CheckboxProps): JSX.Element {
   const {
     value,
     isMixed,

@@ -11,7 +11,10 @@ const useStateWithPrevious = (
   const reducer = (
     state: Record<'value' | 'previousValue', string | boolean>,
     value: string | boolean,
-  ) => ({
+  ): {
+    value: string | boolean
+    previousValue: string | boolean
+  } => ({
     value,
     previousValue: state.value,
   })

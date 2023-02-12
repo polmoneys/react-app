@@ -10,7 +10,7 @@ interface SwitchProps extends ComponentProps<'input'> {
   label: ReactNode
 }
 
-function Switch(props: SwitchProps) {
+function Switch(props: SwitchProps): JSX.Element {
   const {
     className,
     initial = false,
@@ -22,7 +22,7 @@ function Switch(props: SwitchProps) {
     ...rest
   } = props
 
-  const onSwitchChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const onSwitchChange = (event: ChangeEvent<HTMLInputElement>): void => {
     onChangeBoolean(event.target.checked)
   }
   return (

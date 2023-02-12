@@ -7,7 +7,7 @@ const View = ({
 }: {
   children: ReactNode
   className?: string
-}) => (
+}): JSX.Element => (
   <section data-view="root" {...(className !== undefined && { className })}>
     {children}
   </section>

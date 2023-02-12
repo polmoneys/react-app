@@ -16,7 +16,7 @@ export interface RadioProps extends Omit<ComponentProps<'input'>, 'checked'> {
   }
 }
 
-function RadioFieldset(props?: RadioProps) {
+function RadioFieldset(props?: RadioProps): JSX.Element {
   if (props === undefined) return <Fragment />
   const {
     value,

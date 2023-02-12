@@ -8,7 +8,7 @@ import { useRef, useEffect } from 'react'
 function useUpdateEffect(
   effect: React.EffectCallback,
   deps?: React.DependencyList,
-) {
+): void {
   const mounted = useRef(false)
   useEffect(() => {
     if (mounted.current) {

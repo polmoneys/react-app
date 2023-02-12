@@ -44,6 +44,7 @@ function useBrowserTab(props: Props): () => void {
   } else {
     options = `${options}${defaultOptions}`
   }
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const trigger = () => window.open(url, title, options)
   return trigger
 }

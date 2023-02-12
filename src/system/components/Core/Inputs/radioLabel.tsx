@@ -23,7 +23,7 @@ export interface RadioProps extends ComponentProps<'input'> {
   }
 }
 
-function RadioLabel(props?: RadioProps) {
+function RadioLabel(props?: RadioProps): JSX.Element {
   if (props === undefined) return <Fragment />
   const {
     onChange,

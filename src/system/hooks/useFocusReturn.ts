@@ -1,6 +1,6 @@
 import { useCallback } from 'react'
 
-const useFocusReturn = () => {
+const useFocusReturn = (): ((id: string) => number) => {
   const moveFocus = useCallback((id: string) => {
     return window.setTimeout(() => {
       const el = document.getElementById(id) as HTMLElement

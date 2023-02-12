@@ -5,9 +5,9 @@ import { useEffect } from 'react'
   credits https://github.com/streamich/react-use/blob/master/src/useFormEnter.ts
  */
 
-const useFormEnter = (onStartTyping: (event: KeyboardEvent) => void) => {
+const useFormEnter = (onStartTyping: (event: KeyboardEvent) => void): void => {
   useEffect(() => {
-    const keydown = (event: KeyboardEvent) => {
+    const keydown = (event: KeyboardEvent): void => {
       !isFocusedElementEditable() &&
         isTypedCharGood(event) &&
         onStartTyping(event)
@@ -21,7 +21,7 @@ const useFormEnter = (onStartTyping: (event: KeyboardEvent) => void) => {
   }, [])
 }
 
-const isFocusedElementEditable = () => {
+const isFocusedElementEditable = (): boolean => {
   const { activeElement, body } = document
 
   if (activeElement == null) {
@@ -49,7 +49,7 @@ const isTypedCharGood = ({
   metaKey,
   ctrlKey,
   altKey,
-}: KeyboardEvent) => {
+}: KeyboardEvent): boolean => {
   if (metaKey || ctrlKey || altKey) {
     return false
   }

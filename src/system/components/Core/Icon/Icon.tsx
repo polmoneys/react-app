@@ -15,7 +15,7 @@ export interface IconProps {
   strokeWidth?: number
 }
 
-function Icon(props: IconProps) {
+function Icon(props: IconProps): JSX.Element {
   const {
     d = '',
     variant,

@@ -1,4 +1,4 @@
-import { useReducer } from 'react'
+import { type Dispatch, useReducer } from 'react'
 
 /* 
   null means 'closed'
@@ -6,7 +6,7 @@ import { useReducer } from 'react'
 
 type Menu = null | 'file' | 'edit' | 'view'
 
-function menuReducer(state: Menu, action: Menu) {
+function menuReducer(state: Menu, action: Menu): Menu {
   if (action === state) {
     return null
   }
@@ -14,6 +14,6 @@ function menuReducer(state: Menu, action: Menu) {
   return action
 }
 
-const useMenu = () => useReducer(menuReducer, null)
+const useMenu = (): [Menu, Dispatch<Menu>] => useReducer(menuReducer, null)
 
 export default useMenu

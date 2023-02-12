@@ -28,7 +28,7 @@ interface Props {
   className?: string
 }
 
-function Sticky(props: Props) {
+function Sticky(props: Props): JSX.Element {
   const { as = 'div', children, options, className } = props
 
   const Tag = as

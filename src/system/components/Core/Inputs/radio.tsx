@@ -25,7 +25,7 @@ export interface RadioProps extends ComponentProps<'input'> {
   }
 }
 
-function Radio(props?: RadioProps) {
+function Radio(props?: RadioProps): JSX.Element {
   if (props === undefined) return <Fragment />
   const {
     onChange,
@@ -39,7 +39,7 @@ function Radio(props?: RadioProps) {
     classNames,
   } = props
 
-  const onRadioChange = (event: ChangeEvent<HTMLInputElement>) =>
+  const onRadioChange = (event: ChangeEvent<HTMLInputElement>): void =>
     onChange?.(event)
 
   const inputLabel =

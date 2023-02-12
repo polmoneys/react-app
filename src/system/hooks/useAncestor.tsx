@@ -24,13 +24,14 @@ import { createContext, type ReactNode, useContext } from 'react'
 
 const InteractiveAncestryContext = createContext(false)
 
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export const useAncestor = () => useContext(InteractiveAncestryContext)
 
 export const InteractiveAncestryProvider = ({
   children,
 }: {
   children: ReactNode
-}) => {
+}): JSX.Element => {
   const hasInteractiveParent = useAncestor()
 
   if (hasInteractiveParent) {
