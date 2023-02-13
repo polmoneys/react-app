@@ -1,6 +1,6 @@
 import { type ArrayProp } from '../interfaces'
 
-export const isArr = (x: unknown) => Array.isArray(x)
+export const isArr = (x: unknown): boolean => Array.isArray(x)
 
 export const compactArray = (x: unknown[]): unknown[] =>
   x.filter(item => item !== null && item !== undefined)

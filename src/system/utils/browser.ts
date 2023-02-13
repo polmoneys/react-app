@@ -7,6 +7,17 @@ export const inertMain = (status = true): void => {
   if (main != null) (main as InertElement).inert = status
 }
 
+export const clearCookies = (): void => {
+  document.cookie
+    .split(';')
+    .forEach(
+      c =>
+        (document.cookie = c
+          .replace(/^ +/, '')
+          .replace(/=.*/, `=;expires=${new Date().toUTCString()};path=/`)),
+    )
+}
+
 export const getInputTextSelection = (
   input: HTMLInputElement,
 ): { start: number; length: number } => {
