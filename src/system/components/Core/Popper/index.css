@@ -1,0 +1,28 @@
+
+[data-popper="root"]{
+  position: relative;
+}
+
+[data-popper="content"] {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  width: max-content;
+  transform: translateX(-50%);
+}
+
+[data-popper="content"].left {
+  left: 0;
+  transform: translateX(-100%);
+}
+
+[data-popper="content"].right {
+  left: 0;
+  transform: translateX(-100%);
+}
+
+[data-popper="content"].right {
+  left: auto;
+  right: 0;
+  transform: translateX(100%);
+}

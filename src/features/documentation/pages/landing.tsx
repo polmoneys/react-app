@@ -44,6 +44,7 @@ import { ButtonError, ButtonSuccess } from '@/system/components/Buttons'
 import { Card } from '@/system/components/Cards'
 import Textarea from '@/system/components/Core/Inputs/textarea'
 import Disclosure from '@/system/components/Core/Disclosure'
+import Popper from '@/system/components/Core/Popper'
 
 type StatusMachine = 'draft' | 'live' | 'unknown' | 'published'
 
@@ -351,6 +352,34 @@ const Docs = () => {
             <Disclosure as="div" id="test-disclosure" label="DID I WIN ? ">
               <HelveticaNeueBold>YOU WIN </HelveticaNeueBold>
             </Disclosure>
+          </Col>
+        </Card>
+
+        <Card as="div" ratio="auto">
+          <Card.Title>Lil&apos; popper</Card.Title>
+          <Col as="div">
+            <Popper
+              content={
+                <Col
+                  as="div"
+                  options={{
+                    DANGEROUS: {
+                      backgroundColor: 'var(--color-invalid)',
+                      padding: '1em',
+                    },
+                  }}
+                >
+                  <HelveticaNeueBold>
+                    hello darkness my old friend
+                  </HelveticaNeueBold>
+                </Col>
+              }
+              position="left"
+            >
+              {({ toggle }) => {
+                return <button onClick={toggle}>Toggle Tooltip</button>
+              }}
+            </Popper>
           </Col>
         </Card>
       </Grid>
