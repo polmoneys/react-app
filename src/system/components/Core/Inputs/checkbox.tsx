@@ -69,7 +69,9 @@ function Checkbox(props: CheckboxProps): JSX.Element {
   return (
     <Couple as="label" htmlFor={id} className={groupClassNames}>
       <Layers as="div">
-        {isMixed !== undefined && <IconDash label="mixed" size="lg" />}
+        {isMixed !== undefined && isMixed && (
+          <IconDash label="mixed" size="lg" />
+        )}
         {checked && <IconCheck label="checked" size="lg" />}
         {!checked && isMixed === undefined && (
           <IconCross label="not checked" size="lg" />

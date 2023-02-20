@@ -68,8 +68,6 @@ const Docs = () => {
     }
   }
 
-  const [target, setTarget] = useState('')
-
   /*
   
   const input = useRef<HTMLInputElement>(null);
@@ -85,10 +83,6 @@ const Docs = () => {
   );
    */
 
-  const a = true
-  const b = false
-
-  const c = a ? 'x' : b ? 'z' : 'q'
   return (
     <article>
       <GroteskXL>Docs</GroteskXL>
@@ -143,10 +137,10 @@ const Docs = () => {
         <Card ratio="auto" as="div">
           <Col as="div" gap="var(--gap-1)">
             <Checkbox
-              isMixed={mixed === 'mixed'}
-              checked={mixed !== 'mixed' && mixed}
+              isMixed={mixed}
+              checked={all}
               label={
-                mixed === 'mixed' ? (
+                mixed ? (
                   <HelveticaNeue> Some </HelveticaNeue>
                 ) : all ? (
                   <HelveticaNeue> All</HelveticaNeue>

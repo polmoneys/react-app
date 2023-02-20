@@ -8,7 +8,7 @@ function useLeader<T extends ObjectBoolean>(
   {
     output: T
     all: boolean
-    mixed: boolean | 'mixed'
+    mixed: boolean
   },
   {
     onFollowerChange: (event: ChangeEvent<HTMLInputElement>) => void
@@ -28,8 +28,8 @@ function useLeader<T extends ObjectBoolean>(
       : Object.keys(mixedState).some((slice: string) => mixedState[slice])
   }, [mixedState, allChecked])
 
-  const parentIsChecked = useMemo(() => {
-    return allChecked ? true : someChecked ? 'mixed' : false
+  const isMixed = useMemo(() => {
+    return !!(someChecked && !allChecked)
   }, [someChecked, allChecked])
 
   const onLeadChange = useCallback(() => {
@@ -42,15 +42,15 @@ function useLeader<T extends ObjectBoolean>(
         {},
       ),
     )
-  }, [allChecked, mixedState])
+  }, [mixedState, allChecked])
 
   const onFollowerChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
-      const { checked, value } = event.target
-      dispatchUpdate({
-        ...mixedState,
-        [value]: checked,
-      })
+      const { name } = event.target
+      dispatchUpdate(prevState => ({
+        ...prevState,
+        [name]: !prevState[name],
+      }))
     },
     [mixedState],
   )
@@ -65,7 +65,7 @@ function useLeader<T extends ObjectBoolean>(
     {
       output: mixedState as T,
       all: allChecked,
-      mixed: parentIsChecked,
+      mixed: isMixed,
     },
     { onFollowerChange, onLeadChange, isSelected },
   ]
