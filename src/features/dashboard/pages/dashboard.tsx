@@ -4,6 +4,7 @@ import { Timer } from '@/system/utils/timer'
 import { AlertSuccess, AlertError } from '@/system/components/Alerts'
 import Col from '@/system/components/Col'
 import Pre from '@/system/components/Pre'
+import Button from '@/system/components/Buttons'
 
 const Dashboard = (): JSX.Element => {
   const [alert, setAlert] = useState<null | string>(null)
@@ -33,7 +34,6 @@ const Dashboard = (): JSX.Element => {
   return (
     <Col as="article" gap="var(--gap-3)">
       <GroteskXL>Hello, friend. </GroteskXL>
-
       {alert !== null && (
         <AlertSuccess as="div" className="p:md">
           <HelveticaNeue>{alert}</HelveticaNeue>
@@ -45,6 +45,7 @@ const Dashboard = (): JSX.Element => {
         </AlertError>
       )}
 
+      <Button>jhshj l</Button>
       <Pre id="test-pre" label="" pre={p} description="" />
     </Col>
   )

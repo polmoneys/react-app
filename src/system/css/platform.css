@@ -110,8 +110,9 @@ a[target='_blank']:after {
 
 button {
   background-color: var(--color-white);
-  width: fit-content;
   border-radius: var(--border-radius);
+  transition:background-color .1 1s ease-in-out;
+  width: fit-content;
 }
 
 button:hover {
