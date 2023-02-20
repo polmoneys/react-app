@@ -5,15 +5,18 @@ import { type Dispatch, useReducer } from 'react'
   const [value, previousValue, setValue] = useStateWithPrevious('initialValue')
   credits https://thoughtbot.com/blog/custom-react-hooks
 */
+
+type Values = string | boolean
+
 const useStateWithPrevious = (
-  initialValue: string | boolean,
-): [string | boolean, string | boolean, Dispatch<string | boolean>] => {
+  initialValue: Values,
+): [Values, Values, Dispatch<Values>] => {
   const reducer = (
-    state: Record<'value' | 'previousValue', string | boolean>,
-    value: string | boolean,
+    state: Record<'value' | 'previousValue', Values>,
+    value: Values,
   ): {
-    value: string | boolean
-    previousValue: string | boolean
+    value: Values
+    previousValue: Values
   } => ({
     value,
     previousValue: state.value,

@@ -9,6 +9,15 @@ interface Option {
 
 type Options = Option[]
 
+/*
+
+  const db = useCache();
+  const isInCache = db.has(newQuery);
+  db.get(newQuery);
+  db.set(newQuery, matches);
+
+*/
+
 function useCache(): Record<string, unknown> {
   const initial: UnknownObject = {}
   const store = useRef({

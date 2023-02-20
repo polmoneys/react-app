@@ -37,3 +37,12 @@ export const prependNumbers = (str: string): string =>
     .split(/\r?\n/)
     .map((line, i) => `${(i + 1).toString().padStart(2, ' ')} ${line}`)
     .join('\n')
+
+export const getInputTextSelection = (
+  input: HTMLInputElement,
+): { start: number; length: number } => {
+  return {
+    start: input.selectionStart ?? 0,
+    length: (input.selectionEnd ?? 0) - (input.selectionStart ?? 0),
+  }
+}

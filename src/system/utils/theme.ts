@@ -7,6 +7,14 @@ export const classes = (...params: unknown[]): string =>
 
 export const black = (percent: number): string => `rgba(0,0,0,${percent / 100})`
 
+export const get1Fr = (): number | string => {
+  const grid = document.querySelector('.grid')
+  if (grid != null) {
+    return getComputedStyle(grid).gridTemplateColumns
+  }
+  return 0
+}
+
 /*
   Usage:
   

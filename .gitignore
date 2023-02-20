@@ -1,4 +1,6 @@
 node_modules
 src/system/components/Pop/**
+src/system/hooks/useItems.ts
+src/system/hooks/useTick.ts
 .eslintcache
 dist

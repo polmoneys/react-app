@@ -13,6 +13,16 @@ export function toArray(value: ArrayProp): string[] {
   return Array.isArray(value) ? value : [value]
 }
 
+export function generateGroups<T extends Record<string, unknown>>(
+  input: T,
+  count = 3,
+): unknown[] {
+  //   [ [] * count ]
+  const groups = [...Array(count)].map(() => [])
+  // assign input to group
+  return groups
+}
+
 /**
  * Utility to split an array by a condition ()=>
  */

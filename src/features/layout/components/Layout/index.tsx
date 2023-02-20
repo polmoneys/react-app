@@ -13,7 +13,7 @@ const Layout = () => {
   return (
     <Fragment>
       <Nav />
-
+      {/* By using <main> we have allowed users to skip the intro. */}
       <main className={styles.main}>
         <Outlet />
       </main>
@@ -22,6 +22,7 @@ const Layout = () => {
         gap="var(--gap-3)"
         className="px:lg"
         options={{ alignItems: 'center' }}
+        role="contentinfo"
       >
         <HelveticaNeue> Current zoom level: {zoom}</HelveticaNeue>
         <Zoom />

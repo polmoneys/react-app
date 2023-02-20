@@ -1,6 +1,6 @@
 import Group, { type GroupProps } from '../Core/Group'
 
-const Col = (props: GroupProps) => {
+const Col = (props: GroupProps): JSX.Element => {
   const { options, ...rest } = props
   return (
     <Group
