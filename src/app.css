@@ -7,8 +7,8 @@
 }
 
 body {
-  background-color: var(--color-white-ish);
-  color: var(--color-black);
+  background-color: var(--white-200);
+  color: var(--gray-100);
 }
 
 .pair-shortened {
@@ -16,13 +16,13 @@ body {
   resize: horizontal;
 }
 .pair-last {
-  background-color: var(--color-grey-ish);
+  background-color: var(--gray-400);
   padding: 0.2em 0.4em;
   border-radius: 2px;
 }
 
 .accent {
-  color: var(--color-white);
+  color: var(--white-100);
   background-color: var(--color-focus);
   fill: var(--color-focus);
   stroke-color: var(--color-focus);
@@ -31,12 +31,12 @@ body {
 
 .accent:hover,
 .accent:active {
-  color: var(--color-white);
+  color: var(--white-100);
   background-color: var(--color-focus);
 }
 
 .invalid {
-  color: var(--color-white);
+  color: var(--white-100);
   background-color: var(--color-invalid);
   fill: var(--color-invalid);
   stroke-color: var(--color-invalid);
@@ -45,16 +45,16 @@ body {
 
 .invalid:hover,
 .invalid:active {
-  color: var(--color-white);
+  color: var(--white-100);
   background-color: var(--color-invalid);
 }
 
 .dimmed {
-  background-color: var(--color-grey-ish);
+  background-color: var(--gray-500);
 }
 
 main + footer {
-  background-color: var(--color-grey-ish);
+  background-color: var(--color-300);
   padding: var(--gap-2) var(--gap-3);
 }
 

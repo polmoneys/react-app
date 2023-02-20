@@ -4,10 +4,10 @@
   gap: var(--gap-3);
   padding: var(--gap-3);
   background-color: var(--gray-100);
-  color: var(--color-white);
+  color: var(--white-100);
 }
 
 .nav > input[type='search'] {
   margin-left: auto;
-  color: var(--color-black);
+  color: var(--gray-100);
 }

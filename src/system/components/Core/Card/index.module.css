@@ -2,8 +2,8 @@
   --card-min-height: 20vh;
   --card-padding: var(--gap-3);
 
-  --card-bg: var(--color-white);
-  --card-selection-bg: var(--color-grey-ish);
+  --card-bg: var(--white-100);
+  --card-selection-bg: var(--gray-500);
   --card-selection-color: var(--card-black);
 
   position: relative;
@@ -30,8 +30,8 @@
 
 .card footer {
   margin-top: auto;
-  background-color: var(--color-grey);
-  color: var(--color-white-ish);
+  background-color: var(--gray-300);
+  color: var(--white-200);
 }
 
 .card img,
