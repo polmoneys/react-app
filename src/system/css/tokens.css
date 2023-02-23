@@ -28,15 +28,20 @@
   --gray-300: hsl(0, 1%, 38%);
   --gray-400: hsl(0, 2%, 53%);
   --gray-500: hsl(0, 4%, 60%);
+  --gray-600: hsl(0, 4%, 74%);
+  --gray-700: hsl(0, 4%, 80%);
+  --gray-800: hsl(0, 4%, 94%);
+
+
   --error-100: hsl(344, 94%, 60%);
   --error-200: hsl(344, 94%, 50%);
   --color-invalid: var(--error-100);
   --color-focus:#2260ff;
-  --shadow: 0 2px 3px var(--gray-400);
+  --shadow: 0 1px 2px var(--gray-700);
 
   --border-width: 1.5px;
   --border-color: var(--gray-300);
-  --border-radius: 0.2em;
+  --border-radius: 0.1em;
   --border: var(--border-width) solid var(--border-color);
   
   --ios-notch: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);

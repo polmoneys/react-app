@@ -28,14 +28,9 @@
 }
 .group input:checked {
   --x: 20px;
-  outline-color: var(--color-focus);
 }
 
 .group input:checked:after {
   background-color: var(--color-focus);
 }
 
-.group input:disabled:not(:checked):after {
-  opacity: 0.3;
-  cursor: default;
-}

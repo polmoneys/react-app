@@ -22,3 +22,17 @@ export type AddParams<
   TFn extends (...args: never[]) => void,
   TParams extends [...args: unknown[]],
 > = (...args: [...Parameters<TFn>, ...TParams]) => ReturnType<TFn>
+
+/*
+const onClick: OnAction = 'onClick'
+const handleClick: OnAction = 'handleClick'; => will fail
+ */
+export type OnAction = `on${string}`
+
+/*
+ type Crud =  addName | addPhone | removeName | removePhone
+ */
+type CrudActions = 'add' | 'remove'
+type CrudProperty = 'name' | 'phone'
+
+export type Crud = `${CrudActions}${Capitalize<CrudProperty>}`

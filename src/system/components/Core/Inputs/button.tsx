@@ -20,7 +20,7 @@ const Button = (props: ButtonProps): JSX.Element => {
       {...(!disabled && { focusClass: 'ring' })}
       {...(!disabled && { focusRingClass: 'ring' })}
     >
-      <button {...rest} className={classes(className)}>
+      <button data-theme="" {...rest} className={classes(className)}>
         {children}
       </button>
     </FocusRing>

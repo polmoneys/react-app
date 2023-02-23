@@ -76,14 +76,22 @@ a[target='_blank']:after {
   cursor: pointer;
 }
 
-:is(button, input[type='search'], input[type='text'], textarea, select) {
+label{
+display:flex;
+}
+
+:is(button, input[type='search'], input[type='text'], textarea) {
   appearance: none;
   -webkit-appearance: none;
   font: inherit;
-  outline: var(--border);
+}
+
+:is(input[type='search'], input[type='text'], textarea) {
   box-shadow: var(--shadow);
   padding: calc(var(--gap-1) * 0.4) var(--gap-1);
-  border-color: var(--transparent);
+  border: var(--border);
+  border-radius: var(--border-radius);
+  max-width:100%;
 }
 
 :is(button, input[type='search'], input[type='text']) {
@@ -100,7 +108,6 @@ a[target='_blank']:after {
     input[type='search'],
     input[type='text'],
     textarea,
-    select
   ):disabled {
   opacity: 0.3;
   cursor: default;
@@ -108,28 +115,12 @@ a[target='_blank']:after {
 }
 
 button {
-  background-color: var(--white-100);
-  border-radius: var(--border-radius);
-  transition:background-color 300ms ease-in-out;
+  transition:background 300ms ease-in-out,transform 300ms ease-in;
   width: fit-content;
+  text-select:none;
+  -webkit-tap-highlight-color: transparent;
 }
 
-button:hover {
-  background-color: var(--white-200);
-}
-
-button:active {
-  background-color: var(--gray-300);
-}
-
-label {
-  display: flex;
-}
-
-label + input[type='search'],
-label + input[type='text'] {
-  margin: var(--gap-1) 0;
-}
 
 input[type='search'] {
   border-radius: 2em;
@@ -137,17 +128,12 @@ input[type='search'] {
 
 :is(input[type='search'], input[type='text']):focus {
   background-color: var(--white-100);
-  outline: var(--border-width) solid var(--color-focus) !important;
   box-shadow: var(--shadow);
 }
 
-:is(button, input[type='search'], input[type='text']):focus-visible {
-  outline: var(--border-width) solid var(--color-focus) !important;
-}
-
-:is(input[type='search'], input[type='text']):invalid {
-  outline: var(--border-width) solid var(--color-invalid);
-}
+/* :is(input[type='search'], input[type='text'],textarea):focus-visible {
+  outline: var(--border-width) solid var(--gray-200) !important;
+} */
 
 :is(
     input[type='search']::-webkit-search-cancel-button,

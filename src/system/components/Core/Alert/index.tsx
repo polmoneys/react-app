@@ -23,6 +23,7 @@ function Alert(props: AlertProps): JSX.Element {
       role={role}
       aria-live={live}
       aria-relevant={relevant}
+      data-theme=""
     >
       {children}
     </Group>

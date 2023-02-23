@@ -1,3 +1,9 @@
+.circle {
+  border-radius: 50%!important;
+  padding:0!important;
+  aspect-ratio: 1;
+}
+
 /*
   CSS utilities:
     - flex mgmt (margin auto|reorder)

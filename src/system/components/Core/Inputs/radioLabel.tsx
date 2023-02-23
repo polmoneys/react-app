@@ -60,7 +60,7 @@ function RadioLabel(props?: RadioProps): JSX.Element {
 
   return (
     <Group as="div" className={groupClassnames} size={width}>
-      <label htmlFor={id}>
+      <label htmlFor={id} className={styles.label}>
         <Layers stretch as="div">
           <div className={classes(classNames?.label)}>{inputLabel}</div>
           <FocusRing

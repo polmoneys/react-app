@@ -4,7 +4,8 @@ import { Timer } from '@/system/utils/timer'
 import { AlertSuccess, AlertError } from '@/system/components/Alerts'
 import Col from '@/system/components/Col'
 import Pre from '@/system/components/Pre'
-import Button from '@/system/components/Buttons'
+import Button, { ButtonIcon } from '@/system/components/Buttons'
+import { IconBookmark } from '@/system/components/Icons'
 
 const Dashboard = (): JSX.Element => {
   const [alert, setAlert] = useState<null | string>(null)
@@ -45,7 +46,17 @@ const Dashboard = (): JSX.Element => {
         </AlertError>
       )}
 
-      <Button>jhshj l</Button>
+      <Button>Bookmark</Button>
+
+      <Button>
+        <IconBookmark label="" />{' '}
+      </Button>
+      <ButtonIcon>
+        <IconBookmark label="" />
+      </ButtonIcon>
+
+      <Button className="pbutton">jdflajdf</Button>
+
       <Pre id="test-pre" label="" pre={p} description="" />
     </Col>
   )

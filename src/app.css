@@ -21,33 +21,6 @@ body {
   border-radius: 2px;
 }
 
-.accent {
-  color: var(--white-100);
-  background-color: var(--color-focus);
-  fill: var(--color-focus);
-  stroke-color: var(--color-focus);
-  outline: var(--border-width) solid var(--color-focus) !important;
-}
-
-.accent:hover,
-.accent:active {
-  color: var(--white-100);
-  background-color: var(--color-focus);
-}
-
-.invalid {
-  color: var(--white-100);
-  background-color: var(--color-invalid);
-  fill: var(--color-invalid);
-  stroke-color: var(--color-invalid);
-  outline: var(--border-width) solid var(--color-invalid) !important;
-}
-
-.invalid:hover,
-.invalid:active {
-  color: var(--white-100);
-  background-color: var(--color-invalid);
-}
 
 .dimmed {
   background-color: var(--gray-500);

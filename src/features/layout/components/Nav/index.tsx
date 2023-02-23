@@ -1,3 +1,4 @@
+import Search from '@/system/components/Core/Inputs/search'
 import Link from '@/system/components/Link'
 import styles from './index.module.css'
 
@@ -9,7 +10,7 @@ export default function Nav() {
       <Link to="stories">Stories</Link>
       <Link to="docs">Documentation</Link>
 
-      <input type="search" defaultValue="" placeholder="search" />
+      {/* <Search/> */}
     </nav>
   )
 }

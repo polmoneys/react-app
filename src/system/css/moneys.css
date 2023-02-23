@@ -1,0 +1,71 @@
+:is([data-theme=""]) {
+  border-radius: var(--border-radius);
+  padding: calc(var(--gap-1) * 0.4) var(--gap-1);
+  border-color: rgba(0,0,0,0)!important;
+  font-weight:600!important;
+  background-color:var(--gray-700);
+  text-transform:capitalize!important;
+  transition: all 200ms ease;
+}
+:is(button[data-theme=""]):hover {
+  transform: scale(1.02);
+}
+:is(button[data-theme=""]):active {
+  background-color:var(--gray-500);
+  color:var(--gray-800);
+  transform: scale(.97);
+}
+
+:is([data-theme=""]):hover {
+  background-color:var(--gray-600);
+}
+
+:is([data-theme=""].accent) {
+  color: var(--white-100);
+  background-color: var(--color-focus);
+  fill: var(--color-focus);
+  stroke-color: var(--color-focus);
+  outline: var(--border-width) solid var(--color-focus) !important;
+}
+
+:is([data-theme=""].accent:hover,[data-theme=""].accent:active) {
+  color: var(--white-100);
+  background-color: var(--color-focus);
+}
+
+:is([data-theme=""].invalid) {
+  color: var(--white-100);
+  background-color: var(--color-invalid);
+  fill: var(--color-invalid);
+  stroke-color: var(--color-invalid);
+  outline: var(--border-width) solid var(--color-invalid) !important;
+}
+
+:is([data-theme=""].invalid:hover,[data-theme=""].invalid:active) {
+  color: var(--white-100);
+  background-color: var(--color-invalid);
+}
+
+.badge {
+  position: relative;
+}
+.badge:hover {
+  background: black;
+  color: #fff;
+}
+.badge:hover::after {
+  color: #000;
+}
+.badge::after {
+  content: attr(data-badge);
+  top: -5px;
+  right: -5px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  display: flex;
+  background: #fff;
+  border: solid 1px black;
+  align-items: center;
+  justify-content: center;
+}

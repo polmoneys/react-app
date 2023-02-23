@@ -40,11 +40,12 @@ import { Checkbox, Switch } from '@/system/components/Checkboxes'
 import { Radio } from '@/system/components/Radios'
 import useFormEnter from '@/system/hooks/useFormEnter'
 import useFormLeave from '@/system/hooks/useFormLeave'
-import { ButtonError, ButtonSuccess } from '@/system/components/Buttons'
+import Button, { ButtonError, ButtonSuccess } from '@/system/components/Buttons'
 import { Card } from '@/system/components/Cards'
 import Textarea from '@/system/components/Core/Inputs/textarea'
 import Disclosure from '@/system/components/Core/Disclosure'
 import Popper from '@/system/components/Core/Popper'
+import Field from '@/system/components/Core/Inputs/field'
 
 type StatusMachine = 'draft' | 'live' | 'unknown' | 'published'
 
@@ -199,7 +200,7 @@ const Docs = () => {
               <Radio.Label
                 name="draft"
                 value="draft"
-                id="radio-draft"
+                id="radio-draft-x"
                 // classNames={{
                 //   group: "color-accent",
                 //   input: "color-accent",
@@ -263,19 +264,19 @@ const Docs = () => {
               id="form-id"
               // onsubmit="submit.disabled = true"
             >
-              <label htmlFor="input-id">Label</label>
-              <input
-                // ref={input}
-                onKeyDown={handleKeyDown}
-                id="input-id"
-                type="text"
-                placeholder="text"
-                defaultValue=""
+              <Field
+                // ref={ref}
+                label="Whtever"
+                id="rjlajslajlj"
+                value="hey ho"
+                onChange={v => {
+                  console.log({ v })
+                }}
               />
             </form>
-            <button type="submit" form="form-id">
+            <Button type="submit" form="form-id">
               Submit
-            </button>
+            </Button>
           </Col>
         </Card>
 
@@ -371,7 +372,7 @@ const Docs = () => {
               position="left"
             >
               {({ toggle }) => {
-                return <button onClick={toggle}>Toggle Tooltip</button>
+                return <Button onClick={toggle}>Toggle Tooltip</Button>
               }}
             </Popper>
           </Col>

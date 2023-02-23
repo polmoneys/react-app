@@ -9,7 +9,7 @@ function Zoom() {
   return (
     <nav>
       <ButtonSuccess onClick={() => dispatch(setMaxZoom())}>
-        <HelveticaNeueBold as="span">MAX</HelveticaNeueBold>
+        <HelveticaNeueBold as="span">max</HelveticaNeueBold>
       </ButtonSuccess>
     </nav>
   )

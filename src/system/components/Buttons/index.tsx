@@ -5,9 +5,15 @@ export const ButtonSuccess = (props: ButtonProps): JSX.Element => {
   const { className, ...rest } = props
   return <Button {...rest} className={classes('accent', className)} />
 }
+
 export const ButtonError = (props: ButtonProps): JSX.Element => {
   const { className, ...rest } = props
   return <Button {...rest} className={classes('invalid', className)} />
+}
+
+export const ButtonIcon = (props: ButtonProps): JSX.Element => {
+  const { className, ...rest } = props
+  return <Button {...rest} className={classes('circle', className)} />
 }
 
 export default Button
