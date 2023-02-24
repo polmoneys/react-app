@@ -29,7 +29,9 @@ const reducer = (state: State, action: Action): State => {
     case 'end':
       return [...state, action.item]
     case 'removeById':
-      return state.filter(item => item.uuid !== action.id)
+      return state
+        .filter(item => item.uuid !== action.id)
+        .filter(item => item.id !== action.id)
     case 'removeByIndex':
       return state.filter((_, i) => i !== action.index)
     case 'reset':

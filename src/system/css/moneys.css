@@ -69,14 +69,3 @@
   fill: var(--color-invalid);
 }
 
-[data-units~="size:sm"] {
-  --units-size: 3rem;
-}
-
-[data-units~="size:md"] {
-  --units-size: 4rem;
-}
-
-[data-units~="size:lg"] {
-  --units-size: 5rem;
-}

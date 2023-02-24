@@ -78,27 +78,34 @@ a[target='_blank']:after {
   cursor: pointer;
 }
 
-:is(button, input[type='search'], input[type='text'],input[type='radio'],input[type='checkbox'], textarea) {
+:is(
+    button,
+    input[type='search'],
+    input[type='text'],
+    input[type='radio'],
+    input[type='checkbox'],
+    textarea
+  ) {
   appearance: none;
   -webkit-appearance: none;
   font: inherit;
 }
 
 button {
-  transition:background 300ms ease-in-out,transform 300ms ease-in;
+  transition: background 300ms ease-in-out, transform 300ms ease-in;
   width: fit-content;
-  height:fit-content;
-  text-select:none;
+  height: fit-content;
+  user-select: none;
   -webkit-tap-highlight-color: transparent;
 }
 
 button.circle {
-  align-items:center;
-  justify-content:center;
+  align-items: center;
+  justify-content: center;
 }
 
-label{
-display:flex;
+label {
+  display: flex;
 }
 
 :is(button, input[type='search'], input[type='text']) {
@@ -106,11 +113,7 @@ display:flex;
   letter-spacing: 0.02em;
 }
 
-:is(
-    button,
-    input,
-    textarea,
-  ):disabled {
+:is(button, input, textarea, ):disabled {
   opacity: 0.3;
   cursor: default;
   pointer-events: none;
@@ -121,5 +124,5 @@ fieldset {
 }
 
 [hidden] {
-display:none!important;
+  display: none !important;
 }

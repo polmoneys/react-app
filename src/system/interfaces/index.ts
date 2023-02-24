@@ -36,3 +36,19 @@ type CrudActions = 'add' | 'remove'
 type CrudProperty = 'name' | 'phone'
 
 export type Crud = `${CrudActions}${Capitalize<CrudProperty>}`
+
+// conditional type
+export declare function addOrConcat<T extends number | string>(
+  x: T,
+): T extends number ? number : string
+
+/*
+  if ('z' in point){}
+*/
+interface Point {
+  x: number
+  y: number
+}
+export interface Point3d extends Point {
+  z: number
+}

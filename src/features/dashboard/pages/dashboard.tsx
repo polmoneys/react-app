@@ -1,6 +1,7 @@
 import { useState } from 'react'
+// import { InView } from 'react-intersection-observer'
 import { GroteskXL, HelveticaNeue } from '@/system/components/Typography'
-import { Timer } from '@/system/utils/timer'
+// import { Timer } from '@/system/utils/timer'
 import { AlertSuccess, AlertError } from '@/system/components/Alerts'
 import Col from '@/system/components/Col'
 
