@@ -1,13 +1,23 @@
 import { type ComponentProps, useEffect, useRef, useState } from 'react'
 import { FocusRing } from '@react-aria/focus'
-import Couple from '../../Couple'
-import { HelveticaNeue } from '../../Typography'
+import { classes } from '@/system/utils/theme'
+import Group from '../Group'
+import { IconCross } from '../../Icons'
+import { ButtonIcon } from '../../Buttons'
+import styles from './field.module.css'
 
-interface Props extends Omit<ComponentProps<'input'>, 'value' | 'onChange'> {
+interface Props
+  extends Omit<ComponentProps<'input'>, 'value' | 'onChange' | 'className'> {
   value: string
   label: string
   onChange: (val: string) => void
   id: string
+  direction?: 'row' | 'column'
+  classNames?: {
+    group?: string
+    input?: string
+  }
+  isSearch?: boolean
 }
 
 /* 
@@ -29,9 +39,24 @@ function useAsyncStore() {
 
 */
 function Field(props: Props): JSX.Element {
-  const { id, value, onChange, disabled = false, label, ...rest } = props
+  const {
+    id,
+    value,
+    onChange,
+    disabled = false,
+    autoFocus = false,
+    direction = 'column',
+    classNames,
+    label,
+    isSearch = false,
+    ...rest
+  } = props
   const inputRef = useRef<HTMLInputElement>(null)
   const [isFocused, setIsFocused] = useState(false)
+
+  const onClear = (): void => {
+    onChange('')
+  }
 
   useEffect(() => {
     const input = inputRef.current
@@ -42,21 +67,32 @@ function Field(props: Props): JSX.Element {
   }, [value, isFocused])
 
   return (
-    <Couple as="label" htmlFor={id} align="flex-start">
-      <HelveticaNeue>{label}</HelveticaNeue>
+    <Group
+      as="div"
+      options={{
+        direction: isSearch ? 'row' : direction,
+        alignItems: 'flex-start',
+      }}
+      className={classes(styles.group, classNames?.group)}
+      {...(isSearch && { gap: '0' })}
+    >
+      <label htmlFor={id} {...(isSearch && { className: 'visually-hidden' })}>
+        {label}
+      </label>
       <FocusRing
-        // autoFocus={autoFocus}
+        autoFocus={autoFocus}
         {...(!disabled && { focusClass: 'ring' })}
         {...(!disabled && { focusRingClass: 'ring' })}
         isTextInput
       >
         <input
           {...rest}
-          type="text"
+          type={isSearch ? 'search' : 'text'}
+          className={classes(styles.input, classNames?.input)}
           ref={inputRef}
           defaultValue={value}
-          onChange={e => {
-            onChange(e.target.value)
+          onChange={event => {
+            onChange(event.target.value)
           }}
           onFocus={() => {
             setIsFocused(true)
@@ -66,7 +102,17 @@ function Field(props: Props): JSX.Element {
           }}
         />
       </FocusRing>
-    </Couple>
+      {isSearch && (
+        <ButtonIcon onClick={onClear} className={styles.clear}>
+          <IconCross label="Clear input" />
+        </ButtonIcon>
+      )}
+    </Group>
   )
 }
+
+export const Searchbar = (props: Props): JSX.Element => (
+  <Field {...props} isSearch />
+)
+
 export default Field

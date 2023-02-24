@@ -19,7 +19,7 @@ const Disclosure = (props: DisclosureProps): JSX.Element => {
   }, [])
 
   return (
-    <Col {...groupProps} data-disclosure="">
+    <Col as="div" data-disclosure="">
       <Button
         aria-controls={id}
         id={`${id}-button`}
@@ -28,9 +28,9 @@ const Disclosure = (props: DisclosureProps): JSX.Element => {
       >
         {label}
       </Button>
-      <div hidden={!open} id={id}>
+      <Col {...groupProps} hidden={!open} id={id}>
         {children}
-      </div>
+      </Col>
     </Col>
   )
 }

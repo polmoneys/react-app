@@ -3,10 +3,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom'
 /*
   Usage:
   const [urlState, setUrlState, updateCurrentUrlState, back] = useSearchUrl();
-  
   details => https://felixgerschau.com/js-manipulate-url-search-params/
-
-  platform => https://www.aleksandrhovhannisyan.com/blog/serializing-html-form-data-with-javascript/
 */
 
 function useSearchUrl<T extends Record<string, string>>(): readonly [
@@ -20,12 +17,12 @@ function useSearchUrl<T extends Record<string, string>>(): readonly [
   const [searchParams, setSearchParams] = useSearchParams()
   const state = Object.fromEntries([...searchParams])
 
-  const onChange = (s: T): void => {
-    setSearchParams(s)
+  const onChange = (newState: T): void => {
+    setSearchParams(newState)
   }
 
-  const onUpdate = (s: Partial<T>): void => {
-    setSearchParams({ ...state, ...s })
+  const onUpdate = (newState: Partial<T>): void => {
+    setSearchParams({ ...state, ...newState })
   }
 
   const back = (): void => {

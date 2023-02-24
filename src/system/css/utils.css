@@ -1,17 +1,3 @@
-.circle {
-  border-radius: 50%!important;
-  padding:0!important;
-  aspect-ratio: 1;
-}
-
-/*
-  CSS utilities:
-    - flex mgmt (margin auto|reorder)
-    - gap|padding
-    - orientation
-    - width (content)
-    - silver bullets (offscreen,invisible,dead...)
-*/
 
 .col,
 .row {
@@ -49,6 +35,40 @@
 .reorder\:top {
   order: -1 !important;
 }
+
+
+.mt-auto {
+  margin-top: auto;
+}
+.ml-auto {
+  margin-left: auto;
+}
+.mr-auto {
+  margin-right: auto;
+}
+@media (orientation: portrait) {
+  .mt-portrait-auto {
+    margin-top: auto;
+  }
+  .ml-portrait-auto {
+    margin-left: auto;
+  }
+  .mr-portrait-auto {
+    margin-right: auto;
+  }
+}
+@media (orientation: landscape) {
+  .mt-landscape-auto {
+    margin-top: auto;
+  }
+  .ml-landscape-auto {
+    margin-left: auto;
+  }
+  .mr-landscape-auto {
+    margin-right: auto;
+  }
+}
+
 .fit\:width {
   width: fit-content;
 }
@@ -98,6 +118,10 @@
 }
 .mr\:auto {
   margin-right: auto;
+}
+
+.unspace {
+  padding:0!important;
 }
 .p\:sm {
   padding: var(--gap-1);
@@ -176,7 +200,7 @@
   user-select: none;
 }
 
-.offscreen {
+.offscreen, .visually-hidden {
   border: 0;
   clip: rect(0, 0, 0, 0);
   height: 1px;
@@ -193,4 +217,14 @@
   xpointer-events: auto; /* instead of commenting out*/
   position: absolute;
   visibility: hidden;
+}
+
+.circle {
+  border-radius: 50%!important;
+  padding:0!important;
+  aspect-ratio: 1;
+}
+
+@media (prefers-reduced-data: no-preference) {
+  /* user does not prefers to reduce data so go wild*/
 }

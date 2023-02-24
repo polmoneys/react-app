@@ -1,9 +1,0 @@
-.ring {
-  outline: var(--border-width) solid var(--gray-200) !important;
-  outline-offset: var(--border-width);
-
-}
-
-/* *:has(.ring) path {
-  fill: var(--color-focus) !important;
-} */

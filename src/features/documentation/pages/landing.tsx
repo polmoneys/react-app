@@ -40,7 +40,11 @@ import { Checkbox, Switch } from '@/system/components/Checkboxes'
 import { Radio } from '@/system/components/Radios'
 import useFormEnter from '@/system/hooks/useFormEnter'
 import useFormLeave from '@/system/hooks/useFormLeave'
-import Button, { ButtonError, ButtonSuccess } from '@/system/components/Buttons'
+import Button, {
+  ButtonError,
+  ButtonIcon,
+  ButtonSuccess,
+} from '@/system/components/Buttons'
 import { Card } from '@/system/components/Cards'
 import Textarea from '@/system/components/Core/Inputs/textarea'
 import Disclosure from '@/system/components/Core/Disclosure'
@@ -87,7 +91,39 @@ const Docs = () => {
   return (
     <article>
       <GroteskXL>Docs</GroteskXL>
-      <Grid as="div" size="md" className="gap:xl">
+      <Grid as="div" size="lg" className="gap:xl">
+        <Card ratio="auto" as="div">
+          <Row as="div" gap="var(--gap-3)" size="100%">
+            <Button>Bookmark</Button>
+
+            <Button className="unspace">
+              <IconBookmark label="" />{' '}
+            </Button>
+            <ButtonIcon>
+              <IconBookmark label="" size="sm" />
+            </ButtonIcon>
+            <ButtonIcon>
+              <IconBookmark label="" />
+            </ButtonIcon>
+            <ButtonIcon>
+              <IconBookmark size="lg" label="" />
+            </ButtonIcon>
+
+            <Button badge="3">Whispers</Button>
+
+            <Button data-shape="circle" badge="3">
+              Whispers
+            </Button>
+
+            <ButtonIcon badge="3">
+              <IconBookmark label="" size="lg" />
+            </ButtonIcon>
+            <ButtonIcon badge="3" data-shape="circle">
+              <IconBookmark label="" size="lg" />
+            </ButtonIcon>
+          </Row>
+        </Card>
+
         <Card ratio="auto" as="div">
           <Row as="div" gap="var(--gap-3)" size="100%">
             <Couple as="div">
@@ -123,7 +159,7 @@ const Docs = () => {
             <ButtonError>Action something</ButtonError>
           </Card.Actions>
         </Card>
-        <Card as="div" ratio="auto">
+        {/* <Card as="div" ratio="auto">
           <Col as="div">
             <label htmlFor="textarea-test">Free your words</label>
 
@@ -134,7 +170,7 @@ const Docs = () => {
               }}
             />
           </Col>
-        </Card>
+        </Card> */}
         <Card ratio="auto" as="div">
           <Col as="div" gap="var(--gap-1)">
             <Checkbox
@@ -344,7 +380,18 @@ const Docs = () => {
         <Card as="div" ratio="auto">
           <Card.Title>Disclosure</Card.Title>
           <Col as="div">
-            <Disclosure as="div" id="test-disclosure" label="DID I WIN ? ">
+            <Disclosure
+              as="div"
+              id="test-disclosure"
+              label="Did I win ?"
+              options={{
+                DANGEROUS: {
+                  backgroundColor: 'var(--color-invalid)',
+                  color: 'var(--white-100)',
+                  padding: 'var(--gap-3)',
+                },
+              }}
+            >
               <HelveticaNeueBold>YOU WIN </HelveticaNeueBold>
             </Disclosure>
           </Col>
@@ -360,11 +407,11 @@ const Docs = () => {
                   options={{
                     DANGEROUS: {
                       backgroundColor: 'var(--color-invalid)',
-                      padding: '1em',
+                      padding: 'var(--gap-3)',
                     },
                   }}
                 >
-                  <HelveticaNeueBold>
+                  <HelveticaNeueBold dangerousColor="var(--white-100)">
                     hello darkness my old friend
                   </HelveticaNeueBold>
                 </Col>

@@ -1,6 +1,6 @@
 import { type FormEvent, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-import { ButtonSuccess } from '@/system/components/Buttons'
+import Button, { ButtonSuccess } from '@/system/components/Buttons'
 import { Radio } from '@/system/components/Radios'
 import {
   GroteskXL,
@@ -11,7 +11,7 @@ import useSearchUrl from '@/system/hooks/useSearchUrl'
 import Col from '@/system/components/Col'
 import Grid from '@/system/components/Grid'
 import { Card, CardPortraitError } from '@/system/components/Cards'
-import { IconTwitter } from '@/system/components/Icons'
+import { IconHeart, IconTwitter } from '@/system/components/Icons'
 import { isEmptyObject } from '@/system/utils/record'
 import { Lorem, LoremMD } from '@/system/components/Core/Font/utils'
 
@@ -20,10 +20,9 @@ const Archive = () => {
 
   // useEffect(() => {
   //   if (isEmptyObject(urlState)) return
-  // change page according to urlState as in Radio's defaultChecked prop...
   // }, [urlState])
 
-  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const onSubmit = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault()
     const formData = new FormData(event.currentTarget)
     const newURLSearchParams = Object.fromEntries(formData)
@@ -55,30 +54,42 @@ const Archive = () => {
         <ButtonSuccess>Apply filters to url</ButtonSuccess>
       </Col>
 
-      <Grid size="xs" as="div" className="gap:sm">
-        {[...Array(12)].map((k, v) => {
-          if (v === 6)
-            return (
-              <CardPortraitError as="div" key={v}>
-                <Card.Title>
-                  <HelveticaNeueBold> Nº {v} </HelveticaNeueBold>
-                </Card.Title>
-                <div>
-                  <HelveticaNeue>{LoremMD}</HelveticaNeue>
-                </div>
-              </CardPortraitError>
-            )
-          return (
-            <Card as="div" key={v} className="dimmed" ratio="portrait">
+      <Grid as="section" size="sm" className="gap:xl">
+        <div className="demo gap:md">
+          {[...Array(6)].map((k, v) => (
+            <Card.Landscape as="div" key={v}>
               <Card.Title>
-                <HelveticaNeueBold> Nº {v} </HelveticaNeueBold>
+                <Button className="mr:auto">
+                  <IconHeart label="" />
+                </Button>
+                <IconTwitter size="lg" label="" />
               </Card.Title>
-              <div>
-                <HelveticaNeue>{LoremMD}</HelveticaNeue>
-              </div>
-            </Card>
-          )
-        })}
+              <Card.Media
+                src="https://images.unsplash.com/34/BA1yLjNnQCI1yisIZGEi_2013-07-16_1922_IMG_9873.jpg?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
+                height="100%"
+                alt=""
+              />
+            </Card.Landscape>
+          ))}
+        </div>
+
+        <div className="demo gap:md">
+          {[...Array(6)].map((k, v) => (
+            <Card.Portrait as="div" key={v}>
+              <Card.Title>
+                <Button className="mr:auto">
+                  <IconHeart label="" />
+                </Button>
+                <IconTwitter size="lg" label="" />
+              </Card.Title>
+              <Card.Media
+                src="https://images.unsplash.com/34/BA1yLjNnQCI1yisIZGEi_2013-07-16_1922_IMG_9873.jpg?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
+                height="100%"
+                alt=""
+              />
+            </Card.Portrait>
+          ))}
+        </div>
       </Grid>
     </Col>
   )

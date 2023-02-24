@@ -1,0 +1,31 @@
+.badge {
+  position: relative;
+}
+/* .badge:hover {
+  background: black;
+  color: #fff;
+}
+ */
+
+.badge::after {
+  content: attr(data-badge);
+  font-size:1em;
+  top: -.7em;
+  right: -.7em;
+  width: 1.2em;
+  height: 1.2em;
+  position: absolute;
+  display: flex;
+  background: #fff;
+  border: var(--border);
+  align-items: center;
+  justify-content: center;
+}
+
+.badge[data-shape="circle"]::after{
+  border-radius:50%;
+}
+
+.badge:active::after,.badge:focus::after {
+  color: var(--gray-100);
+}

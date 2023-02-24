@@ -8,6 +8,7 @@ import {
   type ComponentProps,
 } from 'react'
 import { FocusRing } from '@react-aria/focus'
+import styles from './field.module.css'
 
 interface TextareaProps extends Omit<ComponentProps<'textarea'>, 'onChange'> {
   onChangeValue: (value: string | number) => void
@@ -76,6 +77,7 @@ const Textarea = (props: TextareaProps): JSX.Element => {
       autoFocus={autoFocus}
       {...(!disabled && { focusClass: 'ring' })}
       {...(!disabled && { focusRingClass: 'ring' })}
+      isTextInput
     >
       <textarea
         id={id}
@@ -91,6 +93,7 @@ const Textarea = (props: TextareaProps): JSX.Element => {
           onInput(event.target as HTMLTextAreaElement)
         }}
         ref={textareaRef}
+        className={styles.textarea}
       />
     </FocusRing>
   )

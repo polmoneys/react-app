@@ -3,13 +3,11 @@
 }
 
 .group input {
-  appearance: none;
   height: 1.6em;
   width: 3em;
   border-radius: 0.7em;
   cursor: pointer;
-  border-color: var(--transparent);
-  outline: var(--border-width) solid currentColor;
+  border: var(--border-width) solid currentColor;
   position: relative;
   background: var(--white-100);
   transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
@@ -23,11 +21,11 @@
   border-radius: 50%;
   display: flex;
   background-color: currentColor;
-  transform: translateX(var(--x, var(--gap-1)))
-    translateY(calc(calc(1.6em - 1.2em) / 2));
+  transform: translateX(var(--x, .2em))
+    translateY(.11em);
 }
 .group input:checked {
-  --x: 20px;
+  --x: 1.4em;
 }
 
 .group input:checked:after {

@@ -1,16 +1,35 @@
-import Search from '@/system/components/Core/Inputs/search'
+import { Searchbar } from '@/system/components/Core/Inputs/field'
 import Link from '@/system/components/Link'
 import styles from './index.module.css'
 
 export default function Nav() {
   return (
     <nav className={styles.nav}>
-      <Link to="/">H</Link>
-      <Link to="archive">Archive</Link>
-      <Link to="stories">Stories</Link>
-      <Link to="docs">Documentation</Link>
+      <Link to="/" ring>
+        H
+      </Link>
+      <Link to="archive" ring>
+        Archive
+      </Link>
+      <Link to="stories" ring>
+        Stories
+      </Link>
+      <Link to="docs" ring>
+        Documentation
+      </Link>
 
-      {/* <Search/> */}
+      <Searchbar
+        placeholder="search"
+        id="searchbar"
+        value=""
+        label=""
+        classNames={{
+          group: 'ml-auto',
+        }}
+        onChange={v => {
+          console.log({ v })
+        }}
+      />
     </nav>
   )
 }

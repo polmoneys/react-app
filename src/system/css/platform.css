@@ -1,14 +1,3 @@
-/*
-  Tames the platform and sets some 
-  default styles:
-    - reset & normalize
-    - a
-    - button
-    - input (text|search)
-    - textarea 
-    - (prefers mq...)
-*/
-
 *,
 :after,
 :before {
@@ -20,6 +9,18 @@
   padding: 0;
   scroll-behavior: smooth;
 }
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-delay: -1ms;
+    animation-duration: 1ms;
+    animation-iteration-count: 1;
+    background-attachment: initial;
+    scroll-behavior: auto;
+    transition-delay: 0s;
+    transition-duration: 0s;
+  }
+}
+
 html {
   -ms-overflow-style: -ms-autohiding-scrollbar;
   -webkit-overflow-scrolling: touch;
@@ -27,6 +28,7 @@ html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }
+
 body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -76,22 +78,27 @@ a[target='_blank']:after {
   cursor: pointer;
 }
 
-label{
-display:flex;
-}
-
-:is(button, input[type='search'], input[type='text'], textarea) {
+:is(button, input[type='search'], input[type='text'],input[type='radio'],input[type='checkbox'], textarea) {
   appearance: none;
   -webkit-appearance: none;
   font: inherit;
 }
 
-:is(input[type='search'], input[type='text'], textarea) {
-  box-shadow: var(--shadow);
-  padding: calc(var(--gap-1) * 0.4) var(--gap-1);
-  border: var(--border);
-  border-radius: var(--border-radius);
-  max-width:100%;
+button {
+  transition:background 300ms ease-in-out,transform 300ms ease-in;
+  width: fit-content;
+  height:fit-content;
+  text-select:none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button.circle {
+  align-items:center;
+  justify-content:center;
+}
+
+label{
+display:flex;
 }
 
 :is(button, input[type='search'], input[type='text']) {
@@ -99,14 +106,9 @@ display:flex;
   letter-spacing: 0.02em;
 }
 
-/* :is(input[type="search"], input[type="text"]) {
-  font-size: max(16px, 1rem);
-} */
-
 :is(
     button,
-    input[type='search'],
-    input[type='text'],
+    input,
     textarea,
   ):disabled {
   opacity: 0.3;
@@ -114,86 +116,10 @@ display:flex;
   pointer-events: none;
 }
 
-button {
-  transition:background 300ms ease-in-out,transform 300ms ease-in;
-  width: fit-content;
-  text-select:none;
-  -webkit-tap-highlight-color: transparent;
-}
-
-
-input[type='search'] {
-  border-radius: 2em;
-}
-
-:is(input[type='search'], input[type='text']):focus {
-  background-color: var(--white-100);
-  box-shadow: var(--shadow);
-}
-
-/* :is(input[type='search'], input[type='text'],textarea):focus-visible {
-  outline: var(--border-width) solid var(--gray-200) !important;
-} */
-
-:is(
-    input[type='search']::-webkit-search-cancel-button,
-    input[type='search']::-webkit-search-decoration
-  ) {
-  -webkit-appearance: none;
-  margin-right: var(--gap-1);
-}
-
-:is(
-    input[type='search']:focus::-webkit-input-placeholder,
-    input[type='search']:focus::-moz-placeholder,
-    input[type='search']:focus::-ms-input-placeholder,
-
-  ) {
-  color: var(--gray-300);
-}
-
-:is(
-    input[type='search']:disabled::-webkit-input-placeholder,
-    input[type='search']:disabled::-moz-placeholder,
-    input[type='search']:disabled:-ms-input-placeholder,
-    input[type='text']:disabled::-webkit-input-placeholder,
-    input[type='text']:disabled::-moz-placeholder,
-    input[type='text']:disabled:-ms-input-placeholder
-  ) {
-  color: var(--gray-100);
-}
-
-:is(input[type='text']::-webkit-autofill) {
-}
-
-textarea {
-  font-size: max(16px, 1rem);
-  line-height: 1.4;
-  min-height: var(--comfy-height);
-  min-width: 0;
-  display: flex;
-  flex-grow: 1;
-  width: 100%;
-  overflow: hidden;
-  resize: vertical;
-}
-
 fieldset {
   border-color: var(--transparent);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-delay: -1ms;
-    animation-duration: 1ms;
-    animation-iteration-count: 1;
-    background-attachment: initial;
-    scroll-behavior: auto;
-    transition-delay: 0s;
-    transition-duration: 0s;
-  }
-}
-
-@media (prefers-reduced-data: no-preference) {
-  /* user does not prefers to reduce data so go wild*/
+[hidden] {
+display:none!important;
 }

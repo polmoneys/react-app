@@ -4,13 +4,10 @@
 
 .checkbox {
   accent-color: var(--gray-100);
-  appearance: none;
-  font: inherit;
   color: currentColor;
   height: 2.2em;
   width: 2.2em;
-  border-color: var(--transparent);
-  outline: var(--border-width) solid currentColor;
+  border: var(--border-width) solid currentColor;
   background-color: var(--transparent);
   border-radius: inherit;
   aspect-ratio: 1;

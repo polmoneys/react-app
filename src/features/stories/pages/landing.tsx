@@ -10,12 +10,26 @@ import {
 } from '@/system/components/Typography'
 import Grid from '@/system/components/Grid'
 import View from '@/system/components/View'
+import Pre from '@/system/components/Pre'
 import useStories from '../hooks/useStories'
 import { Card, CardPortraitSuccess } from '@/system/components/Cards'
 import Button from '@/system/components/Buttons'
 
 const Stories = () => {
   const { data, isFetching } = useStories()
+
+  const p = `
+         _
+      _-'_'-_
+   _-' _____ '-_
+_-' ___________ '-_
+ |___|||||||||___|
+ |___|||||||||___|
+ |___|||||||o|___|
+ |___|||||||||___|
+ |___|||||||||___|
+ |___|||||||||___|
+  `
 
   return (
     <View>
@@ -51,23 +65,7 @@ const Stories = () => {
       </View.Popout>
 
       <View.Full>
-        <Grid as="div" size="md" className="gap:sm">
-          {[...Array(12)].map((k, v) => (
-            <Card.Landscape as="div" key={v}>
-              <Card.Title>
-                <Button className="mr:auto">
-                  <IconHeart label="" />
-                </Button>
-                <IconTwitter size="lg" label="" />
-              </Card.Title>
-              <Card.Media
-                src="https://images.unsplash.com/34/BA1yLjNnQCI1yisIZGEi_2013-07-16_1922_IMG_9873.jpg?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
-                height="100%"
-                alt=""
-              />
-            </Card.Landscape>
-          ))}
-        </Grid>
+        <Pre id="test-pre" label="" pre={p} description="" />
       </View.Full>
     </View>
   )

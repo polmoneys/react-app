@@ -50,6 +50,7 @@ export interface GroupProps extends AriaAttributes {
     DANGEROUS?: Dictionary
   }
   role?: string
+  hidden?: boolean
 }
 
 const Group = (props: GroupProps): JSX.Element => {

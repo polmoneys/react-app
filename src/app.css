@@ -21,9 +21,11 @@ body {
   border-radius: 2px;
 }
 
-
-.dimmed {
-  background-color: var(--gray-500);
+.demo {
+  width: 100%;
+  align-items: start;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
 }
 
 main + footer {

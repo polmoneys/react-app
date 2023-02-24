@@ -1,12 +1,31 @@
+.ring {
+  outline: var(--border-width) solid var(--gray-200) !important;
+  outline-offset: var(--border-width);
+
+}
+
+/* *:has(.ring) path {
+  fill: var(--color-focus) !important;
+} */
+
 :is([data-theme=""]) {
   border-radius: var(--border-radius);
   padding: calc(var(--gap-1) * 0.4) var(--gap-1);
   border-color: rgba(0,0,0,0)!important;
   font-weight:600!important;
   background-color:var(--gray-700);
-  text-transform:capitalize!important;
   transition: all 200ms ease;
 }
+
+:is([data-theme=""] polygon) {
+  fill:currentColor;
+}
+
+:is([data-theme=""]):hover {
+  background-color:var(--gray-600);
+}
+
+/* Buttons will grow/shrink  */
 :is(button[data-theme=""]):hover {
   transform: scale(1.02);
 }
@@ -14,10 +33,6 @@
   background-color:var(--gray-500);
   color:var(--gray-800);
   transform: scale(.97);
-}
-
-:is([data-theme=""]):hover {
-  background-color:var(--gray-600);
 }
 
 :is([data-theme=""].accent) {
@@ -33,6 +48,10 @@
   background-color: var(--color-focus);
 }
 
+:is([data-theme=""].accent polygon) {
+  fill: var(--color-focus);
+}
+
 :is([data-theme=""].invalid) {
   color: var(--white-100);
   background-color: var(--color-invalid);
@@ -46,26 +65,18 @@
   background-color: var(--color-invalid);
 }
 
-.badge {
-  position: relative;
+:is([data-theme=""].accent polygon) {
+  fill: var(--color-invalid);
 }
-.badge:hover {
-  background: black;
-  color: #fff;
+
+[data-units~="size:sm"] {
+  --units-size: 3rem;
 }
-.badge:hover::after {
-  color: #000;
+
+[data-units~="size:md"] {
+  --units-size: 4rem;
 }
-.badge::after {
-  content: attr(data-badge);
-  top: -5px;
-  right: -5px;
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  display: flex;
-  background: #fff;
-  border: solid 1px black;
-  align-items: center;
-  justify-content: center;
+
+[data-units~="size:lg"] {
+  --units-size: 5rem;
 }
