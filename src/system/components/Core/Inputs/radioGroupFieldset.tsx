@@ -1,5 +1,4 @@
 import { cloneElement, Children, type ReactElement } from 'react'
-import { RenderProp } from '@/system/interfaces'
 import Group from '../Group'
 const { map } = Children
 

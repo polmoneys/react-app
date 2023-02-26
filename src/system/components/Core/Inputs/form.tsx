@@ -1,7 +1,7 @@
 import { type ComponentProps, useEffect, type ReactNode } from 'react'
 import Group from '../Group'
 
-interface Props extends Omit<ComponentProps<'form'>, 'onChange'> {
+interface Props extends Omit<ComponentProps<'form'>, 'onChange' | 'onKeyDown'> {
   id: string
   children: ReactNode
   onChange?: (url: string) => void

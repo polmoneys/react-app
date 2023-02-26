@@ -38,7 +38,7 @@ function Switch(props: SwitchProps): JSX.Element {
       >
         <input
           type="checkbox"
-          {...(initial && { checked: true })}
+          checked={initial}
           onChange={onSwitchChange}
           {...rest}
         />

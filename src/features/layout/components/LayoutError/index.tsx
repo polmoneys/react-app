@@ -3,7 +3,7 @@ import { useRouteError } from 'react-router-dom'
 import Nav from '@/features/layout/components/Nav'
 import styles from '../Layout/index.module.css'
 
-const ErrorLayout = () => {
+const ErrorLayout = (): JSX.Element => {
   const error = useRouteError()
   return (
     <Fragment>

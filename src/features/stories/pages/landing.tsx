@@ -1,73 +1,84 @@
-import { Lorem, LoremXL } from '@/system/components/Core/Font/utils'
-import { IconBookmark, IconHeart, IconTwitter } from '@/system/components/Icons'
-import { List } from '@/system/components/Lists'
-import {
-  Grotesk,
-  GroteskXL,
-  HelveticaNeue,
-  HelveticaNeueBold,
-  HelveticaNeueMedium,
-} from '@/system/components/Typography'
+import { useMemo } from 'react'
 import Grid from '@/system/components/Grid'
-import View from '@/system/components/View'
-import Pre from '@/system/components/Pre'
-import useStories from '../hooks/useStories'
-import { Card, CardPortraitSuccess } from '@/system/components/Cards'
-import Button from '@/system/components/Buttons'
+import { useAppDispatch, useAppSelector } from '@/config/store/hooks'
+import Table from '@/system/components/Core/Table'
+import { genericSort } from '@/system/utils/array'
+import { type SortDirection } from '../interfaces/Pager'
+import { addFilter, storiesFiltersSlice } from '../store'
+import Planets from '../components/Planets'
+import useTrivia from '../hooks/useTrivia'
+import Filters, { matchEpisodeToRating } from '../components/Filters'
+import useFilms from '../hooks/useFilms'
+import People from '../components/People'
 
-const Stories = () => {
-  const { data, isFetching } = useStories()
+const Stories = (): JSX.Element => {
+  const { data: films, isFetching } = useFilms()
+  const [
+    { isError: isErrorPlanets, data: planets, isFetching: isFetchingPlanets },
+    { isError: isErrorPeople, data: people, isFetching: isFetchingPeople },
+  ] = useTrivia()
 
-  const p = `
-         _
-      _-'_'-_
-   _-' _____ '-_
-_-' ___________ '-_
- |___|||||||||___|
- |___|||||||||___|
- |___|||||||o|___|
- |___|||||||||___|
- |___|||||||||___|
- |___|||||||||___|
-  `
+  const dispatch = useAppDispatch()
+  const { sort, query, rating, old } = useAppSelector(storiesFiltersSlice)
+  const threshold = old ? 3 : 0
+
+  const filtered = useMemo(() => {
+    const currentMatches = matchEpisodeToRating(rating)
+    const maybe = (ep: string) => currentMatches.includes(ep)
+    return films
+      ?.filter(film => Number(film.episode) > threshold)
+      ?.filter(film => maybe(film.episode))
+      ?.sort((filmA, filmB) =>
+        genericSort<any>(filmA, filmB, {
+          property: sort.id,
+          isDescending: sort.direction === 'descending',
+        }),
+      )
+  }, [old, sort, films, rating])
 
   return (
-    <View>
-      <View.Feature>
-        <GroteskXL>Stories</GroteskXL>
-      </View.Feature>
+    <article>
+      <Grid as="div" size="lg" className="gap:md">
+        <Filters />
 
-      <View.Popout>
-        <List label="stories">
-          {isFetching && (
-            <List.Divider>
-              <HelveticaNeueBold>Loading</HelveticaNeueBold>
-            </List.Divider>
-          )}
-          <List.Divider>
-            <HelveticaNeue>
-              {isFetching ? 'Loading' : 'All SW films'}
-            </HelveticaNeue>
-          </List.Divider>
-          {data?.map(story => (
-            <List.Item
-              start={<IconBookmark label="Bookmark" size="md" />}
-              end={
-                <IconHeart label="Like" size="lg" stroke="var(--color-focus)" />
+        <div>
+          {filtered != null && (
+            <Table
+              sort={sort}
+              label={'movies'}
+              onSort={(id: string, dir: SortDirection) =>
+                dispatch(
+                  addFilter({
+                    filter: 'sort',
+                    value: {
+                      id,
+                      direction: dir,
+                    },
+                  }),
+                )
               }
-              key={story.id}
-            >
-              <HelveticaNeueBold>{story.title}</HelveticaNeueBold>
-              <HelveticaNeue>Story by {story.director}</HelveticaNeue>
-            </List.Item>
-          ))}
-        </List>
-      </View.Popout>
-
-      <View.Full>
-        <Pre id="test-pre" label="" pre={p} description="" />
-      </View.Full>
-    </View>
+              th={[
+                {
+                  label: 'Title',
+                  id: 'label',
+                },
+                { label: 'Episode', id: 'episode' },
+                { label: 'Director', id: 'director' },
+                { label: 'Release date', id: 'releaseDate' },
+                { label: 'Opening', id: 'content' },
+              ]}
+              tr={filtered}
+            />
+          )}
+        </div>
+        {planets != null && (
+          <Planets isFetching={isFetchingPlanets} planets={planets} />
+        )}
+        {people != null && (
+          <People isFetching={isFetchingPeople} people={people} />
+        )}
+      </Grid>
+    </article>
   )
 }
 

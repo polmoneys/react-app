@@ -5,7 +5,14 @@ import Media from '../../Media'
 import Row from '../../Row'
 import styles from './index.module.css'
 
-const HTMLCardTags = ['section', 'article', 'li', 'div', 'form'] as const
+const HTMLCardTags = [
+  'section',
+  'article',
+  'aside',
+  'li',
+  'div',
+  'form',
+] as const
 type HTMLCardTagsType = (typeof HTMLCardTags)[number]
 
 const CardRatio = ['auto', 'square', 'portrait', 'landscape'] as const

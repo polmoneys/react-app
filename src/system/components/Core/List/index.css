@@ -1,6 +1,8 @@
 .item {
   --item-gap: var(--gap-1);
   --item-slot-width: 48px;
+  --item-slot-width-xl: 96px;
+
   grid-gap: var(--item-gap);
   display: grid;
   gap: var(--item-gap);
@@ -41,7 +43,7 @@
     grid-template-columns: var(--item-slot-width) 1fr;
   }
   .item.item\:end {
-    grid-template-columns: 1fr var(--item-slot-width);
+    grid-template-columns: 1fr var(--item-slot-width-xl);
   }
 }
 @supports selector(:has(*)) {
@@ -49,10 +51,10 @@
     grid-template-columns: var(--item-slot-width) 1fr;
   }
   .item:has(.end) {
-    grid-template-columns: 1fr var(--item-slot-width);
+    grid-template-columns: 1fr var(--item-slot-width-xl);
   }
   .item:has(.start):has(.end) {
-    grid-template-columns: var(--item-slot-width) 1fr var(--item-slot-width);
+    grid-template-columns: var(--item-slot-width) 1fr var(--item-slot-width-xl);
   }
   .item:has(.end) div:first-child,
   .item:has(.start) div:nth-child(2),

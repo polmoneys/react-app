@@ -1,15 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { RootState } from '@/config/store'
-import type Settings from '../interfaces/Settings'
-
-const initialState: Settings = {
-  settings: {
-    zoom: 0,
-  },
-}
+import { initialState } from './initialState'
+import { type Settings } from './types'
 
 export const settingsStore = createSlice({
-  name: 'dashboard',
+  name: 'layout-feature',
   initialState,
   reducers: {
     setMinZoom: state => {
@@ -26,6 +21,7 @@ export const settingsStore = createSlice({
 
 export const { setMaxZoom, setMidZoom, setMinZoom } = settingsStore.actions
 
-export const settingsSlice = (state: RootState) => state.layout.settings
+export const settingsSlice = (state: RootState): Settings =>
+  state.layout.settings
 
 export default settingsStore.reducer

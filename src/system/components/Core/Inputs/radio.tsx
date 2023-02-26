@@ -17,12 +17,6 @@ export interface RadioProps extends ComponentProps<'input'> {
     { checked: boolean; checkboxLabel: string },
     HTMLElement
   >
-  classNames?: {
-    group?: string
-    label?: string
-    input?: string
-    checked?: string
-  }
 }
 
 function Radio(props?: RadioProps): JSX.Element {
@@ -36,7 +30,7 @@ function Radio(props?: RadioProps): JSX.Element {
     checked = false,
     disabled = false,
     autoFocus = false,
-    classNames,
+    value,
   } = props
 
   const onRadioChange = (event: ChangeEvent<HTMLInputElement>): void =>
@@ -52,12 +46,7 @@ function Radio(props?: RadioProps): JSX.Element {
       })
     )
 
-  const groupClassnames = classes(
-    styles.control,
-    checked && styles.checked,
-    checked && classNames?.checked,
-    classNames?.group,
-  )
+  const groupClassnames = classes(styles.control, checked && styles.checked)
 
   return (
     <Couple as="label" htmlFor={id} className={groupClassnames}>
@@ -70,11 +59,8 @@ function Radio(props?: RadioProps): JSX.Element {
           type="radio"
           id={id}
           name={name}
-          value={name}
+          value={value}
           checked={checked}
-          {...(classNames?.input !== undefined && {
-            className: classNames.input,
-          })}
           onChange={onRadioChange}
         />
       </FocusRing>

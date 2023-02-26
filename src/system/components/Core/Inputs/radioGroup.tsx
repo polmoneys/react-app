@@ -11,6 +11,7 @@ const { map } = Children
 interface RadioGroupProps<T> {
   children: ReactElement[]
   initial: T
+  name: string
   className?: string
   gap?: string
   renderLabel?: RenderProp<
@@ -29,10 +30,11 @@ function RadioGroup<T extends string>(props: RadioGroupProps<T>): JSX.Element {
     renderLabel,
     direction = 'row',
     className,
+    name,
     onChange,
   } = props
   const onChangeRadio = (event: ChangeEvent<HTMLInputElement>): void => {
-    onChange?.(event.target.name as T)
+    onChange?.(event.target.value as T)
   }
 
   return (
@@ -43,15 +45,16 @@ function RadioGroup<T extends string>(props: RadioGroupProps<T>): JSX.Element {
       {...(className !== undefined && { className })}
     >
       {map(children, (radio: ReactElement) => {
-        const { name } = radio.props
-        const checked = initial === name
+        const { label, value } = radio.props
+        const checked = initial === value
 
         return cloneElement(radio, {
           name,
           checked,
+          value,
           onChange: onChangeRadio,
           ...(renderLabel !== undefined && { renderLabel }),
-          label: name,
+          label,
         })
       })}
     </Group>

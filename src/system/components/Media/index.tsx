@@ -8,9 +8,7 @@ interface MediaProps {
   height?: string
   sources?: Dictionary
   eager?: boolean
-  DONOTUse?: {
-    DONOTStyle: Dictionary
-  }
+  objectPosition?: string
   priority?: 'low' | 'hight'
 }
 
@@ -21,6 +19,7 @@ function Media(props: MediaProps): JSX.Element {
     src,
     alt = '',
     eager = false,
+    objectPosition,
     priority = 'low',
   } = props
 
@@ -65,6 +64,10 @@ function Media(props: MediaProps): JSX.Element {
             alt={alt}
             loading={eager ? 'eager' : 'lazy'}
             height={height}
+            {...(objectPosition !== undefined && {
+              style: { objectPosition },
+            })}
+
             // fetchpriority={priority}
           />
         </Fragment>

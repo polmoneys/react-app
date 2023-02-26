@@ -1,12 +1,15 @@
-export type FilterRecord = Record<string, string>
-export type FilterRecords = FilterRecord[]
-export type Status = 'draft' | 'validating' | 'published'
+export type Status = 'active' | 'inactive'
+export type Agencies =
+  | 'JAXA'
+  | 'NASA'
+  | 'ESA'
+  | 'SpaceX'
+  | 'Axiom Space'
+  | 'Roscosmos'
+  | 'All'
 
-export interface SearchFilters {
-  filters: {
-    favorites: boolean
-    status: Status
-    from: string
-    to: string
-  }
+export interface Filters {
+  bulk: string[]
+  agency: Agencies | null
+  status: Status
 }

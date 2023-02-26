@@ -11,12 +11,6 @@
   max-width:100%;
 }
 
-
-:is(.group input[type='search'], .group input[type='text']):focus {
-  background-color: var(--white-100);
-  box-shadow: var(--shadow);
-}
-
 :is(
    .group input[type='search']::-webkit-search-cancel-button,
    .group input[type='search']::-webkit-search-decoration

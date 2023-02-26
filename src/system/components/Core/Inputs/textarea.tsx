@@ -9,6 +9,7 @@ import {
 } from 'react'
 import { FocusRing } from '@react-aria/focus'
 import styles from './field.module.css'
+import { useKeyboard } from 'react-aria'
 
 interface TextareaProps extends Omit<ComponentProps<'textarea'>, 'onChange'> {
   onChangeValue: (value: string | number) => void
@@ -50,12 +51,14 @@ const Textarea = (props: TextareaProps): JSX.Element => {
     onChangeValue(editingValue)
   }, [editingValue])
 
-  const onKeyDown = (event: KeyboardEvent<HTMLTextAreaElement>): void => {
-    if (event.key === 'Enter' || event.key === 'Escape') {
-      event.preventDefault()
-      ;(event.target as HTMLTextAreaElement).blur()
-    }
-  }
+  const { keyboardProps } = useKeyboard({
+    onKeyUp: event => {
+      if (event.key === 'Enter' || event.key === 'Escape') {
+        event.preventDefault()
+        ;(event.target as HTMLTextAreaElement).blur()
+      }
+    },
+  })
 
   const onBlur = (event: ChangeEvent<HTMLTextAreaElement>): void => {
     if (event.target.value.trim() === '') {
@@ -88,7 +91,7 @@ const Textarea = (props: TextareaProps): JSX.Element => {
         value={editingValue}
         onBlur={onBlur}
         onChange={onChange}
-        onKeyDown={onKeyDown}
+        {...keyboardProps}
         onInput={event => {
           onInput(event.target as HTMLTextAreaElement)
         }}

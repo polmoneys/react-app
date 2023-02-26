@@ -5,7 +5,7 @@ import { classes } from '@/system/utils/theme'
 import { HelveticaNeue } from '../../Typography'
 import Group from '../Group'
 import Layers from '../Layers'
-import styles from './Radio.module.css'
+import styles from './radio.module.css'
 
 export interface RadioProps extends ComponentProps<'input'> {
   id: string
@@ -15,12 +15,6 @@ export interface RadioProps extends ComponentProps<'input'> {
     HTMLElement
   >
   width?: string
-  classNames?: {
-    group?: string
-    label?: string
-    input?: string
-    checked?: string
-  }
 }
 
 function RadioLabel(props?: RadioProps): JSX.Element {
@@ -31,8 +25,8 @@ function RadioLabel(props?: RadioProps): JSX.Element {
     renderLabel,
     label,
     name,
+    value,
     width,
-    classNames,
     checked = false,
     disabled = false,
     autoFocus = false,
@@ -51,18 +45,13 @@ function RadioLabel(props?: RadioProps): JSX.Element {
       })
     )
 
-  const groupClassnames = classes(
-    styles.radio,
-    classNames?.group,
-    checked && styles.checked,
-    checked && classNames?.checked,
-  )
+  const groupClassnames = classes(styles.radio, checked && styles.radioChecked)
 
   return (
     <Group as="div" className={groupClassnames} size={width}>
       <label htmlFor={id} className={styles.label}>
         <Layers stretch as="div">
-          <div className={classes(classNames?.label)}>{inputLabel}</div>
+          <div>{inputLabel}</div>
           <FocusRing
             autoFocus={autoFocus}
             {...(!disabled && { focusClass: 'ring' })}
@@ -72,9 +61,8 @@ function RadioLabel(props?: RadioProps): JSX.Element {
               type="radio"
               id={id}
               name={name}
-              value={name}
+              value={value}
               checked={checked}
-              className={classes(classNames?.input)}
               onChange={onRadioChange}
             />
           </FocusRing>

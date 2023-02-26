@@ -1,5 +1,6 @@
 import {
   Link as LinkLibrary,
+  NavLink as NavLinkLibrary,
   type LinkProps as LinkPropsLibrary,
 } from 'react-router-dom'
 import { FocusRing } from '@react-aria/focus'
@@ -19,6 +20,20 @@ const Link = (props: LinkProps): JSX.Element => {
       <LinkLibrary {...rest} {...(className !== undefined && { className })}>
         {children}
       </LinkLibrary>
+    </FocusRing>
+  )
+}
+
+export const NavLink = (props: LinkProps): JSX.Element => {
+  const { className, children, disabled = false, ring = false, ...rest } = props
+  return (
+    <FocusRing
+      {...(!disabled && ring && { focusClass: 'ring' })}
+      {...(!disabled && ring && { focusRingClass: 'ring' })}
+    >
+      <NavLinkLibrary {...rest} {...(className !== undefined && { className })}>
+        {children}
+      </NavLinkLibrary>
     </FocusRing>
   )
 }

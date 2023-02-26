@@ -1,4 +1,5 @@
-import { QueryClient } from 'react-query'
+import { QueryClient } from '@tanstack/react-query'
+import axios from 'axios'
 
 const endpoints = {
   baseUrl: '',
@@ -9,6 +10,12 @@ const endpoints = {
   stories: {
     list: 'https://swapi-graphql.netlify.app/.netlify/functions/index',
   },
+  archive: {
+    base: 'https://api.spacexdata.com',
+    crew: 'v4/crew',
+    single: 'v4/crew/{id}',
+    launches: 'v5/launches/latest',
+  },
 }
 
 export const queryOptions = new QueryClient({
@@ -18,6 +25,10 @@ export const queryOptions = new QueryClient({
       retry: false,
     },
   },
+})
+
+export const axiosClient = axios.create({
+  baseURL: endpoints.archive.base,
 })
 
 export default endpoints

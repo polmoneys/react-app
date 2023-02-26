@@ -29,8 +29,10 @@ input[type='radio']:checked::before {
 .radio {
   position: relative;
   min-height: calc(var(--comfy-height) * 2);
-  background-color: var(--transparent);
+}
 
+.radioChecked {
+  background-color: var(--gray-800);
 }
 
 .label {
@@ -45,10 +47,8 @@ input[type='radio']:checked::before {
   width: 100%;
   height: 100%;
   cursor: pointer;
-  border-radius: 0 !important;
   border: var(--border-width) solid currentColor;
   color: currentColor;
-  background-color: var(--transparent);
 }
 
 .radio::before {
@@ -62,3 +62,9 @@ input[type='radio']:checked::before {
   border-radius: 50%;
   background-color: currentColor;
 }
+
+.radioChecked::before {
+  background-color: var(--color-invalid)!important;
+}
+
+

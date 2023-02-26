@@ -36,3 +36,23 @@ export const clearCookies = (): void => {
           .replace(/=.*/, `=;expires=${new Date().toUTCString()};path=/`)),
     )
 }
+
+/**
+ * Utility to ask if user preferes to save data.
+ * Browser support is atrocious (august 2021).
+ */
+
+export const prefersReducedData = (): boolean => {
+  const supportsPrefersReducedData = window.matchMedia(
+    'not all and (prefers-reduced-data), (prefers-reduced-data)',
+  ).matches
+  const prefers = window.matchMedia('(prefers-reduced-data: reduce)').matches
+  return supportsPrefersReducedData && prefers
+}
+
+export const detectDeviceType = (): 'Mobile' | 'Desktop' =>
+  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    navigator.userAgent,
+  )
+    ? 'Mobile'
+    : 'Desktop'

@@ -1,4 +1,10 @@
-import { type ComponentProps, useEffect, useRef, useState } from 'react'
+import {
+  type ComponentProps,
+  useEffect,
+  useRef,
+  useState,
+  forwardRef,
+} from 'react'
 import { FocusRing } from '@react-aria/focus'
 import { classes } from '@/system/utils/theme'
 import Group from '../Group'

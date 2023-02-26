@@ -1,10 +1,10 @@
-import { Fragment, useMemo } from 'react'
+import { Fragment, useMemo, type ComponentProps } from 'react'
 import styles from './Icon.module.css'
 
 const sizeUnits = ['sm', 'md', 'lg'] as const
 export type IconSize = (typeof sizeUnits)[number]
 
-export interface IconProps {
+export interface IconProps extends ComponentProps<'svg'> {
   disabled?: boolean
   variant?: 'outline' | 'solid'
   d?: string
@@ -25,6 +25,7 @@ function Icon(props: IconProps): JSX.Element {
     size = 'md',
     label,
     disabled = false,
+    ...rest
   } = props
 
   const { border, backgroundColor } = useMemo(() => {
@@ -62,6 +63,8 @@ function Icon(props: IconProps): JSX.Element {
       style={inlineStyles.svg}
       className={styles.root}
       aria-labelledby={`${label}-icon`}
+      {...(label === '' && { 'aria-hidden': 'true' })}
+      {...rest}
     >
       <title id={`${label}-icon`}>{label} </title>
       <path fillRule="evenodd" clipRule="evenodd" d={d} fill={stroke} />

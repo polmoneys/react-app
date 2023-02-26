@@ -4,6 +4,7 @@ import {
   type ElementType,
   type CSSProperties,
   type ReactNode,
+  type KeyboardEvent,
 } from 'react'
 import { type Dictionary } from '@/system/interfaces'
 
@@ -40,6 +41,7 @@ export interface GroupProps extends AriaAttributes {
   id?: string
   htmlFor?: string
   onSubmit?: (event: any) => void
+  onKeyDown?: (event: KeyboardEvent<HTMLElement>) => void
   options?: {
     stretch?: boolean
     alignItems?: string

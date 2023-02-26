@@ -1,16 +1,32 @@
-import { type ReactNode, useCallback, useState } from 'react'
+import {
+  type ReactNode,
+  type KeyboardEvent,
+  useCallback,
+  useState,
+  useRef,
+} from 'react'
 import Button from '../../Buttons'
 import Col from '../../Col'
 import { type GroupProps } from '../Group'
+import useActionOutside from '@/system/hooks/core/useActionOutside'
+import { useKeyboard } from 'react-aria'
 
 interface DisclosureProps extends Omit<GroupProps, 'id'> {
   id: string
   label: ReactNode
   initialOpen?: boolean
+  popper?: boolean
 }
 
 const Disclosure = (props: DisclosureProps): JSX.Element => {
-  const { initialOpen = false, label, id, children, ...groupProps } = props
+  const {
+    initialOpen = false,
+    label,
+    id,
+    children,
+    popper = false,
+    ...groupProps
+  } = props
 
   const [open, setStatus] = useState(initialOpen)
 
@@ -18,8 +34,27 @@ const Disclosure = (props: DisclosureProps): JSX.Element => {
     setStatus(prev => !prev)
   }, [])
 
+  const ref = useRef<HTMLDivElement>(null)
+
+  useActionOutside(ref, () => {
+    setStatus(false)
+  })
+
+  const { keyboardProps } = useKeyboard({
+    onKeyDown: event => {
+      if (event.key === 'Escape') {
+        event.preventDefault()
+        setStatus(false)
+      }
+    },
+  })
+
   return (
-    <Col as="div" data-disclosure="">
+    <Col
+      as="div"
+      {...(popper && { options: { DANGEROUS: { position: 'relative' } } })}
+      {...keyboardProps}
+    >
       <Button
         aria-controls={id}
         id={`${id}-button`}
@@ -29,7 +64,7 @@ const Disclosure = (props: DisclosureProps): JSX.Element => {
         {label}
       </Button>
       <Col {...groupProps} hidden={!open} id={id}>
-        {children}
+        <div ref={ref}>{children}</div>
       </Col>
     </Col>
   )

@@ -2,7 +2,6 @@ import { lazy } from 'react'
 import { createBrowserRouter } from 'react-router-dom'
 import ArchiveLanding from '@/features/archive/pages/landing'
 import StoriesLanding from '@/features/stories/pages/landing'
-import DocumentationLanding from '@/features/documentation/pages/landing'
 import Layout from '@/features/layout/components/Layout'
 import ErrorLayout from '@/features/layout/components/LayoutError'
 import { importNamed } from './utils'
@@ -11,9 +10,13 @@ const Dashboard = lazy(
   async () => await importNamed('../../features/dashboard/pages/dashboard'),
 )
 
+export const DASHBOARD_BASE_URI = '/'
+export const ARCHIVE_BASE_URI = 'archive'
+export const STORIES_BASE_URI = 'stories'
+
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: DASHBOARD_BASE_URI,
     element: <Layout />,
     errorElement: <ErrorLayout />,
     // loader: rootLoader,
@@ -32,18 +35,13 @@ const router = createBrowserRouter([
             // ...
           },
           {
-            path: 'archive',
+            path: ARCHIVE_BASE_URI,
             element: <ArchiveLanding />,
             // ...
           },
           {
-            path: 'stories',
+            path: STORIES_BASE_URI,
             element: <StoriesLanding />,
-            // ...
-          },
-          {
-            path: 'docs',
-            element: <DocumentationLanding />,
             // ...
           },
         ],

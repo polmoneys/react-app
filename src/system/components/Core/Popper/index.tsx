@@ -1,10 +1,4 @@
-import {
-  Fragment,
-  type ReactNode,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from 'react'
+import { type ReactNode, useLayoutEffect, useRef, useState } from 'react'
 import { type RenderProp } from '@/system/interfaces'
 import {
   elementIsOutsideViewport,
@@ -12,7 +6,8 @@ import {
   type Positions,
 } from './utils'
 import './index.css'
-import useActionOutside from '@/system/hooks/useActionOutside'
+import useActionOutside from '@/system/hooks/core/useActionOutside'
+import { useKeyboard } from 'react-aria'
 
 interface Props {
   children: RenderProp<{ toggle: () => void }, HTMLElement>
@@ -31,6 +26,14 @@ const Popper = (props: Props): JSX.Element => {
   useActionOutside(ref, () => {
     setShouldShow(false)
   })
+  const { keyboardProps } = useKeyboard({
+    onKeyDown: event => {
+      if (event.key === 'Escape') {
+        event.preventDefault()
+        setShouldShow(false)
+      }
+    },
+  })
 
   useLayoutEffect(() => {
     if (ref.current == null) return
@@ -43,17 +46,15 @@ const Popper = (props: Props): JSX.Element => {
     overridePosition.trim() !== '' ? overridePosition : position
 
   return (
-    <Fragment>
-      <div data-popper="root">
-        {shouldShow && (
-          <div ref={ref} data-popper="content" className={positionClassName}>
-            {content}
-          </div>
-        )}
+    <div data-popper="root" {...keyboardProps}>
+      {shouldShow && (
+        <div ref={ref} data-popper="content" className={positionClassName}>
+          {content}
+        </div>
+      )}
 
-        {children({ toggle })}
-      </div>
-    </Fragment>
+      {children({ toggle })}
+    </div>
   )
 }
 

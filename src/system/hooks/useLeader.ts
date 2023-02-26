@@ -2,6 +2,52 @@ import { type ChangeEvent, useCallback, useMemo, useState } from 'react'
 
 type ObjectBoolean = Record<string, boolean>
 
+/*
+  Usage:
+  
+  const [{ output, all, mixed }, { onFollowerChange, onLeadChange }] =
+    useLeader({
+      mayo: false,
+      mustard: true,
+      ketchup: false,
+    })
+
+
+  <Checkbox
+    isMixed={mixed}
+    checked={all}
+    label={
+      mixed ? (
+        <HelveticaNeue> Some </HelveticaNeue>
+      ) : all ? (
+        <HelveticaNeue> All</HelveticaNeue>
+      ) : (
+        <HelveticaNeue> None</HelveticaNeue>
+      )
+    }
+    name="parent"
+    value="parent"
+    id="parent-checkbox-test"
+    onChange={ev => {
+      onLeadChange()
+    }}
+  />
+
+  {Object.entries(output).map(([value, state]) => (
+    <Checkbox
+      key={value}
+      name={value.toString()}
+      label={value.toString()}
+      id={`${value.toString()}-test-checkbox`}
+      checked={state}
+      value={value}
+      onChange={ev => {
+        onFollowerChange(ev)
+      }}
+    />
+  ))}
+*/
+
 function useLeader<T extends ObjectBoolean>(
   items: T,
 ): [
