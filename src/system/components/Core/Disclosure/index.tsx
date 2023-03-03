@@ -5,11 +5,11 @@ import {
   useState,
   useRef,
 } from 'react'
-import Button from '../../Buttons'
+import { useKeyboard } from 'react-aria'
+import useActionOutside from '@/system/hooks/core/useActionOutside'
 import Col from '../../Col'
 import { type GroupProps } from '../Group'
-import useActionOutside from '@/system/hooks/core/useActionOutside'
-import { useKeyboard } from 'react-aria'
+import Button from '../Inputs/button'
 
 interface DisclosureProps extends Omit<GroupProps, 'id'> {
   id: string

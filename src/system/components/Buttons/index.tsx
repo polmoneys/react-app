@@ -15,5 +15,3 @@ export const ButtonIcon = (props: ButtonProps): JSX.Element => {
   const { className, ...rest } = props
   return <Button {...rest} circle />
 }
-
-export default Button

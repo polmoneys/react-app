@@ -1,11 +1,13 @@
 import { useAppDispatch, useAppSelector } from '@/config/store/hooks'
-import { NavLink } from '@/system/components/Link'
-import Disclosure from '@/system/components/Core/Disclosure'
-import { HelveticaNeue } from '@/system/components/Typography'
-import { ButtonSuccess } from '@/system/components/Buttons'
-import Row from '@/system/components/Row'
-import Col from '@/system/components/Col'
-import Shape from '@/system/components/Shape'
+import {
+  NavLink,
+  Disclosure,
+  HelveticaNeue,
+  ButtonSuccess,
+  Row,
+  Col,
+  Shape,
+} from '@/system/components/'
 import { BreadcrumbPortal } from '@/system/components/Breadcrumb/index'
 import { setMaxZoom, settingsSlice } from '../../store'
 import styles from './index.module.css'

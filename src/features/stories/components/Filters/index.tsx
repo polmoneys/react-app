@@ -1,19 +1,19 @@
-import { Card } from '@/system/components/Cards'
-import Col from '@/system/components/Col'
-import { Radio } from '@/system/components/Radios'
+import { useAppDispatch, useAppSelector } from '@/config/store/hooks'
 import {
+  Card,
+  Col,
+  Radio,
   HelveticaNeue,
   HelveticaNeueBoldXL,
-} from '@/system/components/Typography'
+  Switch,
+  Couple,
+  IconHeart,
+} from '@/system/components'
+import { addFilter, storiesFiltersSlice } from '../../store'
+import { type Rating } from '../../interfaces/Filters'
 // import Field from '@/system/components/Core/Inputs/field'
 // import useFormEnter from '@/system/hooks/useFormEnter'
 // import useFormLeave from '@/system/hooks/useFormLeave'
-import { Switch } from '@/system/components/Checkboxes'
-import Couple from '@/system/components/Couple'
-import { IconHeart } from '@/system/components/Icons'
-import { useAppDispatch, useAppSelector } from '@/config/store/hooks'
-import { addFilter, storiesFiltersSlice } from '../../store'
-import { type Rating } from '../../interfaces/Filters'
 
 export const matchEpisodeToRating = (label: Rating): string[] => {
   return {

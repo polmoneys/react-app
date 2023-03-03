@@ -1,15 +1,14 @@
 import { Fragment, useState } from 'react'
-// import { InView } from 'react-intersection-observer'
 import {
-  Grotesk,
-  GroteskXL,
   HelveticaNeue,
-} from '@/system/components/Typography'
+  AlertSuccess,
+  AlertError,
+  View,
+  NavLink,
+} from '@/system/components'
 import { Timer } from '@/system/utils/timer'
-import { AlertSuccess, AlertError } from '@/system/components/Alerts'
-import View from '@/system/components/View'
-import { NavLink } from '@/system/components/Link'
 import Sidenav from '../components/Sidenav'
+// import { InView } from 'react-intersection-observer'
 
 const Landing = (): JSX.Element => {
   const [alert, setAlert] = useState<null | string>(null)

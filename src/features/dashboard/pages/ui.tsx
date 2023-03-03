@@ -8,12 +8,11 @@ import {
   HelveticaNeueBoldXL,
   HelveticaNeueMedium,
   HelveticaNeueThin,
-} from '@/system/components/Typography'
-import Col from '@/system/components/Col'
-import View from '@/system/components/View'
-import Row from '@/system/components/Row'
-import Button, { ButtonIcon } from '@/system/components/Buttons'
-import {
+  Col,
+  View,
+  Row,
+  Button,
+  ButtonIcon,
   IconBookmark,
   IconCaretDown,
   IconCaretUp,
@@ -22,13 +21,13 @@ import {
   IconHeart,
   IconQuestion,
   IconTwitter,
-} from '@/system/components/Icons'
-import Popper from '@/system/components/Core/Popper'
+  Popper,
+  Chip,
+  Card,
+  Couple,
+  Breadcrumb,
+} from '@/system/components'
 import useChips from '@/system/hooks/useChips'
-import Chip from '@/system/components/Buttons/Chip'
-import Breadcrumb from '@/system/components/Breadcrumb'
-import { Card } from '@/system/components/Cards'
-import Couple from '@/system/components/Couple'
 
 const names = ['John', 'Jim', 'Jules', 'Jack', 'Josh']
 

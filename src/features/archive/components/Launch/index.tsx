@@ -1,7 +1,5 @@
 import { Fragment } from 'react'
-import { Card } from '@/system/components/Cards'
-import Col from '@/system/components/Col'
-import { HelveticaNeue } from '@/system/components/Typography'
+import { Card, Col, HelveticaNeue } from '@/system/components'
 import { formatDate } from '@/system/utils/date'
 import { type Launch as LaunchInterface } from '../../interfaces/Launches'
 

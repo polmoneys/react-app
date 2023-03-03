@@ -1,7 +1,5 @@
 import { useParams } from 'react-router-dom'
-import Breadcrumb from '@/system/components/Breadcrumb'
-import { HelveticaNeueBold } from '@/system/components/Typography'
-import View from '@/system/components/View'
+import { HelveticaNeueBold, Breadcrumb, View } from '@/system/components'
 
 const Tip = (): JSX.Element => {
   const { tip } = useParams()

@@ -1,10 +1,13 @@
 import { useParams, useLocation, Outlet } from 'react-router-dom'
-import { NavLink } from '@/system/components/Link'
-import Breadcrumb from '@/system/components/Breadcrumb/index'
-import { GroteskXL, HelveticaNeue } from '@/system/components/Typography'
-import Col from '@/system/components/Col'
-import Row from '@/system/components/Row'
+import {
+  Col,
+  GroteskXL,
+  HelveticaNeue,
+  NavLink,
+  Row,
+} from '@/system/components/'
 import { MEALS, MEALS_BY_ID, type MealType } from './utils'
+import Breadcrumb from '@/system/components/Breadcrumb'
 
 export const Meals = (): JSX.Element => {
   return (

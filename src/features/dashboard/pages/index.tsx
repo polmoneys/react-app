@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom'
+import { View } from '@/system/components'
 import Subnav from '../components/Subnav'
-import View from '@/system/components/View'
 
 function Dashboard(): JSX.Element {
   return (

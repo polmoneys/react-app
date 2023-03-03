@@ -1,12 +1,14 @@
 import { type FormEvent, useEffect } from 'react'
-import { ButtonSuccess } from '@/system/components/Buttons'
-import Col from '@/system/components/Col'
-import { Radio } from '@/system/components/Radios'
-import { HelveticaNeue } from '@/system/components/Typography'
-import { Switch } from '@/system/components/Checkboxes'
+import { useAppDispatch, useAppSelector } from '@/config/store/hooks'
 import { isEmptyObject } from '@/system/utils/record'
 import useSearchUrl from '@/system/hooks/useSearchUrl'
-import { useAppDispatch, useAppSelector } from '@/config/store/hooks'
+import {
+  ButtonSuccess,
+  Col,
+  HelveticaNeue,
+  Radio,
+  Switch,
+} from '@/system/components'
 import { addFilter, archiveFiltersSlice } from '../../store'
 
 function Filters(): JSX.Element {

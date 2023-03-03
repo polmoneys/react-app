@@ -1,7 +1,4 @@
-import { HelveticaNeue } from '@/system/components/Typography'
-import Col from '@/system/components/Col'
-import Row from '@/system/components/Row'
-import Disclosure from '@/system/components/Core/Disclosure'
+import { Col, Disclosure, HelveticaNeue, Row } from '@/system/components'
 import Filters from '../components/Filters'
 import useLanding from '../hooks/useLanding'
 import Launch from '../components/Launch'

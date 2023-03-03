@@ -1,13 +1,15 @@
 import { Fragment } from 'react'
-import { Card } from '@/system/components/Cards'
-import Col from '@/system/components/Col'
-import Link from '@/system/components/Link'
-import { HelveticaNeue } from '@/system/components/Typography'
-import { ButtonIcon } from '@/system/components/Buttons'
-import { IconCross } from '@/system/components/Icons'
+import {
+  ButtonIcon,
+  Card,
+  Col,
+  HelveticaNeue,
+  IconCross,
+  Link,
+  Row,
+} from '@/system/components/'
 import { useAppDispatch } from '@/config/store/hooks'
 import { not } from '@/system/utils/language'
-import Row from '@/system/components/Row'
 import useCrewBulk from '../../hooks/useCrewBulk'
 import { removeBulk } from '../../store'
 import { type Crew as CrewInterface } from '../../interfaces/Crews'

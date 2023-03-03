@@ -10,5 +10,3 @@ export const AlertError = (props: AlertProps): JSX.Element => {
   const { className, ...rest } = props
   return <Alert {...rest} className={classes(className, 'invalid')} />
 }
-
-export default Alert

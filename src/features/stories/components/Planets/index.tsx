@@ -1,9 +1,9 @@
-import { List } from '@/system/components/Lists'
-import Shape from '@/system/components/Shape'
 import {
+  List,
+  Shape,
   HelveticaNeue,
   HelveticaNeueBold,
-} from '@/system/components/Typography'
+} from '@/system/components'
 import { type default as PlanetsInterface } from '../../interfaces/Planets'
 
 interface Props {

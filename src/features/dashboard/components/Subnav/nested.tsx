@@ -1,5 +1,4 @@
-import Link from '@/system/components/Link'
-import Row from '@/system/components/Row'
+import { Link, Row } from '@/system/components'
 
 const SubnavNested = (): JSX.Element => {
   return (

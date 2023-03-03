@@ -1,14 +1,13 @@
 import { useMemo } from 'react'
-import Grid from '@/system/components/Grid'
 import { useAppDispatch, useAppSelector } from '@/config/store/hooks'
-import Table from '@/system/components/Core/Table'
+import { Grid, Table } from '@/system/components'
 import { genericSort } from '@/system/utils/array'
 import { type SortDirection } from '../interfaces/Pager'
 import { addFilter, storiesFiltersSlice } from '../store'
-import Planets from '../components/Planets'
 import useTrivia from '../hooks/useTrivia'
-import Filters, { matchEpisodeToRating } from '../components/Filters'
 import useFilms from '../hooks/useFilms'
+import Filters, { matchEpisodeToRating } from '../components/Filters'
+import Planets from '../components/Planets'
 import People from '../components/People'
 
 const Stories = (): JSX.Element => {

@@ -1,8 +1,6 @@
 import { Fragment } from 'react'
 import { Outlet } from 'react-router-dom'
-import { HelveticaNeueBold } from '@/system/components/Typography'
-import Breadcrumb from '@/system/components/Breadcrumb'
-import View from '@/system/components/View'
+import { HelveticaNeueBold, Breadcrumb, View } from '@/system/components'
 import SubnavNested from '../components/Subnav/nested'
 
 const CSS = (): JSX.Element => {
