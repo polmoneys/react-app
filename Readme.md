@@ -2,8 +2,6 @@
 
 Boilerplate: includes `react`, `react-router-dom`, `redux-toolkit` and `react-query`, `vite.js`, `eslint` & `prettier`& ofc `typescript`. 
 
-> :warning: **routing** is kind of broken on github pages. Will fix, maybe
-
 
 ### Motivation 
 
