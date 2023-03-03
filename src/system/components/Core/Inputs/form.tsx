@@ -19,6 +19,17 @@ function Form(props: Props): JSX.Element {
       onChange?.(url.search)
     }
 
+    /*
+      CHATGPT
+      const listener = (event: Event): void => {
+      const form = event.currentTarget as HTMLFormElement;
+      const data = new FormData(form);
+      const url = new URL(form.action, window.location.href);
+      url.search = new URLSearchParams(data).toString();
+      onChange?.(url.search);
+    };
+    */
+
     document?.querySelector(`#${id}`)?.addEventListener('input', listener)
     return () => {
       document

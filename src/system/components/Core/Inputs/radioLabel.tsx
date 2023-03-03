@@ -32,7 +32,7 @@ function RadioLabel(props?: RadioProps): JSX.Element {
     autoFocus = false,
   } = props
 
-  const onRadioChange = (event: ChangeEvent<HTMLInputElement>) =>
+  const onRadioChange = (event: ChangeEvent<HTMLInputElement>): void =>
     onChange?.(event)
 
   const inputLabel =

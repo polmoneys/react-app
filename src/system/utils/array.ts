@@ -13,20 +13,6 @@ export function toArray(value: ArrayProp): string[] {
   return Array.isArray(value) ? value : [value]
 }
 
-/*
-
-  const [activeSorter, setActiveSorter] = useState<{
-      property: keyof ListItem;
-      isDescending: boolean;
-  }>({
-      property: 'id',
-      isDescending: false,
-  });
-
-  [].sort((widgetA, widgetB) => genericSort<any>(widgetA, widgetB, activeSorter));
-
-*/
-
 export interface Sorter<T> {
   property: Extract<keyof T, string | number | Date>
   isDescending: boolean

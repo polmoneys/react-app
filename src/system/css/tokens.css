@@ -57,7 +57,7 @@
 /* 
   Special CSS classes:
   .ring (keyboard focus)
-  .active (navLink)
+  .active (NavLink)
 */
 
 :is([data-theme=""]:focus,input:focus,.ring ) {

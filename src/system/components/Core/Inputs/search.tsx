@@ -15,14 +15,7 @@ interface SearchProps extends Omit<ComponentProps<'input'>, 'onChange'> {
 }
 
 const Search = (props: SearchProps): JSX.Element => {
-  const {
-    initial,
-    placeholder = 'Type ',
-    onChangeValue,
-    id,
-    disabled = false,
-    autoFocus = false,
-  } = props
+  const { initial, disabled = false, autoFocus = false, ...rest } = props
 
   const [editingValue, setEditingValue] = useState(initial ?? '')
 
@@ -42,6 +35,7 @@ const Search = (props: SearchProps): JSX.Element => {
         defaultValue=""
         placeholder="search"
         onChange={onChange}
+        {...rest}
       />
     </FocusRing>
   )

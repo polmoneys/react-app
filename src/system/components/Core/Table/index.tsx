@@ -1,17 +1,16 @@
-import { useAppSelector } from '@/config/store/hooks'
 import {
   type SortDirection,
   type Sorter as SorterInterface,
 } from '@/features/stories/interfaces/Pager'
 import { type Dictionary } from '@/system/interfaces'
 import { type ComponentProps } from 'react'
-import { IconCaretDown, IconCaretUp, IconChevronDown } from '../../Icons'
 import Sorter from './Sorter'
 import './index.css'
 
 interface Item {
   label: string
   id: string
+  [key: string]: any
 }
 
 interface Props<T extends Item> extends ComponentProps<'table'> {
@@ -22,8 +21,14 @@ interface Props<T extends Item> extends ComponentProps<'table'> {
   onSort: (id: string, dir: SortDirection) => void
 }
 
+type IndexType<T extends Item> = {
+  [K in keyof T]: K extends 'id' ? string : never
+}
+
 function Table<T extends Item>(props: Props<T>): JSX.Element {
   const { label, th, tr, sort, onSort } = props
+
+  type ColumnHeaderId = keyof IndexType<T>[keyof IndexType<T>]
 
   return (
     <div style={{ width: '100%', overflow: 'scroll' }}>
@@ -97,9 +102,12 @@ function Table<T extends Item>(props: Props<T>): JSX.Element {
             return (
               <tr key={`${pos}-body-table-row`}>
                 {th.map((th, pos) => {
-                  const columnHeaderID = th.id as any
-                  // @ts-expect-error grrr
+                  // const columnHeaderID = th.id as any
+                  // // @ts-expect-error grrr
+                  // const v = row[columnHeaderID].slice(0, 30) as string
+                  const columnHeaderID = th.id as keyof T
                   const v = row[columnHeaderID].slice(0, 30) as string
+
                   if (pos === 0) {
                     return (
                       <th scope="row" data-table="sticky" key={`${pos}`}>

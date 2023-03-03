@@ -21,15 +21,19 @@ type CardRatios = (typeof CardRatio)[number]
 export interface CardProps {
   ratio?: CardRatios
   children: ReactNode
-  DONOTUse?: {
-    DONOTStyle: Dictionary
-  }
+  dangerousStyles?: Dictionary
   className?: string
   as: HTMLCardTagsType
 }
 
 const Card = (props: CardProps): JSX.Element => {
-  const { children, as = 'div', ratio = 'square', className, DONOTUse } = props
+  const {
+    children,
+    as = 'div',
+    ratio = 'square',
+    className,
+    dangerousStyles,
+  } = props
 
   const Tag = as ?? ('div' as ElementType)
 
@@ -37,7 +41,7 @@ const Card = (props: CardProps): JSX.Element => {
     <Tag
       className={classes(className, styles.card)}
       style={{
-        ...(DONOTUse?.DONOTStyle !== undefined && DONOTUse?.DONOTStyle),
+        ...(dangerousStyles !== undefined && dangerousStyles),
       }}
       data-ratio={ratio}
     >

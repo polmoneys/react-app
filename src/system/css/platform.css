@@ -123,7 +123,6 @@ fieldset {
   border-color: var(--transparent);
 }
 
-
 [hidden] {
   display: none !important;
 }

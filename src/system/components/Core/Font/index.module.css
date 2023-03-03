@@ -32,9 +32,11 @@
 }
 
 .grotesk {
-  font-family: 'Brandon Grotesque';
+  /* font-family: 'Brandon Grotesque';
   font-weight: 900;
-  font-style: normal;
+  font-style: normal; */
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-weight: 800;
 }
 
 :root {

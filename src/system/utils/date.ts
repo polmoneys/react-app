@@ -15,7 +15,7 @@ export const TimeConstants = {
  * Utility to format a Date according to a locale
  */
 
-export const formatDate = (date: Date, locale = 'es-ES') =>
+export const formatDate = (date: Date, locale = 'es-ES'): string =>
   new Intl.DateTimeFormat(locale).format(new Date(date))
 
 /**

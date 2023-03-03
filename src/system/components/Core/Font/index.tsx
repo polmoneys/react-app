@@ -30,10 +30,7 @@ export interface FontProps extends AriaAttributes {
   className?: string
   date?: Date
   format?: TextTransform
-  ratio?: number
-  numeric?: boolean
-  hyphenate?: boolean
-  breakWord?: boolean
+  options?: Array<'number' | 'hyphenate' | 'breakWord'>
   dangerousColor?: string
   dangerousTransform?: string
 }
@@ -44,9 +41,7 @@ function Font(props: FontProps): JSX.Element {
     dangerousColor,
     dangerousTransform,
     children,
-    breakWord = false,
-    hyphenate = false,
-    numeric = false,
+    options = [],
     className,
     size = 'r',
     format = 'aa',
@@ -60,13 +55,13 @@ function Font(props: FontProps): JSX.Element {
       classes(
         className,
         styles[size],
-        breakWord && styles.break,
-        hyphenate && styles.hyphenate,
-        numeric && styles.numeric,
+        options.includes('breakWord') && styles.break,
+        options.includes('hyphenate') && styles.hyphenate,
+        options.includes('number') && styles.numeric,
         format === 'AA' && styles.uppercase,
         format === 'Aa' && styles.capitalize,
       ),
-    [className, size, breakWord, hyphenate, numeric, format],
+    [className, size, options],
   )
 
   return (
