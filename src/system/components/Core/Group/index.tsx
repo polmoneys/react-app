@@ -22,6 +22,7 @@ const HTMLtag = [
   'h2',
   'h3',
   'ul',
+  'ol',
   'li',
   'div',
   'form',

@@ -1,15 +1,15 @@
-import { Fragment, ReactNode, useEffect, useState } from 'react'
+import { Fragment, type ReactNode, useEffect, useState } from 'react'
 import ReactDOM from 'react-dom'
+import Group from '../Core/Group'
 import { NavLink } from '../Link'
 import useBreadcrumb, { Context } from './useBreadcrumb'
 
 /*
-When passing a component through a Portal 
+Insight => When passing a component through a Portal 
 it will not replace the children in the node you provide, 
 it will append to it. 
 
-https://codesandbox.io/s/3-a-smarter-dumb-breadcrumb-lp976?from-embed=&file=/src/Breadcrumb.js
-
+Credits => https://jjenzz.com/smarter-dumb-breadcrumb
 */
 
 interface Props {
@@ -17,33 +17,30 @@ interface Props {
   id: string
 }
 
-const BreadcrumbPortal = () => {
-  const id = useBreadcrumb()
-  return (
-    <nav aria-label="Breadcrumb">
-      <ol id={id} />
-    </nav>
-  )
+const BreadcrumbProvider = (props: Props): JSX.Element => {
+  return <Context.Provider value={props.id}>{props.children}</Context.Provider>
 }
 
-const BreadcrumbProvider = (props: Props) => {
-  return <Context.Provider value={props.id}>{props.children}</Context.Provider>
+const BreadcrumbPortal = (): JSX.Element => {
+  const id = useBreadcrumb()
+  return <ol role="list" id={id} aria-label="Breadcrumb" />
 }
 
 interface BreadCrumbProps extends Omit<Props, 'id'> {
   to: string
 }
-const Breadcrumb = (props: BreadCrumbProps) => {
+
+const Breadcrumb = (props: BreadCrumbProps): JSX.Element => {
   const id = useBreadcrumb()
-  const [portalNode, setPortalNode] = useState<any>(null)
+  const [portalNode, setPortalNode] = useState<HTMLElement | null>(null)
   useEffect(() => {
     const node = document?.getElementById(id)
-    if (node) {
+    if (node != null) {
       setPortalNode(node)
     }
   }, [])
 
-  return portalNode ? (
+  return portalNode != null ? (
     ReactDOM.createPortal(
       <li>
         <NavLink to={props.to}>{props.children}</NavLink>
@@ -55,4 +52,5 @@ const Breadcrumb = (props: BreadCrumbProps) => {
   )
 }
 
-export { BreadcrumbProvider, BreadcrumbPortal, Breadcrumb }
+export { BreadcrumbProvider, BreadcrumbPortal }
+export default Breadcrumb

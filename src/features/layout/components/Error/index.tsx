@@ -1,6 +1,6 @@
 import { Fragment } from 'react'
 import { useRouteError } from 'react-router-dom'
-import Nav from '@/features/layout/components/Nav'
+import Nav from '@/features/layout/components/Topnav'
 import styles from '../Layout/index.module.css'
 
 const ErrorLayout = (): JSX.Element => {

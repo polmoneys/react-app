@@ -126,3 +126,8 @@ fieldset {
 [hidden] {
   display: none !important;
 }
+
+ul,
+ol {
+  list-style: none;
+}

@@ -5,7 +5,7 @@ export const Context = createContext<string>('main')
 const useBreadcrumbContext = () => {
   const context = useContext(Context)
 
-  if (!context) {
+  if (context == null) {
     throw new Error('Missing BreadcrumbProvider.')
   }
 

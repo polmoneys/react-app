@@ -7,6 +7,26 @@ interface Props {
   id: string
 }
 
+/*
+
+  Usage:
+
+    const p = `
+         _
+      _-'_'-_
+   _-' _____ '-_
+_-' ___________ '-_
+ |___|||||||||___|
+ |___|||||||||___|
+ |___|||||||o|___|
+ |___|||||||||___|
+ |___|||||||||___|
+ |___|||||||||___|
+  `
+
+  <Pre id="" label="" pre={p} description="" />
+
+*/
 const Pre = (props: Props): JSX.Element => {
   const { pre, label, description, id } = props
 

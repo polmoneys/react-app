@@ -11,7 +11,7 @@ function useTrivia() {
       {
         queryKey: ['planets'],
         queryFn: async () => {
-          const data = await request(
+          const data: any = await request(
             endpoint,
             gql`
               query {
@@ -43,7 +43,7 @@ function useTrivia() {
       {
         queryKey: ['people'],
         queryFn: async () => {
-          const data = await request(
+          const data: any = await request(
             endpoint,
             gql`
               query {

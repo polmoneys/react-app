@@ -8,12 +8,6 @@ export const not = (input: unknown): boolean => input == null
 https://codesandbox.io/s/functional-3-u6npz?file=/src/index.js
 https://1loc.dev/function/box-handler/
 
-export const partial = <T extends any[], R>(fn: (...args: T) => R, ...args: T) => {
-  return (...remainingArgs: T) => {
-    return fn(...args, ...remainingArgs);
-  };
-};
-
 */
 
 export const partial =

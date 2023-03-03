@@ -42,12 +42,12 @@ main + footer button {
   left: -420px;
 }
 
-.settings {
+.user-settings {
   position: absolute;
   top: var(--comfy-height);
   z-index: var(--z-max);
   width: 300px;
-  left: -320px;
+  left: 0;
 }
 
 .archive-grid {
@@ -66,9 +66,8 @@ main + footer button {
 
 .archive-crew-card {
   max-width: 300px;
-  background-color:var(--gray-800)
+  background-color: var(--gray-800);
 }
 .launch-card {
-  background-color:var(--gray-800)
-
+  background-color: var(--gray-800);
 }

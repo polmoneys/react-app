@@ -6,6 +6,17 @@
   background-color: var(--gray-800);
 }
 
+.nav ol {
+  display: flex;
+  gap: var(--gap-3);
+  margin-left: auto;
+}
+.nav ol li:not(:first-of-type)::before {
+  content: '\2022';
+  display: inline-flex;
+  margin-right: var(--gap-1);
+}
+
 .nav > input[type='search'] {
   margin-left: auto;
   color: var(--gray-100);

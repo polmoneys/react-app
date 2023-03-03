@@ -9,7 +9,7 @@ function useFilms() {
   return useQuery({
     queryKey: ['films'],
     queryFn: async () => {
-      const data = await request(
+      const data: any = await request(
         endpoint,
         gql`
           query {
@@ -26,7 +26,7 @@ function useFilms() {
         `,
       )
 
-      return matchItemsToFilms(data.allFilms.films)
+      return matchItemsToFilms(data?.allFilms?.films)
     },
   })
 }
