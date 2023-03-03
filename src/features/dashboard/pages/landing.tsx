@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 // import { InView } from 'react-intersection-observer'
 import {
   Grotesk,
@@ -31,20 +31,29 @@ import {
 import Couple from '@/system/components/Couple'
 import Popper from '@/system/components/Core/Popper'
 import Pre from '@/system/components/Pre'
+import useChips from '@/system/hooks/useChips'
+import Chip from '@/system/components/Buttons/Chip'
+import { Breadcrumb } from '@/system/components/Breadcrumb'
+import { NavLink } from '@/system/components/Link'
+import { Meals } from '../components/Nested'
+import Group from '@/system/components/Core/Group'
+
+const names = ['John', 'Jim', 'Jules', 'Jack', 'Josh']
 
 const Dashboard = (): JSX.Element => {
   const [alert, setAlert] = useState<null | string>(null)
   const [alertError, setAlertError] = useState<null | string>(null)
+  const [selectedNames, dispatchName] = useChips({ initial: [] })
 
-  // eslint-disable-next-line no-new
-  new Timer(() => {
-    setAlert("You've been staring page for 2s")
-  }, 2000)
+  // // eslint-disable-next-line no-new
+  // new Timer(() => {
+  //   setAlert("You've been staring page for 2s")
+  // }, 2000)
 
-  // eslint-disable-next-line no-new
-  new Timer(() => {
-    setAlertError('Please go hug a tree :) ')
-  }, 4000)
+  // // eslint-disable-next-line no-new
+  // new Timer(() => {
+  //   setAlertError('Please go hug a tree :) ')
+  // }, 4000)
 
   const p = `
          _
@@ -63,9 +72,39 @@ _-' ___________ '-_
     <View>
       <View.Feature>
         <GroteskXL>friend</GroteskXL>
-        <Pre id="test-pre" label="" pre={p} description="" />
+        {/* <Pre id="test-pre" label="" pre={p} description="" /> */}
       </View.Feature>
+
       <View.Popout>
+        <Breadcrumb to="/">Home</Breadcrumb>
+        <HelveticaNeueThin>
+          Check out our <NavLink to="meals">Meals</NavLink>
+        </HelveticaNeueThin>
+
+        <Row as="div">
+          {names.map(name => (
+            <Chip
+              key={name}
+              name={name}
+              dispatchName={dispatchName}
+              isSelected={selectedNames.includes(name)}
+            />
+          ))}
+        </Row>
+
+        {selectedNames.length ? (
+          <Row as="div">
+            <h2>Selected</h2>
+            {selectedNames.join(', ')}
+            <button
+              className="button menu-button"
+              onClick={() => dispatchName({ type: 'clear' })}
+            >
+              Clear
+            </button>
+          </Row>
+        ) : null}
+
         {alert !== null && (
           <AlertSuccess as="div" className="p:md">
             <HelveticaNeue>{alert}</HelveticaNeue>

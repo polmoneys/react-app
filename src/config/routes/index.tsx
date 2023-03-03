@@ -5,6 +5,12 @@ import StoriesLanding from '@/features/stories/pages/landing'
 import DashboardLanding from '@/features/dashboard/pages/landing'
 import Layout from '@/features/layout/components/Layout'
 import ErrorLayout from '@/features/layout/components/LayoutError'
+import {
+  MealDetail,
+  MealIngredients,
+  MealMethod,
+  Meals,
+} from '@/features/dashboard/components/Nested'
 // import { importNamed } from './utils'
 
 // const Dashboard = lazy(
@@ -34,6 +40,22 @@ const router = createBrowserRouter([
             //   </Suspense>
             // ),
             // ...
+          },
+          {
+            path: '/meals',
+            element: <Meals />,
+          },
+          {
+            path: '/meals/:id',
+            element: <MealDetail />,
+          },
+          {
+            path: '/meals/:id/ingredients',
+            element: <MealIngredients />,
+          },
+          {
+            path: '/meals/:id/method',
+            element: <MealMethod />,
           },
           {
             path: ARCHIVE_BASE_URI,

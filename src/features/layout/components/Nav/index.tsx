@@ -9,6 +9,7 @@ import Row from '@/system/components/Row'
 import Col from '@/system/components/Col'
 import { setMaxZoom, settingsSlice } from '../../store'
 import styles from './index.module.css'
+import { BreadcrumbPortal } from '@/system/components/Breadcrumb/index'
 
 function Nav(): JSX.Element {
   const location = useLocation()
@@ -23,6 +24,7 @@ function Nav(): JSX.Element {
       <NavLink to="stories" className="mr-auto">
         Stories
       </NavLink>
+      <BreadcrumbPortal />
 
       {matchesDashboard && (
         <Disclosure
