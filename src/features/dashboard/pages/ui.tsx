@@ -27,7 +27,7 @@ import {
   Couple,
   Breadcrumb,
 } from '@/system/components'
-import useChips from '@/system/hooks/useChips'
+import useChips from '@/system/hooks/collection/useChips'
 
 const names = ['John', 'Jim', 'Jules', 'Jack', 'Josh']
 

@@ -1,7 +1,6 @@
 node_modules
-src/system/hooks/useItems.ts
-src/system/hooks/core/useTick.ts
-src/system/hooks/useScroll.ts
+src/system/hooks/collection/useItems.ts
+src/system/hooks/events/useTick.ts
 .eslintcache
 dist
 docs.md
