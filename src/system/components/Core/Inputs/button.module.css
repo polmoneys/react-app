@@ -1,3 +1,9 @@
+.circle {
+  border-radius: 50% !important;
+  padding: 0 !important;
+  aspect-ratio: 1;
+}
+
 .badge {
   position: relative;
 }
@@ -9,9 +15,9 @@
 
 .badge::after {
   content: attr(data-badge);
-  font-size:1em;
-  top: -.7em;
-  right: -.7em;
+  font-size: 1em;
+  top: -0.7em;
+  right: -0.7em;
   width: 1.2em;
   height: 1.2em;
   position: absolute;
@@ -22,10 +28,23 @@
   justify-content: center;
 }
 
-.badge[data-shape="circle"]::after{
-  border-radius:50%;
+.badge[data-shape='circle']::after {
+  border-radius: 50%;
 }
 
-.badge:active::after,.badge:focus::after {
+.badge:active::after,
+.badge:focus::after {
   color: var(--gray-100);
+}
+
+.chip {
+  background-color: var(--gray-400);
+}
+
+.chip button {
+  border-radius: var(--border-radius) !important;
+}
+
+.chip.selected {
+  filter: hue-rotate(120deg);
 }

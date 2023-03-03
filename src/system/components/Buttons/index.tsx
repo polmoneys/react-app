@@ -13,7 +13,7 @@ export const ButtonError = (props: ButtonProps): JSX.Element => {
 
 export const ButtonIcon = (props: ButtonProps): JSX.Element => {
   const { className, ...rest } = props
-  return <Button {...rest} className={classes('circle', className)} />
+  return <Button {...rest} circle />
 }
 
 export default Button

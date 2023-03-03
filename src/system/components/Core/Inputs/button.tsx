@@ -7,6 +7,7 @@ import styles from './button.module.css'
 export interface ButtonProps extends ComponentProps<'button'> {
   children: string | ReactNode
   badge?: string | number
+  circle?: boolean
 }
 
 const Button = (props: ButtonProps): JSX.Element => {
@@ -16,6 +17,7 @@ const Button = (props: ButtonProps): JSX.Element => {
     badge,
     disabled = false,
     autoFocus = false,
+    circle = false,
     ...rest
   } = props
   return (
@@ -30,7 +32,11 @@ const Button = (props: ButtonProps): JSX.Element => {
         })}
         data-theme=""
         {...rest}
-        className={classes(className, !not(badge) && styles.badge)}
+        className={classes(
+          className,
+          !not(badge) && styles.badge,
+          circle && styles.circle,
+        )}
       >
         {children}
       </button>
