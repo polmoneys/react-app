@@ -6,7 +6,7 @@ import StoriesLanding from '@/features/stories/pages/landing'
 import DashboardLanding from '@/features/dashboard/pages/landing'
 import Dashboard from '@/features/dashboard/pages'
 import Tips from '@/features/dashboard/pages/tips'
-import UI from '@/features/dashboard/pages/ui'
+import UI from '@/features/dashboard/pages/patterns'
 import Tip from '@/features/dashboard/components/Tip'
 import Pattern from '@/features/dashboard/components/Pattern'
 import {

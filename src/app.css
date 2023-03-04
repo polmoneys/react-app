@@ -77,3 +77,12 @@ main + footer button {
 }
 .idle-button-in-group {
 }
+
+.track {
+  padding: var(--gap-3) 0;
+}
+.track > div:first-of-type {
+  display: flex;
+  width: 1000px;
+  gap: var(--gap-3);
+}

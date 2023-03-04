@@ -24,10 +24,6 @@ export interface Props {
   mouseDown?: () => void
 }
 
-/*
-            <HorizontalScroll progress={false}>
-            </HorizontalScroll>
-*/
 const HorizontalScroll = (props: Props): JSX.Element => {
   const { className, children, progress = true, ...rest } = props
 

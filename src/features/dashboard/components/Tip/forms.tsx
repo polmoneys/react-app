@@ -1,29 +1,10 @@
 import { Fragment, useRef } from 'react'
 import {
-  Grotesk,
-  GroteskXL,
   HelveticaNeue,
   HelveticaNeueBold,
-  HelveticaNeueBoldS,
-  HelveticaNeueBoldXL,
-  HelveticaNeueL,
-  GroteskLG,
-  GroteskS,
-  HelveticaNeueThin,
   Col,
-  Row,
-  IconBookmark,
-  IconCaretDown,
-  IconCaretUp,
-  IconCheck,
   IconCross,
-  IconHeart,
-  IconTwitter,
-  HelveticaNeueS,
-  HelveticaNeueXL,
-  HelveticaNeueMedium,
   Field,
-  Search,
   Searchbar,
   Checkbox,
 } from '@/system/components'
@@ -86,7 +67,7 @@ const TipForms = (): JSX.Element => {
             onChange={newVal => {
               console.log({ newVal })
             }}
-            label=""
+            label="Press any key"
             value=""
             id="input0"
             ref={input}
@@ -132,7 +113,7 @@ const TipForms = (): JSX.Element => {
           )}
         </form>
         <form id="use-focus-move">
-          <label htmlFor="input1">Input 1</label>
+          <label htmlFor="input1">Press enter</label>
           <FieldForwarded
             label=""
             value=""
@@ -144,7 +125,7 @@ const TipForms = (): JSX.Element => {
             onKeyDown={handleKeyDown}
             data-next="input2"
           />
-          <label htmlFor="input2">Input 2</label>
+          <label htmlFor="input2">to jump to</label>
           <FieldForwarded
             label=""
             value=""
@@ -156,7 +137,7 @@ const TipForms = (): JSX.Element => {
             onKeyDown={handleKeyDown}
             data-next="input3"
           />
-          <label htmlFor="input3">Input 3</label>
+          <label htmlFor="input3">next input</label>
           <FieldForwarded
             label=""
             value=""
@@ -169,7 +150,7 @@ const TipForms = (): JSX.Element => {
           />
         </form>
 
-        <form id="use-leader">
+        <Col as="form" id="use-leader">
           <Checkbox
             isMixed={mixed}
             checked={all}
@@ -203,7 +184,7 @@ const TipForms = (): JSX.Element => {
               }}
             />
           ))}
-        </form>
+        </Col>
       </Col>
     </Fragment>
   )

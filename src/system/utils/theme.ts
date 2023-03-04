@@ -52,14 +52,10 @@ export const repeatGradient = (
     ${colors?.end ?? 'transparent'} ${size},
     ${colors?.end ?? 'transparent'} ${Number(size.replace('%', '')) * 2}%)`
 
-export const customGradient = (
-  stops: Stops,
-  direction: Direction,
-): string => `repeating-linear-gradient(
-   ${direction === 'x' ? '90deg' : '0deg'},
-   ${stops
-     .reduce((acc, current) => acc + `${current.color} ${current.stop},`, '')
-     .slice(0, -1)}`
+export const customGradient = (stops: Stops, direction: Direction): string =>
+  `repeating-linear-gradient(${direction === 'x' ? '90deg' : '0deg'}, ${stops
+    .reduce((acc, current) => acc + `${current.color} ${current.stop},`, '')
+    .slice(0, -1)})`
 
 export const get1Fr = (): number | string => {
   const grid = document.querySelector('.grid')

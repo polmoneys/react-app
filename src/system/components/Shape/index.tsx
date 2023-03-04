@@ -10,7 +10,13 @@ interface Props extends ComponentProps<'div'> {
 }
 
 const Shape = (props: Props): JSX.Element => {
-  const { sides = 3, size = 69, fill = 'currentColor', transforms } = props
+  const {
+    sides = 3,
+    size = 69,
+    fill = 'currentColor',
+    transforms,
+    className,
+  } = props
 
   const polyPath = useMemo(() => {
     const clampedSides = sides < 3 ? 3 : sides > 30 ? 30 : sides
@@ -27,6 +33,7 @@ const Shape = (props: Props): JSX.Element => {
       height={size}
       fill={fill}
       focusable="false"
+      {...(className !== undefined && { className })}
       {...(not(transforms) && { style: { transform: transforms } })}
     >
       <path d={polyPath} />

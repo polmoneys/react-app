@@ -4,8 +4,6 @@ import {
   GroteskXL,
   HelveticaNeue,
   HelveticaNeueBold,
-  HelveticaNeueBoldS,
-  HelveticaNeueBoldXL,
   HelveticaNeueL,
   GroteskLG,
   GroteskS,

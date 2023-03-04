@@ -154,7 +154,7 @@ const TipButtons = (): JSX.Element => {
           ))}
         </Buttons>
 
-        <HorizontalScroll progress={false}>
+        <HorizontalScroll className="track" progress={false}>
           <Buttons>
             {DEMO_BUTTON_GROUP.map(item => (
               <Button

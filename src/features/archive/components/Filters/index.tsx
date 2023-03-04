@@ -26,16 +26,23 @@ function Filters(): JSX.Element {
   const onSubmit = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault()
     const formData = new FormData(event.currentTarget)
+    const hasCheckboxChecked = formData.get('status')
+    console.log({ hasCheckboxChecked })
+
+    if (hasCheckboxChecked === null) {
+      formData.append('status', 'inactive')
+    }
     const newURLSearchParams = Object.fromEntries(formData)
+
     if (isEmptyObject(newURLSearchParams)) alert('Change some filters')
     setUrlState(newURLSearchParams as any)
   }
 
-  // useEffect(() => {
-  //   if (!isEmptyObject(urlState)) {
-  //     console.log({ urlState })
-  //   }
-  // }, [urlState])
+  useEffect(() => {
+    if (!isEmptyObject(urlState)) {
+      console.log({ urlState })
+    }
+  }, [urlState])
 
   return (
     <Col as="form" gap="var(--gap-3)" onSubmit={onSubmit}>
