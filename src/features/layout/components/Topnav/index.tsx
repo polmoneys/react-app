@@ -7,9 +7,13 @@ import {
   Row,
   Col,
   Shape,
+  Buttons,
+  Button,
+  Group,
+  HelveticaNeueS,
 } from '@/system/components/'
 import { BreadcrumbPortal } from '@/system/components/Breadcrumb/index'
-import { setMaxZoom, settingsSlice } from '../../store'
+import { setMaxZoom, setMidZoom, setMinZoom, settingsSlice } from '../../store'
 import styles from './index.module.css'
 
 /*
@@ -27,7 +31,7 @@ function Topnav(): JSX.Element {
   const { zoom } = useAppSelector(settingsSlice)
 
   return (
-    <nav className={styles.nav}>
+    <Group as="nav" className={styles.nav}>
       <Disclosure
         popper
         as="div"
@@ -41,16 +45,19 @@ function Topnav(): JSX.Element {
         }}
         className="user-settings"
       >
-        <Col as="div">
-          <Row as="div" gap="0" options={{ alignItems: 'center' }}>
-            <HelveticaNeue>current zoom {zoom}</HelveticaNeue>
-            <ButtonSuccess
-              className="ml-auto"
-              onClick={() => dispatch(setMaxZoom())}
-            >
+        <Col as="div" gap="var(--gap-3">
+          <HelveticaNeueS>Zoom at {zoom}</HelveticaNeueS>
+          <Buttons>
+            <Button ringless onClick={() => dispatch(setMinZoom())}>
+              Min
+            </Button>
+            <Button ringless onClick={() => dispatch(setMidZoom())}>
+              Mid
+            </Button>
+            <Button ringless onClick={() => dispatch(setMaxZoom())}>
               Max
-            </ButtonSuccess>
-          </Row>
+            </Button>
+          </Buttons>
         </Col>
       </Disclosure>
       <NavLink to="/">Home</NavLink>
@@ -58,7 +65,7 @@ function Topnav(): JSX.Element {
       <NavLink to="stories">Stories</NavLink>
 
       <BreadcrumbPortal />
-    </nav>
+    </Group>
   )
 }
 

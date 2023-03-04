@@ -37,14 +37,6 @@
   color: var(--gray-100);
 }
 
-.chip {
-  background-color: var(--gray-400);
-}
-
-.chip button {
-  border-radius: var(--border-radius) !important;
-}
-
-.chip.selected {
-  filter: hue-rotate(120deg);
+.unstyleFocus:focus {
+  box-shadow: none !important;
 }

@@ -5,9 +5,9 @@ import Subnav from '../components/Subnav'
 function Dashboard(): JSX.Element {
   return (
     <View>
-      <View.Feature>
+      <View.Full>
         <Subnav />
-      </View.Feature>
+      </View.Full>
       <Outlet />
     </View>
   )

@@ -43,7 +43,7 @@ function Font(props: FontProps): JSX.Element {
     children,
     options = [],
     className,
-    size = 'r',
+    size = 'md',
     format = 'aa',
     ...rest
   } = props

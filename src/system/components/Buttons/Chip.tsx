@@ -1,10 +1,10 @@
 import { type Dispatch } from 'react'
 import { classes } from '@/system/utils/theme'
-import { ButtonIcon } from '.'
-import { IconCross, IconPlus } from '../Icons'
+import styles from './index.module.css'
+import { ButtonIconError, ButtonIconSuccess } from '.'
 import Row from '../Row'
-import { HelveticaNeue } from '../Typography'
-import styles from '../Core/inputs/button.module.css'
+import { IconCross, IconPlus } from '../Icons'
+import { HelveticaNeue, HelveticaNeueS } from '../Typography'
 
 interface Props {
   name: string
@@ -17,25 +17,26 @@ const Chip = (props: Props): JSX.Element => {
   return (
     <Row
       as="div"
+      gap="0"
       options={{ alignItems: 'center' }}
       className={classes(styles.chip, isSelected && styles.selected)}
       data-selected={isSelected}
     >
-      <ButtonIcon
+      <HelveticaNeueS>{name}</HelveticaNeueS>
+      <ButtonIconSuccess
         onClick={() => {
           dispatch({ type: 'remove', name })
         }}
       >
         <IconCross label="Remove" />
-      </ButtonIcon>
-      <HelveticaNeue>{name}</HelveticaNeue>
-      <ButtonIcon
+      </ButtonIconSuccess>
+      <ButtonIconError
         onClick={() => {
           dispatch({ type: 'add', name })
         }}
       >
         <IconPlus label="Add" />
-      </ButtonIcon>
+      </ButtonIconError>
     </Row>
   )
 }

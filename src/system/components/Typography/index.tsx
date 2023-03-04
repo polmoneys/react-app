@@ -11,6 +11,8 @@ const HelveticaNeueBold = Compose(styles.bold)
 const Grotesk = Compose(styles.grotesk)
 
 // Size variants
+const GroteskS = ComposeSize(Grotesk, SIZES.SM)
+const GroteskLG = ComposeSize(Grotesk, SIZES.LG)
 const GroteskXL = ComposeSize(Grotesk, SIZES.XL)
 const HelveticaNeueBoldXL = ComposeSize(HelveticaNeueBold, SIZES.XL)
 const HelveticaNeueBoldL = ComposeSize(HelveticaNeueBold, SIZES.LG)
@@ -18,8 +20,6 @@ const HelveticaNeueBoldS = ComposeSize(HelveticaNeueBold, SIZES.SM)
 const HelveticaNeueXL = ComposeSize(HelveticaNeue, SIZES.XL)
 const HelveticaNeueL = ComposeSize(HelveticaNeue, SIZES.LG)
 const HelveticaNeueS = ComposeSize(HelveticaNeue, SIZES.SM)
-const HelveticaNeueMediumL = ComposeSize(HelveticaNeueMedium, SIZES.LG)
-const HelveticaNeueMediumXL = ComposeSize(HelveticaNeueMedium, SIZES.XL)
 
 export {
   HelveticaNeue,
@@ -27,12 +27,12 @@ export {
   HelveticaNeueBold,
   HelveticaNeueThin,
   Grotesk,
+  GroteskS,
+  GroteskLG,
   GroteskXL,
   HelveticaNeueBoldXL,
   HelveticaNeueBoldL,
   HelveticaNeueBoldS,
-  HelveticaNeueMediumXL,
-  HelveticaNeueMediumL,
   HelveticaNeueXL,
   HelveticaNeueL,
   HelveticaNeueS,
@@ -46,5 +46,4 @@ export type Fonts =
   | typeof HelveticaNeueThin
   | typeof HelveticaNeueBoldXL
   | typeof HelveticaNeueBoldS
-  | typeof HelveticaNeueMediumL
   | typeof HelveticaNeueS

@@ -46,7 +46,7 @@ main + footer button {
   position: absolute;
   top: var(--comfy-height);
   z-index: var(--z-max);
-  width: 300px;
+  width: 320px;
   left: 0;
 }
 
@@ -70,4 +70,10 @@ main + footer button {
 }
 .launch-card {
   background-color: var(--gray-800);
+}
+
+.active-button-in-group {
+  opacity: 0.3;
+}
+.idle-button-in-group {
 }

@@ -5,12 +5,20 @@ export { default as Card } from './Core/Card'
 export { CardPortraitError, CardPortraitSuccess } from './Cards'
 export { default as Disclosure } from './Core/Disclosure'
 export { default as Button } from './Core/Inputs/button'
-export { ButtonError, ButtonSuccess, ButtonIcon } from './Buttons'
+export {
+  ButtonError,
+  ButtonSuccess,
+  ButtonIcon,
+  ButtonIconSuccess,
+  ButtonIconError,
+} from './Buttons'
+export { default as Buttons } from './Buttons/Group'
 export { default as Chip } from './Buttons/Chip'
 export { default as Checkbox } from './Core/Inputs/checkbox'
 export { default as Col } from './Col'
 export { default as ColToRow } from './ColToRow'
 export { default as Couple } from './Couple'
+export { default as Fence } from './Core/Fence'
 export { default as Field } from './Core/Inputs/field'
 export { default as Grid } from './Grid'
 export { default as Group } from './Core/Group'
@@ -47,6 +55,7 @@ export { default as Media } from './Media'
 export { default as Pre } from './Pre'
 export { default as Popper } from './Core/Popper'
 export { default as Radio } from './Core/Inputs/radio'
+export { default as Range } from './Core/Inputs/range'
 export { default as Row } from './Row'
 export { default as Shape } from './Shape'
 export { default as Sticky } from './Sticky'
@@ -59,12 +68,12 @@ export {
   HelveticaNeueBoldXL,
   HelveticaNeueL,
   HelveticaNeueMedium,
-  HelveticaNeueMediumL,
-  HelveticaNeueMediumXL,
   HelveticaNeueS,
   HelveticaNeueThin,
   HelveticaNeueXL,
   Grotesk,
+  GroteskLG,
+  GroteskS,
   GroteskXL,
 } from './Typography'
 export { default as Search } from './Core/Inputs/search'

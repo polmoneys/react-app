@@ -1,0 +1,44 @@
+.group {
+  width: 100%;
+}
+
+.group input {
+  -webkit-appearance: none;
+  width: 100%;
+  height: var(--gap-3);
+  background: var(--accent);
+  outline: none;
+  border-color: transparent;
+  border-radius: var(--border-radius);
+}
+
+/* for chrome/safari */
+.group input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: var(--minHeightUserAction);
+  height: calc(var(--gap-3) + var(--gap-2));
+  background: var(--accent-error);
+  cursor: pointer;
+  border-color: transparent;
+  border-radius: var(--border-radius);
+}
+.group input:focus::-webkit-slider-thumb {
+  outline: var(--border-width) solid var(--accent-error) !important;
+  outline-offset: var(--offset) !important;
+}
+
+/* for firefox */
+.group input::-moz-range-thumb {
+  width: var(--minHeightUserAction);
+  height: calc(var(--gap-3) + var(--gap-2));
+  background: var(--accent-error);
+  cursor: pointer;
+  border-color: transparent;
+  border-radius: var(--border-radius);
+}
+
+.group input:focus::-moz-range-thumb {
+  outline: var(--border-width) solid var(--accent-error) !important;
+  outline-offset: var(--offset) !important;
+}

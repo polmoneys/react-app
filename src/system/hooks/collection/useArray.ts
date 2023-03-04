@@ -5,8 +5,12 @@ type Uuid = typeof uuidv4
 type Values = string | number | unknown[]
 type ObjectLike = Record<string, Values | Uuid>
 
-type State = ObjectLike[]
-const initialState: State = []
+interface State {
+  state: ObjectLike[]
+  previous: ObjectLike[]
+  uuids: any[]
+}
+const initialState: ObjectLike[] = []
 
 type Action =
   | { type: 'start'; item: ObjectLike }
@@ -24,18 +28,49 @@ type Action =
 const reducer = (state: State, action: Action): State => {
   const { type } = action
   switch (type) {
-    case 'start':
-      return [action.item, ...state]
-    case 'end':
-      return [...state, action.item]
-    case 'removeById':
-      return state
+    case 'start': {
+      const nextState = [action.item, ...state.state]
+      return {
+        state: nextState,
+        previous: state.state,
+        uuids: nextState.map(item => item.id),
+      }
+    }
+
+    case 'end': {
+      const nextState = [...state.state, action.item]
+      return {
+        state: [...state.state, action.item],
+        previous: state.state,
+        uuids: nextState.map(item => item.id),
+      }
+    }
+
+    case 'removeById': {
+      const nextState = state.state
         .filter(item => item.uuid !== action.id)
         .filter(item => item.id !== action.id)
-    case 'removeByIndex':
-      return state.filter((_, i) => i !== action.index)
+      return {
+        state: nextState,
+        previous: state.state,
+        uuids: nextState.map(item => item.id),
+      }
+    }
+
+    case 'removeByIndex': {
+      const nextState = state.state.filter((_, i) => i !== action.index)
+      return {
+        state: nextState,
+        previous: state.state,
+        uuids: nextState.map(item => item.id),
+      }
+    }
     case 'reset':
-      return initialState
+      return {
+        state: initialState,
+        previous: [],
+        uuids: [],
+      }
     default:
       throw new Error(`Unknown action type: ${type as string}`)
     // default:
@@ -48,6 +83,10 @@ interface Props {
 }
 
 const useArray = (props?: Props): [State, Dispatch<Action>] =>
-  useReducer(reducer, props?.initial ?? [])
+  useReducer(reducer, {
+    state: props?.initial ?? [],
+    previous: [],
+    uuids: props?.initial?.map(item => item.id) ?? [],
+  })
 
 export default useArray

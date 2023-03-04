@@ -3,7 +3,7 @@ import {
   useEffect,
   useState,
   type ChangeEvent,
-  type KeyboardEvent,
+  // type KeyboardEvent,
   useCallback,
   type ComponentProps,
 } from 'react'
@@ -15,6 +15,16 @@ interface TextareaProps extends Omit<ComponentProps<'textarea'>, 'onChange'> {
   onChangeValue: (value: string | number) => void
   initial?: string | number
 }
+
+/* 
+    <label htmlFor="textarea-test">Free your words</label>
+    <Textarea
+      id="textarea-test"
+      onChangeValue={newContent => {
+        console.log(newContent)
+      }}
+    />
+*/
 
 const Textarea = (props: TextareaProps): JSX.Element => {
   const {

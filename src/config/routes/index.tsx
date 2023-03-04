@@ -5,7 +5,7 @@ import ArchiveLanding from '@/features/archive/pages/landing'
 import StoriesLanding from '@/features/stories/pages/landing'
 import DashboardLanding from '@/features/dashboard/pages/landing'
 import Dashboard from '@/features/dashboard/pages'
-import CSS from '@/features/dashboard/pages/css'
+import Tips from '@/features/dashboard/pages/tips'
 import UI from '@/features/dashboard/pages/ui'
 import Tip from '@/features/dashboard/components/Tip'
 import {
@@ -50,13 +50,13 @@ const router = createBrowserRouter([
             element: <DashboardLanding />,
           },
           {
-            path: 'css',
-            element: <CSS />,
+            path: 'tips',
+            element: <Tips />,
 
             children: [{ path: ':tip', element: <Tip /> }],
           },
           {
-            path: 'ui',
+            path: 'patterns',
             element: <UI />,
           },
           {

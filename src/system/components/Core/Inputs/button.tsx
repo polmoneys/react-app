@@ -7,6 +7,7 @@ import styles from './button.module.css'
 export interface ButtonProps extends ComponentProps<'button'> {
   children: string | ReactNode
   badge?: string | number
+  ringless?: boolean
   circle?: boolean
 }
 
@@ -18,13 +19,15 @@ const Button = (props: ButtonProps): JSX.Element => {
     disabled = false,
     autoFocus = false,
     circle = false,
+    ringless = false,
     ...rest
   } = props
+
+  const hideRing = disabled || ringless
   return (
     <FocusRing
       autoFocus={autoFocus}
-      {...(!disabled && { focusClass: 'ring' })}
-      {...(!disabled && { focusRingClass: 'ring' })}
+      {...(!hideRing && { focusClass: 'ring', focusRingClass: 'ring' })}
     >
       <button
         {...(!not(badge) && {
@@ -36,6 +39,7 @@ const Button = (props: ButtonProps): JSX.Element => {
           className,
           !not(badge) && styles.badge,
           circle && styles.circle,
+          hideRing && styles.unstyleFocus,
         )}
       >
         {children}

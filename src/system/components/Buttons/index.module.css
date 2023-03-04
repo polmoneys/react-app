@@ -1,0 +1,99 @@
+.chip {
+  background-color: var(--gray-700);
+}
+.chip > *:first-of-type {
+  padding: 0 var(--gap-2);
+}
+.chip button {
+  border-radius: var(--border-radius) !important;
+}
+
+.chip.selected {
+  filter: hue-rotate(120deg);
+}
+
+.group {
+  --butonGroup-display: inline-flex;
+  --butonGroup-flex-direction: row;
+  --butonGroup-group-direction: row;
+  align-items: stretch;
+  display: flex;
+  flex-direction: var(--butonGroup-group-direction);
+  flex-wrap: nowrap;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.group.groupVertical {
+  --butonGroup-group-direction: column;
+}
+
+.group > * {
+  -webkit-text-fill-color: currentColor;
+  white-space: nowrap;
+  display: flex;
+  flex-grow: 1;
+}
+
+.group button {
+  border: var(--border-width) solid currentColor !important;
+}
+.group.groupVertical > * {
+  width: 100%;
+}
+
+.group.groupVertical > button:first-of-type {
+  border-top-left-radius: var(--border-radius-group) !important;
+  border-top-right-radius: var(--border-radius-group) !important;
+}
+.group.groupVertical > button:last-of-type {
+  border-bottom-left-radius: var(--border-radius-group) !important;
+  border-bottom-right-radius: var(--border-radius-group) !important;
+}
+
+.group:not(.groupVertical) > button:first-of-type {
+  border-top-left-radius: var(--border-radius-group) !important;
+  border-bottom-left-radius: var(--border-radius-group) !important;
+}
+
+.group:not(.groupVertical) > button:last-of-type {
+  border-top-right-radius: var(--border-radius-group) !important;
+  border-bottom-right-radius: var(--border-radius-group) !important;
+}
+
+.group.groupVertical > * + * {
+  margin-top: calc(var(--border-width) * -1);
+}
+
+.group:not(.groupVertical) > * + * {
+  margin-left: calc(var(--border-width) * -1);
+}
+
+/* Split Button */
+
+.groupSplit button:first-of-type {
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.groupSplit button:last-of-type {
+  flex-grow: 0;
+}
+
+.onSplitMain {
+  background-color: var(--error-100);
+}
+
+.onSplitSecondary {
+  background-color: var(--color-focus);
+}
+.onSplitSecondary:focus {
+  background-color: var(--color-focus);
+}
+
+.idle {
+  /*opacity: 0.4 !important;*/
+}
+.active {
+  background-color: var(--error-200);
+}
