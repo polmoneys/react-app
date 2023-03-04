@@ -2,52 +2,6 @@ import { type ChangeEvent, useCallback, useMemo, useState } from 'react'
 
 type ObjectBoolean = Record<string, boolean>
 
-/*
-  Usage:
-  
-  const [{ output, all, mixed }, { onFollowerChange, onLeadChange }] =
-    useLeader({
-      mayo: false,
-      mustard: true,
-      ketchup: false,
-    })
-
-
-  <Checkbox
-    isMixed={mixed}
-    checked={all}
-    label={
-      mixed ? (
-        <HelveticaNeue> Some </HelveticaNeue>
-      ) : all ? (
-        <HelveticaNeue> All</HelveticaNeue>
-      ) : (
-        <HelveticaNeue> None</HelveticaNeue>
-      )
-    }
-    name="parent"
-    value="parent"
-    id="parent-checkbox-test"
-    onChange={ev => {
-      onLeadChange()
-    }}
-  />
-
-  {Object.entries(output).map(([value, state]) => (
-    <Checkbox
-      key={value}
-      name={value.toString()}
-      label={value.toString()}
-      id={`${value.toString()}-test-checkbox`}
-      checked={state}
-      value={value}
-      onChange={ev => {
-        onFollowerChange(ev)
-      }}
-    />
-  ))}
-*/
-
 function useLeader<T extends ObjectBoolean>(
   items: T,
 ): [
@@ -78,6 +32,8 @@ function useLeader<T extends ObjectBoolean>(
     return !!(someChecked && !allChecked)
   }, [someChecked, allChecked])
 
+  const output = useMemo(() => mixedState as T, [mixedState])
+
   const onLeadChange = useCallback(() => {
     dispatchUpdate(
       Object.keys(mixedState).reduce(
@@ -88,7 +44,7 @@ function useLeader<T extends ObjectBoolean>(
         {},
       ),
     )
-  }, [mixedState, allChecked])
+  }, [allChecked])
 
   const onFollowerChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
@@ -98,8 +54,9 @@ function useLeader<T extends ObjectBoolean>(
         [name]: !prevState[name],
       }))
     },
-    [mixedState],
+    [],
   )
+
   const isSelected = useCallback(
     (slice: string) => {
       return mixedState[slice]
@@ -109,7 +66,7 @@ function useLeader<T extends ObjectBoolean>(
 
   return [
     {
-      output: mixedState as T,
+      output,
       all: allChecked,
       mixed: isMixed,
     },

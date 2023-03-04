@@ -1,15 +1,18 @@
 import { type ChangeEvent, useState } from 'react'
 import * as yup from 'yup'
 
-export const VALIDATE_URL = yup.string().url()
-export const VALIDATE_USERNAME = yup.string().max(8, '8 chars max')
-export type SchemaURL = yup.InferType<typeof VALIDATE_URL>
-export type SchemaUsername = yup.InferType<typeof VALIDATE_USERNAME>
+const VALIDATIONS = {
+  text: yup.string(),
+  url: yup.string().url(),
+  username: yup.string().max(8, '8 chars max'),
+}
+export type SchemaText = yup.InferType<typeof VALIDATIONS.text>
+export type SchemaURL = yup.InferType<typeof VALIDATIONS.url>
+export type SchemaUsername = yup.InferType<typeof VALIDATIONS.username>
 
 interface Props {
   initial: string
-  // TODO: add preset validations as 'url' | 'username'...
-  validation?: any
+  validation: 'text' | 'url' | 'username'
   errorMessage?: string
 }
 type InputChange = ChangeEvent<HTMLInputElement>
@@ -25,17 +28,23 @@ const useInputValidation = (
 
   const onChange: OnChange = (data: string | InputChange) => {
     const value = typeof data === 'string' ? data : data.target.value
-
-    return validation?.isValid(value).then((valid: boolean) => {
-      if (valid) {
-        setValue(value)
-      } else {
-        validation?.validate(value).catch((err: any) => {
-          setError(err?.message ?? errorMessage)
+    // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+    async function onChangeValidate() {
+      try {
+        console.log({ isValid: await VALIDATIONS[validation].isValid(value) })
+        if (await VALIDATIONS[validation].isValid(value)) {
+          console.log({ value }, 'W')
           setValue(value)
-        })
-      }
-    })
+        } else {
+          await VALIDATIONS[validation].validate(value).catch(err => {
+            console.log({ err }, 'L')
+            setError(err?.message ?? errorMessage)
+            setValue(value)
+          })
+        }
+      } catch (err) {}
+    }
+    const validate = onChangeValidate()
   }
 
   return [value, onChange, error]

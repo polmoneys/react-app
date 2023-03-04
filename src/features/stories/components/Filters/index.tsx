@@ -11,9 +11,6 @@ import {
 } from '@/system/components'
 import { addFilter, storiesFiltersSlice } from '../../store'
 import { type Rating } from '../../interfaces/Filters'
-// import Field from '@/system/components/Core/Inputs/field'
-// import useFormEnter from '@/system/hooks/useFormEnter'
-// import useFormLeave from '@/system/hooks/useFormLeave'
 
 export const matchEpisodeToRating = (label: Rating): string[] => {
   return {
@@ -42,21 +39,6 @@ function Filters(): JSX.Element {
     dispatch(addFilter({ filter: 'old', value }))
   }
 
-  /*
-  
-  const input = useRef<HTMLInputElement>(null);
-
-  useFormEnter(() => {
-    if (input.current) {
-      input.current.focus();
-    }
-  });
-
-  useFormLeave("form-id", () =>
-    alert("Form is not submitted, is that what you want ?")
-  );
-   */
-
   return (
     <Col
       as="form"
@@ -66,15 +48,6 @@ function Filters(): JSX.Element {
     >
       <Card as="div" ratio="auto">
         <Col as="div">
-          {/* <Field
-              // ref={ref}
-              label="Search"
-              id="query-bar"
-              value="hey ho"
-              onChange={value => {
-                dispatch(addFilter({ filter: 'query', value }))
-              }}
-            /> */}
           <Switch
             name="vintage"
             onChangeBoolean={onSwitch}

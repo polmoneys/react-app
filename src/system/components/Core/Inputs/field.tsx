@@ -1,10 +1,4 @@
-import {
-  type ComponentProps,
-  useEffect,
-  useRef,
-  useState,
-  forwardRef,
-} from 'react'
+import { type ComponentProps, useEffect, useRef, useState } from 'react'
 import { FocusRing } from '@react-aria/focus'
 import { classes } from '@/system/utils/theme'
 import Group from '../Group'
@@ -16,6 +10,7 @@ interface Props
   extends Omit<ComponentProps<'input'>, 'value' | 'onChange' | 'className'> {
   value: string
   label: string
+  errorElementId: string
   onChange: (val: string) => void
   id: string
   direction?: 'row' | 'column'
@@ -55,6 +50,7 @@ function Field(props: Props): JSX.Element {
     classNames,
     label,
     isSearch = false,
+    errorElementId,
     ...rest
   } = props
   const inputRef = useRef<HTMLInputElement>(null)
@@ -93,6 +89,9 @@ function Field(props: Props): JSX.Element {
       >
         <input
           {...rest}
+          {...(errorElementId !== undefined && {
+            'aria-describedby': errorElementId,
+          })}
           type={isSearch ? 'search' : 'text'}
           className={classes(styles.input, classNames?.input)}
           ref={inputRef}

@@ -1,7 +1,7 @@
 import { Fragment } from 'react'
 import { Outlet } from 'react-router-dom'
 import { HelveticaNeueBold, Breadcrumb, View } from '@/system/components'
-import SubnavNested from '../components/Subnav/nested'
+import SubnavTips from '../components/Subnav/tips'
 
 const Tips = (): JSX.Element => {
   return (
@@ -9,7 +9,7 @@ const Tips = (): JSX.Element => {
       <Breadcrumb to="/tips">Tips</Breadcrumb>
       <View.Full>
         <HelveticaNeueBold>Tips</HelveticaNeueBold>
-        <SubnavNested />
+        <SubnavTips />
       </View.Full>
       <Outlet />
     </Fragment>

@@ -1,8 +1,8 @@
-import { useContext, createContext, Dispatch, SetStateAction } from 'react'
+import { useContext, createContext } from 'react'
 
-export const Context = createContext<string>('main')
+export const Context = createContext<string>('top-nav-breadcrumb')
 
-const useBreadcrumbContext = () => {
+const useBreadcrumbContext = (): string => {
   const context = useContext(Context)
 
   if (context == null) {

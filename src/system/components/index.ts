@@ -19,9 +19,10 @@ export { default as Col } from './Col'
 export { default as ColToRow } from './ColToRow'
 export { default as Couple } from './Couple'
 export { default as Fence } from './Core/Fence'
-export { default as Field } from './Core/Inputs/field'
+export { default as Field, Searchbar } from './Core/Inputs/field'
 export { default as Grid } from './Grid'
 export { default as Group } from './Core/Group'
+export { default as HorizontalScroll } from './Core/HorizontalScroll'
 export {
   IconPlus,
   IconBookmark,

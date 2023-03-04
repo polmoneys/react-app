@@ -1,12 +1,15 @@
+import { useMemo } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 
 /*
   Usage:
   const [urlState, setUrlState, updateCurrentUrlState, back] = useSearchUrl();
-  details => https://felixgerschau.com/js-manipulate-url-search-params/
+  credits => https://felixgerschau.com/js-manipulate-url-search-params/
 */
 
-function useSearchUrl<T extends Record<string, string>>(): readonly [
+type SearchState = Record<string, string>
+
+function useSearchUrl<T extends SearchState>(): readonly [
   T,
   (state: T) => void,
   (state: Partial<T>) => void,
@@ -15,9 +18,13 @@ function useSearchUrl<T extends Record<string, string>>(): readonly [
   const navigate = useNavigate()
 
   const [searchParams, setSearchParams] = useSearchParams()
-  const state = Object.fromEntries([...searchParams])
+  const state = useMemo(
+    () => Object.fromEntries([...searchParams]) as T,
+    [searchParams],
+  )
 
   const onChange = (newState: T): void => {
+    if (newState === undefined) return
     setSearchParams(newState)
   }
 
@@ -29,7 +36,7 @@ function useSearchUrl<T extends Record<string, string>>(): readonly [
     navigate(-1)
   }
 
-  return [state as T, onChange, onUpdate, back]
+  return [state, onChange, onUpdate, back] as const
 }
 
 export default useSearchUrl

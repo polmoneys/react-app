@@ -1,7 +1,7 @@
 import { type Dispatch, useReducer } from 'react'
 
-type State = string[]
-const initialState: State = []
+type State = Set<string>
+const initialState: State = new Set()
 
 type Action =
   | {
@@ -21,16 +21,18 @@ const reducer = (state: State, action: Action): State => {
 
   switch (type) {
     case 'add': {
-      if (state.includes(action.name)) {
+      if (state.has(action.name)) {
         return state
       }
-      return [...state, action.name]
+      return new Set(state).add(action.name)
     }
     case 'remove': {
-      return state.filter(d => d !== action.name)
+      const nextState = new Set(state)
+      nextState.delete(action.name)
+      return nextState
     }
     case 'clear': {
-      return []
+      return new Set()
     }
     default:
       return state
@@ -42,6 +44,6 @@ interface Props {
 }
 
 const useChips = (props?: Props): [State, Dispatch<Action>] =>
-  useReducer(reducer, props?.initial ?? initialState)
+  useReducer(reducer, new Set(props?.initial ?? initialState))
 
 export default useChips

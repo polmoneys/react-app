@@ -21,14 +21,13 @@ interface Props<T extends Item> extends ComponentProps<'table'> {
   onSort: (id: string, dir: SortDirection) => void
 }
 
-type IndexType<T extends Item> = {
-  [K in keyof T]: K extends 'id' ? string : never
-}
+// type IndexType<T extends Item> = {
+//   [K in keyof T]: K extends 'id' ? string : never
+// }
+// type ColumnHeaderId = keyof IndexType<T>[keyof IndexType<T>]
 
 function Table<T extends Item>(props: Props<T>): JSX.Element {
   const { label, th, tr, sort, onSort } = props
-
-  type ColumnHeaderId = keyof IndexType<T>[keyof IndexType<T>]
 
   return (
     <div style={{ width: '100%', overflow: 'scroll' }}>
@@ -102,9 +101,6 @@ function Table<T extends Item>(props: Props<T>): JSX.Element {
             return (
               <tr key={`${pos}-body-table-row`}>
                 {th.map((th, pos) => {
-                  // const columnHeaderID = th.id as any
-                  // // @ts-expect-error grrr
-                  // const v = row[columnHeaderID].slice(0, 30) as string
                   const columnHeaderID = th.id as keyof T
                   const v = row[columnHeaderID].slice(0, 30) as string
 

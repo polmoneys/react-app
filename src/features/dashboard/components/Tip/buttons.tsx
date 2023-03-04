@@ -8,8 +8,8 @@ import {
   Chip,
   Buttons,
   Col,
-  HelveticaNeue,
   HelveticaNeueS,
+  HorizontalScroll,
 } from '@/system/components'
 import useChips from '@/system/hooks/collection/useChips'
 import useArray from '@/system/hooks/collection/useArray'
@@ -65,15 +65,15 @@ const TipButtons = (): JSX.Element => {
               key={name}
               name={name}
               dispatch={dispatchName}
-              isSelected={selectedNames.includes(name)}
+              isSelected={selectedNames.has(name)}
             />
           ))}
         </Row>
 
-        {selectedNames.length > 0 ? (
+        {selectedNames.size > 0 ? (
           <Row as="div" options={{ alignItems: 'center' }}>
             <HelveticaNeueBoldS>Selection:</HelveticaNeueBoldS>
-            <HelveticaNeueS>{selectedNames.join(', ')}</HelveticaNeueS>
+            <HelveticaNeueS>{[...selectedNames].join(', ')}</HelveticaNeueS>
             <Button
               onClick={() => {
                 dispatchName({ type: 'clear' })
@@ -153,6 +153,45 @@ const TipButtons = (): JSX.Element => {
             </Button>
           ))}
         </Buttons>
+
+        <HorizontalScroll progress={false}>
+          <Buttons>
+            {DEMO_BUTTON_GROUP.map(item => (
+              <Button
+                key={item.id}
+                className={
+                  uuids.includes(item.id)
+                    ? 'active-button-in-group'
+                    : 'idle-button-in-group'
+                }
+                onClick={() => {
+                  onChange(item)
+                }}
+                ringless
+              >
+                {item.label}
+              </Button>
+            ))}
+          </Buttons>
+          <Buttons>
+            {DEMO_BUTTON_GROUP.map(item => (
+              <Button
+                key={item.id}
+                className={
+                  uuids.includes(item.id)
+                    ? 'active-button-in-group'
+                    : 'idle-button-in-group'
+                }
+                onClick={() => {
+                  onChange(item)
+                }}
+                ringless
+              >
+                {item.label}
+              </Button>
+            ))}
+          </Buttons>
+        </HorizontalScroll>
       </Col>
     </Fragment>
   )

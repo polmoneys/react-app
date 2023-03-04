@@ -1,7 +1,9 @@
 import { useCallback } from 'react'
 
-const useFocusReturn = (): ((id: string) => number) => {
+const useFocusMove = (): any => {
   const moveFocus = useCallback((id: string) => {
+    console.log({ id }, 'hook')
+
     return window.setTimeout(() => {
       const el = document.getElementById(id) as HTMLElement
       window.requestAnimationFrame(() => {
@@ -13,4 +15,4 @@ const useFocusReturn = (): ((id: string) => number) => {
   return moveFocus
 }
 
-export default useFocusReturn
+export default useFocusMove

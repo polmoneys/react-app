@@ -8,6 +8,7 @@ import Dashboard from '@/features/dashboard/pages'
 import Tips from '@/features/dashboard/pages/tips'
 import UI from '@/features/dashboard/pages/ui'
 import Tip from '@/features/dashboard/components/Tip'
+import Pattern from '@/features/dashboard/components/Pattern'
 import {
   MealDetail,
   MealIngredients,
@@ -58,6 +59,8 @@ const router = createBrowserRouter([
           {
             path: 'patterns',
             element: <UI />,
+
+            children: [{ path: ':pattern', element: <Pattern /> }],
           },
           {
             path: 'meals',

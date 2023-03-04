@@ -1,4 +1,5 @@
 import { Fragment } from 'react'
+import { Outlet } from 'react-router-dom'
 import {
   HelveticaNeue,
   HelveticaNeueBold,
@@ -13,62 +14,17 @@ import {
   Couple,
   Breadcrumb,
 } from '@/system/components'
+import SubnavPatterns from '../components/Subnav/patterns'
 
 const UI = (): JSX.Element => {
   return (
     <Fragment>
       <Breadcrumb to="/patterns">Patterns</Breadcrumb>
-      <View.Popout>
-        <Col as="aside" gap="var(--gap-3)">
-          <Card ratio="auto" as="div">
-            <Row as="div" gap="var(--gap-3)" size="100%">
-              <Couple as="div">
-                <HelveticaNeue>
-                  <IconHeart label="Like it" />
-                </HelveticaNeue>
-                <HelveticaNeue className="pair-last">React</HelveticaNeue>
-              </Couple>
-              <Couple as="div" className="pair-shortened ml:auto">
-                <HelveticaNeue>
-                  <IconHeart label="Like it" />
-                </HelveticaNeue>
-                <HelveticaNeue className="pair-last">React</HelveticaNeue>
-              </Couple>
-            </Row>
-            <Card.Actions>
-              <HelveticaNeue className="mr:auto ml:auto">
-                Couple is my fav lil component
-              </HelveticaNeue>
-            </Card.Actions>
-          </Card>
-          <Popper
-            content={
-              <Col
-                as="div"
-                options={{
-                  DANGEROUS: {
-                    backgroundColor: 'var(--color-invalid)',
-                    padding: 'var(--gap-3)',
-                  },
-                }}
-              >
-                <HelveticaNeueBold dangerousColor="var(--white-100)">
-                  hello darkness my old friend
-                </HelveticaNeueBold>
-              </Col>
-            }
-            position="left"
-          >
-            {({ toggle }) => {
-              return (
-                <ButtonIcon onClick={toggle}>
-                  <IconQuestion label="" />
-                </ButtonIcon>
-              )
-            }}
-          </Popper>
-        </Col>
-      </View.Popout>
+      <View.Full>
+        <HelveticaNeueBold>Patterns</HelveticaNeueBold>
+        <SubnavPatterns />
+      </View.Full>
+      <Outlet />
     </Fragment>
   )
 }

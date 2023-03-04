@@ -7,7 +7,7 @@ import styles from './index.module.css'
 const Layout = (): JSX.Element => {
   return (
     <Fragment>
-      <BreadcrumbProvider id="main">
+      <BreadcrumbProvider id="top-nav-breadcrumb">
         <Topnav />
         {/* By using <main> we have allowed users to skip the intro. */}
         <main className={styles.main}>

@@ -41,6 +41,7 @@ function useCache(): Record<string, unknown> {
   }).current
 
   return store
+  // return useMemo(() => store.current, [])
 }
 
 export default useCache

@@ -13,7 +13,7 @@ export const useScroll = (domNode: any): number => {
       setScrollY(domNode.scrollY ?? domNode.scrollTop)
     }
 
-    domNode.addEventListener('scroll', scroller)
+    domNode.addEventListener('scroll', scroller, { passive: true })
 
     return () => domNode.removeEventListener('scroll', scroller)
   }, [domNode])

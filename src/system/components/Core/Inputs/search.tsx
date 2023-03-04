@@ -14,6 +14,8 @@ interface SearchProps extends Omit<ComponentProps<'input'>, 'onChange'> {
   initial?: string | number
 }
 
+// TODO: TOKENIZE MULTIPLE QUERIES
+
 const Search = (props: SearchProps): JSX.Element => {
   const { initial, disabled = false, autoFocus = false, ...rest } = props
 

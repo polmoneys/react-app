@@ -4,6 +4,11 @@ export type Value = string | number
 
 export type Dictionary<T = Value> = Record<string, T>
 export interface Dictionaries extends Array<Dictionary> {}
+/*
+  export interface Dictionaries<T = Value> {
+    [index: number]: Dictionary<T>;
+  }
+*/
 
 export type ArrayProp = string[] | string
 
@@ -33,11 +38,16 @@ export type OnAction = `on${string}`
  type Crud =  addName | addPhone | removeName | removePhone
  */
 type CrudActions = 'add' | 'remove'
-type CrudProperty = 'name' | 'phone'
+type CrudProperties = 'name' | 'phone'
 
-export type Crud = `${CrudActions}${Capitalize<CrudProperty>}`
+export type Crud = `${CrudActions}${Capitalize<CrudProperties>}`
+export type CrudLower = `${CrudActions}${Lowercase<CrudProperties>}`
 
-// conditional type
+/*
+  conditional type, same as:
+  export declare function addOrConcat<T extends number>(x: T): number
+  export declare function addOrConcat<T extends string>(x: T): string
+*/
 export declare function addOrConcat<T extends number | string>(
   x: T,
 ): T extends number ? number : string

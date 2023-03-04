@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { HelveticaNeueBold, Breadcrumb, View, Col } from '@/system/components'
 import TipButtons from './buttons'
 import TipFonts from './fonts'
+import TipForms from './forms'
 
 const Tip = (): JSX.Element => {
   const { tip: tipParam } = useParams()
@@ -16,6 +17,7 @@ const Tip = (): JSX.Element => {
           {
             buttons: <TipButtons />,
             fonts: <TipFonts />,
+            forms: <TipForms />,
             undefined: <Fragment />,
           }[tip]
         }

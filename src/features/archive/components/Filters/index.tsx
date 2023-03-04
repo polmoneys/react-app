@@ -27,16 +27,15 @@ function Filters(): JSX.Element {
     event.preventDefault()
     const formData = new FormData(event.currentTarget)
     const newURLSearchParams = Object.fromEntries(formData)
-    console.log({ newURLSearchParams })
     if (isEmptyObject(newURLSearchParams)) alert('Change some filters')
-    updateCurrentUrlState(newURLSearchParams as Partial<Record<string, string>>)
+    setUrlState(newURLSearchParams as any)
   }
 
-  useEffect(() => {
-    if (!isEmptyObject(urlState)) {
-      console.log({ urlState })
-    }
-  }, [urlState])
+  // useEffect(() => {
+  //   if (!isEmptyObject(urlState)) {
+  //     console.log({ urlState })
+  //   }
+  // }, [urlState])
 
   return (
     <Col as="form" gap="var(--gap-3)" onSubmit={onSubmit}>
@@ -45,6 +44,7 @@ function Filters(): JSX.Element {
         onChangeBoolean={onSwitch}
         label={<HelveticaNeue>Active crew only</HelveticaNeue>}
         id="active-crew"
+        value={status}
         initial={status === 'active'}
       />
 
