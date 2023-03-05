@@ -1,6 +1,6 @@
 ## TLDR
 
-Boilerplate: includes `react`, `react-router-dom`, `redux-toolkit` and `react-query`, `vite.js`, `eslint` & `prettier`& ofc `typescript`. 
+Interlacing `react`, `react-router-dom`, `redux-toolkit` and `react-query`, `vite.js`, `eslint` & `prettier`& ofc `typescript`. 
 
 
 ### Motivation 
@@ -24,7 +24,6 @@ From ```@/system/components/Core/Group``` we can export layout components like `
 
 From ```@/system/components/Core/Inputs``` we can export interactive components and specialize them as ```<ButtonAccent/>``` on top of ```<Button/>```. Check folder  ```@/system/components/Buttons```. 
 Same idea apply to ```<Card/>``` variants on ```@/system/components/Cards```.
-
 
 ### Hooks
 
