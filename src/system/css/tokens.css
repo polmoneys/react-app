@@ -108,7 +108,6 @@
   background-color: var(--color-focus);
   fill: var(--color-focus);
   border-color: var(--color-focus);
-  stroke: var(--color-focus);
 }
 
 :is([data-theme=''].accent:hover, [data-theme=''].accent:active) {
@@ -125,7 +124,6 @@
   background-color: var(--color-invalid);
   fill: var(--color-invalid);
   border-color: var(--color-invalid) !important;
-  stroke: var(--color-invalid);
 }
 
 :is([data-theme=''].invalid:hover, [data-theme=''].invalid:active) {
