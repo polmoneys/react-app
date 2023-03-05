@@ -3,47 +3,6 @@ import { line, curveCardinal } from 'd3-shape'
 import { matchRefsToPoints } from './utils'
 import styles from './index.module.css'
 
-/*
-
-  Usage:
-
-  interface Props {
-    variant: "line" | "curve";
-  }
-  function Paint(props: Props) {
-    const { variant } = props;
-    const refA = useRef<HTMLDivElement | null>(null); // Point A
-    const refB = useRef<HTMLDivElement | null>(null); // Point B
-    const refC = useRef<HTMLDivElement | null>(null); // Point C
-
-    const maskRef = useRef<HTMLDivElement | null>(null);
-
-    const rect = useRect(maskRef, { observe: true });
-
-    return (
-      <div ref={maskRef} className="demo-party">
-        <div className="ref-1" ref={refA}>
-          <Shape.Square fill="var(--accent-error)" size={100} />
-        </div>
-        <div className="ref-2" ref={refB}>
-          <Shape.Square fill="var(--accent-error)" size={100} />
-        </div>
-        <div className="ref-3" ref={refC}>
-          <Shape.Square fill="var(--accent-error)" size={100} />
-        </div>
-        <Stat.Draw
-          boundary={rect}
-          variant={variant}
-          round
-          refs={[refA, refB, refC]}
-          weigth={10}
-          fill={"yellow"}
-        />
-      </div>
-    );
-  }
-
-*/
 export interface Props {
   boundary: {
     readonly bottom: number
@@ -84,14 +43,9 @@ const Line = (props: Props): JSX.Element => {
     if (boundary === null) return
     matchRefsToPoints(refs, boundary, x, y)
       .then((points: Array<[number, number]>) => {
-        if (variant === 'line') {
-          return line()([...points])
-        } else {
-          return line().curve(curveCardinal)([...points])
-        }
-      })
-      .then((path: unknown) => {
-        const p = path as string
+        const pathFunction =
+          variant === 'line' ? line() : line().curve(curveCardinal)
+        const p = pathFunction(points) as string
         setPath(p)
       })
       .catch(() => {

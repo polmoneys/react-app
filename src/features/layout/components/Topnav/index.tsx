@@ -1,3 +1,8 @@
+import {
+  ARCHIVE_BASE_URI,
+  DASHBOARD_BASE_URI,
+  STORIES_BASE_URI,
+} from '@/config/routes/paths'
 import { useAppDispatch, useAppSelector } from '@/config/store/hooks'
 import {
   NavLink,
@@ -10,6 +15,7 @@ import {
   HelveticaNeueS,
 } from '@/system/components/'
 import { BreadcrumbPortal } from '@/system/components/Breadcrumb/index'
+import { classes } from '@/system/utils/theme'
 import { setMaxZoom, setMidZoom, setMinZoom, settingsSlice } from '../../store'
 import styles from './index.module.css'
 
@@ -45,21 +51,30 @@ function Topnav(): JSX.Element {
         <Col as="div" gap="var(--gap-3">
           <HelveticaNeueS>Zoom at {zoom}</HelveticaNeueS>
           <Buttons>
-            <Button ringless onClick={() => dispatch(setMinZoom())}>
+            <Button
+              className={classes(zoom === 0 && 'invalid')}
+              onClick={() => dispatch(setMinZoom())}
+            >
               Min
             </Button>
-            <Button ringless onClick={() => dispatch(setMidZoom())}>
+            <Button
+              className={classes(zoom === 50 && 'invalid')}
+              onClick={() => dispatch(setMidZoom())}
+            >
               Mid
             </Button>
-            <Button ringless onClick={() => dispatch(setMaxZoom())}>
+            <Button
+              className={classes(zoom === 100 && 'invalid')}
+              onClick={() => dispatch(setMaxZoom())}
+            >
               Max
             </Button>
           </Buttons>
         </Col>
       </Disclosure>
-      <NavLink to="dashboard">Home</NavLink>
-      <NavLink to="archive">Archive</NavLink>
-      <NavLink to="stories">Stories</NavLink>
+      <NavLink to={DASHBOARD_BASE_URI}>Home</NavLink>
+      <NavLink to={ARCHIVE_BASE_URI}>Archive</NavLink>
+      <NavLink to={STORIES_BASE_URI}>Stories</NavLink>
 
       <BreadcrumbPortal />
     </Group>

@@ -41,6 +41,7 @@ const Button = (props: ButtonProps): JSX.Element => {
           circle && styles.circle,
           hideRing && styles.unstyleFocus,
         )}
+        disabled={disabled}
       >
         {children}
       </button>

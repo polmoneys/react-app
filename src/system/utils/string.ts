@@ -1,3 +1,5 @@
+export const capitalize = (input: string): string =>
+  input.charAt(0).toUpperCase() + input.slice(1)
 /*
 getIndex('A'); // 1
 getIndex('B'); // 2

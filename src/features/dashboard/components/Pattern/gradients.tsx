@@ -60,7 +60,7 @@ const PatternGradients = (): JSX.Element => {
       <Col as="div" gap="var(--gap-2)">
         <HelveticaNeue>CSS gradients FTW</HelveticaNeue>
         <svg
-          viewBox="0 0 100% 2em"
+          viewBox="0 0 100 36"
           width="100%"
           height="2em"
           style={{ border: '1px solid', background: a }}
@@ -74,7 +74,7 @@ const PatternGradients = (): JSX.Element => {
           </Row>
         </Row>
         <svg
-          viewBox="0 0 100% 2em"
+          viewBox="0 0 100 36"
           width="100%"
           height="2em"
           style={{ border: '1px solid', background: b }}
@@ -94,7 +94,7 @@ const PatternGradients = (): JSX.Element => {
           </Row>
         </Row>
         <svg
-          viewBox="0 0 100% 2em"
+          viewBox="0 0 100 36"
           width="100%"
           height="2em"
           style={{ border: '1px solid', background: c }}
@@ -124,7 +124,7 @@ const PatternGradients = (): JSX.Element => {
         </Row>
 
         <svg
-          viewBox="0 0 100% 2em"
+          viewBox="0 0 100 36"
           width="100%"
           height="2em"
           style={{ border: '1px solid', background: d }}
@@ -168,7 +168,7 @@ const PatternGradients = (): JSX.Element => {
           </Row>
         </Row>
         <svg
-          viewBox="0 0 100% 2em"
+          viewBox="0 0 100 36"
           width="100%"
           height="2em"
           style={{ border: '1px solid', background: custom }}

@@ -14,7 +14,7 @@ export interface RadioProps extends ComponentProps<'input'> {
   id: string
   label?: string
   renderLabel?: RenderProp<
-    { checked: boolean; checkboxLabel: string },
+    { checked: boolean; radioLabel: string },
     HTMLElement
   >
 }
@@ -42,7 +42,7 @@ function Radio(props?: RadioProps): JSX.Element {
     ) : (
       renderLabel?.({
         checked: props?.checked ?? false,
-        checkboxLabel: props.label ?? '',
+        radioLabel: props.label ?? '',
       })
     )
 

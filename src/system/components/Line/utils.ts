@@ -4,12 +4,11 @@ function mapPoints(
   spaceX = 0,
   spaceY = 0,
 ): [number, number] {
-  let rect
-  if ('current' in el) {
-    rect = el.current.getBoundingClientRect()
-  } else {
-    rect = el.getBoundingClientRect()
-  }
+  const rect =
+    'current' in el
+      ? el.current.getBoundingClientRect()
+      : el.getBoundingClientRect()
+
   const offsetWidth = Math.round(rect.width / 2)
   const offsetHeight = Math.round(rect.height / 2)
   return [
@@ -18,14 +17,12 @@ function mapPoints(
   ]
 }
 
-export async function matchRefsToPoints(
+export const matchRefsToPoints = async (
   refs: any,
   boundary: any,
   spaceX: number,
   spaceY: number,
-): Promise<Array<[number, number]>> {
+): Promise<Array<[number, number]>> => {
   const points = refs.map((p: any) => mapPoints(p, boundary, spaceX, spaceY))
-  return await new Promise((resolve, reject) => {
-    resolve(points)
-  })
+  return points
 }

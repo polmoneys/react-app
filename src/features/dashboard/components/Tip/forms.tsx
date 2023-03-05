@@ -26,8 +26,6 @@ const TipForms = (): JSX.Element => {
   const handleKeyDown = (
     event: React.KeyboardEvent<HTMLInputElement>,
   ): void => {
-    console.log({ event, v: event.currentTarget.dataset.next })
-
     if (event.key === 'Enter') {
       event.preventDefault()
       const id = event.currentTarget.dataset.next

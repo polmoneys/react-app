@@ -34,17 +34,19 @@ const Dashboard = lazy(
       )
 }
 
+import { Navigate } from 'react-router-dom'
+
+<Navigate to="" replace={true}/>
+
 */
 
 const router = createBrowserRouter([
   {
     element: <Layout />,
     errorElement: <Error />,
-
     children: [
       {
         element: <Dashboard />,
-
         children: [
           {
             path: DASHBOARD_BASE_URI,

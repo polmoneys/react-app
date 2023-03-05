@@ -1,9 +1,8 @@
-import { useAppDispatch } from '@/config/store/hooks'
+import { useAppDispatch, useAppSelector } from '@/config/store/hooks'
 import { Button, Card, Col } from '@/system/components'
 import { classes } from '@/system/utils/theme'
 import { type default as CrewsInterface } from '../../interfaces/Crews'
-import { addBulk } from '../../store'
-import Crew from '../Crew'
+import { addBulk, archiveFiltersSlice } from '../../store'
 
 interface Props {
   crew?: CrewsInterface
@@ -21,6 +20,7 @@ const POSITIONS = [...FULL, ...HALF]
 function Crews(props: Props): JSX.Element {
   const { crew } = props
   const dispatch = useAppDispatch()
+  const { bulk } = useAppSelector(archiveFiltersSlice)
 
   return (
     <Col as="div">
@@ -40,7 +40,10 @@ function Crews(props: Props): JSX.Element {
                     POSITIONS.includes(pos) && 'demo-ad-full-card-actions',
                   )}
                 >
-                  <Button onClick={() => dispatch(addBulk({ id: person.id }))}>
+                  <Button
+                    onClick={() => dispatch(addBulk({ id: person.id }))}
+                    disabled={bulk.includes(person.id)}
+                  >
                     {person.name.slice(0, 9)}...
                   </Button>
                 </Card.Actions>

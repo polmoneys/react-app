@@ -10,7 +10,7 @@ const Tip = (): JSX.Element => {
   const tip = tipParam ?? 'undefined'
   return (
     <View.Feature>
-      <Breadcrumb to={`/tips${tipParam ?? ''}`}>Tip {tipParam}</Breadcrumb>
+      <Breadcrumb to={`/tips/${tipParam ?? ''}`}>Tip {tipParam}</Breadcrumb>
       <Col as="div" gap="var(--gap-3)">
         <HelveticaNeueBold>TIP {tipParam}</HelveticaNeueBold>
         {

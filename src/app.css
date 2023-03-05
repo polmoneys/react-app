@@ -92,3 +92,24 @@ main + footer button {
   bottom: 0;
   background-color: transparent !important;
 }
+
+.demo-party {
+  position: relative;
+  min-height: min(400px, 30vh);
+}
+
+.ref-1 {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+.ref-2 {
+  position: absolute;
+  top: 20px;
+  left: 40%;
+}
+.ref-3 {
+  position: absolute;
+  top: 60%;
+  left: 80%;
+}

@@ -4,11 +4,12 @@ import {
   Col,
   Radio,
   HelveticaNeue,
-  HelveticaNeueBoldXL,
   Switch,
   Couple,
   IconHeart,
+  GroteskLG,
 } from '@/system/components'
+import { capitalize } from '@/system/utils/string'
 import { addFilter, storiesFiltersSlice } from '../../store'
 import { type Rating } from '../../interfaces/Filters'
 
@@ -62,7 +63,6 @@ function Filters(): JSX.Element {
             onChange={value => {
               dispatch(addFilter({ filter: 'rating', value }))
             }}
-            gap="var(--gap-1)"
             renderLabel={({
               checked,
               radioLabel,
@@ -74,13 +74,13 @@ function Filters(): JSX.Element {
               // all
               if (amount === 0) {
                 return (
-                  <HelveticaNeueBoldXL
+                  <GroteskLG
                     dangerousColor={
                       checked ? 'var(--color-invalid)' : 'var(--color-focus)'
                     }
                   >
-                    {radioLabel}
-                  </HelveticaNeueBoldXL>
+                    {capitalize(radioLabel)}
+                  </GroteskLG>
                 )
               }
               return (
@@ -98,41 +98,42 @@ function Filters(): JSX.Element {
                 </Couple>
               )
             }}
+            gap="var(--gap-1)"
           >
-            <Radio.Label
+            <Radio
               label="all"
               name="all"
               value="all"
               id="radio-rating-all"
               width="calc(25% - var(--gap-1)"
             />
-            <Radio.Label
+            <Radio
               label="top"
               name="top"
               value="top"
               id="radio-rating-top"
               width="calc(50% - var(--gap-1)"
             />
-            <Radio.Label
+            <Radio
+              label="excelent"
+              name="excelent"
+              value="excelent"
+              id="radio-excelent"
+              width="calc(75% - var(--gap-1)"
+            />
+            <Radio
               label="good"
               name="good"
               value="good"
               id="radio-rating-good"
               width="calc(25% - var(--gap-1)"
             />
-            <Radio.Label
+            <Radio
               label="bad"
               name="bad"
               value="bad"
               id="radio-bad"
               width="calc(25% - var(--gap-1)"
-            />
-            <Radio.Label
-              label="excelent"
-              name="excelent"
-              value="excelent"
-              id="radio-excelent"
-              width="calc(75% - var(--gap-1)"
             />
           </Radio.Group>
         </Col>
