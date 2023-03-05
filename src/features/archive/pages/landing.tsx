@@ -3,6 +3,7 @@ import Filters from '../components/Filters'
 import useLanding from '../hooks/useLanding'
 import Launch from '../components/Launch'
 import Crews from '../components/Crews'
+import Crew from '../components/Crew'
 
 const Archive = (): JSX.Element => {
   const [
@@ -35,7 +36,10 @@ const Archive = (): JSX.Element => {
         </Disclosure>
       </Row>
       <div className="archive-grid">
-        <Launch launch={latest} />
+        <Col as="div">
+          <Launch launch={latest} />
+          <Crew />
+        </Col>
         <Crews crew={crew} />
       </div>
     </Col>

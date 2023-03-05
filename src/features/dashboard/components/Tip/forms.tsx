@@ -8,11 +8,11 @@ import {
   Searchbar,
   Checkbox,
 } from '@/system/components'
-import useFormEnter from '@/system/hooks/events/useFormEnter'
-import useFormLeave from '@/system/hooks/events/useFormLeave'
-import useFocusMove from '@/system/hooks/events/useFocusMove'
+import useFormEnter from '@/system/hooks/interactive/useFormEnter'
+import useFormLeave from '@/system/hooks/interactive/useFormLeave'
+import useFocusMove from '@/system/hooks/interactive/useFocusMove'
 import useLeader from '@/system/hooks/collection/useLeader'
-import useInputValidation from '@/system/hooks/useInputValidation'
+import useInputValidation from '@/system/hooks/interactive/useInputValidation'
 import FieldForwarded from '@/system/components/Core/Inputs/fieldForwarded'
 
 const TipForms = (): JSX.Element => {

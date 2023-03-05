@@ -65,11 +65,10 @@ main + footer button {
 }
 
 .archive-crew-card {
-  max-width: 300px;
   background-color: var(--gray-800);
+  flex-grow: 1;
 }
 .launch-card {
-  background-color: var(--gray-800);
 }
 
 .active-button-in-group {
@@ -81,8 +80,15 @@ main + footer button {
 .track {
   padding: var(--gap-3) 0;
 }
+
 .track > div:first-of-type {
   display: flex;
   width: 1000px;
   gap: var(--gap-3);
+}
+
+.demo-ad-full-card-actions {
+  position: absolute;
+  bottom: 0;
+  background-color: transparent !important;
 }

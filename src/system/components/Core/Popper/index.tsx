@@ -6,7 +6,7 @@ import {
   type Positions,
 } from './utils'
 import './index.css'
-import useActionOutside from '@/system/hooks/events/useActionOutside'
+import useActionOutside from '@/system/hooks/interactive/useActionOutside'
 import { useKeyboard } from 'react-aria'
 
 interface Props {

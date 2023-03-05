@@ -6,7 +6,7 @@ import {
   useRef,
 } from 'react'
 import { useKeyboard } from 'react-aria'
-import useActionOutside from '@/system/hooks/events/useActionOutside'
+import useActionOutside from '@/system/hooks/interactive/useActionOutside'
 import Col from '../../Col'
 import { type GroupProps } from '../Group'
 import Button from '../Inputs/button'

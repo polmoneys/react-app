@@ -5,6 +5,7 @@ import { HelveticaNeue } from './system/components/Typography'
 import './system/css/platform.css'
 import './system/css/tokens.css'
 import './system/css/utils.css'
+import './system/css/ad.css'
 import './app.css'
 
 export default function App(): JSX.Element {

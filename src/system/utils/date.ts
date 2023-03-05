@@ -1,4 +1,4 @@
-export const TimeConstants = {
+export const TIME = {
   MillisecondsInOneDay: 86400000,
   MillisecondsIn1Sec: 1000,
   MillisecondsIn1Min: 60000,
@@ -51,3 +51,45 @@ export const yesterday = (): string => {
     rtf.format(-3,'day') // 3 days ago 
     rtf.format(2,'hour') // in 2 hours 
  */
+
+const MONTHS = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+] as const
+
+type MonthName = (typeof MONTHS)[number]
+
+export const monthMgmt = (function () {
+  const names: MonthName[] = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ]
+  return {
+    name: function (number: number) {
+      return names[number]
+    },
+    number: function (name: MonthName) {
+      return names.indexOf(name)
+    },
+  }
+})()

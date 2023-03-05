@@ -1,0 +1,37 @@
+/*
+  Art direction
+  12 column grid enhanced by place-items 
+*/
+
+[data-ad] {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--gap-1);
+}
+
+[data-ad-item] {
+  display: grid;
+  place-items: center;
+  grid-column: span 6;
+}
+
+@media (orientation: landscape) {
+  [data-ad-item] {
+    grid-column: span 4;
+  }
+}
+
+[data-ad-item='12'] {
+  grid-column: span 12;
+}
+
+[data-ad-item='6'] {
+  grid-column: span 6;
+}
+[data-ad-item='3'] {
+  grid-column: span 3;
+}
+
+[data-ad-item='2'] {
+  grid-column: span 2;
+}

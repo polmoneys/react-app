@@ -68,7 +68,8 @@
   outline-style: dotted;
 }
 
-.active {
+.active,
+[aria-current='page'] {
   color: var(--color-focus);
 }
 .invalid.ring {

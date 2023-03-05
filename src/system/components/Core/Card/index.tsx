@@ -1,4 +1,9 @@
-import { type ElementType, type ReactNode } from 'react'
+import {
+  type AriaAttributes,
+  type ElementType,
+  type ReactNode,
+  type DataHTMLAttributes,
+} from 'react'
 import { type Dictionary } from '@/system/interfaces'
 import { classes } from '@/system/utils/theme'
 import Media from '../../Media'
@@ -33,6 +38,7 @@ const Card = (props: CardProps): JSX.Element => {
     ratio = 'square',
     className,
     dangerousStyles,
+    ...rest
   } = props
 
   const Tag = as ?? ('div' as ElementType)
@@ -44,6 +50,7 @@ const Card = (props: CardProps): JSX.Element => {
         ...(dangerousStyles !== undefined && dangerousStyles),
       }}
       data-ratio={ratio}
+      {...rest}
     >
       {children}
     </Tag>

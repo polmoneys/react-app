@@ -1,7 +1,14 @@
 import { Fragment } from 'react'
-import { Card, Col, HelveticaNeue } from '@/system/components'
+import {
+  Card,
+  Col,
+  GroteskXL,
+  HelveticaNeue,
+  HelveticaNeueThin,
+} from '@/system/components'
 import { formatDate } from '@/system/utils/date'
 import { type Launch as LaunchInterface } from '../../interfaces/Launches'
+import { classes } from '@/system/utils/theme'
 
 interface Props {
   launch?: LaunchInterface
@@ -9,15 +16,22 @@ interface Props {
 function Launch(props: Props): JSX.Element {
   const { launch } = props
   if (launch === undefined) return <Fragment />
+
   return (
-    <Card.Landscape as="div" key={launch.id} className="launch-card">
+    <Card.Landscape
+      as="div"
+      key={launch.id}
+      data-theme=""
+      className={classes(launch.success ? 'accent' : 'invalid', 'launch-card')}
+    >
       <Card.Title>
-        <HelveticaNeue>{launch.name}</HelveticaNeue>
+        <GroteskXL>{launch.name}</GroteskXL>
       </Card.Title>
       <Col as="div">
         <HelveticaNeue>Flight number: {launch.flightNumber}</HelveticaNeue>
-        <HelveticaNeue>On: {formatDate(launch.date)}</HelveticaNeue>
-        <HelveticaNeue>Success: {launch.success ? 'Y' : 'N'}</HelveticaNeue>
+        <HelveticaNeueThin as="span">
+          On: {formatDate(launch.date)}
+        </HelveticaNeueThin>
       </Col>
     </Card.Landscape>
   )
