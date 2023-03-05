@@ -2,9 +2,6 @@ import { useAppDispatch, useAppSelector } from '@/config/store/hooks'
 import {
   NavLink,
   Disclosure,
-  HelveticaNeue,
-  ButtonSuccess,
-  Row,
   Col,
   Shape,
   Buttons,
@@ -60,7 +57,7 @@ function Topnav(): JSX.Element {
           </Buttons>
         </Col>
       </Disclosure>
-      <NavLink to="/">Home</NavLink>
+      <NavLink to="dashboard">Home</NavLink>
       <NavLink to="archive">Archive</NavLink>
       <NavLink to="stories">Stories</NavLink>
 
