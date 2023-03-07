@@ -1,2 +1,3 @@
 *.css
 *.svg
+src/system/utils/uri.test.ts
