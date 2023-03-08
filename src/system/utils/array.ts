@@ -32,6 +32,26 @@ export function genericSort<T>(objectA: T, objectB: T, sorter: Sorter<T>): any {
   return sorter.isDescending ? result() * -1 : result()
 }
 
+/**
+ * Utility to split an array by a condition ()=>
+ */
+
+export const splitArray = <T>(
+  items: T[],
+  fn: (el: T) => boolean,
+): [T[], T[]] => {
+  const match = [] as T[]
+  const dispose = [] as T[]
+  for (const el of items) {
+    if (fn(el)) {
+      match.push(el)
+    } else {
+      dispose.push(el)
+    }
+  }
+  return [match, dispose]
+}
+
 export const nest = (
   items: Array<Record<string, any>>,
   id: number | null = null,
@@ -49,23 +69,4 @@ export function generateGroups<T extends Record<string, unknown>>(
   const groups = [...Array(count)].map(() => [])
   // assign input to group
   return groups
-}
-
-/**
- * Utility to split an array by a condition ()=>
- */
-export const splitArray = <T>(
-  items: T[],
-  fn: (el: T) => boolean,
-): [T[], T[]] => {
-  const match = [] as T[]
-  const dispose = [] as T[]
-  for (const el of items) {
-    if (fn(el)) {
-      match.push(el)
-    } else {
-      dispose.push(el)
-    }
-  }
-  return [match, dispose]
 }

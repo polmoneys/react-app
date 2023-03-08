@@ -1,20 +1,32 @@
 export const capitalize = (input: string): string =>
   input.charAt(0).toUpperCase() + input.slice(1)
+
+export function truncateStartEnd(
+  initial: string,
+  padding = 4,
+): { prev: string; next: string } | null {
+  if (initial.trim() === '') return null
+  const str = initial.toString()
+  const leftSide = str.substr(0, padding)
+  const rightSide = str.substr(str.length - padding, padding)
+  const newStr = `${leftSide}${'.'.repeat(padding)}${rightSide}`
+  return {
+    next: newStr,
+    prev: str,
+  }
+}
+
 /*
-getIndex('A'); // 1
-getIndex('B'); // 2
-getIndex('C'); // 3
-getIndex('Z'); // 26
-
-getIndex('AA'); // 27
-getIndex('AB'); // 28
-getIndex('AC'); // 29
-getIndex('AZ'); // 52
-
-getIndex('AAA'); // 703
-getIndex('AAB'); // 704
-
+  getIndex('A'); // 1
+  getIndex('B'); // 2
+  getIndex('C'); // 3
+  getIndex('Z'); // 26
+  getIndex('AA'); // 27
+  getIndex('AB'); // 28
+  getIndex('AAA'); // 703
+  getIndex('AAB'); // 704
 */
+
 export const fromIndexToChar = (col: string): number =>
   col.split('').reduce((prev, next) => prev * 26 + parseInt(next, 36) - 9, 0)
 

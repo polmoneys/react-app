@@ -6,7 +6,7 @@ import { type Dispatch, useReducer } from 'react'
   credits https://thoughtbot.com/blog/custom-react-hooks
 */
 
-type Values = string | boolean
+type Values = string | null
 
 const useStateWithPrevious = (
   initialValue: Values,
@@ -24,7 +24,7 @@ const useStateWithPrevious = (
 
   const [{ value, previousValue }, setValue] = useReducer(reducer, {
     value: initialValue,
-    previousValue: typeof initialValue === 'string' ? '' : false,
+    previousValue: typeof initialValue === 'string' ? '' : null,
   })
 
   return [value, previousValue, setValue]

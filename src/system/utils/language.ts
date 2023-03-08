@@ -15,17 +15,6 @@ export const partial =
   (...b: any) =>
     fn(...a, ...b)
 
-// Object.freeze(counter)
-let count = 0
-export const counter = {
-  increment() {
-    return ++count
-  },
-  decrement() {
-    return --count
-  },
-}
-
 export async function compute(param: number): Promise<number> {
   if (typeof param !== 'number')
     return await new Promise(resolve => {

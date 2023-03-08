@@ -7,7 +7,7 @@ interface OrderInfo {
   [key: string]: number
 }
 
-describe('fc', () => {
+describe('extractInfoFromUri', () => {
   it('returns empty object when no matches found', () => {
     fc.assert(
       fc.property(fc.string(), url => {
@@ -17,7 +17,7 @@ describe('fc', () => {
     )
   })
 
-  it('correctly extracts target ', () => {
+  it('extracts targets', () => {
     fc.assert(
       fc.property(
         fc.webUrl(),

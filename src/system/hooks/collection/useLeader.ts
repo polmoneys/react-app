@@ -1,8 +1,6 @@
 import { type ChangeEvent, useCallback, useMemo, useState } from 'react'
 
-type ObjectBoolean = Record<string, boolean>
-
-function useLeader<T extends ObjectBoolean>(
+function useLeader<T extends Record<keyof T, boolean>>(
   items: T,
 ): [
   {
@@ -16,23 +14,27 @@ function useLeader<T extends ObjectBoolean>(
     isSelected: (slice: string) => boolean
   },
 ] {
-  const [mixedState, dispatchUpdate] = useState<ObjectBoolean>(items)
+  const [mixedState, dispatchUpdate] = useState<T>(items)
 
   const allChecked = useMemo(() => {
-    return Object.keys(mixedState).every((slice: string) => mixedState[slice])
+    return Object.keys(mixedState).every(
+      (slice: string) => mixedState[slice as keyof T],
+    )
   }, [mixedState])
 
   const someChecked = useMemo(() => {
     return allChecked
       ? false
-      : Object.keys(mixedState).some((slice: string) => mixedState[slice])
+      : Object.keys(mixedState).some(
+          (slice: string) => mixedState[slice as keyof T],
+        )
   }, [mixedState, allChecked])
 
   const isMixed = useMemo(() => {
     return !!(someChecked && !allChecked)
   }, [someChecked, allChecked])
 
-  const output = useMemo(() => mixedState as T, [mixedState])
+  const output = useMemo(() => mixedState, [mixedState])
 
   const onLeadChange = useCallback(() => {
     dispatchUpdate(
@@ -42,7 +44,7 @@ function useLeader<T extends ObjectBoolean>(
           [slice]: !allChecked,
         }),
         {},
-      ),
+      ) as T,
     )
   }, [allChecked])
 
@@ -51,7 +53,7 @@ function useLeader<T extends ObjectBoolean>(
       const { name } = event.target
       dispatchUpdate(prevState => ({
         ...prevState,
-        [name]: !prevState[name],
+        [name]: !prevState[name as keyof T],
       }))
     },
     [],
@@ -59,7 +61,7 @@ function useLeader<T extends ObjectBoolean>(
 
   const isSelected = useCallback(
     (slice: string) => {
-      return mixedState[slice]
+      return mixedState[slice as keyof T]
     },
     [mixedState],
   )

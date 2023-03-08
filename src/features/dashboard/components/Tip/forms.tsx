@@ -15,6 +15,12 @@ import useLeader from '@/system/hooks/collection/useLeader'
 import useInputValidation from '@/system/hooks/interactive/useInputValidation'
 import FieldForwarded from '@/system/components/Core/Inputs/fieldForwarded'
 
+interface Ingredients {
+  mayo: boolean
+  mustard: boolean
+  ketchup: boolean
+}
+
 const TipForms = (): JSX.Element => {
   const input = useRef<HTMLInputElement>(null)
   const input1Ref = useRef<HTMLInputElement | null>(null)
@@ -46,7 +52,7 @@ const TipForms = (): JSX.Element => {
   })
 
   const [{ output, all, mixed }, { onFollowerChange, onLeadChange }] =
-    useLeader({
+    useLeader<Ingredients>({
       mayo: false,
       mustard: true,
       ketchup: false,

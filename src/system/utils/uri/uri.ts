@@ -8,7 +8,6 @@
     }
     const uri = 'https://example.com/orders/99/items/22'
     const info = extractInfoFromUri<OrderInfo>(uri, ['orders', 'items'])
-    console.log(info) // { orderId: 99, items: 22 }
 
 */
 export function extractInfoFromUri<T extends Record<string, number>>(
@@ -16,8 +15,8 @@ export function extractInfoFromUri<T extends Record<string, number>>(
   keywords: string[],
 ): Partial<T> {
   const regex = new RegExp(`\\b(${keywords.join('|')})\\/(\\d+)\\b`, 'gi')
-
   const matches = url.matchAll(regex)
+
   const info: Partial<T> = {}
 
   for (const match of matches) {

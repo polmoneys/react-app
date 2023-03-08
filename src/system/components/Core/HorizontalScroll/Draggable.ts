@@ -10,13 +10,13 @@ import { type Props } from '.'
 const ROOT_ACTIVE_CLASSNAME = 'horizontal-scroll-root-active'
 
 export class CreateSlider {
-  options: any
+  options: Partial<Props>
   containerTag: any
   sliderTag: any
   sliderTagLeft: number
   sliderTagRight: number
-  dragSpeed: any
-  smoothAmount: any
+  dragSpeed: number
+  smoothAmount: number
   down: boolean
   startX: number
   scrollLeft: number
@@ -25,7 +25,7 @@ export class CreateSlider {
   dist: number
   scrollAmount: number
   stopAnimation: boolean
-  animationRef: any
+  animationRef: number | null
   scrollWidth: number
 
   constructor(options: Partial<Props>) {
@@ -33,14 +33,11 @@ export class CreateSlider {
     this.containerTag = this.options?.container
     this.sliderTag = this.options?.slider
 
-    if (
-      this.options?.hasTouchEvent === true &&
-      this.options?.hasTouchEvent === 'true'
-    ) {
+    if (this.options?.hasTouchEvent === true && this.options?.hasTouchEvent) {
       this.options.hasTouchEvent = true
     } else if (
       this.options?.hasTouchEvent == null ||
-      this.options?.hasTouchEvent === 'false'
+      !this.options?.hasTouchEvent
     ) {
       this.options.hasTouchEvent = false
     }
@@ -90,27 +87,27 @@ export class CreateSlider {
     switch (type) {
       case 'mousedown':
         if (checkCallbackType(this.options?.mouseDown)) {
-          this.options.mouseDown()
+          this.options.mouseDown?.()
         }
         break
       case 'mouseleave':
         if (checkCallbackType(this.options?.mouseLeave)) {
-          this.options.mouseLeave()
+          this.options.mouseLeave?.()
         }
         break
       case 'mouseup':
         if (checkCallbackType(this.options?.mouseUp)) {
-          this.options.mouseUp()
+          this.options.mouseUp?.()
         }
         break
       case 'mousemove':
         if (checkCallbackType(this.options?.mouseEnter)) {
-          this.options.mouseEnter()
+          this.options.mouseEnter?.()
         }
         break
       case 'getscrollpercent':
         if (checkCallbackType(this.options?.getScrollPercent)) {
-          this.options.getScrollPercent(value)
+          this.options.getScrollPercent?.(value as number)
         }
         break
       default:
@@ -193,7 +190,7 @@ export class CreateSlider {
     this.getScrollPercent()
 
     if (this.stopAnimation) {
-      cancelAnimationFrame(this.animationRef)
+      cancelAnimationFrame(this.animationRef as number)
     } else {
       this.animationRef = requestAnimationFrame(this.anime)
     }

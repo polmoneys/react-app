@@ -11,12 +11,12 @@ export function extractPowerWords(
   if (processedQuery === '') return [[], []]
 
   const words = [...new Set(processedQuery.split(' '))]
-
   const powerWordsSet = new Set(powerWords.map(word => word.toLowerCase()))
   const bannedWordsSet = new Set(bannedWords.map(word => word.toLowerCase()))
 
   const matches: string[] = []
   const processedWords: string[] = []
+
   for (let i = 0; i < words.length; i++) {
     const word = words[i].replace(/[,]/gi, '') // remove punctuation marks
 
