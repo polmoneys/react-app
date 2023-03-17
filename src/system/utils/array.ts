@@ -13,6 +13,27 @@ export function toArray(value: ArrayProp): string[] {
   return Array.isArray(value) ? value : [value]
 }
 
+/*
+  const data: Item[] = [
+    { type: 'food', name: 'Pizza' },
+    { type: 'drink', name: 'Coffee' },
+    { type: 'food', name: 'Hot Dog' },
+  ];
+  const { food, drink } = group(data, (item) => item.type);
+*/
+export const group = <T, P extends keyof T>(
+  items: T[],
+  fn: (item: T) => T[P],
+): Record<string, T[]> => {
+  return items.reduce<Record<string, T[]>>((prev, next) => {
+    const prop = fn(next) as unknown as string
+    return {
+      ...prev,
+      [prop]: prev[prop] !== undefined ? [...prev[prop], next] : [next],
+    }
+  }, {})
+}
+
 export interface Sorter<T> {
   property: Extract<keyof T, string | number | Date>
   isDescending: boolean

@@ -9,6 +9,7 @@ import useFilms from '../hooks/useFilms'
 import Filters, { matchEpisodeToRating } from '../components/Filters'
 import Planets from '../components/Planets'
 import People from '../components/People'
+import TablePro from '@/system/components/Core/Table/alternative'
 
 const Stories = (): JSX.Element => {
   const { data: films, isFetching } = useFilms()
@@ -39,7 +40,6 @@ const Stories = (): JSX.Element => {
     <article>
       <Grid as="div" size="lg" className="gap:md">
         <Filters />
-
         <div>
           {filtered != null && (
             <Table

@@ -6,6 +6,7 @@ const SubnavPatterns = (): JSX.Element => {
       <NavLink to="gradients">Gradients</NavLink>
       <NavLink to="couple">Couple</NavLink>
       <NavLink to="auto">Auto</NavLink>
+      <NavLink to="viz">Data visualization</NavLink>
     </Row>
   )
 }

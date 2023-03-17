@@ -2,8 +2,18 @@
  * @jest-environment jsdom
  */
 
-import { render, fireEvent, screen } from '@testing-library/react'
-import useMenu from '../useMenu'
+import { cleanup, render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import useMenu from './useMenu'
+
+afterEach(cleanup)
+
+function setup(jsx: any): any {
+  return {
+    user: userEvent.setup(),
+    ...render(jsx),
+  }
+}
 
 interface SettingsMenu {
   account: string
@@ -12,7 +22,7 @@ interface SettingsMenu {
 }
 
 describe('useMenu', () => {
-  test('should set the open menu state correctly', () => {
+  test('should set the open menu state correctly', async () => {
     function TestComponent(): JSX.Element {
       const [openMenu, dispatchMenu] = useMenu<keyof SettingsMenu>()
 
@@ -53,24 +63,26 @@ describe('useMenu', () => {
         </div>
       )
     }
+    const { user } = setup(<TestComponent />)
+    // const elements = screen.getAllByRole('button')
+    // const aboutAnchorNode = screen.getByText(/about/i)
+    const accountButton = screen.getByTestId('account-button')
+    const servicesButton = screen.getByTestId('services-button')
+    const contactButton = screen.getByTestId('contact-button')
 
-    const { getByTestId } = render(<TestComponent />)
-    const accountButton = getByTestId('account-button')
-    const servicesButton = getByTestId('services-button')
-    const contactButton = getByTestId('contact-button')
     expect(screen.queryByTestId('menu-content')).not.toBeInTheDocument()
 
-    fireEvent.click(accountButton)
+    await user.click(accountButton)
     expect(screen.queryByTestId('menu-content')).toHaveTextContent(
       'Account settings',
     )
 
-    fireEvent.click(servicesButton)
+    await user.click(servicesButton)
     expect(screen.queryByTestId('menu-content')).toHaveTextContent(
       'Services settings',
     )
 
-    fireEvent.click(contactButton)
+    await user.click(contactButton)
     expect(screen.queryByTestId('menu-content')).toHaveTextContent(
       'Contact settings',
     )

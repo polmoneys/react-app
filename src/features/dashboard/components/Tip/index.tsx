@@ -12,7 +12,7 @@ const Tip = (): JSX.Element => {
     <View.Feature>
       <Breadcrumb to={`/tips/${tipParam ?? ''}`}>Tip {tipParam}</Breadcrumb>
       <Col as="div" gap="var(--gap-3)">
-        <HelveticaNeueBold>TIP {tipParam}</HelveticaNeueBold>
+        {/* <HelveticaNeueBold>TIP {tipParam}</HelveticaNeueBold> */}
         {
           {
             buttons: <TipButtons />,

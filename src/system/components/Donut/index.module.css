@@ -1,0 +1,43 @@
+.root {
+  --p: 20;
+  --b: 22px;
+  --c: 'red';
+  --w: 120px;
+
+  width: var(--w);
+  height: var(--w);
+  appearance: none;
+  aspect-ratio: 1/1;
+  position: relative;
+  display: inline-grid;
+  place-content: center;
+}
+.root:before,
+.root:after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+}
+.root:before {
+  inset: 0;
+  background: radial-gradient(farthest-side, var(--c) 98%, #0000) top/var(--b)
+      var(--b) no-repeat,
+    conic-gradient(var(--c) calc(var(--p) * 1%), #0000 0);
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    #0000 calc(99% - var(--b)),
+    #000 calc(100% - var(--b))
+  );
+  mask: radial-gradient(
+    farthest-side,
+    #0000 calc(99% - var(--b)),
+    #000 calc(100% - var(--b))
+  );
+}
+.root:after {
+  inset: calc(50% - var(--b) / 2);
+  background: var(--c);
+  filter: brightness(1.2);
+  transform: rotate(calc(var(--p) * 3.6deg - 90deg))
+    translate(calc(var(--w) / 2 - 50%));
+}

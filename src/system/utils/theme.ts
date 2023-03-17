@@ -52,6 +52,29 @@ export const repeatGradient = (
     ${colors?.end ?? 'transparent'} ${size},
     ${colors?.end ?? 'transparent'} ${Number(size.replace('%', '')) * 2}%)`
 
+/**
+
+function transformResultsIntoStops(input: LibraryUploadResults): Stops {
+    const output: Stops = [];
+    const successCount = input.filter((item) => item.success).length;
+    const totalLength = input.length;
+    const percentageIncrement = 100 / totalLength;
+
+    input.sort((a, b) => (a.success === b.success ? 0 : a.success ? -1 : 1));
+
+    for (let i = 0; i < totalLength; i++) {
+        const color = input[i].success ? 'var(--color-success)' : 'var(--color-error)';
+        const stop = i < successCount ? i * percentageIncrement : (i - successCount) * percentageIncrement + 50;
+        const { name } = input[i];
+
+        output.push({ color, stop: `${stop}%`, name });
+        output.push({ color, stop: `${stop + percentageIncrement}%`, name });
+    }
+
+    return output;
+}
+ */
+
 export const customGradient = (stops: Stops, direction: Direction): string =>
   `repeating-linear-gradient(${direction === 'x' ? '90deg' : '0deg'}, ${stops
     .reduce((acc, current) => acc + `${current.color} ${current.stop},`, '')

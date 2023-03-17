@@ -1,4 +1,3 @@
-
 table {
   width: 100%;
   scroll-snap-type: both mandatory;
@@ -15,7 +14,7 @@ td {
 }
 
 th {
-  border-bottom:0;
+  border-bottom: 0;
 }
 
 tbody tr:last-child th,
@@ -39,7 +38,7 @@ thead th {
   border-top: 0;
   background-clip: padding-box;
 }
-thead th[data-table="pin"] {
+thead th[data-table='pin'] {
   left: 0;
   z-index: var(--z-3);
   border-left: 0;
@@ -52,7 +51,8 @@ tbody {
   z-index: var(--z-2);
   position: relative;
 }
-tbody th,[data-table="sticky"] {
+tbody th,
+[data-table='sticky'] {
   position: sticky;
   left: 0;
 }
@@ -63,16 +63,17 @@ tbody th {
 }
 
 [data-table-sort] {
-  position:absolute;
-  right:var(--gap-3);
+  position: absolute;
+  right: var(--gap-3);
 }
 
 [data-table-sort='descending'] {
-  top:.7em;
-
+  top: 0.7em;
 }
 
 [data-table-sort='ascending'] {
-  top:.8em;
+  top: 0.8em;
+}
 
+.tablePro {
 }

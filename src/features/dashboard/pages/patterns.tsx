@@ -18,6 +18,7 @@ const Patterns = (): JSX.Element => {
             Couple or how to make 2 elements go along
           </NavLink>
           <NavLink to={'auto'}>Simplify justify content</NavLink>
+          <NavLink to={'viz'}>Minimal charts</NavLink>
         </Col>
       </View.Popout>
       <Outlet />

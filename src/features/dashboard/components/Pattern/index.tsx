@@ -1,9 +1,10 @@
 import { Fragment } from 'react'
 import { useParams } from 'react-router-dom'
-import { HelveticaNeueBold, Breadcrumb, View, Col } from '@/system/components'
+import { HelveticaNeueBold, Breadcrumb } from '@/system/components'
 import PatternGradients from './gradients'
 import PatternCouple from './couple'
 import PatternMarginAuto from './marginAuto'
+import PatternDataViz from './charts'
 
 const Pattern = (): JSX.Element => {
   const { pattern: patternParam } = useParams()
@@ -11,14 +12,15 @@ const Pattern = (): JSX.Element => {
   return (
     <Fragment>
       <Breadcrumb to={`/pattern/${patternParam ?? ''}`}>
-        Tip {patternParam}
+        Pattern {patternParam}
       </Breadcrumb>
-      <HelveticaNeueBold format="Aa"> {patternParam}</HelveticaNeueBold>
+      {/* <HelveticaNeueBold format="Aa"> {patternParam}</HelveticaNeueBold> */}
       {
         {
           gradients: <PatternGradients />,
           couple: <PatternCouple />,
           auto: <PatternMarginAuto />,
+          viz: <PatternDataViz />,
           undefined: <Fragment />,
         }[pattern]
       }
