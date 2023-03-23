@@ -1,6 +1,12 @@
 import { useMemo } from 'react'
 import { useAppDispatch, useAppSelector } from '@/config/store/hooks'
-import { Grid, Table } from '@/system/components'
+import {
+  Button,
+  Grid,
+  IconBookmark,
+  IconDash,
+  Table,
+} from '@/system/components'
 import { genericSort } from '@/system/utils/array'
 import { type SortDirection } from '../interfaces/Pager'
 import { addFilter, storiesFiltersSlice } from '../store'
@@ -9,7 +15,7 @@ import useFilms from '../hooks/useFilms'
 import Filters, { matchEpisodeToRating } from '../components/Filters'
 import Planets from '../components/Planets'
 import People from '../components/People'
-import TablePro from '@/system/components/Core/Table/alternative'
+import useChips from '@/system/hooks/collection/useChips'
 
 const Stories = (): JSX.Element => {
   const { data: films, isFetching } = useFilms()
@@ -40,22 +46,11 @@ const Stories = (): JSX.Element => {
     <article>
       <Grid as="div" size="lg" className="gap:md">
         <Filters />
+
         <div>
           {filtered != null && (
             <Table
-              sort={sort}
               label={'movies'}
-              onSort={(id: string, dir: SortDirection) =>
-                dispatch(
-                  addFilter({
-                    filter: 'sort',
-                    value: {
-                      id,
-                      direction: dir,
-                    },
-                  }),
-                )
-              }
               th={[
                 {
                   label: 'Title',
@@ -67,9 +62,22 @@ const Stories = (): JSX.Element => {
                 { label: 'Opening', id: 'content' },
               ]}
               tr={filtered}
+              sort={sort}
+              onSort={(id: string, dir: SortDirection) =>
+                dispatch(
+                  addFilter({
+                    filter: 'sort',
+                    value: {
+                      id,
+                      direction: dir,
+                    },
+                  }),
+                )
+              }
             />
           )}
         </div>
+
         {planets != null && (
           <Planets isFetching={isFetchingPlanets} planets={planets} />
         )}

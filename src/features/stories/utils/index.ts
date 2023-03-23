@@ -9,10 +9,27 @@ import type Films from '../interfaces/Films'
 const matchItemToFilm = (item: any, pos: number): Film => ({
   id: `film-${pos}`,
   label: item.title,
+  title: item.title,
   releaseDate: item?.releaseDate,
   director: item?.director,
   episode: item?.episodeID.toString(),
   content: item?.openingCrawl,
+  // ...(pos === 3 && {
+  //   children: [
+  //     {
+  //       ...item,
+  //       label: item.title,
+  //       episode: item?.episodeID.toString(),
+  //       content: item?.openingCrawl,
+  //     },
+  //     {
+  //       ...item,
+  //       label: item.title,
+  //       episode: item?.episodeID.toString(),
+  //       content: item?.openingCrawl,
+  //     },
+  //   ],
+  // }),
 })
 
 export const matchItemsToFilms = (items: any[]): Films => {
