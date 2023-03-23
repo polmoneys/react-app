@@ -11,7 +11,7 @@ const Pattern = (): JSX.Element => {
   const pattern = patternParam ?? 'undefined'
   return (
     <Fragment>
-      <Breadcrumb to={`/pattern/${patternParam ?? ''}`}>
+      <Breadcrumb to={`/patterns/${patternParam ?? ''}`}>
         Pattern {patternParam}
       </Breadcrumb>
       {/* <HelveticaNeueBold format="Aa"> {patternParam}</HelveticaNeueBold> */}

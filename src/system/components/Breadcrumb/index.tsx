@@ -1,13 +1,12 @@
 import { Fragment, type ReactNode, useEffect, useState } from 'react'
 import ReactDOM from 'react-dom'
-import Group from '../Core/Group'
 import { NavLink } from '../Link'
 import useBreadcrumb, { Context } from './useBreadcrumb'
 
 /*
-Insight => When passing a component through a Portal 
-it will not replace the children in the node you provide, 
-it will append to it. 
+Insight => When passing a component through a Portal
+it will not replace the children in the node you provide,
+it will append to it.
 
 Credits => https://jjenzz.com/smarter-dumb-breadcrumb
 */
@@ -21,6 +20,23 @@ const BreadcrumbProvider = (props: Props): JSX.Element => {
   return <Context.Provider value={props.id}>{props.children}</Context.Provider>
 }
 
+/*
+
+  TODO:
+  const [elementRefs, setElementRefs] = useState<(HTMLLIElement | null)[]>([]);
+  const refs = useRef<(HTMLLIElement | null)[]>([]);
+
+  const setRef = useCallback((index: number, el: HTMLLIElement | null) => {
+    refs.current[index] = el;
+  }, []);
+
+  useEffect(() => {
+    setElementRefs(refs.current);
+  }, [refs.current]);
+
+  <li key={index} ref={(el) => setRef(pos, el)}>
+
+*/
 const BreadcrumbPortal = (): JSX.Element => {
   const id = useBreadcrumb()
   return <ol role="list" id={id} aria-label="Breadcrumb" />

@@ -6,9 +6,9 @@ import {
   HelveticaNeue,
   HelveticaNeueThin,
 } from '@/system/components'
-import { formatDate } from '@/system/utils/date'
 import { type Launch as LaunchInterface } from '../../interfaces/Launches'
 import { classes } from '@/system/utils/theme'
+import { formatDateTime } from '@/system/utils/date'
 
 interface Props {
   launch?: LaunchInterface
@@ -30,7 +30,7 @@ function Launch(props: Props): JSX.Element {
       <Col as="div">
         <HelveticaNeue>Flight number: {launch.flightNumber}</HelveticaNeue>
         <HelveticaNeueThin as="span">
-          On: {formatDate(launch.date)}
+          On: {formatDateTime(new Date(launch.date))}
         </HelveticaNeueThin>
       </Col>
     </Card.Landscape>

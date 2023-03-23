@@ -11,12 +11,56 @@ export const TIME = {
   HoursInOneDay: 24,
 }
 
-/**
- * Utility to format a Date according to a locale
- */
+export interface DateTimeFormatOptions {
+  locale?: string | string[]
+  timeZone?: Intl.DateTimeFormatOptions['timeZone']
+  hour12?: Intl.DateTimeFormatOptions['hour12']
+  weekday?: Intl.DateTimeFormatOptions['weekday']
+  era?: Intl.DateTimeFormatOptions['era']
+  year?: Intl.DateTimeFormatOptions['year']
+  month?: Intl.DateTimeFormatOptions['month']
+  day?: Intl.DateTimeFormatOptions['day']
+  hour?: Intl.DateTimeFormatOptions['hour']
+  minute?: Intl.DateTimeFormatOptions['minute']
+  second?: Intl.DateTimeFormatOptions['second']
+  timeZoneName?: Intl.DateTimeFormatOptions['timeZoneName']
+}
 
-export const formatDate = (date: Date, locale = 'es-ES'): string =>
-  new Intl.DateTimeFormat(locale).format(new Date(date))
+export function formatDateTime(
+  date: Date,
+  options: DateTimeFormatOptions = {},
+): string {
+  const {
+    locale = 'en-US',
+    timeZone = undefined,
+    hour12 = options.timeZoneName !== undefined,
+    weekday,
+    era,
+    year = 'numeric',
+    month = 'numeric',
+    day = 'numeric',
+    hour,
+    minute,
+    second,
+    timeZoneName,
+  } = options
+
+  const dateTimeFormat = new Intl.DateTimeFormat(locale, {
+    timeZone,
+    hour12,
+    weekday,
+    era,
+    year,
+    month,
+    day,
+    ...(hour !== undefined ? { hour } : {}),
+    ...(minute !== undefined ? { minute } : {}),
+    ...(second !== undefined ? { second } : {}),
+    timeZoneName,
+  })
+
+  return dateTimeFormat.format(date)
+}
 
 /**
  * Format a date object to a localized time string using the browser's default locale

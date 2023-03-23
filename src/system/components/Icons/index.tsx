@@ -2,6 +2,7 @@ import { Compose } from '../Core/Icon/Icon'
 import iconPaths from '../Core/Icon/icons'
 export type { IconProps } from '../Core/Icon/Icon'
 
+export const IconHandle = Compose(iconPaths.handle)
 export const IconPlus = Compose(iconPaths.plus)
 export const IconMinus = Compose(iconPaths.minus)
 export const IconCross = Compose(iconPaths.cross)

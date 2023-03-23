@@ -42,6 +42,7 @@ export {
   IconIg,
   IconMinus,
   IconPin,
+  IconHandle,
   type IconProps,
   IconQuestion,
   IconSlash,

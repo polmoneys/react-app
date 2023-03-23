@@ -1,5 +1,5 @@
 export type Film = Record<
-  'id' | 'label' | 'releaseDate' | 'director' | 'content' | 'episode',
+  'id' | 'label' | 'title' | 'releaseDate' | 'director' | 'content' | 'episode',
   string
 >
 export default interface Films extends Array<Film> {}
