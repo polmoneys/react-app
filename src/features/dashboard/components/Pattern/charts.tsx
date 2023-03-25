@@ -7,11 +7,12 @@ import {
   IconSlash,
   Col,
   Row,
+  Sparkbar,
+  Sparkline,
+  SparklineSeries,
+  Donut,
 } from '@/system/components'
 import { useRect } from '@reach/rect'
-import Sparkline from '@/system/components/Sparkline'
-import SparklineSeries from '@/system/components/Sparkline/Series'
-import Donut from '@/system/components/Donut'
 import { dataset1, dataset2 } from './utils'
 
 const PatternDataViz = (): JSX.Element => {
@@ -55,6 +56,9 @@ const PatternDataViz = (): JSX.Element => {
         >
           <IconSlash label="" />
         </ButtonIcon>
+
+        <Sparkbar values={[10, 20, 120, 80, 40, 70, 80]} />
+        <Sparkbar.Vertical values={[10, 20, 120, 80, 40, 70, 80]} />
       </Col>
 
       <div ref={maskRef} className="demo-party">

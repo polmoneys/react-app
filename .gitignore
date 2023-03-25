@@ -2,6 +2,7 @@ node_modules
 src/system/hooks/collection/useItems.ts
 src/system/hooks/interactive/useTick.ts
 src/system/hooks/interactive/useDomObserver.ts
+src/system/hooks/useLoose.ts
 .eslintcache
 dist
 docs.md
