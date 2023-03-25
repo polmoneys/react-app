@@ -2,3 +2,6 @@
 *.svg
 src/system/utils/uri.test.ts
 jest-setup.ts
+playwright.config.ts 
+tests/*.ts
+tests-examples/*.ts

@@ -6,3 +6,6 @@ src/system/hooks/interactive/useDomObserver.ts
 dist
 docs.md
 .DS_Store
+/test-results/
+/playwright-report/
+/playwright/.cache/
