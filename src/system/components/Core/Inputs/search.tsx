@@ -15,7 +15,18 @@ interface SearchProps extends Omit<ComponentProps<'input'>, 'onChange'> {
 }
 
 /* 
-  TODO: TOKENIZE 
+  TODO: 
+
+  A11Y
+    <search role="search">
+    <label>
+      Search
+      <input type="text">
+    </label>
+  </search>
+  
+
+  TOKENIZE 
     const [text, setText] = useState("");
     const [words, setWords] = useState([]);
 
