@@ -93,7 +93,10 @@ function KeyValue<T>(props: KeyValueProps<T>): JSX.Element {
       {...(labelledby !== undefined && { 'aria-labelledby': labelledby })}
     >
       {datum.map(({ title, content }, index) => (
-        <div key={index} className={entryClassName}>
+        <div
+          key={index}
+          {...(entryClassName !== undefined && { className: entryClassName })}
+        >
           <dt>{title}</dt>
           {renderContent(content)}
         </div>
