@@ -9,7 +9,7 @@ interface MediaProps {
   sources?: Dictionary
   eager?: boolean
   objectPosition?: string
-  priority?: 'low' | 'hight'
+  priority?: 'low' | 'high'
 }
 
 function Media(props: MediaProps): JSX.Element {
@@ -67,7 +67,6 @@ function Media(props: MediaProps): JSX.Element {
             {...(objectPosition !== undefined && {
               style: { objectPosition },
             })}
-
             // fetchpriority={priority}
           />
         </Fragment>
