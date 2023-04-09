@@ -1,6 +1,7 @@
 import { type ElementType, type ReactNode } from 'react'
 import { classes } from '@/system/utils/theme'
 import styles from './index.module.css'
+import StartEnd from './StartEnd'
 
 const HTMLGridTags = ['section', 'article', 'li', 'div', 'form'] as const
 type GridTags = (typeof HTMLGridTags)[number]
@@ -27,4 +28,5 @@ const Grid = (props: CardProps): JSX.Element => {
   )
 }
 
+Grid.StartEnd = StartEnd
 export default Grid
