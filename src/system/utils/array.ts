@@ -91,3 +91,14 @@ export function generateGroups<T extends Record<string, unknown>>(
   // assign input to group
   return groups
 }
+
+export function uniq<T>(array: readonly T[]): T[] {
+  return Array.from(new Set(array))
+}
+
+export function sample<T>(arr: T[], quantity: number): T[] {
+  return Array.from(
+    { length: quantity },
+    _ => arr[Math.round(Math.random() * (arr.length - 1))],
+  )
+}

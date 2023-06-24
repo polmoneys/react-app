@@ -27,3 +27,12 @@ export function filterObject<T extends object>(
     (Object.entries(obj) as Array<Entry<T>>).filter(fn),
   ) as Partial<T>
 }
+
+export function objectKeys<T extends object>(obj: T): unknown[] {
+  return Object.keys(obj) as Array<`${keyof T &
+    (string | number | boolean | null | undefined)}`>
+}
+
+export function objectEntries<T extends object>(obj: T): unknown[] {
+  return Object.entries(obj) as Array<[keyof T, T[keyof T]]>
+}

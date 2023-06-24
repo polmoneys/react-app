@@ -1,4 +1,29 @@
 /*
+  const result = template(
+    'Hello {0}! My name is {1}. My favorite color is {2-blue}.',
+    'Inès',
+    'Anthony'
+  );
+
+  Hello Inès! My name is Anthony. My favorite color is blue.
+*/
+
+export function template(str: string, ...args: Array<string | number>): string {
+  return str.replace(/{(\d+)(?:-(.+))?}/g, (match, key, defaultValue) => {
+    const index = Number(key)
+    if (Number.isNaN(index)) {
+      return match
+    }
+
+    if (index < args.length) {
+      return args[index].toString()
+    }
+
+    return defaultValue !== undefined ? defaultValue : match
+  })
+}
+
+/*
     https://stackoverflow.com/a/21273362    
     match null or undefined, not falsy
 */
@@ -51,4 +76,12 @@ export const ponyfills = (): void => {
     }
   }
   /* eslint-disable */
+}
+
+export type Fn<T = void> = () => T
+
+export type Nullable<T> = T | null | undefined
+
+export function batchInvoke(functions: Nullable<Fn>[]) {
+  functions.forEach(fn => fn && fn())
 }

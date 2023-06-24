@@ -60,3 +60,8 @@ export const getInputTextSelection = (
     length: (input.selectionEnd ?? 0) - (input.selectionStart ?? 0),
   }
 }
+
+export function ensurePrefix(prefix: string, str: string): string {
+  if (!str.startsWith(prefix)) return prefix + str
+  return str
+}
