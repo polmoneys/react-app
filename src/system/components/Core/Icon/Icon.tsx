@@ -1,6 +1,8 @@
 import { Fragment, useMemo, type ComponentProps } from 'react'
 import styles from './Icon.module.css'
 
+// 2023 version https://codesandbox.io/s/icon-svg-sprite-jgppz5?file=/public/sprite.svg
+
 const sizeUnits = ['sm', 'md', 'lg'] as const
 export type IconSize = (typeof sizeUnits)[number]
 

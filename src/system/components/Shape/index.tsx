@@ -2,6 +2,7 @@ import { not } from '@/system/utils/language'
 import { useMemo, memo, type ComponentProps } from 'react'
 import { polygon } from './utils'
 
+// 2023 edition at https://codesandbox.io/s/shape-2023-412er2?file=/src/Shape.tsx
 interface Props extends ComponentProps<'div'> {
   sides?: number
   size?: number
