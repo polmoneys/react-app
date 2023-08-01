@@ -92,8 +92,13 @@ export function generateGroups<T extends Record<string, unknown>>(
   return groups
 }
 
-export function uniq<T>(array: readonly T[]): T[] {
-  return Array.from(new Set(array))
+export const uniqueArray = <T>(
+  current: readonly T[],
+  incoming: T | T[],
+): T[] => {
+  return Array.isArray(incoming)
+    ? [...new Set([...current, ...incoming])]
+    : [...new Set([...current, incoming])]
 }
 
 export function sample<T>(arr: T[], quantity: number): T[] {

@@ -120,3 +120,12 @@ export function addStylesheet(styleSheetID: string, styles: string): void {
   }
   head.appendChild(styleEl)
 }
+
+export function paintBody(): void {
+  const body = document.querySelector('body')
+  if (body !== null) {
+    body.style.backgroundColor = `#${Math.floor(
+      Math.random() * 16777215,
+    ).toString(16)}`
+  }
+}
