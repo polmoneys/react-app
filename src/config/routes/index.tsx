@@ -19,6 +19,9 @@ import { ARCHIVE_BASE_URI, DASHBOARD_BASE_URI, STORIES_BASE_URI } from './paths'
 
 /*
 
+https://codesandbox.io/s/routing-layer-react-2cq9lh?file=/src/routes/index.js
+
+
 import { lazy } from 'react'
 import { importNamed } from './utils'
 
